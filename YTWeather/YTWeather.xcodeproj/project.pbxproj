@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		84654CC31F96418200E5092E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CC21F96418200E5092E /* AppDelegate.m */; };
-		84654CC61F96418200E5092E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CC51F96418200E5092E /* ViewController.m */; };
 		84654CC91F96418200E5092E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84654CC71F96418200E5092E /* Main.storyboard */; };
 		84654CCB1F96418200E5092E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84654CCA1F96418200E5092E /* Assets.xcassets */; };
 		84654CCE1F96418200E5092E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84654CCC1F96418200E5092E /* LaunchScreen.storyboard */; };
 		84654CD11F96418200E5092E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CD01F96418200E5092E /* main.m */; };
 		84654CDB1F96418200E5092E /* YTWeatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CDA1F96418200E5092E /* YTWeatherTests.m */; };
 		84654CE61F96418200E5092E /* YTWeatherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CE51F96418200E5092E /* YTWeatherUITests.m */; };
+		84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D0C1F96476700E5092E /* YTSettingViewController.m */; };
+		84654D0F1F96476700E5092E /* YTSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84654D0D1F96476700E5092E /* YTSettingViewController.xib */; };
+		84654D131F96477E00E5092E /* YTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D111F96477E00E5092E /* YTMainViewController.m */; };
+		84654D141F96477E00E5092E /* YTMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84654D121F96477E00E5092E /* YTMainViewController.xib */; };
+		84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D161F96479F00E5092E /* YTWeatherModel.m */; };
+		84654D1A1F9647B800E5092E /* YTMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D191F9647B800E5092E /* YTMainView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +43,6 @@
 		84654CBE1F96418200E5092E /* YTWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84654CC11F96418200E5092E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84654CC21F96418200E5092E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		84654CC41F96418200E5092E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84654CC51F96418200E5092E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		84654CC81F96418200E5092E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84654CCA1F96418200E5092E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84654CCD1F96418200E5092E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,16 @@
 		84654CE11F96418200E5092E /* YTWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YTWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84654CE51F96418200E5092E /* YTWeatherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherUITests.m; sourceTree = "<group>"; };
 		84654CE71F96418200E5092E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84654D0B1F96476700E5092E /* YTSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTSettingViewController.h; sourceTree = "<group>"; };
+		84654D0C1F96476700E5092E /* YTSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTSettingViewController.m; sourceTree = "<group>"; };
+		84654D0D1F96476700E5092E /* YTSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTSettingViewController.xib; sourceTree = "<group>"; };
+		84654D101F96477E00E5092E /* YTMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainViewController.h; sourceTree = "<group>"; };
+		84654D111F96477E00E5092E /* YTMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTMainViewController.m; sourceTree = "<group>"; };
+		84654D121F96477E00E5092E /* YTMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTMainViewController.xib; sourceTree = "<group>"; };
+		84654D151F96479F00E5092E /* YTWeatherModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherModel.h; sourceTree = "<group>"; };
+		84654D161F96479F00E5092E /* YTWeatherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherModel.m; sourceTree = "<group>"; };
+		84654D181F9647B800E5092E /* YTMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainView.h; sourceTree = "<group>"; };
+		84654D191F9647B800E5092E /* YTMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTMainView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +116,7 @@
 			children = (
 				84654CC11F96418200E5092E /* AppDelegate.h */,
 				84654CC21F96418200E5092E /* AppDelegate.m */,
-				84654CC41F96418200E5092E /* ViewController.h */,
-				84654CC51F96418200E5092E /* ViewController.m */,
+				84654CF31F9646D700E5092E /* MainViewController */,
 				84654CC71F96418200E5092E /* Main.storyboard */,
 				84654CCA1F96418200E5092E /* Assets.xcassets */,
 				84654CCC1F96418200E5092E /* LaunchScreen.storyboard */,
@@ -130,6 +142,55 @@
 				84654CE71F96418200E5092E /* Info.plist */,
 			);
 			path = YTWeatherUITests;
+			sourceTree = "<group>";
+		};
+		84654CF31F9646D700E5092E /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84654CF41F9646D700E5092E /* Controller */,
+				84654CF51F9646D700E5092E /* Model */,
+				84654CF61F9646D700E5092E /* Second Page */,
+				84654CF71F9646D700E5092E /* View */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		84654CF41F9646D700E5092E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				84654D101F96477E00E5092E /* YTMainViewController.h */,
+				84654D111F96477E00E5092E /* YTMainViewController.m */,
+				84654D121F96477E00E5092E /* YTMainViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		84654CF51F9646D700E5092E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84654D151F96479F00E5092E /* YTWeatherModel.h */,
+				84654D161F96479F00E5092E /* YTWeatherModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84654CF61F9646D700E5092E /* Second Page */ = {
+			isa = PBXGroup;
+			children = (
+				84654D0B1F96476700E5092E /* YTSettingViewController.h */,
+				84654D0C1F96476700E5092E /* YTSettingViewController.m */,
+				84654D0D1F96476700E5092E /* YTSettingViewController.xib */,
+			);
+			path = "Second Page";
+			sourceTree = "<group>";
+		};
+		84654CF71F9646D700E5092E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84654D181F9647B800E5092E /* YTMainView.h */,
+				84654D191F9647B800E5092E /* YTMainView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +301,9 @@
 			files = (
 				84654CCE1F96418200E5092E /* LaunchScreen.storyboard in Resources */,
 				84654CCB1F96418200E5092E /* Assets.xcassets in Resources */,
+				84654D141F96477E00E5092E /* YTMainViewController.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
+				84654D0F1F96476700E5092E /* YTSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84654CC61F96418200E5092E /* ViewController.m in Sources */,
 				84654CD11F96418200E5092E /* main.m in Sources */,
+				84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */,
+				84654D1A1F9647B800E5092E /* YTMainView.m in Sources */,
+				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
+				84654D131F96477E00E5092E /* YTMainViewController.m in Sources */,
 				84654CC31F96418200E5092E /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2ZM39SG7H;
 				INFOPLIST_FILE = YTWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jaten.YTWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2ZM39SG7H;
 				INFOPLIST_FILE = YTWeather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jaten.YTWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";

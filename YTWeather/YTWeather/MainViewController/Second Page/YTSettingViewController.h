@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YTSettingViewController.h
 //  YTWeather
 //
 //  Created by admin on 2017/10/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface YTSettingViewController : UIViewController
 
 @end
-
