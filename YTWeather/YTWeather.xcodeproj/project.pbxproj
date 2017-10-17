@@ -21,6 +21,9 @@
 		84654D141F96477E00E5092E /* YTMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84654D121F96477E00E5092E /* YTMainViewController.xib */; };
 		84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D161F96479F00E5092E /* YTWeatherModel.m */; };
 		84654D1A1F9647B800E5092E /* YTMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654D191F9647B800E5092E /* YTMainView.m */; };
+		84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84654D1B1F964F3F00E5092E /* YTMainView.xib */; };
+		84A6274C1F9651AC00EE29D5 /* YTMainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6274B1F9651AC00EE29D5 /* YTMainTableHeaderView.m */; };
+		84A6274E1F9651B500EE29D5 /* YTMainTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A6274D1F9651B500EE29D5 /* YTMainTableHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,10 @@
 		84654D161F96479F00E5092E /* YTWeatherModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherModel.m; sourceTree = "<group>"; };
 		84654D181F9647B800E5092E /* YTMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainView.h; sourceTree = "<group>"; };
 		84654D191F9647B800E5092E /* YTMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTMainView.m; sourceTree = "<group>"; };
+		84654D1B1F964F3F00E5092E /* YTMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTMainView.xib; sourceTree = "<group>"; };
+		84A6274A1F9651AC00EE29D5 /* YTMainTableHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainTableHeaderView.h; sourceTree = "<group>"; };
+		84A6274B1F9651AC00EE29D5 /* YTMainTableHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTMainTableHeaderView.m; sourceTree = "<group>"; };
+		84A6274D1F9651B500EE29D5 /* YTMainTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTMainTableHeaderView.xib; sourceTree = "<group>"; };
 		8BCAB6BDD51500CF0E110411 /* Pods-YTWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +211,10 @@
 			children = (
 				84654D181F9647B800E5092E /* YTMainView.h */,
 				84654D191F9647B800E5092E /* YTMainView.m */,
+				84654D1B1F964F3F00E5092E /* YTMainView.xib */,
+				84A6274A1F9651AC00EE29D5 /* YTMainTableHeaderView.h */,
+				84A6274B1F9651AC00EE29D5 /* YTMainTableHeaderView.m */,
+				84A6274D1F9651B500EE29D5 /* YTMainTableHeaderView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,7 +340,9 @@
 				84654CCE1F96418200E5092E /* LaunchScreen.storyboard in Resources */,
 				84654CCB1F96418200E5092E /* Assets.xcassets in Resources */,
 				84654D141F96477E00E5092E /* YTMainViewController.xib in Resources */,
+				84A6274E1F9651B500EE29D5 /* YTMainTableHeaderView.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
+				84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */,
 				84654D0F1F96476700E5092E /* YTSettingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,9 +385,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -407,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84654CD11F96418200E5092E /* main.m in Sources */,
+				84A6274C1F9651AC00EE29D5 /* YTMainTableHeaderView.m in Sources */,
 				84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */,
 				84654D1A1F9647B800E5092E /* YTMainView.m in Sources */,
 				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
