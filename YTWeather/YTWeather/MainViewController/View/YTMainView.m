@@ -16,7 +16,6 @@
 #import "YTMainPrecipitationTableViewCell.h"
 #import "YTMainSunAndWindTableViewCell.h"
 
-#import "YTWeatherCacheData.h"
 
 @interface YTMainView ()
 <
@@ -24,7 +23,6 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -64,15 +62,11 @@ UITableViewDelegate
     [self.tableView registerNib:[YTMainSunAndWindTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainSunAndWindTableViewCell className]];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self loadData];
+        [self.delegate loadData];
     }];
 }
 
 #pragma mark - Data
-- (void)loadData
-{
-    [self.tableView.mj_header endRefreshing];
-}
 
 #pragma mark - Tableview Datasource
 
