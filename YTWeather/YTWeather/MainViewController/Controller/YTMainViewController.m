@@ -32,16 +32,11 @@ YTMainViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.title = @"上海";
+    
     YTMainView *mainView = [[YTMainView alloc] initWithFrame:ScreenBounds];
     [self.scrollView addSubview:mainView];
-    if (@available(iOS 11.0, *)) {
-        self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }else {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
     [self setupView];
-    
     self.weatherModel = [[YTWeatherModel alloc] init];
 }
 

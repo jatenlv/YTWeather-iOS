@@ -22,10 +22,8 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GQ-Mn-Mwn">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="1GQ-Mn-Mwn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U0A-ms-XHL"/>
                 <constraint firstAttribute="bottom" secondItem="1GQ-Mn-Mwn" secondAttribute="bottom" id="mmj-lj-gPL"/>
