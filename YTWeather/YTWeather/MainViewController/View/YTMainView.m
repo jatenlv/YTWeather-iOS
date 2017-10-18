@@ -9,6 +9,14 @@
 #import "YTMainView.h"
 
 #import "YTMainTableHeaderView.h"
+#import "YTMainForecastTableViewCell.h"
+#import "YTMainAdvertisingTableViewCell.h"
+#import "YTMainDetailTableViewCell.h"
+#import "YTMainMapTableViewCell.h"
+#import "YTMainPrecipitationTableViewCell.h"
+#import "YTMainSunAndWindTableViewCell.h"
+
+#import "YTWeatherCacheData.h"
 
 @interface YTMainView ()
 <
@@ -22,9 +30,9 @@ UITableViewDelegate
 
 @implementation YTMainView
 
-- (instancetype)initWithCoder:(NSCoder *)coder
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super initWithCoder:coder];
+    self = [super initWithFrame:frame];
     if (self) {
         UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
         view.frame = self.bounds;
@@ -35,14 +43,35 @@ UITableViewDelegate
     return self;
 }
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-
-}
-
 - (void)setupTableView
 {
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
+    [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
+    
+    [self.tableView registerNib:[YTMainAdvertisingTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainAdvertisingTableViewCell className]];
+
+    [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
+
+    [self.tableView registerNib:[YTMainDetailTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainDetailTableViewCell className]];
+
+    [self.tableView registerNib:[YTMainMapTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainMapTableViewCell className]];
+
+    [self.tableView registerNib:[YTMainPrecipitationTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainPrecipitationTableViewCell className]];
+
+    [self.tableView registerNib:[YTMainSunAndWindTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainSunAndWindTableViewCell className]];
+    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self loadData];
+    }];
+}
+
+#pragma mark - Data
+- (void)loadData
+{
+    [self.tableView.mj_header endRefreshing];
 }
 
 #pragma mark - Tableview Datasource
@@ -54,19 +83,22 @@ UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    return [UITableViewCell new];
 }
 
 #pragma mark - Tableview Delegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return nil;
+    YTMainTableHeaderView *headerView = [[YTMainTableHeaderView alloc] init];
+    
+    
+    return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +108,7 @@ UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0;
+    return ScreenHeight;
 }
 
 @end

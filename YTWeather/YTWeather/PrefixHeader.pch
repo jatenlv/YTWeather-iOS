@@ -1,0 +1,23 @@
+//
+//  PrefixHeader.pch
+//  YTWeather
+//
+//  Created by admin on 2017/10/17.
+//  Copyright © 2017年 Jaten. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define ScreenBounds [UIScreen mainScreen].bounds
+
+// Category
+#import "UIView+YT.h"
+
+// 三方库
+#import <MJRefresh.h>
+#import <YYKit.h>
+
+#endif /* PrefixHeader_pch */

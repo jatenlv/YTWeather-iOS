@@ -8,6 +8,13 @@
 
 #import "YTMainViewController.h"
 
+#import "YTMainView.h"
+
+#import "YTWeatherModel.h"
+#import "YTWeatherCacheData.h"
+
+#import "YTMainRequestNetworkTool.h"
+
 @interface YTMainViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -18,13 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    YTMainView *mainView = [[YTMainView alloc] initWithFrame:ScreenBounds];
+    
+    [self.scrollView addSubview:mainView];
 }
-
 
 @end
