@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YTMainViewDelegate <NSObject>
+
+- (void)loadData;
+
+@end
+
 @interface YTMainView : UIView
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, weak) id <YTMainViewDelegate> delegate;
 
 @end

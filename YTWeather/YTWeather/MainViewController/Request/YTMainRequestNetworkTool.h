@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YTWeatherModel.h"
 
 @interface YTMainRequestNetworkTool : NSObject
+
++ (void)requestWeatherWithCityName:(NSString *)cityName
+                          andFinish:(void(^)(YTWeatherModel *model, NSError *error))finish;
 
 @end
