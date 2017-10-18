@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "YTMainViewController.h"
-
+#import "YTLaunchADViewController.h"
+#import "YTNewFeatureViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,8 +20,31 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[YTMainViewController alloc] init];
+//    self.window.rootViewController = [[YTMainViewController alloc] init];
+    //当前版本号
+    NSString * curVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    //保存的版本号
+    NSString * lastVersion = [[NSUserDefaults standardUserDefaults]objectForKey:ShortVersionKey];
+    
+    UIViewController * rootVC;
+    //判断版本
+    if([lastVersion isEqualToString:curVersion]) {
+        
+        //进入广告业
+        
+        rootVC = [[YTLaunchADViewController alloc]init];
+        
+    }else {
+        //进入新特性
+        rootVC = [[YTNewFeatureViewController alloc]init];
+        
+        //更新版本
+        [[NSUserDefaults standardUserDefaults] setObject:curVersion forKey:ShortVersionKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
+
     
     return YES;
 }
