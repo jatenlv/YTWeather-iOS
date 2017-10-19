@@ -27,6 +27,7 @@ YTMainViewDelegate
 
 @property (nonatomic, strong) YTWeatherModel *weatherModel;
 @property (weak, nonatomic) IBOutlet UIView *leftSlideView;
+@property (nonatomic,assign) BOOL isShowSlide;
 
 @end
 
@@ -58,10 +59,14 @@ YTMainViewDelegate
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
     [self.scrollView addGestureRecognizer:pan];
-    UISwipeGestureRecognizer * swipe = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
-    swipe.direction = UISwipeGestureRecognizerDirectionLeft | UISwipeGestureRecognizerDirectionRight;
-    [self.scrollView addGestureRecognizer:swipe];
-    [pan requireGestureRecognizerToFail:swipe];
+    UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.scrollView addGestureRecognizer:swipeLeft];
+    UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
+    [self.scrollView addGestureRecognizer:swipeRight];
+
+    [pan requireGestureRecognizerToFail:swipeLeft];
+    [pan requireGestureRecognizerToFail:swipeRight];
 
     
 }
@@ -96,6 +101,7 @@ YTMainViewDelegate
                 self.scrollView.centerX += translatePointX;
                 self.leftSlideView.centerX += translatePointX;
             }];
+            _isShowSlide = YES;
         }
         else {
             translatePointX = -scrollX;
@@ -103,7 +109,7 @@ YTMainViewDelegate
                 self.scrollView.centerX += translatePointX;
                 self.leftSlideView.centerX += translatePointX;
             }];
-            
+            _isShowSlide = NO;
         }
     }
    
@@ -112,13 +118,28 @@ YTMainViewDelegate
 #pragma mark 扫滑手势方法
 - (void)showSlideView:(UISwipeGestureRecognizer *)swip
 {
-    
+    CGFloat offset = kSlideWidthScale*self.scrollView.width;
     switch (swip.direction) {
-        case UISwipeGestureRecognizerDirectionRight:
-            NSLog(@"123");
+        case UISwipeGestureRecognizerDirectionRight:{
+            if(!_isShowSlide)
+            {
+                [UIView animateWithDuration:0.35 animations:^{
+                    self.scrollView.centerX += offset;
+                    self.leftSlideView.centerX += offset;
+                }];
+                _isShowSlide = YES;
+            }
             break;
+        }
         case UISwipeGestureRecognizerDirectionLeft:
-            NSLog(@"left");
+            if(_isShowSlide)
+            {
+                [UIView animateWithDuration:0.35 animations:^{
+                    self.scrollView.centerX += -offset;
+                    self.leftSlideView.centerX += -offset;
+                }];
+                _isShowSlide = NO;
+            }
             break;
         case UISwipeGestureRecognizerDirectionUp:
             NSLog(@"up");
