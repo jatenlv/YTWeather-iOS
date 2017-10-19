@@ -14,7 +14,7 @@
 
 #import "YTMainRequestNetworkTool.h"
 
-#define kSlideWidthScale 0.6
+#define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
 <
@@ -59,14 +59,14 @@ YTMainViewDelegate
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
     [self.scrollView addGestureRecognizer:pan];
-    UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
-    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.scrollView addGestureRecognizer:swipeLeft];
-    UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
-    [self.scrollView addGestureRecognizer:swipeRight];
+//    UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
+//    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+//    [self.scrollView addGestureRecognizer:swipeLeft];
+//    UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showSlideView:)];
+//    [self.scrollView addGestureRecognizer:swipeRight];
 
-    [pan requireGestureRecognizerToFail:swipeLeft];
-    [pan requireGestureRecognizerToFail:swipeRight];
+//    [swipeLeft requireGestureRecognizerToFail:pan];
+//    [swipeRight requireGestureRecognizerToFail:pan];
 
     
 }
@@ -115,43 +115,43 @@ YTMainViewDelegate
    
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
-#pragma mark 扫滑手势方法
-- (void)showSlideView:(UISwipeGestureRecognizer *)swip
-{
-    CGFloat offset = kSlideWidthScale*self.scrollView.width;
-    switch (swip.direction) {
-        case UISwipeGestureRecognizerDirectionRight:{
-            if(!_isShowSlide)
-            {
-                [UIView animateWithDuration:0.35 animations:^{
-                    self.scrollView.centerX += offset;
-                    self.leftSlideView.centerX += offset;
-                }];
-                _isShowSlide = YES;
-            }
-            break;
-        }
-        case UISwipeGestureRecognizerDirectionLeft:
-            if(_isShowSlide)
-            {
-                [UIView animateWithDuration:0.35 animations:^{
-                    self.scrollView.centerX += -offset;
-                    self.leftSlideView.centerX += -offset;
-                }];
-                _isShowSlide = NO;
-            }
-            break;
-        case UISwipeGestureRecognizerDirectionUp:
-            NSLog(@"up");
-            break;
-        case UISwipeGestureRecognizerDirectionDown:
-            NSLog(@"down");
-            break;
-        default:
-            break;
-    }
-    
-}
+//#pragma mark 扫滑手势方法
+//- (void)showSlideView:(UISwipeGestureRecognizer *)swip
+//{
+//    CGFloat offset = kSlideWidthScale*self.scrollView.width;
+//    switch (swip.direction) {
+//        case UISwipeGestureRecognizerDirectionRight:{
+//            if(!_isShowSlide)
+//            {
+//                [UIView animateWithDuration:0.35 animations:^{
+//                    self.scrollView.centerX += offset;
+//                    self.leftSlideView.centerX += offset;
+//                }];
+//                _isShowSlide = YES;
+//            }
+//            break;
+//        }
+//        case UISwipeGestureRecognizerDirectionLeft:
+//            if(_isShowSlide)
+//            {
+//                [UIView animateWithDuration:0.35 animations:^{
+//                    self.scrollView.centerX += -offset;
+//                    self.leftSlideView.centerX += -offset;
+//                }];
+//                _isShowSlide = NO;
+//            }
+//            break;
+//        case UISwipeGestureRecognizerDirectionUp:
+//            NSLog(@"up");
+//            break;
+//        case UISwipeGestureRecognizerDirectionDown:
+//            NSLog(@"down");
+//            break;
+//        default:
+//            break;
+//    }
+//
+//}
 - (void)loadData
 {
     [YTMainRequestNetworkTool requestWeatherWithCityName:@"北京" andFinish:^(YTWeatherModel *model, NSError *error) {

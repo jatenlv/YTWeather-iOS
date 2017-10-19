@@ -24,7 +24,6 @@
 #import "UIView+YT.h"
 
 // Pods
-#import <MJExtension.h>
 #import <MJRefresh.h>
 #import <YYKit.h>
 #import <AFNetworking.h>

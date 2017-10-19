@@ -37,6 +37,7 @@ UITableViewDelegate
         [self addSubview:view];
         
         [self setupTableView];
+        [self.tableView.mj_header beginRefreshing];
     }
     return self;
 }
