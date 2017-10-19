@@ -14,29 +14,25 @@
 
 @implementation YTCustomNavViewController
 
-+ (void)initialize
-{
-    //防止子类重复调用
-    if([self class] == [YTCustomNavViewController class]) {
-        
-        UINavigationBar * bar = [UINavigationBar appearanceWhenContainedIn:self, nil];
-        
-        [bar setBackgroundColor:[UIColor blueColor]];
-        // 设置透明度为0的bar
-        
-//        UIImage * image =
-//        bar setBackgroundImage:<#(nullable UIImage *)#> forBarMetrics:<#(UIBarMetrics)#>
-        //设置左边
-        
-        //设置rightItem
-        
-        
-    }
-}
-
+//+ (void)initialize
+//{
+//    //防止子类重复调用
+//    if([self class] == [YTCustomNavViewController class]) {
+//
+//        UINavigationBar * bar = [UINavigationBar appearanceWhenContainedIn:self, nil];
+//        //将背景设为透明
+//        [bar setBackgroundImage:[UIImage new] forBarMetrics:(UIBarMetricsDefault)];
+//        //将底线设为透明
+//        [bar setShadowImage:[UIImage new]];
+//        //
+//        [bar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+//    }
+//}
+//
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationBar.hidden = YES;
     
     // Do any additional setup after loading the view from its nib.
 }
