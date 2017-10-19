@@ -9,9 +9,12 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
+// UI
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define ScreenBounds [UIScreen mainScreen].bounds
+
+// Cache
 #define ShortVersionKey @"ShortVersionKey"
 
 // Api
@@ -20,7 +23,7 @@
 // Category
 #import "UIView+YT.h"
 
-// 三方库
+// Pods
 #import <MJRefresh.h>
 #import <YYKit.h>
 #import <AFNetworking.h>

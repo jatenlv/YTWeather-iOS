@@ -19,8 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//    self.window.rootViewController = [[YTMainViewController alloc] init];
+
     //当前版本号
     NSString * curVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
     //保存的版本号
@@ -29,15 +31,11 @@
     UIViewController * rootVC;
     //判断版本
     if([lastVersion isEqualToString:curVersion]) {
-        
-        //进入广告业
-        
+        //进入广告页
         rootVC = [[YTLaunchADViewController alloc]init];
-        
     }else {
         //进入新特性
         rootVC = [[YTNewFeatureViewController alloc]init];
-        
         //更新版本
         [[NSUserDefaults standardUserDefaults] setObject:curVersion forKey:ShortVersionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -45,7 +43,6 @@
     self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
 
-    
     return YES;
 }
 
