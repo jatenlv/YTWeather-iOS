@@ -47,6 +47,10 @@ UITableViewDelegate
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
+    UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
+    [backImageView setImage:[UIImage imageNamed:@"foggy_n_portrait.jpg"]];
+    self.tableView.backgroundView = backImageView;
+    
     [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
     
     [self.tableView registerNib:[YTMainAdvertisingTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainAdvertisingTableViewCell className]];
@@ -67,6 +71,12 @@ UITableViewDelegate
 }
 
 #pragma mark - Data
+
+- (void)setWeatherModel:(YTWeatherModel *)weatherModel
+{
+    _weatherModel = weatherModel;
+    [self.tableView reloadData];
+}
 
 #pragma mark - Tableview Datasource
 
@@ -90,7 +100,8 @@ UITableViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     YTMainTableHeaderView *headerView = [[YTMainTableHeaderView alloc] init];
-    
+    headerView.nowModel = self.weatherModel.now;
+    headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
     
     return headerView;
 }
@@ -104,5 +115,7 @@ UITableViewDelegate
 {
     return ScreenHeight;
 }
+
+
 
 @end

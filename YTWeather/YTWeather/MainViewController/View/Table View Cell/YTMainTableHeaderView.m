@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *highTemperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *lowTemperatureLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *weatherStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentStatusLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *currentStatusImageView;
 
 @end
 
@@ -31,9 +32,16 @@
     return self;
 }
 
-- (void)configWithModel
+- (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
-    
+    self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@°", nowModel.tmp];
+    self.currentStatusLabel.text      = nowModel.cond.txt;
+}
+
+- (void)setDailyForecastModel:(YTWeatherDailyForecastModel *)dailyForecastModel
+{
+    self.highTemperatureLabel.text = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.max];
+    self.lowTemperatureLabel.text  = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.min];
 }
 
 @end

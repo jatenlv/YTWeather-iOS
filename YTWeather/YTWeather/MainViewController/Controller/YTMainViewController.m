@@ -53,7 +53,8 @@ YTMainViewDelegate
     [YTMainRequestNetworkTool requestWeatherWithCityName:@"北京" andFinish:^(YTWeatherModel *model, NSError *error) {
         [self.mainView.tableView.mj_header endRefreshing];
         if (!error) {
-            self.weatherModel = model;
+            self.weatherModel = model; // 暂时无用
+            self.mainView.weatherModel = model;
         }
     }];
 }

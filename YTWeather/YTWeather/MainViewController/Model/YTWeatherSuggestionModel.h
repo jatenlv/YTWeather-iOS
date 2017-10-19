@@ -27,49 +27,49 @@
 
 @end
 
-@interface Comf
+@interface Comf : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Cw
+@interface Cw : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Drsg
+@interface Drsg : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Flu
+@interface Flu : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Sport
+@interface Sport : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Trav
+@interface Trav : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface Uv
+@interface Uv : NSObject
 
 @property (nonatomic, copy) NSString *brf;
 @property (nonatomic, copy) NSString *txt;

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		664D8226FFBF7BA3A378C83B /* libPods-YTWeather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFFB929967DD13412DE8194 /* libPods-YTWeather.a */; };
+		840BD1071F988EBF00F4B004 /* YTWeatherDailyForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BD1061F988EBF00F4B004 /* YTWeatherDailyForecastModel.m */; };
+		840BD10A1F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BD1091F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m */; };
 		8437D50C1F9717DA00E3DB78 /* YTLaunchADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437D50A1F9717DA00E3DB78 /* YTLaunchADViewController.m */; };
 		8437D50D1F9717DA00E3DB78 /* YTLaunchADViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437D50B1F9717DA00E3DB78 /* YTLaunchADViewController.xib */; };
 		8437D5111F9717F300E3DB78 /* YTNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437D50F1F9717F300E3DB78 /* YTNewFeatureViewController.m */; };
@@ -44,8 +46,6 @@
 		84A627871F97257100EE29D5 /* YTWeatherBasicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627861F97257100EE29D5 /* YTWeatherBasicModel.m */; };
 		84A627901F9725A000EE29D5 /* YTWeatherNowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6278F1F9725A000EE29D5 /* YTWeatherNowModel.m */; };
 		84A627931F9725AE00EE29D5 /* YTWeatherSuggestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627921F9725AE00EE29D5 /* YTWeatherSuggestionModel.m */; };
-		84A627961F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627951F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m */; };
-		84A627991F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627981F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m */; };
 		84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
 		84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */; };
@@ -72,6 +72,10 @@
 /* Begin PBXFileReference section */
 		3DFFB929967DD13412DE8194 /* libPods-YTWeather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YTWeather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FADEAE9FFC02DCB39C0752B /* Pods-YTWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather.debug.xcconfig"; sourceTree = "<group>"; };
+		840BD1051F988EBF00F4B004 /* YTWeatherDailyForecastModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherDailyForecastModel.h; sourceTree = "<group>"; };
+		840BD1061F988EBF00F4B004 /* YTWeatherDailyForecastModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherDailyForecastModel.m; sourceTree = "<group>"; };
+		840BD1081F988EDA00F4B004 /* YTWeatherHourlyForecastModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherHourlyForecastModel.h; sourceTree = "<group>"; };
+		840BD1091F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherHourlyForecastModel.m; sourceTree = "<group>"; };
 		8437D5091F9717DA00E3DB78 /* YTLaunchADViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLaunchADViewController.h; sourceTree = "<group>"; };
 		8437D50A1F9717DA00E3DB78 /* YTLaunchADViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLaunchADViewController.m; sourceTree = "<group>"; };
 		8437D50B1F9717DA00E3DB78 /* YTLaunchADViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLaunchADViewController.xib; sourceTree = "<group>"; };
@@ -134,10 +138,6 @@
 		84A6278F1F9725A000EE29D5 /* YTWeatherNowModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherNowModel.m; sourceTree = "<group>"; };
 		84A627911F9725AE00EE29D5 /* YTWeatherSuggestionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherSuggestionModel.h; sourceTree = "<group>"; };
 		84A627921F9725AE00EE29D5 /* YTWeatherSuggestionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherSuggestionModel.m; sourceTree = "<group>"; };
-		84A627941F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherDailyForecastListModel.h; sourceTree = "<group>"; };
-		84A627951F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherDailyForecastListModel.m; sourceTree = "<group>"; };
-		84A627971F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherHourlyForecastListModel.h; sourceTree = "<group>"; };
-		84A627981F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherHourlyForecastListModel.m; sourceTree = "<group>"; };
 		84D4FC5C1F974AB2000B62A3 /* UIView+YT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YT.h"; sourceTree = "<group>"; };
 		84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
 		84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTRequestHeader.h; sourceTree = "<group>"; };
@@ -263,8 +263,8 @@
 			children = (
 				84654CC11F96418200E5092E /* AppDelegate.h */,
 				84654CC21F96418200E5092E /* AppDelegate.m */,
-				8437D5031F9717AE00E3DB78 /* Classes */,
 				84654CF31F9646D700E5092E /* MainViewController */,
+				8437D5031F9717AE00E3DB78 /* Classes */,
 				84D4FC5B1F974AB2000B62A3 /* Other */,
 				84654CC71F96418200E5092E /* Main.storyboard */,
 				84D4FC601F974C7D000B62A3 /* Assets.xcassets */,
@@ -325,10 +325,10 @@
 				84A627831F97256100EE29D5 /* YTWeatherAqiModel.m */,
 				84A627851F97257100EE29D5 /* YTWeatherBasicModel.h */,
 				84A627861F97257100EE29D5 /* YTWeatherBasicModel.m */,
-				84A627941F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.h */,
-				84A627951F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m */,
-				84A627971F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.h */,
-				84A627981F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m */,
+				840BD1051F988EBF00F4B004 /* YTWeatherDailyForecastModel.h */,
+				840BD1061F988EBF00F4B004 /* YTWeatherDailyForecastModel.m */,
+				840BD1081F988EDA00F4B004 /* YTWeatherHourlyForecastModel.h */,
+				840BD1091F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m */,
 				84A6278E1F9725A000EE29D5 /* YTWeatherNowModel.h */,
 				84A6278F1F9725A000EE29D5 /* YTWeatherNowModel.m */,
 				84A627911F9725AE00EE29D5 /* YTWeatherSuggestionModel.h */,
@@ -652,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840BD1071F988EBF00F4B004 /* YTWeatherDailyForecastModel.m in Sources */,
 				84654CD11F96418200E5092E /* main.m in Sources */,
 				84A6274C1F9651AC00EE29D5 /* YTMainTableHeaderView.m in Sources */,
 				84A627841F97256100EE29D5 /* YTWeatherAqiModel.m in Sources */,
@@ -659,15 +660,14 @@
 				84654D1A1F9647B800E5092E /* YTMainView.m in Sources */,
 				84A627621F970F0000EE29D5 /* YTMainMapTableViewCell.m in Sources */,
 				84A627671F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.m in Sources */,
-				84A627961F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m in Sources */,
 				84A6275D1F970EF300EE29D5 /* YTMainDetailTableViewCell.m in Sources */,
 				84A627871F97257100EE29D5 /* YTWeatherBasicModel.m in Sources */,
 				84A627931F9725AE00EE29D5 /* YTWeatherSuggestionModel.m in Sources */,
 				84A6277B1F9713EB00EE29D5 /* YTMainRequestNetworkTool.m in Sources */,
 				84A627531F970EC600EE29D5 /* YTMainForecastTableViewCell.m in Sources */,
 				8437D50C1F9717DA00E3DB78 /* YTLaunchADViewController.m in Sources */,
+				840BD10A1F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m in Sources */,
 				84A6276C1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.m in Sources */,
-				84A627991F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m in Sources */,
 				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
 				8437D5111F9717F300E3DB78 /* YTNewFeatureViewController.m in Sources */,
 				84A627901F9725A000EE29D5 /* YTWeatherNowModel.m in Sources */,

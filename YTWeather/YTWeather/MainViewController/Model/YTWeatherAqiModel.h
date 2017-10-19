@@ -15,7 +15,7 @@
 
 @end
 
-@interface CityModel
+@interface CityModel : NSObject
 
 @property (nonatomic, strong) NSNumber *aqi;
 @property (nonatomic, strong) NSNumber *co;

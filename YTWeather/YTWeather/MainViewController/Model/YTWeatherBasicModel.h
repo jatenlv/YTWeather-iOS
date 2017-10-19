@@ -21,7 +21,7 @@
 
 @end
 
-@interface UpdateModel
+@interface UpdateModel : NSObject
 
 @property (nonatomic, strong) NSNumber *lot;
 @property (nonatomic, strong) NSNumber *utc;

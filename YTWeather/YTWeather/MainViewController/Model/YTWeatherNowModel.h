@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@class NowCont;
+@class NowCond;
 @class NowWind;
 
 @interface YTWeatherNowModel : NSObject
 
-@property (nonatomic, strong) NowCont *cont;
+@property (nonatomic, strong) NowCond *cond;
 @property (nonatomic, strong) NSNumber *fl;
 @property (nonatomic, strong) NSNumber *hum;
 @property (nonatomic, strong) NSNumber *pcpn;
@@ -23,14 +23,14 @@
 
 @end
 
-@interface NowCont : NSObject
+@interface NowCond : NSObject
 
 @property (nonatomic, strong) NSNumber *code;
-@property (nonatomic, strong) NSNumber *txt;
+@property (nonatomic, copy) NSString *txt;
 
 @end
 
-@interface NowWind
+@interface NowWind : NSObject
 
 @property (nonatomic, strong) NSNumber *deg;
 @property (nonatomic, copy)   NSString *dir;
