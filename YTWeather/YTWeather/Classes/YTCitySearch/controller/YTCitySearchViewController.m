@@ -7,11 +7,15 @@
 //
 
 #import "YTCitySearchViewController.h"
+#import "YTCitySearchModel.h"
 
-@interface YTCitySearchViewController ()<UISearchResultsUpdating>
+@interface YTCitySearchViewController ()<UISearchResultsUpdating,UISearchBarDelegate>
 
 @property (nonatomic,strong) UISearchController *searchVC;
 
+@property (nonatomic,strong) NSMutableArray *resultArray;
+
+@property (nonatomic,strong) NSMutableArray *searchSource;
 
 @end
 
@@ -19,9 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor redColor];
-
+    _resultArray = [NSMutableArray array];
+    self.view.backgroundColor = [UIColor whiteColor];
     [self setupSearchBar];
     
 }
@@ -32,28 +35,38 @@
     UISearchController * searchVC = [[UISearchController alloc]initWithSearchResultsController:nil];
     searchVC.searchBar.placeholder = @"请输入地点或编号";
     searchVC.searchResultsUpdater = self;
+    //搜索结果不变灰
+    searchVC.dimsBackgroundDuringPresentation = NO;
+    //显示取消按钮
+    searchVC.searchBar.showsCancelButton = YES;
+    //设置searchBar代理,来接收取消按钮点击事件
+    searchVC.searchBar.delegate = self;
     self.searchVC = searchVC;
     self.tableView.tableHeaderView = searchVC.searchBar;
     NSLog(@"%@",searchVC.searchBar);
     self.tableView.sectionHeaderHeight = 64;
-    NSLog(@"%@",self.tableView.tableHeaderView);
+
 }
-
-
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     NSString * result = searchController.searchBar.text;
+    NSPredicate * predict = [NSPredicate predicateWithFormat:@"cityChineseName CONTAINS %@",result];
     
-    
+    self.resultArray = [[self.searchSource filteredArrayUsingPredicate:predict] copy];
+    [self.tableView reloadData];
 }
 
-
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 #pragma mark tableView-dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    NSLog(@"%ld",self.resultArray.count);
+    return self.resultArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -63,14 +76,29 @@
     if(cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.textLabel.text = @"123";
+    YTCitySearchModel * dataModel = self.resultArray[indexPath.row];
+    cell.textLabel.text = dataModel.cityChineseName ? dataModel.cityChineseName:@"sb";
     return  cell;
 }
-
+#pragma mark lazy
+- (NSMutableArray *)searchSource
+{
+    if(!_searchSource) {
+        _searchSource = [NSMutableArray array];
+        NSString * path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
+        NSArray *data = [NSArray arrayWithContentsOfFile:path];
+        _searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data ];
+        
+    }
+    return _searchSource;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 /*
 #pragma mark - Navigation

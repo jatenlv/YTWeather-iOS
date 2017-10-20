@@ -251,6 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
  @return A dictionary, or nil if an error occurs.
  */
 + (nullable NSDictionary *)modelDictionaryWithClass:(Class)cls json:(id)json;
+
+
 @end
 
 

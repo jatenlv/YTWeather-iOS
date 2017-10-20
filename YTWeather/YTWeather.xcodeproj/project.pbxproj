@@ -50,6 +50,7 @@
 		84A627931F9725AE00EE29D5 /* YTWeatherSuggestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627921F9725AE00EE29D5 /* YTWeatherSuggestionModel.m */; };
 		84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
+		84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */; };
 		84F88BCF1F99985000E4E1B2 /* YTLeftSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */; };
 		84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */; };
 		84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */; };
@@ -148,6 +149,8 @@
 		84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
 		84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTRequestHeader.h; sourceTree = "<group>"; };
 		84D4FC601F974C7D000B62A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84EE90B31F99E81100CA21D4 /* YTCitySearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchModel.h; sourceTree = "<group>"; };
+		84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCitySearchModel.m; sourceTree = "<group>"; };
 		84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideView.h; sourceTree = "<group>"; };
 		84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideView.m; sourceTree = "<group>"; };
 		84F88BD91F99BFAE00E4E1B2 /* YTCitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchViewController.h; sourceTree = "<group>"; };
@@ -442,6 +445,8 @@
 		84F88BD21F99A3B700E4E1B2 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				84EE90B31F99E81100CA21D4 /* YTCitySearchModel.h */,
+				84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -725,6 +730,7 @@
 				84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */,
 				84654D131F96477E00E5092E /* YTMainViewController.m in Sources */,
 				84654CC31F96418200E5092E /* AppDelegate.m in Sources */,
+				84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */,
 				84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */,
 				84A627581F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.m in Sources */,
 				84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */,
