@@ -56,10 +56,13 @@ UITableViewDelegate
     
     self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
     [self.tableView addSubview:self.custonNavigationBar];
+    @weakify(self)
     self.custonNavigationBar.clickLeftBarButton = ^{
+        @strongify(self)
         [self.delegate clickLeftBarButton];
     };
     self.custonNavigationBar.clickRightBarButton = ^{
+        @strongify(self)
         [self.delegate clickRightBarButton];
     };
     
