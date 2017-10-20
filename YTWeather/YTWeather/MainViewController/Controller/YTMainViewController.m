@@ -40,20 +40,9 @@ YTMainViewDelegate
     self.title = @"上海";
     [self setupMainView];
     [self addSlideGesture];
-    
-    UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    searchBtn.frame = CGRectMake(0, 50, 50, 50);
-    [searchBtn addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:searchBtn];
-    
     self.weatherModel = [[YTWeatherModel alloc] init];
 }
-- (void)search:(id)sender
-{
-    YTCitySearchViewController * resultVC = [[YTCitySearchViewController alloc]init];
-    UISearchController * searchVC = [[UISearchController alloc]initWithSearchResultsController:resultVC];
-    [self presentViewController:resultVC   animated:YES completion:nil];
-}
+
 
 - (void)setupMainView
 {
@@ -136,7 +125,8 @@ YTMainViewDelegate
 
 - (void)clickRightBarButton
 {
-    
+    YTCitySearchViewController * resultVC = [[YTCitySearchViewController alloc]init];
+    [self presentViewController:resultVC   animated:YES completion:nil];
 }
 
 /*

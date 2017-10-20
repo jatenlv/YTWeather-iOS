@@ -39,6 +39,8 @@
 
 - (IBAction)clickRightButton:(UIButton *)sender
 {
+    
+    
     if(self.clickRightBarButton)
     {
         self.clickRightBarButton();

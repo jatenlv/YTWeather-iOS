@@ -37,13 +37,14 @@ UITableViewDelegate
         view.frame = self.bounds;
         view.width = ScreenWidth;
         [self addSubview:view];
-        
         [self setupTableView];
+        [self setupNavigationBar];
+
         [self.tableView.mj_header beginRefreshing];
+
     }
     return self;
 }
-
 - (void)setupTableView
 {
     if (@available(iOS 11.0, *)) {
@@ -53,18 +54,6 @@ UITableViewDelegate
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
     [backImageView setImage:[UIImage imageNamed:@"foggy_n_portrait.jpg"]];
     self.tableView.backgroundView = backImageView;
-    
-    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
-    [self.tableView addSubview:self.custonNavigationBar];
-    @weakify(self)
-    self.custonNavigationBar.clickLeftBarButton = ^{
-        @strongify(self)
-        [self.delegate clickLeftBarButton];
-    };
-    self.custonNavigationBar.clickRightBarButton = ^{
-        @strongify(self)
-        [self.delegate clickRightBarButton];
-    };
     
     [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
     
@@ -83,6 +72,23 @@ UITableViewDelegate
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.delegate loadData];
     }];
+    
+
+}
+
+- (void)setupNavigationBar
+{
+    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+    [self.tableView addSubview:self.custonNavigationBar];
+    @weakify(self)
+    self.custonNavigationBar.clickLeftBarButton = ^{
+        @strongify(self)
+        [self.delegate clickLeftBarButton];
+    };
+    self.custonNavigationBar.clickRightBarButton = ^{
+        @strongify(self)
+        [self.delegate clickRightBarButton];
+    };
 }
 
 #pragma mark - Data
@@ -117,7 +123,6 @@ UITableViewDelegate
     YTMainTableHeaderView *headerView = [[YTMainTableHeaderView alloc] init];
     headerView.nowModel = self.weatherModel.now;
     headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
-    
     return headerView;
 }
 
@@ -138,6 +143,15 @@ UITableViewDelegate
         self.custonNavigationBar.mj_y = offset;
     }
 }
-
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    CGPoint curP =  [self convertPoint:point toView:self.custonNavigationBar.rightButton];
+    if ([self.custonNavigationBar.rightButton pointInside:curP withEvent:event]) {
+        return self.custonNavigationBar.rightButton;
+    
+    }else{
+        return  [super hitTest:point withEvent:event];
+    }
+}
 
 @end

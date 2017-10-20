@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTMainCustomNavigationBar">
             <connections>
                 <outlet property="cityNameLabel" destination="B9A-Q0-vfc" id="moc-7h-xyd"/>
+                <outlet property="rightButton" destination="epq-Z2-f9v" id="kdg-LM-hb3"/>
                 <outlet property="timeLabel" destination="xUu-bP-dwn" id="cYp-hy-Qlk"/>
             </connections>
         </placeholder>

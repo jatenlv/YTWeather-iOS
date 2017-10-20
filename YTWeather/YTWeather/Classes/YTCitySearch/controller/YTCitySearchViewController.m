@@ -25,8 +25,14 @@
     [super viewDidLoad];
     _resultArray = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setupTabview];
     [self setupSearchBar];
     
+}
+
+- (void)setupTabview
+{
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 #pragma mark 初始化searchBar
@@ -43,7 +49,6 @@
     searchVC.searchBar.delegate = self;
     self.searchVC = searchVC;
     self.tableView.tableHeaderView = searchVC.searchBar;
-    NSLog(@"%@",searchVC.searchBar);
     self.tableView.sectionHeaderHeight = 64;
 
 }

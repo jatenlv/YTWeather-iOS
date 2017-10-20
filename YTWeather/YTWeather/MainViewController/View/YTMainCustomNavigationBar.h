@@ -14,5 +14,6 @@ typedef void(^ClickBarButton)(void);
 
 @property(nonatomic, strong) ClickBarButton clickLeftBarButton;
 @property(nonatomic, strong) ClickBarButton clickRightBarButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
 @end
