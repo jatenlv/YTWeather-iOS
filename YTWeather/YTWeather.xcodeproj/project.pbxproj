@@ -48,6 +48,7 @@
 		84A627991F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627981F9729E800EE29D5 /* YTWeatherHourlyForecastListModel.m */; };
 		84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
+		84F88BCF1F99985000E4E1B2 /* YTLeftSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */; };
 		84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */; };
 		84FF38721F97308800E3F279 /* YTCustomNavViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FF38701F97308800E3F279 /* YTCustomNavViewController.xib */; };
 /* End PBXBuildFile section */
@@ -142,6 +143,8 @@
 		84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
 		84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTRequestHeader.h; sourceTree = "<group>"; };
 		84D4FC601F974C7D000B62A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideView.h; sourceTree = "<group>"; };
+		84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideView.m; sourceTree = "<group>"; };
 		84FF386E1F97308800E3F279 /* YTCustomNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCustomNavViewController.h; sourceTree = "<group>"; };
 		84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCustomNavViewController.m; sourceTree = "<group>"; };
 		84FF38701F97308800E3F279 /* YTCustomNavViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTCustomNavViewController.xib; sourceTree = "<group>"; };
@@ -354,6 +357,8 @@
 				84654D191F9647B800E5092E /* YTMainView.m */,
 				84654D1B1F964F3F00E5092E /* YTMainView.xib */,
 				84A627751F97129500EE29D5 /* Table View Cell */,
+				84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */,
+				84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */,
 				84654D1A1F9647B800E5092E /* YTMainView.m in Sources */,
 				84A627621F970F0000EE29D5 /* YTMainMapTableViewCell.m in Sources */,
+				84F88BCF1F99985000E4E1B2 /* YTLeftSlideView.m in Sources */,
 				84A627671F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.m in Sources */,
 				84A627961F9729DB00EE29D5 /* YTWeatherDailyForecastListModel.m in Sources */,
 				84A6275D1F970EF300EE29D5 /* YTMainDetailTableViewCell.m in Sources */,
