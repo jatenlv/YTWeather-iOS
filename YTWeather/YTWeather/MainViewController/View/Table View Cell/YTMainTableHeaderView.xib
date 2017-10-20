@@ -41,7 +41,6 @@
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jSX-YL-vhH">
                     <rect key="frame" x="15" y="500" width="30" height="30"/>
-                    <color key="backgroundColor" red="0.91372549020000005" green="0.74901960779999999" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="50i-WI-y3X"/>
                         <constraint firstAttribute="height" constant="30" id="ah5-ij-0eK"/>

@@ -16,13 +16,14 @@
 #import "YTMainPrecipitationTableViewCell.h"
 #import "YTMainSunAndWindTableViewCell.h"
 
+#import "YTMainCustomNavigationBar.h"
 
 @interface YTMainView ()
 <
 UITableViewDataSource,
 UITableViewDelegate
 >
-
+@property (nonatomic, strong)  YTMainCustomNavigationBar *custonNavigationBar;
 
 @end
 
@@ -34,6 +35,7 @@ UITableViewDelegate
     if (self) {
         UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
         view.frame = self.bounds;
+        view.width = ScreenWidth;
         [self addSubview:view];
         
         [self setupTableView];
@@ -51,6 +53,18 @@ UITableViewDelegate
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
     [backImageView setImage:[UIImage imageNamed:@"foggy_n_portrait.jpg"]];
     self.tableView.backgroundView = backImageView;
+    
+    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+    [self.tableView addSubview:self.custonNavigationBar];
+    @weakify(self)
+    self.custonNavigationBar.clickLeftBarButton = ^{
+        @strongify(self)
+        [self.delegate clickLeftBarButton];
+    };
+    self.custonNavigationBar.clickRightBarButton = ^{
+        @strongify(self)
+        [self.delegate clickRightBarButton];
+    };
     
     [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
     
@@ -117,6 +131,13 @@ UITableViewDelegate
     return ScreenHeight;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.y;
+    if (offset > 0) {
+        self.custonNavigationBar.mj_y = offset;
+    }
+}
 
 
 @end

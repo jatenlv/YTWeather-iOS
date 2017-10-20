@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTMainCustomNavigationBar">
+            <connections>
+                <outlet property="cityNameLabel" destination="B9A-Q0-vfc" id="moc-7h-xyd"/>
+                <outlet property="timeLabel" destination="xUu-bP-dwn" id="cYp-hy-Qlk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="G73-2Z-ETu">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidebar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-ho-KTP" userLabel="Left Button Image View">
+                    <rect key="frame" x="20" y="14.5" width="21" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="height" multiplier="1:1" id="JAc-sO-PYC"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editlocplus" translatesAutoresizingMaskIntoConstraints="NO" id="ZDx-Qi-ZwW" userLabel="Right Button Image View">
+                    <rect key="frame" x="334" y="15" width="21" height="21"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9A-Q0-vfc">
+                    <rect key="frame" x="161" y="8" width="54" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:42 CST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUu-bP-dwn">
+                    <rect key="frame" x="159" y="29" width="57" height="14"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-An-A05" userLabel="Left Button">
+                    <rect key="frame" x="20" y="14" width="21" height="21"/>
+                    <connections>
+                        <action selector="clickLeftButton:" destination="-1" eventType="touchUpInside" id="0mc-vC-pY2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epq-Z2-f9v" userLabel="Right Button">
+                    <rect key="frame" x="334" y="15" width="21" height="21"/>
+                    <connections>
+                        <action selector="clickRightButton:" destination="-1" eventType="touchUpInside" id="yjc-LJ-84H"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="width" id="1U2-wf-TD4"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="centerY" secondItem="ZCD-ho-KTP" secondAttribute="centerY" id="7ly-D4-blo"/>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="centerX" secondItem="ZDx-Qi-ZwW" secondAttribute="centerX" id="DYo-HU-aR5"/>
+                <constraint firstItem="xUu-bP-dwn" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="Kzg-f0-Tjh"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="width" id="VuC-YL-xG0"/>
+                <constraint firstItem="ZCD-ho-KTP" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="dPa-hT-GCo"/>
+                <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="eOU-Av-RBm"/>
+                <constraint firstItem="ZCD-ho-KTP" firstAttribute="leading" secondItem="G73-2Z-ETu" secondAttribute="leading" constant="20" id="elH-YT-86b"/>
+                <constraint firstItem="xUu-bP-dwn" firstAttribute="top" secondItem="B9A-Q0-vfc" secondAttribute="bottom" id="hZf-Ie-bsZ"/>
+                <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="21:50" id="ipL-Lp-3T7"/>
+                <constraint firstAttribute="trailing" secondItem="ZDx-Qi-ZwW" secondAttribute="trailing" constant="20" id="j3U-aO-POU"/>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="centerY" secondItem="ZDx-Qi-ZwW" secondAttribute="centerY" id="lGE-S3-ivQ"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="centerX" secondItem="ZCD-ho-KTP" secondAttribute="centerX" id="oEC-Uy-coZ"/>
+                <constraint firstItem="B9A-Q0-vfc" firstAttribute="top" secondItem="G73-2Z-ETu" secondAttribute="top" constant="8" id="oKP-y3-eOv"/>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="height" secondItem="ZDx-Qi-ZwW" secondAttribute="height" id="opk-g0-B6Z"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="height" secondItem="ZCD-ho-KTP" secondAttribute="height" id="qQO-RW-ASY"/>
+                <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="height" multiplier="1:1" id="uhY-rs-JSI"/>
+                <constraint firstItem="B9A-Q0-vfc" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="wsc-PW-hcL"/>
+                <constraint firstItem="ZCD-ho-KTP" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="21:50" id="zaw-kT-U0u"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="352.5" y="173"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="editlocplus" width="20" height="20"/>
+        <image name="sidebar_icon" width="21" height="19"/>
+    </resources>
+</document>
