@@ -34,7 +34,7 @@
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
-    self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@°", nowModel.tmp];
+    self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
     self.currentStatusLabel.text      = nowModel.cond.txt;
 }
 

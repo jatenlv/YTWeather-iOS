@@ -27,7 +27,7 @@
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qa-XJ-boD">
-                    <rect key="frame" x="-225" y="0.0" width="225" height="667"/>
+                    <rect key="frame" x="-262.5" y="0.0" width="262.5" height="667"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
@@ -35,7 +35,7 @@
             <constraints>
                 <constraint firstItem="1GQ-Mn-Mwn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="U0A-ms-XHL"/>
                 <constraint firstItem="0qa-XJ-boD" firstAttribute="top" secondItem="1GQ-Mn-Mwn" secondAttribute="top" id="bGD-6k-K3l"/>
-                <constraint firstItem="0qa-XJ-boD" firstAttribute="width" secondItem="1GQ-Mn-Mwn" secondAttribute="width" multiplier="0.6" id="dct-jP-ezi"/>
+                <constraint firstItem="0qa-XJ-boD" firstAttribute="width" secondItem="1GQ-Mn-Mwn" secondAttribute="width" multiplier="0.7" id="dct-jP-ezi"/>
                 <constraint firstItem="0qa-XJ-boD" firstAttribute="bottom" secondItem="1GQ-Mn-Mwn" secondAttribute="bottom" id="hdF-qT-hBP"/>
                 <constraint firstItem="0qa-XJ-boD" firstAttribute="trailing" secondItem="1GQ-Mn-Mwn" secondAttribute="leading" id="mWp-Ki-AQh"/>
                 <constraint firstAttribute="bottom" secondItem="1GQ-Mn-Mwn" secondAttribute="bottom" id="mmj-lj-gPL"/>
