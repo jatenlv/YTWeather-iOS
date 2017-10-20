@@ -13,6 +13,9 @@
 
 - (void)loadData;
 
+- (void)clickLeftBarButton;
+- (void)clickRightBarButton;
+
 @end
 
 @interface YTMainView : UIView
