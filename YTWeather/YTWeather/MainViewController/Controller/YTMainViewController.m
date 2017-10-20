@@ -41,7 +41,6 @@ YTMainViewDelegate
     [self addSlideGesture];
 
     self.weatherModel = [[YTWeatherModel alloc] init];
-<<<<<<< HEAD
     
     
 //    [self test];
@@ -94,8 +93,6 @@ YTMainViewDelegate
 //        [bigAry writeToFile:fileName atomically:YES];
 //        NSLog(@"文件写入完成");
 //    }
-=======
->>>>>>> 656643217b71de3aa353ea15b697a5296fb9104c
 }
 
 - (void)setupView
