@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTWeatherModel.h"
 
 @protocol YTMainViewDelegate <NSObject>
 
@@ -16,6 +17,7 @@
 
 @interface YTMainView : UIView
 
+@property (nonatomic, strong) YTWeatherModel *weatherModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

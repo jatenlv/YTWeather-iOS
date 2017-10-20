@@ -1,25 +1,18 @@
 //
-//  YTWeatherDailyForecastListModel.h
+//  YTWeatherDailyForecastModel.h
 //  YTWeather
 //
-//  Created by admin on 2017/10/18.
+//  Created by admin on 2017/10/19.
 //  Copyright © 2017年 Jaten. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-@class YTWeatherDailyForecastModel;
 @class DailyAstro;
 @class DailyCond;
-@class DailyTemp;
+@class DailyTmp;
 @class DailyWind;
 
-@interface YTWeatherDailyForecastListModel : NSObject
-
-@property (nonatomic, strong) NSArray <YTWeatherDailyForecastModel *> *model;
-
-@end
-
-@interface YTWeatherDailyForecastModel
+@interface YTWeatherDailyForecastModel : NSObject
 
 @property (nonatomic, strong) DailyAstro *astro;
 @property (nonatomic, strong) DailyCond *cond;
@@ -28,13 +21,13 @@
 @property (nonatomic, strong) NSNumber *pcpn;
 @property (nonatomic, strong) NSNumber *pop;
 @property (nonatomic, strong) NSNumber *pres;
-@property (nonatomic, strong) DailyTemp *temp;
+@property (nonatomic, strong) DailyTmp *tmp;
 @property (nonatomic, strong) NSNumber *vis;
 @property (nonatomic, strong) DailyWind *Wind;
 
 @end
 
-@interface DailyAstro
+@interface DailyAstro : NSObject
 
 @property (nonatomic, strong) NSNumber *mr;
 @property (nonatomic, strong) NSNumber *ms;
@@ -43,7 +36,7 @@
 
 @end
 
-@interface DailyCond
+@interface DailyCond : NSObject
 
 @property (nonatomic, strong) NSNumber *code_d;
 @property (nonatomic, strong) NSNumber *code_n;
@@ -52,14 +45,14 @@
 
 @end
 
-@interface DailyTemp
+@interface DailyTmp : NSObject
 
 @property (nonatomic, strong) NSNumber *max;
 @property (nonatomic, strong) NSNumber *min;
 
 @end
 
-@interface DailyWind
+@interface DailyWind : NSObject
 
 @property (nonatomic, strong) NSNumber *deg;
 @property (nonatomic, copy)   NSString *dir;

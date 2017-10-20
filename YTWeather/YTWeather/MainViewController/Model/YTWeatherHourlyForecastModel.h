@@ -1,24 +1,16 @@
 //
-//  YTWeatherHourlyForecastListModel.h
+//  YTWeatherHourlyForecastModel.h
 //  YTWeather
 //
-//  Created by admin on 2017/10/18.
+//  Created by admin on 2017/10/19.
 //  Copyright © 2017年 Jaten. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
-@class YTWeatherHourlyForecastModel;
 @class HourlyCond;
 @class HourlyWind;
 
-@interface YTWeatherHourlyForecastListModel : NSObject
-
-@property (nonatomic, strong) NSArray <YTWeatherHourlyForecastModel *> *model;
-
-@end
-
-@interface YTWeatherHourlyForecastModel
+@interface YTWeatherHourlyForecastModel : NSObject
 
 @property (nonatomic, strong) HourlyCond *cond;
 @property (nonatomic, copy)   NSString *date;
@@ -30,14 +22,14 @@
 
 @end
 
-@interface HourlyCond
+@interface HourlyCond : NSObject
 
 @property (nonatomic, strong) NSNumber *code;
 @property (nonatomic, strong) NSNumber *txt;
 
 @end
 
-@interface HourlyWind
+@interface HourlyWind : NSObject
 
 @property (nonatomic, strong) NSNumber *deg;
 @property (nonatomic, copy)   NSString *dir;

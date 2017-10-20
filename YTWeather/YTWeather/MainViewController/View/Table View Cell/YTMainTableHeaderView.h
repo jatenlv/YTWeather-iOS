@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YTWeatherDailyForecastModel.h"
+#import "YTWeatherNowModel.h"
 
 @interface YTMainTableHeaderView : UIView
+
+@property (nonatomic, strong) YTWeatherDailyForecastModel *dailyForecastModel;
+@property (nonatomic, strong) YTWeatherNowModel *nowModel;
 
 @end
