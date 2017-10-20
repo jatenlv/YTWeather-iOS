@@ -14,6 +14,7 @@
 
 #import "YTMainRequestNetworkTool.h"
 
+#import "YTCitySearchViewController.h"
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -43,9 +44,18 @@ YTMainViewDelegate
     
     
 //    [self test];
+    UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    searchBtn.frame = CGRectMake(0, 50, 50, 50);
+    [searchBtn addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:searchBtn];
     
 }
-
+- (void)search:(id)sender
+{
+    YTCitySearchViewController * resultVC = [[YTCitySearchViewController alloc]init];
+    UISearchController * searchVC = [[UISearchController alloc]initWithSearchResultsController:resultVC];
+    [self presentViewController:resultVC   animated:YES completion:nil];
+}
 - (void)test
 {
     // 转array

@@ -50,6 +50,7 @@
 		84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
 		84F88BCF1F99985000E4E1B2 /* YTLeftSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */; };
+		84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */; };
 		84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */; };
 		84FF38721F97308800E3F279 /* YTCustomNavViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84FF38701F97308800E3F279 /* YTCustomNavViewController.xib */; };
 /* End PBXBuildFile section */
@@ -147,6 +148,8 @@
 		84D4FC601F974C7D000B62A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideView.h; sourceTree = "<group>"; };
 		84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideView.m; sourceTree = "<group>"; };
+		84F88BD91F99BFAE00E4E1B2 /* YTCitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchViewController.h; sourceTree = "<group>"; };
+		84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCitySearchViewController.m; sourceTree = "<group>"; };
 		84FF386E1F97308800E3F279 /* YTCustomNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCustomNavViewController.h; sourceTree = "<group>"; };
 		84FF386F1F97308800E3F279 /* YTCustomNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCustomNavViewController.m; sourceTree = "<group>"; };
 		84FF38701F97308800E3F279 /* YTCustomNavViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTCustomNavViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		8437D5031F9717AE00E3DB78 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				84F88BD01F99A3B700E4E1B2 /* YTCitySearch */,
 				84FF386A1F97306C00E3F279 /* baseConfig */,
 				8437D5041F9717AE00E3DB78 /* launchConfig */,
 			);
@@ -411,6 +415,39 @@
 				84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		84F88BD01F99A3B700E4E1B2 /* YTCitySearch */ = {
+			isa = PBXGroup;
+			children = (
+				84F88BD11F99A3B700E4E1B2 /* controller */,
+				84F88BD21F99A3B700E4E1B2 /* model */,
+				84F88BD31F99A3B700E4E1B2 /* view */,
+			);
+			path = YTCitySearch;
+			sourceTree = "<group>";
+		};
+		84F88BD11F99A3B700E4E1B2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				84F88BD91F99BFAE00E4E1B2 /* YTCitySearchViewController.h */,
+				84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		84F88BD21F99A3B700E4E1B2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		84F88BD31F99A3B700E4E1B2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		84FF386A1F97306C00E3F279 /* baseConfig */ = {
@@ -681,6 +718,7 @@
 				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
 				8437D5111F9717F300E3DB78 /* YTNewFeatureViewController.m in Sources */,
 				84A627901F9725A000EE29D5 /* YTWeatherNowModel.m in Sources */,
+				84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */,
 				84654D131F96477E00E5092E /* YTMainViewController.m in Sources */,
 				84654CC31F96418200E5092E /* AppDelegate.m in Sources */,
 				84FF38711F97308800E3F279 /* YTCustomNavViewController.m in Sources */,
