@@ -56,6 +56,7 @@ YTMainViewDelegate
 - (void)addSlideGesture
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
+
     [self.scrollView addGestureRecognizer:pan];
 }
 
