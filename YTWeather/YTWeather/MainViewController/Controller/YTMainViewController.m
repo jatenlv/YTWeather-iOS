@@ -14,6 +14,7 @@
 
 #import "YTMainRequestNetworkTool.h"
 
+#import "YTCitySearchViewController.h"
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -40,6 +41,58 @@ YTMainViewDelegate
     [self addSlideGesture];
 
     self.weatherModel = [[YTWeatherModel alloc] init];
+    
+    
+//    [self test];
+    UIButton * searchBtn = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    searchBtn.frame = CGRectMake(0, 50, 50, 50);
+    [searchBtn addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:searchBtn];
+    
+}
+- (void)search:(id)sender
+{
+    YTCitySearchViewController * resultVC = [[YTCitySearchViewController alloc]init];
+    UISearchController * searchVC = [[UISearchController alloc]initWithSearchResultsController:resultVC];
+    [self presentViewController:resultVC   animated:YES completion:nil];
+}
+- (void)test
+{
+    // 转array
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"condition-code" ofType:@"txt"];
+    NSString *str = [[NSString alloc] initWithContentsOfFile:plistPath encoding:NSUTF8StringEncoding error:nil];
+    NSArray *ary = [str componentsSeparatedByString:@"\n"];
+    NSMutableArray *bigAry = [NSMutableArray array];
+    for (int i=1; i<ary.count; i++) {
+        NSArray *smallAry = [ary[i] componentsSeparatedByString:@"    "];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:smallAry[0] forKey:@"cityCode"];
+        [dic setObject:smallAry[1] forKey:@"cityEnglishName"];
+        [dic setObject:smallAry[2] forKey:@"cityChineseName"];
+        [dic setObject:smallAry[3] forKey:@"countryCode"];
+        [dic setObject:smallAry[4] forKey:@"countryEnglishName"];
+        [dic setObject:smallAry[5] forKey:@"countryChineseName"];
+        [dic setObject:smallAry[6] forKey:@"provinceEnglishName"];
+        [dic setObject:smallAry[7] forKey:@"provinceChineseName"];
+        [dic setObject:smallAry[8] forKey:@"belongToCityEnglishName"];
+        [dic setObject:smallAry[9] forKey:@"belongToCityChineseName"];
+        [dic setObject:smallAry[10] forKey:@"cityLng"];
+        [dic setObject:smallAry[11] forKey:@"cityLat"];
+        [bigAry addObject:dic];
+    }
+    
+//    // 写文件
+//    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+//    NSString *plistPath1 = [paths objectAtIndex:0];
+//    NSLog(@"path ::: %@",plistPath);
+//    
+//    NSString *fileName = [plistPath1 stringByAppendingPathComponent:@"weatherCode.plist"];
+//    NSFileManager *fm = [NSFileManager defaultManager];
+//    if ([fm createFileAtPath:fileName contents:nil attributes:nil] ==YES) {
+//        
+//        [bigAry writeToFile:fileName atomically:YES];
+//        NSLog(@"文件写入完成");
+//    }
 }
 
 - (void)setupView

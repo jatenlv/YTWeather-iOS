@@ -44,6 +44,8 @@ static NSString *featureViewCellID = @"featureViewCellID";
     self.collectionView.bounces = NO;
     // Do any additional setup after loading the view from its nib.
 }
+
+#pragma mark 跳到主页VC 
 - (void)forward2Main
 {
     YTMainViewController * mainVC = [[YTMainViewController alloc]init];

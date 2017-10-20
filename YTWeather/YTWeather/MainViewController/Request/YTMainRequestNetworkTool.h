@@ -14,4 +14,7 @@
 + (void)requestWeatherWithCityName:(NSString *)cityName
                           andFinish:(void(^)(YTWeatherModel *model, NSError *error))finish;
 
++ (NSArray *)requestDateForLeftSlideView;
+
+
 @end
