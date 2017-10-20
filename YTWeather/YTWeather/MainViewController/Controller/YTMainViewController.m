@@ -122,7 +122,7 @@ YTMainViewDelegate
 {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"condition-code" ofType:@"txt"];
     NSString *str = [[NSString alloc] initWithContentsOfFile:plistPath encoding:NSUTF8StringEncoding error:nil];
-    NSArray *ary = [str componentsSeparatedByString:@"\n"];
+    NSArray  *ary = [str componentsSeparatedByString:@"\n"];
     NSMutableArray *bigAry = [NSMutableArray array];
     for (int i=1; i<ary.count-1; i++) {
         NSArray *smallAry = [ary[i] componentsSeparatedByString:@"    "];
@@ -142,7 +142,7 @@ YTMainViewDelegate
         [bigAry addObject:dic];
     }
     
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSArray  *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *plistPath1 = [paths objectAtIndex:0];
     NSString *fileName = [plistPath1 stringByAppendingPathComponent:@"cityCode.plist"];
     NSFileManager *fm = [NSFileManager defaultManager];

@@ -35,7 +35,21 @@
 - (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
     self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
-    self.currentStatusLabel.text      = nowModel.cond.txt;
+    self.currentStatusLabel.text = nowModel.cond.txt;
+    [self.currentStatusImageView setImageWithURL:[self findImageUrl:nowModel] placeholder:nil];
+}
+
+- (NSURL *)findImageUrl:(YTWeatherNowModel *)nowModel
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"weatherCode" ofType:@"plist"];
+    NSArray *waetherArray = [NSArray arrayWithContentsOfFile:plistPath];
+    for (NSDictionary *dic in waetherArray) {
+        if ([dic[@"weatherCode"] isEqualToString:[nowModel.cond.code stringValue]]) {
+            return [NSURL URLWithString:dic[@"weatherIconUrl"]];
+        }
+    }
+    
+    return nil;
 }
 
 - (void)setDailyForecastModel:(YTWeatherDailyForecastModel *)dailyForecastModel
