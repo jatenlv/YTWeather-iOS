@@ -27,10 +27,11 @@
     
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+@implementation YTMainForecastTableViewCell
 
-    // Configure the view for the selected state
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
 }
 
 @end
