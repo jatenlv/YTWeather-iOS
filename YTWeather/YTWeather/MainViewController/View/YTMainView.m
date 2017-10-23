@@ -85,7 +85,8 @@ UITableViewDelegate
 
 - (void)setupNavigationBar
 {
-    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
+    [self layoutIfNeeded];
+    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, 64)];
     [self.tableView addSubview:self.custonNavigationBar];
     @weakify(self)
     self.custonNavigationBar.clickLeftBarButton = ^{
@@ -96,6 +97,11 @@ UITableViewDelegate
         @strongify(self)
         [self.delegate clickRightBarButton];
     };
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
 }
 
 #pragma mark - Data

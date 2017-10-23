@@ -27,7 +27,6 @@
     if (self) {
         UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
         view.frame = self.bounds;
-        view.width = ScreenWidth;
         [self addSubview:view];
     }
     return self;

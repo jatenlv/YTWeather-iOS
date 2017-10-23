@@ -108,17 +108,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ttp-dX-GhF" customClass="YTMainCustomNavigationBar">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="64" id="aTc-oy-oCT"/>
-                    </constraints>
-                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="Ttp-dX-GhF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4zh-Bl-t5N"/>
-                <constraint firstItem="Ttp-dX-GhF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6OU-lA-SNV"/>
                 <constraint firstItem="Bij-zX-7EQ" firstAttribute="leading" secondItem="jSX-YL-vhH" secondAttribute="trailing" constant="5" id="91x-Ng-8t9"/>
                 <constraint firstItem="jSX-YL-vhH" firstAttribute="centerY" secondItem="Bij-zX-7EQ" secondAttribute="centerY" id="DKb-lQ-f9b"/>
                 <constraint firstItem="bsC-1A-G02" firstAttribute="top" secondItem="Bij-zX-7EQ" secondAttribute="bottom" constant="5" id="E2I-Jx-DQm"/>
@@ -131,7 +122,6 @@
                 <constraint firstAttribute="bottom" secondItem="mIz-Oa-NaO" secondAttribute="bottom" constant="8" id="SOd-2X-dhM"/>
                 <constraint firstItem="Iag-R7-nIb" firstAttribute="leading" secondItem="mIz-Oa-NaO" secondAttribute="trailing" constant="5" id="Yry-oT-xLv"/>
                 <constraint firstItem="bsC-1A-G02" firstAttribute="leading" secondItem="P3F-5C-9ch" secondAttribute="trailing" constant="8" id="bbe-j5-qZZ"/>
-                <constraint firstAttribute="trailing" secondItem="Ttp-dX-GhF" secondAttribute="trailing" id="c5H-Qr-7cH"/>
                 <constraint firstItem="P3F-5C-9ch" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="rU5-zJ-CaX"/>
                 <constraint firstItem="mIz-Oa-NaO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="u9z-xt-3hi"/>
                 <constraint firstItem="KXY-b6-Ct7" firstAttribute="leading" secondItem="bsC-1A-G02" secondAttribute="trailing" constant="8" id="wER-QQ-U6i"/>
