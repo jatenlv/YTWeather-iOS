@@ -8,9 +8,17 @@
 
 #import "YTMainForecastTableViewCell.h"
 
-@interface YTMainForecastTableViewCell ()
+@interface YTMainForecastTableViewCell()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollViewForNext12Hours;
+@property (weak, nonatomic) IBOutlet UITableView *threeDaysForTheWeather;
 
 @end
+@implementation YTMainForecastTableViewCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+}
 
 @implementation YTMainForecastTableViewCell
 

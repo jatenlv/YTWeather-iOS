@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTMainCustomNavigationBar">
             <connections>
                 <outlet property="cityNameLabel" destination="B9A-Q0-vfc" id="moc-7h-xyd"/>
+                <outlet property="leftBtn" destination="pdG-An-A05" id="FuI-Jq-zdq"/>
                 <outlet property="rightButton" destination="epq-Z2-f9v" id="kdg-LM-hb3"/>
                 <outlet property="timeLabel" destination="xUu-bP-dwn" id="cYp-hy-Qlk"/>
             </connections>
