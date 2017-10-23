@@ -371,43 +371,99 @@
 		84654CF71F9646D700E5092E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				84654D181F9647B800E5092E /* YTMainView.h */,
-				84654D191F9647B800E5092E /* YTMainView.m */,
-				84654D1B1F964F3F00E5092E /* YTMainView.xib */,
 				840BD1181F99DF0500F4B004 /* YTMainCustomNavigationBar.h */,
 				840BD1191F99DF0500F4B004 /* YTMainCustomNavigationBar.m */,
 				840BD11B1F99DF0D00F4B004 /* YTMainCustomNavigationBar.xib */,
-				84A627751F97129500EE29D5 /* Table View Cell */,
 				84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */,
 				84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */,
+				84654D181F9647B800E5092E /* YTMainView.h */,
+				84654D191F9647B800E5092E /* YTMainView.m */,
+				84654D1B1F964F3F00E5092E /* YTMainView.xib */,
+				84A627751F97129500EE29D5 /* Table View Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		84A627751F97129500EE29D5 /* Table View Cell */ = {
+		8466100D1F9D948500AC001D /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				84A627501F970EC600EE29D5 /* YTMainForecastTableViewCell.h */,
+				84A627511F970EC600EE29D5 /* YTMainForecastTableViewCell.m */,
+				84A627521F970EC600EE29D5 /* YTMainForecastTableViewCell.xib */,
+			);
+			path = Forecast;
+			sourceTree = "<group>";
+		};
+		8466100E1F9D949B00AC001D /* Header */ = {
 			isa = PBXGroup;
 			children = (
 				84A6274A1F9651AC00EE29D5 /* YTMainTableHeaderView.h */,
 				84A6274B1F9651AC00EE29D5 /* YTMainTableHeaderView.m */,
 				84A6274D1F9651B500EE29D5 /* YTMainTableHeaderView.xib */,
-				84A627501F970EC600EE29D5 /* YTMainForecastTableViewCell.h */,
-				84A627511F970EC600EE29D5 /* YTMainForecastTableViewCell.m */,
-				84A627521F970EC600EE29D5 /* YTMainForecastTableViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		8466100F1F9D94A600AC001D /* Advertising */ = {
+			isa = PBXGroup;
+			children = (
 				84A627551F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.h */,
 				84A627561F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.m */,
 				84A627571F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.xib */,
+			);
+			path = Advertising;
+			sourceTree = "<group>";
+		};
+		846610101F9D94BB00AC001D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
 				84A6275A1F970EF300EE29D5 /* YTMainDetailTableViewCell.h */,
 				84A6275B1F970EF300EE29D5 /* YTMainDetailTableViewCell.m */,
 				84A6275C1F970EF300EE29D5 /* YTMainDetailTableViewCell.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		846610111F9D94C400AC001D /* Map */ = {
+			isa = PBXGroup;
+			children = (
 				84A6275F1F970F0000EE29D5 /* YTMainMapTableViewCell.h */,
 				84A627601F970F0000EE29D5 /* YTMainMapTableViewCell.m */,
 				84A627611F970F0000EE29D5 /* YTMainMapTableViewCell.xib */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		846610121F9D94D500AC001D /* Precipitation */ = {
+			isa = PBXGroup;
+			children = (
 				84A627641F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.h */,
 				84A627651F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.m */,
 				84A627661F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.xib */,
+			);
+			path = Precipitation;
+			sourceTree = "<group>";
+		};
+		846610131F9D94DC00AC001D /* SunAndWind */ = {
+			isa = PBXGroup;
+			children = (
 				84A627691F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.h */,
 				84A6276A1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.m */,
 				84A6276B1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.xib */,
+			);
+			path = SunAndWind;
+			sourceTree = "<group>";
+		};
+		84A627751F97129500EE29D5 /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8466100E1F9D949B00AC001D /* Header */,
+				8466100D1F9D948500AC001D /* Forecast */,
+				8466100F1F9D94A600AC001D /* Advertising */,
+				846610101F9D94BB00AC001D /* Detail */,
+				846610111F9D94C400AC001D /* Map */,
+				846610121F9D94D500AC001D /* Precipitation */,
+				846610131F9D94DC00AC001D /* SunAndWind */,
 			);
 			path = "Table View Cell";
 			sourceTree = "<group>";

@@ -18,6 +18,13 @@
 
 #import "YTMainCustomNavigationBar.h"
 
+#define kForecastCellHeight      100
+#define kAdvertisingCellHeight   100
+#define kDetailCellHeight        100
+#define kMapCellHeight           100
+#define kPrecipitationCellHeight 100
+#define kSunAndWindCellHeight    100
+
 @interface YTMainView ()
 <
 UITableViewDataSource,
