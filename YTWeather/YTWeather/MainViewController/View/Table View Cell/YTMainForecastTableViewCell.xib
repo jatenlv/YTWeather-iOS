@@ -77,6 +77,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="scrollViewForNext12Hours" destination="fnv-tZ-CvQ" id="rhy-SF-9gU"/>
                 <outlet property="threeDaysForTheWeather" destination="qmD-8B-jeA" id="IWu-mD-VtE"/>
             </connections>
             <point key="canvasLocation" x="60.5" y="182.5"/>
