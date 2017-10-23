@@ -9,13 +9,14 @@
 #import "YTCitySearchViewController.h"
 #import "YTCitySearchModel.h"
 
-@interface YTCitySearchViewController ()<UISearchResultsUpdating,UISearchBarDelegate>
+@interface YTCitySearchViewController ()<UISearchResultsUpdating,UISearchBarDelegate,UISearchControllerDelegate>
 
 @property (nonatomic,strong) UISearchController *searchVC;
 
 @property (nonatomic,strong) NSMutableArray *resultArray;
 
 @property (nonatomic,strong) NSMutableArray *searchSource;
+@property (nonatomic,strong) UITextField *tf;
 
 @end
 
@@ -34,17 +35,38 @@
 {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 #pragma mark 初始化searchBar
 - (void)setupSearchBar
 {
     UISearchController * searchVC = [[UISearchController alloc]initWithSearchResultsController:nil];
     searchVC.searchBar.placeholder = @"请输入地点或编号";
     searchVC.searchResultsUpdater = self;
+    searchVC.delegate = self;
+    searchVC.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     //搜索结果不变灰
     searchVC.dimsBackgroundDuringPresentation = NO;
     //显示取消按钮
     searchVC.searchBar.showsCancelButton = YES;
+    //设置取消文字
+    for (id obj in [searchVC.searchBar subviews]) {
+        if ([obj isKindOfClass:[UIView class]]) {
+            for (id obj2 in [obj subviews]) {
+                if ([obj2 isKindOfClass:[UIButton class]]) {
+                    UIButton *btn = (UIButton *)obj2;
+                    [btn setTitle:@"取消" forState:UIControlStateNormal];
+                }
+                if([obj2 isKindOfClass:[UITextField class]]) {
+                    UITextField * tf = (UITextField *)obj2;
+                    [tf becomeFirstResponder];
+                    self.tf = tf;
+                }
+            }
+        }
+    }
     //设置searchBar代理,来接收取消按钮点击事件
     searchVC.searchBar.delegate = self;
     self.searchVC = searchVC;
@@ -52,7 +74,6 @@
     self.tableView.sectionHeaderHeight = 64;
 
 }
-
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
     NSString * result = searchController.searchBar.text;
@@ -70,7 +91,6 @@
 #pragma mark tableView-dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%ld",self.resultArray.count);
     return self.resultArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,6 +116,12 @@
         
     }
     return _searchSource;
+}
+- (void)didPresentSearchController:(UISearchController *)searchController {
+    
+    
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

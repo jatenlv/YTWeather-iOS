@@ -86,25 +86,25 @@ YTMainViewDelegate
         {
             translatePointX = kSlideWidthScale * self.scrollView.width - scrollX;
 
-            [UIView animateWithDuration:0.35 animations:^{
-                self.scrollView.centerX += translatePointX;
-                self.leftSlideView.centerX += translatePointX;
-            }];
+            [self slideViewMoveWithDistance:translatePointX];
             _isShowSlide = YES;
         }
         else {
             translatePointX = -scrollX;
-            [UIView animateWithDuration:0.35 animations:^{
-                self.scrollView.centerX += translatePointX;
-                self.leftSlideView.centerX += translatePointX;
-            }];
+            [self slideViewMoveWithDistance:translatePointX];
             _isShowSlide = NO;
         }
     }
    
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
-
+- (void)slideViewMoveWithDistance:(CGFloat)offset
+{
+    [UIView animateWithDuration:0.35 animations:^{
+        self.scrollView.centerX += offset;
+        self.leftSlideView.centerX += offset;
+    }];
+}
 #pragma mark - YTMainView Delegate
 
 - (void)loadData
@@ -120,7 +120,10 @@ YTMainViewDelegate
 
 - (void)clickLeftBarButton
 {
-    
+    CGFloat maxOffset = kSlideWidthScale * self.scrollView.width;
+    CGFloat offset = _isShowSlide ? -maxOffset : maxOffset;
+    [self slideViewMoveWithDistance:offset];
+    _isShowSlide = !_isShowSlide;
 }
 
 - (void)clickRightBarButton

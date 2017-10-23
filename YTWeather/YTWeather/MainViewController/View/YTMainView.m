@@ -78,7 +78,7 @@ UITableViewDelegate
 
 - (void)setupNavigationBar
 {
-    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+    self.custonNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 64)];
     [self.tableView addSubview:self.custonNavigationBar];
     @weakify(self)
     self.custonNavigationBar.clickLeftBarButton = ^{
@@ -145,11 +145,15 @@ UITableViewDelegate
 }
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    CGPoint curP =  [self convertPoint:point toView:self.custonNavigationBar.rightButton];
-    if ([self.custonNavigationBar.rightButton pointInside:curP withEvent:event]) {
+    CGPoint curRightP =  [self convertPoint:point toView:self.custonNavigationBar.rightButton];
+    CGPoint curLeftP =  [self convertPoint:point toView:self.custonNavigationBar.leftBtn];
+
+    if ([self.custonNavigationBar.rightButton pointInside:curRightP withEvent:event]) {
         return self.custonNavigationBar.rightButton;
-    
-    }else{
+    }else if ([self.custonNavigationBar.leftBtn pointInside:curLeftP withEvent:event]) {
+        return self.custonNavigationBar.leftBtn;
+    }
+    else{
         return  [super hitTest:point withEvent:event];
     }
 }
