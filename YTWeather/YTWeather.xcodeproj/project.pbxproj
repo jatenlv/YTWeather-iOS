@@ -52,6 +52,8 @@
 		84BF6F6C1F9DC92400F93B83 /* YTMainForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F681F9DC92300F93B83 /* YTMainForecastTableViewCell.xib */; };
 		84BF6F701F9DC92F00F93B83 /* YTMainTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F6D1F9DC92F00F93B83 /* YTMainTableHeaderView.xib */; };
 		84BF6F711F9DC92F00F93B83 /* YTMainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6F6E1F9DC92F00F93B83 /* YTMainTableHeaderView.m */; };
+		84BF6F751F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */; };
+		84BF6F761F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */; };
 		84D4FC5F1F974AB2000B62A3 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
 		84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */; };
@@ -155,6 +157,9 @@
 		84BF6F6D1F9DC92F00F93B83 /* YTMainTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTMainTableHeaderView.xib; sourceTree = "<group>"; };
 		84BF6F6E1F9DC92F00F93B83 /* YTMainTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTMainTableHeaderView.m; sourceTree = "<group>"; };
 		84BF6F6F1F9DC92F00F93B83 /* YTMainTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTMainTableHeaderView.h; sourceTree = "<group>"; };
+		84BF6F721F9DCB9200F93B83 /* YTThreeDaysTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTThreeDaysTableViewCell.h; sourceTree = "<group>"; };
+		84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTThreeDaysTableViewCell.m; sourceTree = "<group>"; };
+		84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTThreeDaysTableViewCell.xib; sourceTree = "<group>"; };
 		84D4FC5C1F974AB2000B62A3 /* UIView+YT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YT.h"; sourceTree = "<group>"; };
 		84D4FC5D1F974AB2000B62A3 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
 		84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTRequestHeader.h; sourceTree = "<group>"; };
@@ -481,6 +486,9 @@
 				84BF6F661F9DC92300F93B83 /* YTMainForecastTableViewCell.h */,
 				84BF6F671F9DC92300F93B83 /* YTMainForecastTableViewCell.m */,
 				84BF6F681F9DC92300F93B83 /* YTMainForecastTableViewCell.xib */,
+				84BF6F721F9DCB9200F93B83 /* YTThreeDaysTableViewCell.h */,
+				84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */,
+				84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */,
 			);
 			path = Forecast;
 			sourceTree = "<group>";
@@ -697,6 +705,7 @@
 				8437D50D1F9717DA00E3DB78 /* YTLaunchADViewController.xib in Resources */,
 				84FF38721F97308800E3F279 /* YTCustomNavViewController.xib in Resources */,
 				84BF6F6A1F9DC92400F93B83 /* YTHourWeatherCollectionCell.xib in Resources */,
+				84BF6F761F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
 				84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */,
 				84A6275E1F970EF300EE29D5 /* YTMainDetailTableViewCell.xib in Resources */,
@@ -781,6 +790,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BF6F751F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m in Sources */,
 				840BD1071F988EBF00F4B004 /* YTWeatherDailyForecastModel.m in Sources */,
 				84654CD11F96418200E5092E /* main.m in Sources */,
 				84A627841F97256100EE29D5 /* YTWeatherAqiModel.m in Sources */,

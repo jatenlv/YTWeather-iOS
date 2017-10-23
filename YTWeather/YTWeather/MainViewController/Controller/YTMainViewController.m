@@ -19,7 +19,8 @@
 
 @interface YTMainViewController ()
 <
-YTMainViewDelegate
+YTMainViewDelegate,
+UIGestureRecognizerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -39,7 +40,7 @@ YTMainViewDelegate
     [super viewDidLoad];
     self.title = @"上海";
     [self setupMainView];
-    [self addSlideGesture];
+   // [self addSlideGesture];
     self.weatherModel = [[YTWeatherModel alloc] init];
 }
 
@@ -56,7 +57,7 @@ YTMainViewDelegate
 - (void)addSlideGesture
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
-
+    pan.delegate = self;
     [self.scrollView addGestureRecognizer:pan];
 }
 
@@ -97,6 +98,13 @@ YTMainViewDelegate
     }
    
     [pan setTranslation:CGPointZero inView:self.scrollView];
+}
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if([touch.view isKindOfClass:[UICollectionView class]]) {
+        return NO;
+    }
+    return YES;
 }
 - (void)slideViewMoveWithDistance:(CGFloat)offset
 {
