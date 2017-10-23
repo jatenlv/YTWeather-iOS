@@ -120,6 +120,16 @@ UITableViewDelegate
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.row) {
+        case 0: {
+            YTMainForecastTableViewCell *Forecast = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
+            return Forecast;
+            
+        }break;
+            
+        default:
+            break;
+    }
     return [UITableViewCell new];
 }
 
@@ -135,6 +145,7 @@ UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0)  return 295;
     return 0;
 }
 

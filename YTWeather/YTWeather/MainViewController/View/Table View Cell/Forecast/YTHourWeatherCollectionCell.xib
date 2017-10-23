@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -46,11 +45,10 @@
                 <constraint firstAttribute="trailing" secondItem="whf-IP-yQu" secondAttribute="trailing" id="abo-hR-hL0"/>
                 <constraint firstItem="UaW-Iz-hc8" firstAttribute="top" secondItem="Fdg-cs-5Ex" secondAttribute="bottom" constant="5" id="fEM-co-1ej"/>
                 <constraint firstItem="UaW-Iz-hc8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kwX-U2-lsI"/>
-                <constraint firstItem="Fdg-cs-5Ex" firstAttribute="centerX" secondItem="SEy-5g-ep8" secondAttribute="centerX" id="n9Z-g5-5x3"/>
+                <constraint firstItem="Fdg-cs-5Ex" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="n9Z-g5-5x3"/>
                 <constraint firstAttribute="trailing" secondItem="UaW-Iz-hc8" secondAttribute="trailing" id="vh0-Ac-vV5"/>
                 <constraint firstItem="Fdg-cs-5Ex" firstAttribute="top" secondItem="whf-IP-yQu" secondAttribute="bottom" constant="5" id="wUH-eM-Hdg"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="113" height="138"/>
             <point key="canvasLocation" x="71.5" y="55"/>
         </collectionViewCell>

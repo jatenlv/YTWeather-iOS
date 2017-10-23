@@ -59,11 +59,6 @@
                     UIButton *btn = (UIButton *)obj2;
                     [btn setTitle:@"取消" forState:UIControlStateNormal];
                 }
-                if([obj2 isKindOfClass:[UITextField class]]) {
-                    UITextField * tf = (UITextField *)obj2;
-                    [tf becomeFirstResponder];
-                    self.tf = tf;
-                }
             }
         }
     }
