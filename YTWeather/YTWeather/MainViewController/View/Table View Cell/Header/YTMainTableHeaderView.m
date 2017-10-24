@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *currentStatusImageView;
 
+
 @end
 
 @implementation YTMainTableHeaderView

@@ -28,6 +28,19 @@
     }
     return self;
 }
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+        view.frame = self.bounds;
+        [self addSubview:view];
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+}
+
 - (IBAction)clickLeftButton:(UIButton *)sender
 {
     if(self.clickLeftBarButton)

@@ -40,7 +40,7 @@ UIGestureRecognizerDelegate
     [super viewDidLoad];
     self.title = @"上海";
     [self setupMainView];
-   // [self addSlideGesture];
+    [self addSlideGesture];
     self.weatherModel = [[YTWeatherModel alloc] init];
 }
 
@@ -99,13 +99,7 @@ UIGestureRecognizerDelegate
    
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
-{
-    if([touch.view isKindOfClass:[UICollectionView class]]) {
-        return NO;
-    }
-    return YES;
-}
+
 - (void)slideViewMoveWithDistance:(CGFloat)offset
 {
     [UIView animateWithDuration:0.35 animations:^{
@@ -122,6 +116,7 @@ UIGestureRecognizerDelegate
         if (!error) {
 //            self.weatherModel = model; // 暂时无用
             self.mainView.weatherModel = model;
+            [self.mainView.tableView reloadData];
         }
     }];
 }
