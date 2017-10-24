@@ -10,9 +10,12 @@
 
 @implementation YTMainPrecipitationTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
+    
+    self.backgroundColor = MainTableViewCellColor;
+    self.layer.cornerRadius = MainTableViewCellRadius;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

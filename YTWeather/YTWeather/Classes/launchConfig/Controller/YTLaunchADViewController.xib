@@ -5,12 +5,18 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTLaunchADViewController">
             <connections>
+                <outlet property="backgroundImageView" destination="8RT-R4-hCx" id="Bl9-6c-eZQ"/>
                 <outlet property="closeBtn" destination="3l5-vP-B5H" id="oLF-rH-drO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,9 +26,11 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear_n_portrait" translatesAutoresizingMaskIntoConstraints="NO" id="8RT-R4-hCx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3l5-vP-B5H">
                     <rect key="frame" x="299" y="20" width="56" height="30"/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.77753103595890416" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="56" id="ned-eh-qht"/>
                         <constraint firstAttribute="height" constant="30" id="teo-5O-P4l"/>
@@ -34,13 +42,28 @@
                         <action selector="forwardToMainVC:" destination="-1" eventType="touchUpInside" id="pov-l2-xLZ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是广告页" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4aS-TN-hLc">
+                    <rect key="frame" x="137.5" y="321.5" width="100" height="24"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="8RT-R4-hCx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HF9-j1-XVV"/>
+                <constraint firstItem="4aS-TN-hLc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Sa4-oy-WLN"/>
+                <constraint firstItem="4aS-TN-hLc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hAF-6E-SHt"/>
                 <constraint firstItem="3l5-vP-B5H" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="i1w-Os-4rs"/>
+                <constraint firstAttribute="bottom" secondItem="8RT-R4-hCx" secondAttribute="bottom" id="nh0-sv-Dlw"/>
+                <constraint firstItem="8RT-R4-hCx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oCx-rZ-scC"/>
                 <constraint firstAttribute="trailing" secondItem="3l5-vP-B5H" secondAttribute="trailing" constant="20" id="vgV-X8-zZ7"/>
+                <constraint firstAttribute="trailing" secondItem="8RT-R4-hCx" secondAttribute="trailing" id="vnc-1L-Uf0"/>
             </constraints>
             <point key="canvasLocation" x="39.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="clear_n_portrait" width="640" height="1136"/>
+    </resources>
 </document>

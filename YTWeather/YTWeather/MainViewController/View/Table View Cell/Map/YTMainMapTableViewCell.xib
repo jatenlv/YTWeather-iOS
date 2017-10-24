@@ -8,16 +8,53 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="YTMainMapTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="180" id="Ebs-vT-W49" customClass="YTMainMapTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ebs-vT-W49" id="hFQ-rq-oj0">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="179.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地图" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1O-u2-CxC">
+                        <rect key="frame" x="10" y="8" width="36" height="22"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eia-cr-cWb" userLabel="我是分割线">
+                        <rect key="frame" x="10" y="34.5" width="394" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="tSm-0t-bhJ"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvh-tG-IJ3">
+                        <rect key="frame" x="10" y="43" width="394" height="128"/>
+                        <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lvh-tG-IJ3" firstAttribute="leading" secondItem="hFQ-rq-oj0" secondAttribute="leading" constant="10" id="5dJ-QD-COv"/>
+                    <constraint firstItem="Q1O-u2-CxC" firstAttribute="top" secondItem="hFQ-rq-oj0" secondAttribute="top" constant="8" id="66i-Z8-DGV"/>
+                    <constraint firstItem="Eia-cr-cWb" firstAttribute="leading" secondItem="hFQ-rq-oj0" secondAttribute="leading" constant="10" id="AvF-pD-bvY"/>
+                    <constraint firstItem="lvh-tG-IJ3" firstAttribute="top" secondItem="Eia-cr-cWb" secondAttribute="bottom" constant="8" id="Hzx-L1-BsE"/>
+                    <constraint firstItem="Q1O-u2-CxC" firstAttribute="leading" secondItem="hFQ-rq-oj0" secondAttribute="leading" constant="10" id="VNt-3X-Eh3"/>
+                    <constraint firstItem="Eia-cr-cWb" firstAttribute="top" secondItem="Q1O-u2-CxC" secondAttribute="bottom" constant="5" id="VQl-1f-vHR"/>
+                    <constraint firstAttribute="trailing" secondItem="lvh-tG-IJ3" secondAttribute="trailing" constant="10" id="dQt-sQ-Swt"/>
+                    <constraint firstAttribute="bottom" secondItem="lvh-tG-IJ3" secondAttribute="bottom" constant="8" id="ivH-c7-qgt"/>
+                    <constraint firstAttribute="trailing" secondItem="Eia-cr-cWb" secondAttribute="trailing" constant="10" id="vuR-js-lVv"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <point key="canvasLocation" x="117" y="234"/>
         </tableViewCell>
     </objects>
 </document>
