@@ -22,9 +22,9 @@
 #define kForecastCellHeight      500
 #define kAdvertisingCellHeight   300
 #define kDetailCellHeight        180
-#define kMapCellHeight           100
-#define kPrecipitationCellHeight 100
-#define kSunAndWindCellHeight    100
+#define kMapCellHeight           200
+#define kPrecipitationCellHeight 120
+#define kSunAndWindCellHeight    200
 #define kEmptyCellHeight         10
 
 @interface YTMainView ()
@@ -33,6 +33,7 @@ UITableViewDataSource,
 UITableViewDelegate,
 YTMainTableHeaderViewDelegate
 >
+
 @property (nonatomic, strong)  YTMainTableHeaderView *headerView;
 
 @end
@@ -85,8 +86,6 @@ YTMainTableHeaderViewDelegate
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.delegate loadData];
     }];
-    
-
 }
 
 - (void)layoutSubviews
@@ -111,7 +110,7 @@ YTMainTableHeaderViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 11;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,33 +119,38 @@ YTMainTableHeaderViewDelegate
         case 0: {
             YTMainForecastTableViewCell *Forecast = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
             return Forecast;
-            
-        }break;
+        } break;
             
         case 2: {
             YTMainAdvertisingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainAdvertisingTableViewCell className]];
             return cell;
-
         } break;
         
         case 4: {
             YTMainDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainDetailTableViewCell className]];
+            cell.nowModel = self.weatherModel.now;
             return cell;
-            
         } break;
             
-        case 1 :
-        case 3 :
-        case 5 :
-            //        case 7 :
-            //        case 9 :
-        {
+        case 6: {
+            YTMainMapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainMapTableViewCell className]];
+            return cell;
+        } break;
+           
+        case 8: {
+            YTMainPrecipitationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainPrecipitationTableViewCell className]];
+            return cell;
+        } break;
+            
+        case 10: {
+            YTMainSunAndWindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainSunAndWindTableViewCell className]];
+            return cell;
+        } break;
+            
+        default: {
             YTMainEmptyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainEmptyTableViewCell className]];
             return cell;
         } break;
-            
-        default:
-            break;
     }
     return [UITableViewCell new];
 }
@@ -167,8 +171,9 @@ YTMainTableHeaderViewDelegate
     if (indexPath.row == 0) return kForecastCellHeight;
     if (indexPath.row == 2) return kAdvertisingCellHeight;
     if (indexPath.row == 4) return kDetailCellHeight;
-//    if (indexPath.row == 1) return kAdvertisingCellHeight;
-//    if (indexPath.row == 1) return kAdvertisingCellHeight;
+    if (indexPath.row == 6) return kMapCellHeight;
+    if (indexPath.row == 8) return kPrecipitationCellHeight;
+    if (indexPath.row == 10) return kSunAndWindCellHeight;
     if (indexPath.row % 2 == 1) return kEmptyCellHeight;
 
     return 0;
@@ -177,6 +182,16 @@ YTMainTableHeaderViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return ScreenHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 8.0f;
 }
 
 #pragma mark - delegate

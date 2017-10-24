@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "YTWeatherNowModel.h"
+
 @interface YTMainDetailTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) YTWeatherNowModel *nowModel;
 
 @end

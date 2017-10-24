@@ -469,9 +469,7 @@
 				846610111F9D94C400AC001D /* Map */,
 				846610121F9D94D500AC001D /* Precipitation */,
 				846610131F9D94DC00AC001D /* SunAndWind */,
-				84F687281F9ED33500C3A4AB /* YTMainEmptyTableViewCell.h */,
-				84F687291F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m */,
-				84F6872A1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.xib */,
+				84EFBB301F9F2A0E004839E8 /* Empty */,
 			);
 			path = "Table View Cell";
 			sourceTree = "<group>";
@@ -509,6 +507,16 @@
 				84D4FC5E1F974AB2000B62A3 /* YTRequestHeader.h */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		84EFBB301F9F2A0E004839E8 /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				84F687281F9ED33500C3A4AB /* YTMainEmptyTableViewCell.h */,
+				84F687291F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m */,
+				84F6872A1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.xib */,
+			);
+			path = Empty;
 			sourceTree = "<group>";
 		};
 		84F88BD01F99A3B700E4E1B2 /* YTCitySearch */ = {
