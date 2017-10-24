@@ -89,11 +89,6 @@ YTMainTableHeaderViewDelegate
 
 }
 
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-}
-
 #pragma mark - Data
 
 - (void)setWeatherModel:(YTWeatherModel *)weatherModel
