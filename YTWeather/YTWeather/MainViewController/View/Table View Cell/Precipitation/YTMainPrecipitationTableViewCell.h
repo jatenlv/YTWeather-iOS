@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "YTWeatherHourlyForecastModel.h"
+
 @interface YTMainPrecipitationTableViewCell : UITableViewCell
+
+@property (nonatomic, strong) NSArray <YTWeatherHourlyForecastModel *> *hourlyModelList;
 
 @end

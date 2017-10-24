@@ -139,6 +139,7 @@ YTMainTableHeaderViewDelegate
            
         case 8: {
             YTMainPrecipitationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainPrecipitationTableViewCell className]];
+            cell.hourlyModelList = self.weatherModel.hourly_forecast;
             return cell;
         } break;
             

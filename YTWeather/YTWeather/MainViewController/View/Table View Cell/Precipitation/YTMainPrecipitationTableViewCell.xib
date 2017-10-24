@@ -40,19 +40,19 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaZ-et-YIY">
                         <rect key="frame" x="144.5" y="43" width="125" height="68.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOP-Ya-YuD">
-                                <rect key="frame" x="45" y="-3" width="35.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOP-Ya-YuD">
+                                <rect key="frame" x="49" y="-3" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0a-gg-ABn">
-                                <rect key="frame" x="52.5" y="54" width="20.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0a-gg-ABn">
+                                <rect key="frame" x="49" y="54" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raindrop_blue" translatesAutoresizingMaskIntoConstraints="NO" id="iJY-LB-KFb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raindrop" translatesAutoresizingMaskIntoConstraints="NO" id="iJY-LB-KFb">
                                 <rect key="frame" x="47.5" y="19" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iJY-LB-KFb" secondAttribute="height" multiplier="1:1" id="P1q-SA-rIZ"/>
@@ -71,14 +71,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVe-mu-D5v">
                         <rect key="frame" x="10" y="43" width="124.5" height="68.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgD-m1-Yzw">
-                                <rect key="frame" x="44.5" y="-3" width="35.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HgD-m1-Yzw">
+                                <rect key="frame" x="48.5" y="-3" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-rC-WPE">
-                                <rect key="frame" x="52.5" y="54" width="20.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGq-rC-WPE">
+                                <rect key="frame" x="49" y="54" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -102,14 +102,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZF-2f-bkf">
                         <rect key="frame" x="279.5" y="43" width="124.5" height="68.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mM-if-1OA">
-                                <rect key="frame" x="44.5" y="-3" width="35.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mM-if-1OA">
+                                <rect key="frame" x="48.5" y="-3" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em9-MJ-Ssy">
-                                <rect key="frame" x="52.5" y="54" width="20.5" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em9-MJ-Ssy">
+                                <rect key="frame" x="49" y="54" width="28" height="17"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -176,11 +176,21 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="SecondPreLabel" destination="y0a-gg-ABn" id="7Sd-Oy-2Ef"/>
+                <outlet property="firstImageView" destination="AtZ-bD-zwC" id="LhF-PS-TUM"/>
+                <outlet property="firstPreLabel" destination="DGq-rC-WPE" id="pVk-Wb-0VP"/>
+                <outlet property="firstTimeLabel" destination="HgD-m1-Yzw" id="dFh-C2-eJg"/>
+                <outlet property="secondImageView" destination="iJY-LB-KFb" id="pFw-ec-Jun"/>
+                <outlet property="secondTimeLabel" destination="fOP-Ya-YuD" id="7mL-TJ-j79"/>
+                <outlet property="thirdImageView" destination="gMh-4E-kZg" id="nD4-d5-297"/>
+                <outlet property="thirdPreLabel" destination="Em9-MJ-Ssy" id="9cq-4q-vTM"/>
+                <outlet property="thirdTimeLabel" destination="0mM-if-1OA" id="Uq1-cn-p5L"/>
+            </connections>
             <point key="canvasLocation" x="182" y="223"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="raindrop" width="59" height="76"/>
-        <image name="raindrop_blue" width="59" height="76"/>
     </resources>
 </document>
