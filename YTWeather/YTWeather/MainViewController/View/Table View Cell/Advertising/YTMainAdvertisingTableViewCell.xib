@@ -8,16 +8,70 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="YTMainAdvertisingTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="208" id="KGk-i7-Jjw" customClass="YTMainAdvertisingTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="293" height="208"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="293" height="207.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLW-En-aun">
+                        <rect key="frame" x="10" y="8" width="273" height="38"/>
+                        <string key="text">The Best CreDit Cards for Today!
+Come on Boy!</string>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞助商 Yahoo! Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-mh-Jeb">
+                        <rect key="frame" x="10" y="57" width="273" height="12"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L21-bx-5tm">
+                        <rect key="frame" x="10" y="51" width="273" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="RcH-wA-5OD"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GML-Zm-u3j">
+                        <rect key="frame" x="10" y="74" width="273" height="125.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="L21-bx-5tm" secondAttribute="trailing" constant="10" id="3ya-mA-nC2"/>
+                    <constraint firstAttribute="trailing" secondItem="GML-Zm-u3j" secondAttribute="trailing" constant="10" id="6Ie-eU-VkG"/>
+                    <constraint firstItem="L21-bx-5tm" firstAttribute="top" secondItem="qLW-En-aun" secondAttribute="bottom" constant="5" id="Cyk-Xt-W07"/>
+                    <constraint firstItem="GML-Zm-u3j" firstAttribute="top" secondItem="g9A-mh-Jeb" secondAttribute="bottom" constant="5" id="DLu-hO-p35"/>
+                    <constraint firstAttribute="bottom" secondItem="GML-Zm-u3j" secondAttribute="bottom" constant="8" id="FB0-hb-6NR"/>
+                    <constraint firstAttribute="trailing" secondItem="qLW-En-aun" secondAttribute="trailing" constant="10" id="LFC-ok-pOv"/>
+                    <constraint firstItem="qLW-En-aun" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TGC-vP-tUa"/>
+                    <constraint firstAttribute="trailing" secondItem="g9A-mh-Jeb" secondAttribute="trailing" constant="10" id="cS4-Zi-TpR"/>
+                    <constraint firstItem="qLW-En-aun" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gZA-TD-mSX"/>
+                    <constraint firstItem="L21-bx-5tm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gfP-62-iYX"/>
+                    <constraint firstItem="GML-Zm-u3j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sdR-wQ-ayJ"/>
+                    <constraint firstItem="g9A-mh-Jeb" firstAttribute="top" secondItem="L21-bx-5tm" secondAttribute="bottom" constant="5" id="v2v-4l-dZn"/>
+                    <constraint firstItem="g9A-mh-Jeb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vFB-hE-Zyf"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="adImageView" destination="GML-Zm-u3j" id="44Y-wl-BRC"/>
+                <outlet property="companyLabel" destination="g9A-mh-Jeb" id="Zsx-YC-bue"/>
+                <outlet property="titleLabel" destination="qLW-En-aun" id="WRD-DW-FfS"/>
+            </connections>
+            <point key="canvasLocation" x="103.5" y="136"/>
         </tableViewCell>
     </objects>
 </document>

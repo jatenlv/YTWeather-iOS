@@ -8,17 +8,22 @@
 
 #import "YTMainAdvertisingTableViewCell.h"
 
+@interface YTMainAdvertisingTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *companyLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *adImageView;
+
+@end
+
 @implementation YTMainAdvertisingTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
+    self.backgroundColor = MainTableViewCellColor;
+    self.layer.cornerRadius = MainTableViewCellRadius;
 }
 
 @end

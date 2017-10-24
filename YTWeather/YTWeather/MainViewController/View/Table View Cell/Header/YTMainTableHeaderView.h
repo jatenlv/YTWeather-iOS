@@ -10,9 +10,23 @@
 #import "YTWeatherDailyForecastModel.h"
 #import "YTWeatherNowModel.h"
 
+#import "YTMainCustomNavigationBar.h"
+
+@protocol YTMainTableHeaderViewDelegate
+
+- (void)clickLeftBarButton;
+- (void)clickRightBarButton;
+
+@end
+
 @interface YTMainTableHeaderView : UIView
+
+@property (nonatomic, weak) id <YTMainTableHeaderViewDelegate> delegate;
 
 @property (nonatomic, strong) YTWeatherDailyForecastModel *dailyForecastModel;
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
+
+@property (weak, nonatomic) IBOutlet YTMainCustomNavigationBar *customNavigationBar;
+
 
 @end

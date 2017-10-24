@@ -23,6 +23,7 @@
                 <outlet property="currentStatusImageView" destination="jSX-YL-vhH" id="2QH-BL-lEm"/>
                 <outlet property="currentStatusLabel" destination="Bij-zX-7EQ" id="bge-ut-nq0"/>
                 <outlet property="currentTemperatureLabel" destination="mIz-Oa-NaO" id="3GD-bb-qGo"/>
+                <outlet property="customNavigationBar" destination="dp4-5x-djD" id="zKN-so-5NT"/>
                 <outlet property="highTemperatureLabel" destination="bsC-1A-G02" id="VZo-He-2FT"/>
                 <outlet property="lowTemperatureLabel" destination="gtB-zr-k4e" id="RUO-vh-9ST"/>
             </connections>
@@ -81,8 +82,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®由chaoyue提供" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6">
-                    <rect key="frame" x="290" y="644" width="77" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®由chaoyue&amp;jiateng提供" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6" userLabel="®由chaoyue&amp;jiateng提供">
+                    <rect key="frame" x="251.5" y="644" width="115.5" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="FB2-0x-zKA"/>
                     </constraints>
@@ -108,8 +109,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-5x-djD" customClass="YTMainCustomNavigationBar">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="PWR-vh-bAR"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
+                <constraint firstItem="dp4-5x-djD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3RW-9k-c7r"/>
                 <constraint firstItem="Bij-zX-7EQ" firstAttribute="leading" secondItem="jSX-YL-vhH" secondAttribute="trailing" constant="5" id="91x-Ng-8t9"/>
                 <constraint firstItem="jSX-YL-vhH" firstAttribute="centerY" secondItem="Bij-zX-7EQ" secondAttribute="centerY" id="DKb-lQ-f9b"/>
                 <constraint firstItem="bsC-1A-G02" firstAttribute="top" secondItem="Bij-zX-7EQ" secondAttribute="bottom" constant="5" id="E2I-Jx-DQm"/>
@@ -122,7 +131,9 @@
                 <constraint firstAttribute="bottom" secondItem="mIz-Oa-NaO" secondAttribute="bottom" constant="8" id="SOd-2X-dhM"/>
                 <constraint firstItem="Iag-R7-nIb" firstAttribute="leading" secondItem="mIz-Oa-NaO" secondAttribute="trailing" constant="5" id="Yry-oT-xLv"/>
                 <constraint firstItem="bsC-1A-G02" firstAttribute="leading" secondItem="P3F-5C-9ch" secondAttribute="trailing" constant="8" id="bbe-j5-qZZ"/>
+                <constraint firstItem="dp4-5x-djD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="byc-0t-jp2"/>
                 <constraint firstItem="P3F-5C-9ch" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="rU5-zJ-CaX"/>
+                <constraint firstAttribute="trailing" secondItem="dp4-5x-djD" secondAttribute="trailing" id="tQN-nW-H3v"/>
                 <constraint firstItem="mIz-Oa-NaO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="u9z-xt-3hi"/>
                 <constraint firstItem="KXY-b6-Ct7" firstAttribute="leading" secondItem="bsC-1A-G02" secondAttribute="trailing" constant="8" id="wER-QQ-U6i"/>
                 <constraint firstItem="gtB-zr-k4e" firstAttribute="leading" secondItem="KXY-b6-Ct7" secondAttribute="trailing" constant="8" id="wQv-Lx-El3"/>

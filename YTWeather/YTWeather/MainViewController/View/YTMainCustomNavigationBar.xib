@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,24 +50,24 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-An-A05" userLabel="Left Button">
-                    <rect key="frame" x="20" y="14" width="21" height="21"/>
+                    <rect key="frame" x="5" y="-1" width="51" height="51"/>
                     <connections>
                         <action selector="clickLeftButton:" destination="-1" eventType="touchUpInside" id="0mc-vC-pY2"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epq-Z2-f9v" userLabel="Right Button">
-                    <rect key="frame" x="334" y="15" width="21" height="21"/>
+                    <rect key="frame" x="319" y="0.0" width="51" height="51"/>
                     <connections>
                         <action selector="clickRightButton:" destination="-1" eventType="touchUpInside" id="yjc-LJ-84H"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="epq-Z2-f9v" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="width" id="1U2-wf-TD4"/>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="width" constant="30" id="1U2-wf-TD4"/>
                 <constraint firstItem="pdG-An-A05" firstAttribute="centerY" secondItem="ZCD-ho-KTP" secondAttribute="centerY" id="7ly-D4-blo"/>
                 <constraint firstItem="epq-Z2-f9v" firstAttribute="centerX" secondItem="ZDx-Qi-ZwW" secondAttribute="centerX" id="DYo-HU-aR5"/>
                 <constraint firstItem="xUu-bP-dwn" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="Kzg-f0-Tjh"/>
-                <constraint firstItem="pdG-An-A05" firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="width" id="VuC-YL-xG0"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="width" constant="30" id="VuC-YL-xG0"/>
                 <constraint firstItem="ZCD-ho-KTP" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="dPa-hT-GCo"/>
                 <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="eOU-Av-RBm"/>
                 <constraint firstItem="ZCD-ho-KTP" firstAttribute="leading" secondItem="G73-2Z-ETu" secondAttribute="leading" constant="20" id="elH-YT-86b"/>
@@ -77,8 +77,8 @@
                 <constraint firstItem="epq-Z2-f9v" firstAttribute="centerY" secondItem="ZDx-Qi-ZwW" secondAttribute="centerY" id="lGE-S3-ivQ"/>
                 <constraint firstItem="pdG-An-A05" firstAttribute="centerX" secondItem="ZCD-ho-KTP" secondAttribute="centerX" id="oEC-Uy-coZ"/>
                 <constraint firstItem="B9A-Q0-vfc" firstAttribute="top" secondItem="G73-2Z-ETu" secondAttribute="top" constant="8" id="oKP-y3-eOv"/>
-                <constraint firstItem="epq-Z2-f9v" firstAttribute="height" secondItem="ZDx-Qi-ZwW" secondAttribute="height" id="opk-g0-B6Z"/>
-                <constraint firstItem="pdG-An-A05" firstAttribute="height" secondItem="ZCD-ho-KTP" secondAttribute="height" id="qQO-RW-ASY"/>
+                <constraint firstItem="epq-Z2-f9v" firstAttribute="height" secondItem="ZDx-Qi-ZwW" secondAttribute="height" constant="30" id="opk-g0-B6Z"/>
+                <constraint firstItem="pdG-An-A05" firstAttribute="height" secondItem="ZCD-ho-KTP" secondAttribute="height" constant="30" id="qQO-RW-ASY"/>
                 <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="height" multiplier="1:1" id="uhY-rs-JSI"/>
                 <constraint firstItem="B9A-Q0-vfc" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="wsc-PW-hcL"/>
                 <constraint firstItem="ZCD-ho-KTP" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="21:50" id="zaw-kT-U0u"/>
