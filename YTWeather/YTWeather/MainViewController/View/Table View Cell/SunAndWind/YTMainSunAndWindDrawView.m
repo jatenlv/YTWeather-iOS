@@ -36,23 +36,17 @@
 
 - (void)setup
 {
-    
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     view.backgroundColor = [UIColor redColor];
     [self addSubview:view];
     
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    // 设置动画的路径为心形路径
     animation.path = self.path.CGPath;
-    // 动画时间间隔
     animation.duration = 5.0f;
-    // 重复次数为最大值
     animation.repeatCount = 0;
     animation.removedOnCompletion = NO;
     animation.fillMode = kCAFillModeForwards;
-    // 将动画添加到动画视图上
     [view.layer addAnimation:animation forKey:nil];
-    
 }
 
 @end
