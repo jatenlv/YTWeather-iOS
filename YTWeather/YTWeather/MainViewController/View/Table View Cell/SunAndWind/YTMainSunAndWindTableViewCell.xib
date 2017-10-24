@@ -37,27 +37,38 @@
                             <constraint firstAttribute="height" constant="1" id="y5m-mS-dWi"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihV-YN-vuM">
-                        <rect key="frame" x="167" y="49" width="80" height="80"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-6x-siV" customClass="YTMainSunAndWindDrawView">
+                        <rect key="frame" x="10" y="43" width="394" height="128"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihV-YN-vuM">
+                                <rect key="frame" x="172" y="39" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="fmL-cy-yRZ"/>
+                                    <constraint firstAttribute="width" secondItem="ihV-YN-vuM" secondAttribute="height" multiplier="1:1" id="pVS-2o-cdZ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="80" id="2P6-sM-fCX"/>
-                            <constraint firstAttribute="width" constant="80" id="fmL-cy-yRZ"/>
-                            <constraint firstAttribute="width" secondItem="ihV-YN-vuM" secondAttribute="height" multiplier="1:1" id="pVS-2o-cdZ"/>
+                            <constraint firstItem="ihV-YN-vuM" firstAttribute="centerX" secondItem="3x3-6x-siV" secondAttribute="centerX" id="Hnl-t0-OBg"/>
+                            <constraint firstItem="ihV-YN-vuM" firstAttribute="centerY" secondItem="3x3-6x-siV" secondAttribute="centerY" id="Xn9-M7-nlJ"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="V2f-8a-hH8" secondAttribute="trailing" constant="10" id="0xB-tf-acO"/>
-                    <constraint firstItem="ihV-YN-vuM" firstAttribute="centerY" secondItem="u9v-1c-vzh" secondAttribute="centerY" id="218-hy-yv4"/>
+                    <constraint firstItem="3x3-6x-siV" firstAttribute="top" secondItem="V2f-8a-hH8" secondAttribute="bottom" constant="8" id="4xO-JP-xm4"/>
                     <constraint firstItem="mE4-0Y-xZP" firstAttribute="top" secondItem="u9v-1c-vzh" secondAttribute="top" constant="8" id="5xH-Dg-Q6z"/>
-                    <constraint firstItem="ihV-YN-vuM" firstAttribute="centerX" secondItem="u9v-1c-vzh" secondAttribute="centerX" id="ACm-QL-ENE"/>
+                    <constraint firstAttribute="trailing" secondItem="3x3-6x-siV" secondAttribute="trailing" constant="10" id="6cP-s5-RKB"/>
+                    <constraint firstItem="3x3-6x-siV" firstAttribute="leading" secondItem="u9v-1c-vzh" secondAttribute="leading" constant="10" id="O80-ue-hZf"/>
                     <constraint firstItem="mE4-0Y-xZP" firstAttribute="leading" secondItem="u9v-1c-vzh" secondAttribute="leading" constant="10" id="Wiw-nJ-F7g"/>
+                    <constraint firstAttribute="bottom" secondItem="3x3-6x-siV" secondAttribute="bottom" constant="8" id="X12-sq-fZJ"/>
                     <constraint firstItem="V2f-8a-hH8" firstAttribute="top" secondItem="mE4-0Y-xZP" secondAttribute="bottom" constant="5" id="b7u-jV-Mu4"/>
                     <constraint firstItem="V2f-8a-hH8" firstAttribute="leading" secondItem="u9v-1c-vzh" secondAttribute="leading" constant="10" id="cR8-Vo-eCZ"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="drawView" destination="3x3-6x-siV" id="9g8-P6-d4d"/>
                 <outlet property="windmillImageView" destination="ihV-YN-vuM" id="M4h-pA-ZBC"/>
             </connections>
             <point key="canvasLocation" x="181" y="71"/>

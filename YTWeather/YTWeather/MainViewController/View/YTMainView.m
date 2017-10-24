@@ -62,7 +62,7 @@ YTMainTableHeaderViewDelegate
     }
     
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
-    [backImageView setImage:[UIImage imageNamed:@"foggy_n_portrait.jpg"]];
+    [backImageView setImage:[UIImage imageNamed:@"cloudy_n_portrait_blur.jpg"]];
     self.tableView.backgroundView = backImageView;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -8,8 +8,11 @@
 
 #import "YTMainSunAndWindTableViewCell.h"
 
+#import "YTMainSunAndWindDrawView.h"
+
 @interface YTMainSunAndWindTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *windmillImageView;
+@property (weak, nonatomic) IBOutlet YTMainSunAndWindDrawView *drawView;
 
 @end
 
@@ -18,6 +21,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
+    self.backgroundColor = MainTableViewCellColor;
+    self.layer.cornerRadius = MainTableViewCellRadius;
     [self setupWindmillAnimation];
 }
 
@@ -31,6 +36,11 @@
     self.windmillImageView.animationDuration = 5.0;
     self.windmillImageView.animationRepeatCount = 0;
     [self.windmillImageView startAnimating];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+
 }
 
 @end
