@@ -5,9 +5,14 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -22,20 +27,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="358" height="296.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预报" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-v6-B6g">
-                                <rect key="frame" x="0.0" y="0.0" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="10" y="8" width="32" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvS-q1-MqY">
-                                <rect key="frame" x="0.0" y="21" width="358" height="10"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="10" y="32" width="338" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="VV8-dL-wdU"/>
+                                    <constraint firstAttribute="height" constant="1" id="VV8-dL-wdU"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qmD-8B-jeA">
-                                <rect key="frame" x="0.0" y="121" width="358" height="175.5"/>
+                                <rect key="frame" x="10" y="136" width="338" height="152.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="-1" id="jkn-70-bfM"/>
@@ -43,26 +48,25 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-2m-J55" customClass="YTHourWeatherScrollView">
-                                <rect key="frame" x="0.0" y="31" width="358" height="90"/>
+                                <rect key="frame" x="10" y="41" width="338" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="Jq8-Fh-VDQ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="kvS-q1-MqY" secondAttribute="trailing" id="0ec-iu-aub"/>
-                            <constraint firstItem="kvS-q1-MqY" firstAttribute="top" secondItem="3Nc-v6-B6g" secondAttribute="bottom" id="AdX-rX-ZEG"/>
-                            <constraint firstItem="qmD-8B-jeA" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" id="MpT-fM-r7L"/>
-                            <constraint firstAttribute="bottom" secondItem="qmD-8B-jeA" secondAttribute="bottom" id="NOC-fB-add"/>
-                            <constraint firstItem="xpg-2m-J55" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" id="URB-DJ-mXY"/>
-                            <constraint firstAttribute="trailing" secondItem="qmD-8B-jeA" secondAttribute="trailing" id="ZMI-Qx-gOg"/>
-                            <constraint firstAttribute="trailing" secondItem="xpg-2m-J55" secondAttribute="trailing" id="fOq-kJ-vzM"/>
-                            <constraint firstItem="kvS-q1-MqY" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" id="ilp-pD-kXK"/>
-                            <constraint firstItem="qmD-8B-jeA" firstAttribute="top" secondItem="xpg-2m-J55" secondAttribute="bottom" id="jY6-dh-9ws"/>
-                            <constraint firstItem="3Nc-v6-B6g" firstAttribute="top" secondItem="8LP-28-pHh" secondAttribute="top" id="pgR-KQ-h2V"/>
-                            <constraint firstItem="xpg-2m-J55" firstAttribute="top" secondItem="kvS-q1-MqY" secondAttribute="bottom" id="roS-oY-svQ"/>
-                            <constraint firstItem="3Nc-v6-B6g" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" id="ssj-om-LNR"/>
+                            <constraint firstAttribute="trailing" secondItem="kvS-q1-MqY" secondAttribute="trailing" constant="10" id="0ec-iu-aub"/>
+                            <constraint firstItem="kvS-q1-MqY" firstAttribute="top" secondItem="3Nc-v6-B6g" secondAttribute="bottom" constant="5" id="AdX-rX-ZEG"/>
+                            <constraint firstItem="qmD-8B-jeA" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="MpT-fM-r7L"/>
+                            <constraint firstAttribute="bottom" secondItem="qmD-8B-jeA" secondAttribute="bottom" constant="8" id="NOC-fB-add"/>
+                            <constraint firstItem="xpg-2m-J55" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="URB-DJ-mXY"/>
+                            <constraint firstAttribute="trailing" secondItem="qmD-8B-jeA" secondAttribute="trailing" constant="10" id="ZMI-Qx-gOg"/>
+                            <constraint firstAttribute="trailing" secondItem="xpg-2m-J55" secondAttribute="trailing" constant="10" id="fOq-kJ-vzM"/>
+                            <constraint firstItem="kvS-q1-MqY" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="ilp-pD-kXK"/>
+                            <constraint firstItem="qmD-8B-jeA" firstAttribute="top" secondItem="xpg-2m-J55" secondAttribute="bottom" constant="5" id="jY6-dh-9ws"/>
+                            <constraint firstItem="3Nc-v6-B6g" firstAttribute="top" secondItem="8LP-28-pHh" secondAttribute="top" constant="8" id="pgR-KQ-h2V"/>
+                            <constraint firstItem="xpg-2m-J55" firstAttribute="top" secondItem="kvS-q1-MqY" secondAttribute="bottom" constant="8" id="roS-oY-svQ"/>
+                            <constraint firstItem="3Nc-v6-B6g" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="ssj-om-LNR"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -73,6 +77,7 @@
                     <constraint firstAttribute="bottom" secondItem="8LP-28-pHh" secondAttribute="bottom" id="dC6-a5-R1A"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
                 <outlet property="threeDaysForTheWeather" destination="qmD-8B-jeA" id="IWu-mD-VtE"/>
             </connections>

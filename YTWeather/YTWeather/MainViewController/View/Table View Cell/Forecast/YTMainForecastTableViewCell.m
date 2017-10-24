@@ -19,6 +19,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    self.backgroundColor = MainTableViewCellColor;
+    self.layer.cornerRadius = MainTableViewCellRadius;
+
     [self setupAllViews];
     
     
