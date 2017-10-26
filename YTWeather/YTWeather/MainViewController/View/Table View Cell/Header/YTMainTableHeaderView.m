@@ -33,6 +33,7 @@
     return self;
 }
 
+
 - (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
     self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
@@ -57,6 +58,14 @@
 {
     self.highTemperatureLabel.text = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.max];
     self.lowTemperatureLabel.text  = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.min];
+}
+
+- (void)setBasicModel:(YTWeatherBasicModel *)basicModel
+{
+    self.customNavigationBar.cityNameText = basicModel.city;
+    
+    // 接口问题 获取不到时间
+//    self.customNavigationBar.timeText = basicModel.update.utc
 }
 
 @end

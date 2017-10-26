@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YTWeatherDailyForecastModel.h"
 #import "YTWeatherNowModel.h"
+#import "YTWeatherBasicModel.h"
 
 #import "YTMainCustomNavigationBar.h"
 
@@ -25,6 +26,7 @@
 
 @property (nonatomic, strong) YTWeatherDailyForecastModel *dailyForecastModel;
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
+@property (nonatomic, strong) YTWeatherBasicModel *basicModel;
 
 @property (weak, nonatomic) IBOutlet YTMainCustomNavigationBar *customNavigationBar;
 

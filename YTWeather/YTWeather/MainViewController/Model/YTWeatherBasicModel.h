@@ -23,7 +23,7 @@
 
 @interface UpdateModel : NSObject
 
-@property (nonatomic, strong) NSNumber *lot;
-@property (nonatomic, strong) NSNumber *utc;
+@property (nonatomic, strong) NSDate *lot;
+@property (nonatomic, strong) NSDate *utc;
 
 @end

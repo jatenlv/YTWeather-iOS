@@ -18,6 +18,7 @@
 #import "YTMainEmptyTableViewCell.h"
 
 #import "YTMainCustomNavigationBar.h"
+#import "YTCustomRefreshGifHeader.h"
 
 #define kForecastCellHeight      500
 #define kAdvertisingCellHeight   300
@@ -62,8 +63,12 @@ YTMainTableHeaderViewDelegate
     }
     
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
-    [backImageView setImage:[UIImage imageNamed:@"cloudy_n_portrait_blur.jpg"]];
+    [backImageView setImage:[UIImage imageNamed:@"rain_n_portrait_blur.jpg"]];
     self.tableView.backgroundView = backImageView;
+    
+    UIView *yt_headerBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -500, ScreenWidth, 500)];
+    yt_headerBackgroundView.backgroundColor = MainTableViewCellColor;
+    [self.tableView addSubview:yt_headerBackgroundView];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
@@ -82,10 +87,11 @@ YTMainTableHeaderViewDelegate
     [self.tableView registerNib:[YTMainSunAndWindTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainSunAndWindTableViewCell className]];
     
     [self.tableView registerNib:[YTMainEmptyTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainEmptyTableViewCell className]];
-    
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+
+    self.tableView.mj_header = [YTCustomRefreshGifHeader headerWithCustomerGifRefreshingBlock:^{
         [self.delegate loadData];
     }];
+    [self.tableView bringSubviewToFront:self.tableView.mj_header];
 }
 
 #pragma mark - Data
@@ -159,17 +165,18 @@ YTMainTableHeaderViewDelegate
     self.headerView.delegate = self;
     self.headerView.nowModel = self.weatherModel.now;
     self.headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
+    self.headerView.basicModel = self.weatherModel.basic;
     return self.headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) return kForecastCellHeight;
-    if (indexPath.row == 2) return kAdvertisingCellHeight;
-    if (indexPath.row == 4) return kDetailCellHeight;
-    if (indexPath.row == 6) return kMapCellHeight;
-    if (indexPath.row == 8) return kPrecipitationCellHeight;
-    if (indexPath.row == 10) return kSunAndWindCellHeight;
+    if (indexPath.row == 0)     return kForecastCellHeight;
+    if (indexPath.row == 2)     return kAdvertisingCellHeight;
+    if (indexPath.row == 4)     return kDetailCellHeight;
+    if (indexPath.row == 6)     return kMapCellHeight;
+    if (indexPath.row == 8)     return kPrecipitationCellHeight;
+    if (indexPath.row == 10)    return kSunAndWindCellHeight;
     if (indexPath.row % 2 == 1) return kEmptyCellHeight;
 
     return 0;

@@ -17,28 +17,29 @@
 
 @implementation YTMainCustomNavigationBar
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-        view.frame = self.bounds;
-        [self addSubview:view];
-        self.backgroundColor = [UIColor clearColor];
-    }
-    return self;
-}
-
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
         UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
         view.frame = self.bounds;
+        view.width = ScreenWidth;
         [self addSubview:view];
-        self.backgroundColor = [UIColor clearColor];
+        
+        [self setTimeText:@""];
     }
     return self;
+}
+
+ - (void)setCityNameText:(NSString *)cityNameText
+{
+    self.cityNameLabel.text = cityNameText;
+}
+
+- (void)setTimeText:(NSString *)timeText
+{
+    NSDateComponents *dd = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[NSDate date]];
+    self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld CCT", (long)[dd hour], (long)[dd minute]];
 }
 
 - (IBAction)clickLeftButton:(UIButton *)sender
@@ -51,8 +52,6 @@
 
 - (IBAction)clickRightButton:(UIButton *)sender
 {
-    
-    
     if(self.clickRightBarButton)
     {
         self.clickRightBarButton();

@@ -111,10 +111,9 @@ UIGestureRecognizerDelegate
 
 - (void)loadData
 {
-    [YTMainRequestNetworkTool requestWeatherWithCityName:@"北京" andFinish:^(YTWeatherModel *model, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherWithCityName:@"上海" andFinish:^(YTWeatherModel *model, NSError *error) {
         [self.mainView.tableView.mj_header endRefreshing];
         if (!error) {
-//            self.weatherModel = model; // 暂时无用
             self.mainView.weatherModel = model;
             [self.mainView.tableView reloadData];
         }
