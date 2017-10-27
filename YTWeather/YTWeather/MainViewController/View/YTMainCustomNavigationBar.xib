@@ -29,34 +29,34 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sidebar_icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZCD-ho-KTP" userLabel="Left Button Image View">
-                    <rect key="frame" x="20" y="14.5" width="21" height="21"/>
+                    <rect key="frame" x="20" y="16.5" width="16.5" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="height" multiplier="1:1" id="JAc-sO-PYC"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editlocplus" translatesAutoresizingMaskIntoConstraints="NO" id="ZDx-Qi-ZwW" userLabel="Right Button Image View">
-                    <rect key="frame" x="334" y="15" width="21" height="21"/>
+                    <rect key="frame" x="338.5" y="17" width="16.5" height="17"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9A-Q0-vfc">
-                    <rect key="frame" x="161" y="8" width="54" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海市" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B9A-Q0-vfc">
+                    <rect key="frame" x="161" y="9.5" width="54" height="21"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:42 CST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUu-bP-dwn">
-                    <rect key="frame" x="159" y="29" width="57" height="14"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:51:39 CCT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xUu-bP-dwn">
+                    <rect key="frame" x="151" y="30.5" width="74.5" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdG-An-A05" userLabel="Left Button">
-                    <rect key="frame" x="5" y="-1" width="51" height="51"/>
+                    <rect key="frame" x="5" y="1" width="46.5" height="47"/>
                     <connections>
                         <action selector="clickLeftButton:" destination="-1" eventType="touchUpInside" id="0mc-vC-pY2"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epq-Z2-f9v" userLabel="Right Button">
-                    <rect key="frame" x="319" y="0.0" width="51" height="51"/>
+                    <rect key="frame" x="323.5" y="2" width="46.5" height="47"/>
                     <connections>
                         <action selector="clickRightButton:" destination="-1" eventType="touchUpInside" id="yjc-LJ-84H"/>
                     </connections>
@@ -68,20 +68,20 @@
                 <constraint firstItem="epq-Z2-f9v" firstAttribute="centerX" secondItem="ZDx-Qi-ZwW" secondAttribute="centerX" id="DYo-HU-aR5"/>
                 <constraint firstItem="xUu-bP-dwn" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="Kzg-f0-Tjh"/>
                 <constraint firstItem="pdG-An-A05" firstAttribute="width" secondItem="ZCD-ho-KTP" secondAttribute="width" constant="30" id="VuC-YL-xG0"/>
+                <constraint firstItem="B9A-Q0-vfc" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" constant="-5" id="X5a-47-bgc"/>
                 <constraint firstItem="ZCD-ho-KTP" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="dPa-hT-GCo"/>
                 <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="centerY" secondItem="G73-2Z-ETu" secondAttribute="centerY" id="eOU-Av-RBm"/>
                 <constraint firstItem="ZCD-ho-KTP" firstAttribute="leading" secondItem="G73-2Z-ETu" secondAttribute="leading" constant="20" id="elH-YT-86b"/>
                 <constraint firstItem="xUu-bP-dwn" firstAttribute="top" secondItem="B9A-Q0-vfc" secondAttribute="bottom" id="hZf-Ie-bsZ"/>
-                <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="21:50" id="ipL-Lp-3T7"/>
+                <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="1:3" id="ipL-Lp-3T7"/>
                 <constraint firstAttribute="trailing" secondItem="ZDx-Qi-ZwW" secondAttribute="trailing" constant="20" id="j3U-aO-POU"/>
                 <constraint firstItem="epq-Z2-f9v" firstAttribute="centerY" secondItem="ZDx-Qi-ZwW" secondAttribute="centerY" id="lGE-S3-ivQ"/>
                 <constraint firstItem="pdG-An-A05" firstAttribute="centerX" secondItem="ZCD-ho-KTP" secondAttribute="centerX" id="oEC-Uy-coZ"/>
-                <constraint firstItem="B9A-Q0-vfc" firstAttribute="top" secondItem="G73-2Z-ETu" secondAttribute="top" constant="8" id="oKP-y3-eOv"/>
                 <constraint firstItem="epq-Z2-f9v" firstAttribute="height" secondItem="ZDx-Qi-ZwW" secondAttribute="height" constant="30" id="opk-g0-B6Z"/>
                 <constraint firstItem="pdG-An-A05" firstAttribute="height" secondItem="ZCD-ho-KTP" secondAttribute="height" constant="30" id="qQO-RW-ASY"/>
                 <constraint firstItem="ZDx-Qi-ZwW" firstAttribute="width" secondItem="ZDx-Qi-ZwW" secondAttribute="height" multiplier="1:1" id="uhY-rs-JSI"/>
                 <constraint firstItem="B9A-Q0-vfc" firstAttribute="centerX" secondItem="G73-2Z-ETu" secondAttribute="centerX" id="wsc-PW-hcL"/>
-                <constraint firstItem="ZCD-ho-KTP" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="21:50" id="zaw-kT-U0u"/>
+                <constraint firstItem="ZCD-ho-KTP" firstAttribute="width" secondItem="G73-2Z-ETu" secondAttribute="height" multiplier="1:3" id="zaw-kT-U0u"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="352.5" y="173"/>

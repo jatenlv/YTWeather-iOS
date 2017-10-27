@@ -35,21 +35,21 @@
 - (void)setHourlyModelList:(NSArray<YTWeatherHourlyForecastModel *> *)hourlyModelList
 {
     if (hourlyModelList.count >= 1) {
-        self.firstTimeLabel.text = [self cutTheDate:hourlyModelList[0].date];
+        self.firstTimeLabel.text = [self cutTheDate:hourlyModelList[0].time];
         self.firstPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[0].pop];
         if ([hourlyModelList[0].pop integerValue] > 0) {
             self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];
         }
     }
     if (hourlyModelList.count >= 2) {
-        self.secondTimeLabel.text = [self cutTheDate:hourlyModelList[1].date];
+        self.secondTimeLabel.text = [self cutTheDate:hourlyModelList[1].time];
         self.SecondPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[1].pop];
         if ([hourlyModelList[1].pop integerValue] > 0) {
             self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];
         }
     }
-    if (hourlyModelList.count == 3) {
-        self.thirdTimeLabel.text = [self cutTheDate:hourlyModelList[2].date];
+    if (hourlyModelList.count >= 3) {
+        self.thirdTimeLabel.text = [self cutTheDate:hourlyModelList[2].time];
         self.thirdPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[2].pop];
         if ([hourlyModelList[2].pop integerValue] > 0) {
             self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];

@@ -7,23 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-@class UpdateModel;
 
 @interface YTWeatherBasicModel : NSObject
 
-@property (nonatomic, copy) NSString *city;
-@property (nonatomic, copy) NSString *cnty;
-@property (nonatomic, copy) NSString *Id;
-@property (nonatomic, strong) NSNumber *lat;
-@property (nonatomic, strong) NSNumber *lon;
-@property (nonatomic, copy) NSString *prov;
-@property (nonatomic, strong) UpdateModel *update;
+@property (nonatomic, copy) NSString * admin_area;
+@property (nonatomic, copy) NSString * cid;
+@property (nonatomic, copy) NSString * cnty;
+@property (nonatomic, copy) NSString * lat;
+@property (nonatomic, copy) NSString * location;
+@property (nonatomic, copy) NSString * lon;
+@property (nonatomic, copy) NSString * parent_city;
+@property (nonatomic, copy) NSString * tz;
 
 @end
 
-@interface UpdateModel : NSObject
-
-@property (nonatomic, strong) NSDate *lot;
-@property (nonatomic, strong) NSDate *utc;
-
-@end

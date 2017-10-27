@@ -10,19 +10,4 @@
 
 @implementation YTWeatherBasicModel
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [self modelEncodeWithCoder:aCoder];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    return [self modelInitWithCoder:aDecoder];
-}
-
-@end
-
-@implementation UpdateModel
-
 @end

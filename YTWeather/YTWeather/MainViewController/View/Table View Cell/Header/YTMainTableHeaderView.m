@@ -33,12 +33,13 @@
     return self;
 }
 
-
 - (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
-    self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
-    self.currentStatusLabel.text = nowModel.cond.txt;
-    [self.currentStatusImageView setImageWithURL:[self findImageUrl:nowModel] placeholder:nil];
+    if (nowModel) {
+        self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
+        self.currentStatusLabel.text = nowModel.cond_txt;
+        [self.currentStatusImageView setImageWithURL:[self findImageUrl:nowModel] placeholder:nil];
+    }
 }
 
 - (NSURL *)findImageUrl:(YTWeatherNowModel *)nowModel
@@ -46,26 +47,19 @@
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"weatherCode" ofType:@"plist"];
     NSArray *waetherArray = [NSArray arrayWithContentsOfFile:plistPath];
     for (NSDictionary *dic in waetherArray) {
-        if ([dic[@"weatherCode"] isEqualToString:[nowModel.cond.code stringValue]]) {
+        if ([dic[@"weatherCode"] isEqualToString:nowModel.cond_code]) {
             return [NSURL URLWithString:dic[@"weatherIconUrl"]];
         }
     }
-    
     return nil;
 }
 
 - (void)setDailyForecastModel:(YTWeatherDailyForecastModel *)dailyForecastModel
 {
-    self.highTemperatureLabel.text = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.max];
-    self.lowTemperatureLabel.text  = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp.min];
-}
-
-- (void)setBasicModel:(YTWeatherBasicModel *)basicModel
-{
-    self.customNavigationBar.cityNameText = basicModel.city;
-    
-    // 接口问题 获取不到时间
-//    self.customNavigationBar.timeText = basicModel.update.utc
+    if (dailyForecastModel) {
+        self.highTemperatureLabel.text = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp_max];
+        self.lowTemperatureLabel.text  = [NSString stringWithFormat:@"%@°", dailyForecastModel.tmp_min];
+    }
 }
 
 @end

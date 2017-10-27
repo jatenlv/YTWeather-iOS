@@ -7,33 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HourlyCond;
-@class HourlyWind;
 
 @interface YTWeatherHourlyForecastModel : NSObject
 
-@property (nonatomic, strong) HourlyCond *cond;
-@property (nonatomic, copy)   NSString *date;
-@property (nonatomic, strong) NSNumber *hum;
-@property (nonatomic, strong) NSNumber *pop;
-@property (nonatomic, strong) NSNumber *pres;
-@property (nonatomic, strong) NSNumber *tmp;
-@property (nonatomic, strong) HourlyWind *Wind;
-
-@end
-
-@interface HourlyCond : NSObject
-
-@property (nonatomic, strong) NSNumber *code;
-@property (nonatomic, strong) NSNumber *txt;
-
-@end
-
-@interface HourlyWind : NSObject
-
-@property (nonatomic, strong) NSNumber *deg;
-@property (nonatomic, copy)   NSString *dir;
-@property (nonatomic, copy)   NSString *sc;
-@property (nonatomic, strong) NSNumber *spd;
+@property (nonatomic, copy) NSString * cloud;
+@property (nonatomic, copy) NSString * cond_code;
+@property (nonatomic, copy) NSString * cond_txt;
+@property (nonatomic, copy) NSString * dew;
+@property (nonatomic, copy) NSString * hum;
+@property (nonatomic, copy) NSString * pop;
+@property (nonatomic, copy) NSString * pres;
+@property (nonatomic, copy) NSString * time;
+@property (nonatomic, copy) NSString * tmp;
+@property (nonatomic, copy) NSString * wind_deg;
+@property (nonatomic, copy) NSString * wind_dir;
+@property (nonatomic, copy) NSString * wind_sc;
+@property (nonatomic, copy) NSString * wind_spd;
 
 @end

@@ -12,18 +12,3 @@
 
 @end
 
-@implementation DailyAstro
-
-@end
-
-@implementation DailyCond
-
-@end
-
-@implementation DailyTmp
-
-@end
-
-@implementation DailyWind
-
-@end

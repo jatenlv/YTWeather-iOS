@@ -12,13 +12,12 @@ typedef void(^ClickBarButton)(void);
 
 @interface YTMainCustomNavigationBar : UIView
 
-@property(nonatomic, strong) ClickBarButton clickLeftBarButton;
-@property(nonatomic, strong) ClickBarButton clickRightBarButton;
+@property (nonatomic, strong) ClickBarButton clickLeftBarButton;
+@property (nonatomic, strong) ClickBarButton clickRightBarButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 
 @property (copy, nonatomic) NSString *cityNameText;
-@property (copy, nonatomic) NSString *timeText;
 
 @end

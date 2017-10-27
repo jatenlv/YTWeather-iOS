@@ -18,7 +18,7 @@
 #define MainTableViewCellRadius 2.5f
 
 // Request API
-#define YT_Request_Main_API @"https://free-api.heweather.com/v5/weather"
+#define YT_Request_Main_API @"https://free-api.heweather.com/s6/weather"
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
 
 // Cache

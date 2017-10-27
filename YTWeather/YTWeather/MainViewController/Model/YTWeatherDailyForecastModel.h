@@ -7,56 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
-@class DailyAstro;
-@class DailyCond;
-@class DailyTmp;
-@class DailyWind;
 
 @interface YTWeatherDailyForecastModel : NSObject
 
-@property (nonatomic, strong) DailyAstro *astro;
-@property (nonatomic, strong) DailyCond *cond;
-@property (nonatomic, copy)   NSString *date;
-@property (nonatomic, strong) NSNumber *hum;
-@property (nonatomic, strong) NSNumber *pcpn;
-@property (nonatomic, strong) NSNumber *pop;
-@property (nonatomic, strong) NSNumber *pres;
-@property (nonatomic, strong) DailyTmp *tmp;
-@property (nonatomic, strong) NSNumber *vis;
-@property (nonatomic, strong) DailyWind *Wind;
-
-@end
-
-@interface DailyAstro : NSObject
-
-@property (nonatomic, strong) NSNumber *mr;
-@property (nonatomic, strong) NSNumber *ms;
-@property (nonatomic, strong) NSNumber *sr;
-@property (nonatomic, strong) NSNumber *ss;
-
-@end
-
-@interface DailyCond : NSObject
-
-@property (nonatomic, strong) NSNumber *code_d;
-@property (nonatomic, strong) NSNumber *code_n;
-@property (nonatomic, copy)   NSString *txt_d;
-@property (nonatomic, copy)   NSString *txt_n;
-
-@end
-
-@interface DailyTmp : NSObject
-
-@property (nonatomic, strong) NSNumber *max;
-@property (nonatomic, strong) NSNumber *min;
-
-@end
-
-@interface DailyWind : NSObject
-
-@property (nonatomic, strong) NSNumber *deg;
-@property (nonatomic, copy)   NSString *dir;
-@property (nonatomic, copy)   NSString *sc;
-@property (nonatomic, strong) NSNumber *spd;
+@property (nonatomic, copy) NSString * cond_code_d;
+@property (nonatomic, copy) NSString * cond_code_n;
+@property (nonatomic, copy) NSString * cond_txt_d;
+@property (nonatomic, copy) NSString * cond_txt_n;
+@property (nonatomic, copy) NSString * date;
+@property (nonatomic, copy) NSString * hum;
+@property (nonatomic, copy) NSString * pcpn;
+@property (nonatomic, copy) NSString * pop;
+@property (nonatomic, copy) NSString * pres;
+@property (nonatomic, copy) NSString * tmp_max;
+@property (nonatomic, copy) NSString * tmp_min;
+@property (nonatomic, copy) NSString * uv_index;
+@property (nonatomic, copy) NSString * vis;
+@property (nonatomic, copy) NSString * wind_deg;
+@property (nonatomic, copy) NSString * wind_dir;
+@property (nonatomic, copy) NSString * wind_sc;
+@property (nonatomic, copy) NSString * wind_spd;
 
 @end

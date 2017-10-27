@@ -7,35 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
-@class NowCond;
-@class NowWind;
 
 @interface YTWeatherNowModel : NSObject
 
-@property (nonatomic, strong) NowCond *cond;
-@property (nonatomic, strong) NSNumber *fl;
-@property (nonatomic, strong) NSNumber *hum;
-@property (nonatomic, strong) NSNumber *pcpn;
-@property (nonatomic, strong) NSNumber *pres;
-@property (nonatomic, strong) NSNumber *tmp;
-@property (nonatomic, strong) NSNumber *vis;
-@property (nonatomic, strong) NowWind *wind;
+@property (nonatomic, copy) NSString * cloud;
+@property (nonatomic, copy) NSString * cond_code;
+@property (nonatomic, copy) NSString * cond_txt;
+@property (nonatomic, copy) NSString * fl;
+@property (nonatomic, copy) NSString * hum;
+@property (nonatomic, copy) NSString * pcpn;
+@property (nonatomic, copy) NSString * pres;
+@property (nonatomic, copy) NSString * tmp;
+@property (nonatomic, copy) NSString * vis;
+@property (nonatomic, copy) NSString * wind_deg;
+@property (nonatomic, copy) NSString * wind_dir;
+@property (nonatomic, copy) NSString * wind_sc;
+@property (nonatomic, copy) NSString * wind_spd;
 
 @end
-
-@interface NowCond : NSObject
-
-@property (nonatomic, strong) NSNumber *code;
-@property (nonatomic, copy) NSString *txt;
-
-@end
-
-@interface NowWind : NSObject
-
-@property (nonatomic, strong) NSNumber *deg;
-@property (nonatomic, copy)   NSString *dir;
-@property (nonatomic, copy)   NSString *sc;
-@property (nonatomic, strong) NSNumber *spd;
-
-@end
-

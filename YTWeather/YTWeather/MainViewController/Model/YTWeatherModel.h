@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YTWeatherAqiModel.h"
+#import "YTWeatherUpdateModel.h"
 #import "YTWeatherBasicModel.h"
 #import "YTWeatherDailyForecastModel.h"
 #import "YTWeatherHourlyForecastModel.h"
 #import "YTWeatherNowModel.h"
-#import "YTWeatherSuggestionModel.h"
+#import "YTWeatherLifestyleModel.h"
 
 typedef NS_ENUM(NSInteger,YTWeatherDataType)
 {
@@ -27,11 +27,12 @@ typedef NS_ENUM(NSInteger,YTWeatherDataType)
 
 @interface YTWeatherModel : NSObject
 
-@property (nonatomic, strong) YTWeatherAqiModel *aqi;
+@property (nonatomic, copy)   NSString * status;
+@property (nonatomic, strong) YTWeatherUpdateModel *update;
 @property (nonatomic, strong) YTWeatherBasicModel *basic;
 @property (nonatomic, strong) NSArray <YTWeatherDailyForecastModel *> *daily_forecast;
-@property (nonatomic, strong) NSArray <YTWeatherHourlyForecastModel *> *hourly_forecast;
+@property (nonatomic, strong) NSArray <YTWeatherHourlyForecastModel *> *hourly;
 @property (nonatomic, strong) YTWeatherNowModel *now;
-@property (nonatomic, strong) YTWeatherSuggestionModel *suggestion;
+@property (nonatomic, strong) NSArray <YTWeatherLifestyleModel *> *lifestyle;
 
 @end

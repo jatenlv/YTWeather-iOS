@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "YTWeatherModel.h"
 
 @protocol YTMainViewDelegate <NSObject>

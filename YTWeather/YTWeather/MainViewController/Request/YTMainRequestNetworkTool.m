@@ -16,17 +16,18 @@
     manager.requestSerializer.timeoutInterval = 15;
 
     NSMutableDictionary *paraDict = [NSMutableDictionary dictionary];
-    [paraDict setObject:cityName forKey:@"city"];
+    [paraDict setObject:cityName forKey:@"location"];
     [paraDict setObject:YT_Request_Main_API_KEY forKey:@"key"];
     
     [manager GET:YT_Request_Main_API parameters:paraDict progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        YTWeatherModel *weatherModel = [NSArray modelArrayWithClass:[YTWeatherModel class] json:responseObject[@"HeWeather5"]][0];
+        YTWeatherModel *weatherModel = [NSArray modelArrayWithClass:[YTWeatherModel class] json:responseObject[@"HeWeather6"]][0];
         finish(weatherModel, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         finish(nil, error);
     }];
 }
+
 + (NSArray *)requestDateForLeftSlideView
 {
     NSArray * place = @[@"编辑地点",@"上海市",@"西安",@"五常"];

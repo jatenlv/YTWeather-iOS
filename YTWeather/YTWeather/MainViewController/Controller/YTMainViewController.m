@@ -15,6 +15,7 @@
 #import "YTMainRequestNetworkTool.h"
 
 #import "YTCitySearchViewController.h"
+
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()

@@ -20,6 +20,8 @@
 #import "YTMainCustomNavigationBar.h"
 #import "YTCustomRefreshGifHeader.h"
 
+#define kCustomNavigationBarHeight 54
+
 #define kForecastCellHeight      500
 #define kAdvertisingCellHeight   300
 #define kDetailCellHeight        180
@@ -31,11 +33,12 @@
 @interface YTMainView ()
 <
 UITableViewDataSource,
-UITableViewDelegate,
-YTMainTableHeaderViewDelegate
+UITableViewDelegate
 >
 
-@property (nonatomic, strong)  YTMainTableHeaderView *headerView;
+@property (nonatomic, strong) YTMainTableHeaderView *headerView;
+
+@property (nonatomic, strong) YTMainCustomNavigationBar *customNavigationBar;
 
 @end
 
@@ -49,13 +52,28 @@ YTMainTableHeaderViewDelegate
         view.frame = self.bounds;
         view.width = ScreenWidth;
         [self addSubview:view];
+        [self setupCustomNavigationBar];
         [self setupTableView];
-
         [self.tableView.mj_header beginRefreshing];
-
     }
     return self;
 }
+
+- (void)setupCustomNavigationBar
+{
+    self.customNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, kCustomNavigationBarHeight)];
+    [self.tableView addSubview:self.customNavigationBar];
+    @weakify(self);
+    self.customNavigationBar.clickLeftBarButton = ^{
+        @strongify(self);
+        [self.delegate clickLeftBarButton];
+    };
+    self.customNavigationBar.clickRightBarButton = ^{
+        @strongify(self);
+        [self.delegate clickRightBarButton];
+    };
+}
+
 - (void)setupTableView
 {
     if (@available(iOS 11.0, *)) {
@@ -66,12 +84,13 @@ YTMainTableHeaderViewDelegate
     [backImageView setImage:[UIImage imageNamed:@"rain_n_portrait_blur.jpg"]];
     self.tableView.backgroundView = backImageView;
     
-    UIView *yt_headerBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -500, ScreenWidth, 500)];
-    yt_headerBackgroundView.backgroundColor = MainTableViewCellColor;
-    [self.tableView addSubview:yt_headerBackgroundView];
+    UIView *ytHeaderRefreshBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -500, ScreenWidth, 500)];
+    ytHeaderRefreshBackgroundView.backgroundColor = MainTableViewCellColor;
+    [self.tableView addSubview:ytHeaderRefreshBackgroundView];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    self.tableView.showsVerticalScrollIndicator = NO;
+    
     [self.tableView registerNib:[YTMainForecastTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainForecastTableViewCell className]];
     
     [self.tableView registerNib:[YTMainAdvertisingTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainAdvertisingTableViewCell className]];
@@ -100,6 +119,8 @@ YTMainTableHeaderViewDelegate
 {
     _weatherModel = weatherModel;
     [self.tableView reloadData];
+    
+    self.customNavigationBar.cityNameText = weatherModel.basic.location;
 }
 
 #pragma mark - Tableview Datasource
@@ -140,7 +161,7 @@ YTMainTableHeaderViewDelegate
            
         case 8: {
             YTMainPrecipitationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainPrecipitationTableViewCell className]];
-            cell.hourlyModelList = self.weatherModel.hourly_forecast;
+            cell.hourlyModelList = self.weatherModel.hourly;
             return cell;
         } break;
             
@@ -162,10 +183,8 @@ YTMainTableHeaderViewDelegate
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     self.headerView = [[YTMainTableHeaderView alloc] init];
-    self.headerView.delegate = self;
     self.headerView.nowModel = self.weatherModel.now;
     self.headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
-    self.headerView.basicModel = self.weatherModel.basic;
     return self.headerView;
 }
 
@@ -199,37 +218,25 @@ YTMainTableHeaderViewDelegate
 
 #pragma mark - delegate
 
-- (void)clickLeftBarButton
-{
-    [self.delegate clickLeftBarButton];
-}
-
-- (void)clickRightBarButton
-{
-    [self.delegate clickRightBarButton];
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.y;
     if (offset > 0) {
-        self.headerView.customNavigationBar.mj_y = offset;
+        self.customNavigationBar.mj_y = offset;
     }
 }
-//
-//- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
-//{
-//    CGPoint curRightP =  [self convertPoint:point toView:self.custonNavigationBar.rightButton];
-//    CGPoint curLeftP =  [self convertPoint:point toView:self.custonNavigationBar.leftBtn];
-//
-//    if ([self.custonNavigationBar.rightButton pointInside:curRightP withEvent:event]) {
-//        return self.custonNavigationBar.rightButton;
-//    }else if ([self.custonNavigationBar.leftBtn pointInside:curLeftP withEvent:event]) {
-//        return self.custonNavigationBar.leftBtn;
-//    }
-//    else{
-//        return  [super hitTest:point withEvent:event];
-//    }
-//}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    CGPoint curRightP = [self convertPoint:point toView:self.customNavigationBar.rightButton];
+    CGPoint curLeftP = [self convertPoint:point toView:self.customNavigationBar.leftBtn];
+    if ([self.customNavigationBar.rightButton pointInside:curRightP withEvent:event]) {
+        return self.customNavigationBar.rightButton;
+    } else if ([self.customNavigationBar.leftBtn pointInside:curLeftP withEvent:event]) {
+        return self.customNavigationBar.leftBtn;
+    } else {
+        return [super hitTest:point withEvent:event];
+    }
+}
 
 @end

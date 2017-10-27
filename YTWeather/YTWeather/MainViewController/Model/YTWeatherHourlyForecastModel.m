@@ -12,10 +12,3 @@
 
 @end
 
-@implementation HourlyCond
-
-@end
-
-@implementation HourlyWind
-
-@end
