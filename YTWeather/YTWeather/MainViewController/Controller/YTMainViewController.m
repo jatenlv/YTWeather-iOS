@@ -42,6 +42,9 @@ UIGestureRecognizerDelegate
     [super viewDidLoad];
 
     [self addSlideGesture];
+    
+    
+    [self saveCityArray:@[@"北京",@"西安",@"五常"]];
     [self readCityArray];
     [self loadOldViewAndData];
 }
@@ -49,6 +52,9 @@ UIGestureRecognizerDelegate
 - (void)loadOldViewAndData
 {
     CGFloat viewOrginX = 0;
+    self.scrollView.size = CGSizeMake(self.cityArray.count * ScreenWidth, ScreenHeight);
+    self.scrollView.contentSize = CGSizeMake(self.cityArray.count * ScreenWidth, 0);
+    self.scrollView.pagingEnabled = YES;
     for (NSString *city in self.cityArray) {
         YTMainView *mainView = [[YTMainView alloc] initWithFrame:CGRectMake(viewOrginX, 0, ScreenWidth, ScreenHeight)];
         mainView.tagName = city;
@@ -56,7 +62,6 @@ UIGestureRecognizerDelegate
         [self.scrollView addSubview:mainView];
         [self.mainViewArray addObject:mainView];
         viewOrginX += ScreenWidth;
-        
         [self loadDataWithCityName:city andFinish:^(YTWeatherModel *model, NSError *) {
             if ([mainView.tagName isEqualToString:city]) {
                 mainView.weatherModel = model;
@@ -64,6 +69,8 @@ UIGestureRecognizerDelegate
             }
         }];
     }
+    
+
 }
 
 #pragma mark 添加左侧侧滑手势
