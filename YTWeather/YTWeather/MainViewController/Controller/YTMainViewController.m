@@ -74,27 +74,18 @@ UIGestureRecognizerDelegate
     pan.delegate = self;
     [self.scrollView addGestureRecognizer:pan];
 }
-
 - (void)changeFrame:(UIPanGestureRecognizer *)pan
 {
     //相对偏移量
-    __block  CGFloat  translatePointX = [pan translationInView:self.scrollView].x;
-    CGFloat scrollX = self.scrollView.frame.origin.x;
-
-    // 左滑滑动范围
-    if(self.scrollView.frame.origin.x + translatePointX< 0)
-    {
-        translatePointX = -self.scrollView.frame.origin.x;
-        //右滑滑动范围
-    }else if(scrollX + translatePointX > kSlideWidthScale * self.scrollView.width) {
-        
-        translatePointX =  kSlideWidthScale * self.scrollView.width - self.scrollView.frame.origin.x;
-    }
-    self.scrollView.centerX += translatePointX;
-    self.leftSlideView.centerX += translatePointX;
+    __block  CGFloat  translatePointX = [pan translationInView:self.view].x;
+    CGFloat scrollX = CGRectGetMinX(self.view.frame);
+    CGFloat scrollMax = CGRectGetMaxX(self.view.frame);
+    if(scrollMax + translatePointX < self.view.width) return;
+    
     if(pan.state == UIGestureRecognizerStateChanged)
     {
-        NSLog(@"change");
+        [self slideViewMoveWithDistance:translatePointX];
+
     }else if(pan.state == UIGestureRecognizerStateEnded)
     {
         if(scrollX >= kSlideWidthScale/2 * self.scrollView.width )
@@ -110,15 +101,14 @@ UIGestureRecognizerDelegate
             _isShowSlide = NO;
         }
     }
-   
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
 
 - (void)slideViewMoveWithDistance:(CGFloat)offset
 {
+    NSLog(@"123");
     [UIView animateWithDuration:0.35 animations:^{
-        self.scrollView.centerX += offset;
-        self.leftSlideView.centerX += offset;
+        self.view.centerX += offset;
     }];
 }
 #pragma mark - YTMainView Delegate
