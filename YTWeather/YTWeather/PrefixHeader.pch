@@ -21,8 +21,12 @@
 #define YT_Request_Main_API @"https://free-api.heweather.com/s6/weather"
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
 
+// Notification
+#define YTNotificationSearchCityNameDidSelect @"YTNotificationSearchCityNameDidSelect"
+
 // Cache
 #define ShortVersionKey @"ShortVersionKey"
+#define YTCityNameArrayDefaults @"cityNameArray"
 
 // Category
 #import "UIView+YT.h"

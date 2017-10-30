@@ -12,7 +12,7 @@
 
 @protocol YTMainViewDelegate <NSObject>
 
-- (void)loadData:(NSString *)tagName;
+- (void)loadData:(id)tagerView;
 
 - (void)clickLeftBarButton;
 - (void)clickRightBarButton;
@@ -27,6 +27,6 @@
 
 @property (nonatomic, weak) id <YTMainViewDelegate> delegate;
 
-@property (nonatomic, copy) NSString *tagName;
+@property (nonatomic, copy) NSString *cityNameForView;
 
 @end

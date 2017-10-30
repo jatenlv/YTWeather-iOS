@@ -13,9 +13,9 @@
 
 @property (nonatomic,strong) UISearchController *searchVC;
 
-@property (nonatomic,strong) NSMutableArray *resultArray;
+@property (nonatomic,strong) NSMutableArray <YTCitySearchModel *> *resultArray;
 
-@property (nonatomic,strong) NSMutableArray *searchSource;
+@property (nonatomic,strong) NSMutableArray <YTCitySearchModel *> *searchSource;
 @property (nonatomic,strong) UITextField *tf;
 
 @end
@@ -84,10 +84,12 @@
 }
 
 #pragma mark tableView-dataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.resultArray.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * identifier = @"cell";
@@ -100,40 +102,37 @@
     cell.textLabel.text = dataModel.cityChineseName ? dataModel.cityChineseName:@"sb";
     return  cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSString *selectCityName = self.resultArray[indexPath.row].cityChineseName;
+        [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationSearchCityNameDidSelect
+                                                            object:selectCityName];
+    }];
+}
+
 #pragma mark lazy
+
 - (NSMutableArray *)searchSource
 {
     if(!_searchSource) {
         _searchSource = [NSMutableArray array];
         NSString * path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
         NSArray *data = [NSArray arrayWithContentsOfFile:path];
-        _searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data ];
+        _searchSource = [[NSArray modelArrayWithClass:[YTCitySearchModel class] json:data] mutableCopy];
         
     }
     return _searchSource;
 }
+
 - (void)didPresentSearchController:(UISearchController *)searchController {
     
-    
-    
-    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
