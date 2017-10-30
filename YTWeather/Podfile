@@ -6,4 +6,5 @@ target ‘YTWeather’ do
 	pod ‘YYKit’        , ‘1.0.9’
 	pod ‘AFNetworking’ , ‘3.1.0’ 
 	pod ’SDWebImage’   
+	pod ‘BaiduMapKit’
 end

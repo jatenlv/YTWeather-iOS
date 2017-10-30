@@ -24,6 +24,9 @@
     
     self.backgroundColor = MainTableViewCellColor;
     self.layer.cornerRadius = MainTableViewCellRadius;
+    
+    self.adImageView.image = [UIImage imageNamed:@"storm_n_blur.jpg"];
+    self.adImageView.clipsToBounds = YES;
 }
 
 @end

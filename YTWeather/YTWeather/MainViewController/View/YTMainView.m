@@ -62,7 +62,7 @@ UITableViewDelegate
 - (void)setupCustomNavigationBar
 {
     self.customNavigationBar = [[YTMainCustomNavigationBar alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, kCustomNavigationBarHeight)];
-    [self.tableView addSubview:self.customNavigationBar];
+    [self addSubview:self.customNavigationBar];
     @weakify(self);
     self.customNavigationBar.clickLeftBarButton = ^{
         @strongify(self);
@@ -221,8 +221,11 @@ UITableViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.y;
-    if (offset > 0) {
-        self.customNavigationBar.mj_y = offset;
+    if (offset <= 0) {
+        self.customNavigationBar.mj_y = -offset;
+    }
+    if (offset >= 0 && offset < ScreenHeight) {
+        self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight * 0.7;
     }
 }
 

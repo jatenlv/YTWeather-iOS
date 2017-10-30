@@ -81,8 +81,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®由东北扛把子刘超越提供" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6" userLabel="®由chaoyue&amp;jiateng提供">
-                    <rect key="frame" x="248" y="644" width="119" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®由Y&amp;T提供" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6" userLabel="®由chaoyue&amp;jiateng提供">
+                    <rect key="frame" x="308.5" y="644" width="58.5" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="FB2-0x-zKA"/>
                     </constraints>

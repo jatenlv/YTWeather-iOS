@@ -18,6 +18,8 @@ typedef void(^ClickBarButton)(void);
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 @property (weak, nonatomic) IBOutlet UIButton *leftBtn;
 
-@property (copy, nonatomic) NSString *cityNameText;
+@property (nonatomic, copy) NSString *cityNameText;
+
+@property (nonatomic, assign) CGFloat darkVisualEffectViewAlpha;
 
 @end

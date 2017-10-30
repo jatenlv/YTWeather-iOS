@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (nonatomic, strong) dispatch_source_t timer;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *darkVisualEffectView;
 
 @end
 
@@ -31,6 +32,8 @@
         self.cityNameLabel.text = @"";
         self.timeLabel.text = @"";
         
+        self.darkVisualEffectViewAlpha = 0;
+        self.darkVisualEffectView.backgroundColor = [UIColor blackColor];
         [self setupUpdateTimer];
     }
     return self;
@@ -69,6 +72,11 @@
     if (cityNameText.length) {
         self.cityNameLabel.text = [NSString stringWithFormat:@"%@市", cityNameText];
     }
+}
+
+- (void)setDarkVisualEffectViewAlpha:(CGFloat)darkVisualEffectViewAlpha
+{
+    self.darkVisualEffectView.alpha = darkVisualEffectViewAlpha;
 }
 
 #pragma mark - Click Button

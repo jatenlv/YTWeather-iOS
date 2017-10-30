@@ -32,6 +32,8 @@ UIGestureRecognizerDelegate
 
 @property (nonatomic, strong) YTWeatherModel *weatherModel;
 
+@property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
+@property (nonatomic, assign) CGFloat viewOrginX;
 @end
 
 @implementation YTMainViewController
@@ -48,12 +50,19 @@ UIGestureRecognizerDelegate
 
 - (void)setupMainView
 {
+//    self.viewOrginX = 0;
+//
+//    self.mainViewArray = [NSMutableArray array];
+    
     self.mainView = [[YTMainView alloc] initWithFrame:ScreenBounds];
+    self.mainView.tag = 1;
     self.mainView.delegate = self;
+//    [self.mainViewArray addObject:self.mainView];
+    
     [self.scrollView addSubview:self.mainView];
 }
 
-#pragma mark 添加左侧侧滑手势和轻扫手势
+#pragma mark 添加左侧侧滑手势
 
 - (void)addSlideGesture
 {
