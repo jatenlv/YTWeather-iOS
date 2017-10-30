@@ -12,7 +12,7 @@
 
 @protocol YTMainViewDelegate <NSObject>
 
-- (void)loadData;
+- (void)loadData:(NSString *)tagName;
 
 - (void)clickLeftBarButton;
 - (void)clickRightBarButton;
@@ -26,5 +26,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, weak) id <YTMainViewDelegate> delegate;
+
+@property (nonatomic, copy) NSString *tagName;
 
 @end

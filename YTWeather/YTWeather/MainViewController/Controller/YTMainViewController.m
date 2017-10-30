@@ -25,15 +25,14 @@ UIGestureRecognizerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, strong) YTMainView *mainView;
 
 @property (weak, nonatomic) IBOutlet UIView *leftSlideView;
-@property (nonatomic,assign) BOOL isShowSlide;
-
-@property (nonatomic, strong) YTWeatherModel *weatherModel;
+@property (nonatomic, assign) BOOL isShowSlide;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
-@property (nonatomic, assign) CGFloat viewOrginX;
+@property (nonatomic, strong) NSMutableArray <YTWeatherModel *> *weatherModelArray;
+@property (nonatomic, strong) NSMutableArray *cityArray;
+
 @end
 
 @implementation YTMainViewController
@@ -41,25 +40,30 @@ UIGestureRecognizerDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"上海";
-    [self setupMainView];
+
     [self addSlideGesture];
-    self.weatherModel = [[YTWeatherModel alloc] init];
+    [self readCityArray];
+    [self loadOldViewAndData];
 }
 
-
-- (void)setupMainView
+- (void)loadOldViewAndData
 {
-//    self.viewOrginX = 0;
-//
-//    self.mainViewArray = [NSMutableArray array];
-    
-    self.mainView = [[YTMainView alloc] initWithFrame:ScreenBounds];
-    self.mainView.tag = 1;
-    self.mainView.delegate = self;
-//    [self.mainViewArray addObject:self.mainView];
-    
-    [self.scrollView addSubview:self.mainView];
+    CGFloat viewOrginX = 0;
+    for (NSString *city in self.cityArray) {
+        YTMainView *mainView = [[YTMainView alloc] initWithFrame:CGRectMake(viewOrginX, 0, ScreenWidth, ScreenHeight)];
+        mainView.tagName = city;
+        mainView.delegate = self;
+        [self.scrollView addSubview:mainView];
+        [self.mainViewArray addObject:mainView];
+        viewOrginX += ScreenWidth;
+        
+        [self loadDataWithCityName:city andFinish:^(YTWeatherModel *model, NSError *) {
+            if ([mainView.tagName isEqualToString:city]) {
+                mainView.weatherModel = model;
+                [mainView.tableView reloadData];
+            }
+        }];
+    }
 }
 
 #pragma mark 添加左侧侧滑手势
@@ -119,13 +123,26 @@ UIGestureRecognizerDelegate
 }
 #pragma mark - YTMainView Delegate
 
-- (void)loadData
+- (void)loadData:(NSString *)tagName{
+    for (YTMainView *view in self.mainViewArray) {
+        if ([view.tagName isEqualToString: tagName]) {
+            
+            [YTMainRequestNetworkTool requestWeatherWithCityName:tagName andFinish:^(YTWeatherModel *model, NSError *error) {
+                [view.tableView.mj_header endRefreshing];
+                if (!error) {
+                    view.weatherModel = model;
+                    [view.tableView.mj_header endRefreshing];
+                }
+            }];
+        }
+    }
+}
+
+- (void)loadDataWithCityName:(NSString *)name andFinish:(void (^)(YTWeatherModel *model, NSError *))finish
 {
-    [YTMainRequestNetworkTool requestWeatherWithCityName:@"上海" andFinish:^(YTWeatherModel *model, NSError *error) {
-        [self.mainView.tableView.mj_header endRefreshing];
+    [YTMainRequestNetworkTool requestWeatherWithCityName:name andFinish:^(YTWeatherModel *model, NSError *error) {
         if (!error) {
-            self.mainView.weatherModel = model;
-            [self.mainView.tableView reloadData];
+            finish(model, nil);
         }
     }];
 }
@@ -142,6 +159,22 @@ UIGestureRecognizerDelegate
 {
     YTCitySearchViewController * resultVC = [[YTCitySearchViewController alloc]init];
     [self presentViewController:resultVC   animated:YES completion:nil];
+}
+
+#pragma mark - save
+
+- (void)saveCityArray:(NSArray *)cityArray
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:cityArray forKey:@"cityArray"];
+    [defaults synchronize];
+}
+
+- (void)readCityArray
+{
+    self.cityArray = [NSMutableArray array];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.cityArray = [defaults objectForKey:@"cityArray"];
 }
 
 /*
