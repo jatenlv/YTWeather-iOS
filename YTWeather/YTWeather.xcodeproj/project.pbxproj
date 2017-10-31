@@ -24,6 +24,8 @@
 		8460077C1FA7079200A2F403 /* YTNewFeatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846007711FA7079100A2F403 /* YTNewFeatureViewController.xib */; };
 		8460077D1FA7079200A2F403 /* UIColor+ColorChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 846007741FA7079100A2F403 /* UIColor+ColorChange.m */; };
 		8460077E1FA7079200A2F403 /* UIView+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 846007761FA7079100A2F403 /* UIView+YT.m */; };
+		846007821FA85DC500A2F403 /* YTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846007801FA85DC500A2F403 /* YTSearchViewController.m */; };
+		846007831FA85DC500A2F403 /* YTSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 846007811FA85DC500A2F403 /* YTSearchViewController.xib */; };
 		84654CC31F96418200E5092E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84654CC21F96418200E5092E /* AppDelegate.m */; };
 		84654CC91F96418200E5092E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84654CC71F96418200E5092E /* Main.storyboard */; };
 		84654CCE1F96418200E5092E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84654CCC1F96418200E5092E /* LaunchScreen.storyboard */; };
@@ -66,7 +68,6 @@
 		84F6872B1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F687291F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m */; };
 		84F6872C1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F6872A1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.xib */; };
 		84F88BCF1F99985000E4E1B2 /* YTLeftSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */; };
-		84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,9 @@
 		846007741FA7079100A2F403 /* UIColor+ColorChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorChange.m"; sourceTree = "<group>"; };
 		846007751FA7079100A2F403 /* UIView+YT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YT.h"; sourceTree = "<group>"; };
 		846007761FA7079100A2F403 /* UIView+YT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YT.m"; sourceTree = "<group>"; };
+		8460077F1FA85DC500A2F403 /* YTSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTSearchViewController.h; sourceTree = "<group>"; };
+		846007801FA85DC500A2F403 /* YTSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTSearchViewController.m; sourceTree = "<group>"; };
+		846007811FA85DC500A2F403 /* YTSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTSearchViewController.xib; sourceTree = "<group>"; };
 		84654CBE1F96418200E5092E /* YTWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84654CC11F96418200E5092E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84654CC21F96418200E5092E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -187,8 +191,6 @@
 		84F6872A1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTMainEmptyTableViewCell.xib; sourceTree = "<group>"; };
 		84F88BCD1F99985000E4E1B2 /* YTLeftSlideView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideView.h; sourceTree = "<group>"; };
 		84F88BCE1F99985000E4E1B2 /* YTLeftSlideView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideView.m; sourceTree = "<group>"; };
-		84F88BD91F99BFAE00E4E1B2 /* YTCitySearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchViewController.h; sourceTree = "<group>"; };
-		84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCitySearchViewController.m; sourceTree = "<group>"; };
 		8BCAB6BDD51500CF0E110411 /* Pods-YTWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -552,8 +554,9 @@
 		84F88BD11F99A3B700E4E1B2 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				84F88BD91F99BFAE00E4E1B2 /* YTCitySearchViewController.h */,
-				84F88BDA1F99BFAE00E4E1B2 /* YTCitySearchViewController.m */,
+				8460077F1FA85DC500A2F403 /* YTSearchViewController.h */,
+				846007801FA85DC500A2F403 /* YTSearchViewController.m */,
+				846007811FA85DC500A2F403 /* YTSearchViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 			files = (
 				8460077A1FA7079200A2F403 /* YTLaunchADViewController.xib in Resources */,
 				84BF6F6C1F9DC92400F93B83 /* YTMainForecastTableViewCell.xib in Resources */,
+				846007831FA85DC500A2F403 /* YTSearchViewController.xib in Resources */,
 				840BD1171F999A0B00F4B004 /* weatherCode.plist in Resources */,
 				846007781FA7079200A2F403 /* YTCustomNavViewController.xib in Resources */,
 				84A6276D1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.xib in Resources */,
@@ -815,13 +819,13 @@
 				84A6277B1F9713EB00EE29D5 /* YTMainRequestNetworkTool.m in Sources */,
 				840BD11A1F99DF0500F4B004 /* YTMainCustomNavigationBar.m in Sources */,
 				840BD10A1F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m in Sources */,
+				846007821FA85DC500A2F403 /* YTSearchViewController.m in Sources */,
 				84BF6F691F9DC92400F93B83 /* YTHourWeatherCollectionCell.m in Sources */,
 				84A6276C1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.m in Sources */,
 				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
 				840D47B01FA322C500AAADC9 /* YTWeatherLifestyleModel.m in Sources */,
 				84A627901F9725A000EE29D5 /* YTWeatherNowModel.m in Sources */,
 				8460077D1FA7079200A2F403 /* UIColor+ColorChange.m in Sources */,
-				84F88BDB1F99BFAE00E4E1B2 /* YTCitySearchViewController.m in Sources */,
 				84654D131F96477E00E5092E /* YTMainViewController.m in Sources */,
 				84A6F1551F9F125800A0DE9A /* YTHourWeatherScrollView.m in Sources */,
 				846007771FA7079200A2F403 /* YTCustomNavViewController.m in Sources */,

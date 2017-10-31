@@ -14,8 +14,10 @@
 
 #import "YTMainRequestNetworkTool.h"
 
-#import "YTCitySearchViewController.h"
+#import "YTSearchViewController.h"
+
 #import "YTLeftSlideView.h"
+
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -192,7 +194,7 @@ UIGestureRecognizerDelegate
 
 - (void)clickRightBarButton
 {
-    YTCitySearchViewController *resultVC = [[YTCitySearchViewController alloc] init];
+    YTSearchViewController *resultVC = [[YTSearchViewController alloc] init];
     [self presentViewController:resultVC animated:YES completion:nil];
 }
 

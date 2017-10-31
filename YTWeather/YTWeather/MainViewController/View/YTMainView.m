@@ -36,8 +36,6 @@ UITableViewDataSource,
 UITableViewDelegate
 >
 
-@property (nonatomic, strong) YTMainTableHeaderView *headerView;
-
 @property (nonatomic, strong) YTMainCustomNavigationBar *customNavigationBar;
 
 @end
@@ -182,10 +180,10 @@ UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    self.headerView = [[YTMainTableHeaderView alloc] init];
-    self.headerView.nowModel = self.weatherModel.now;
-    self.headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
-    return self.headerView;
+    YTMainTableHeaderView *headerView = [[YTMainTableHeaderView alloc] init];
+    headerView.nowModel = self.weatherModel.now;
+    headerView.dailyForecastModel = [self.weatherModel.daily_forecast objectAtIndex:0];
+    return headerView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
