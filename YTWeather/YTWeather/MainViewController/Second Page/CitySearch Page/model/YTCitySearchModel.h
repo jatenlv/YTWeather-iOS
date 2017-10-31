@@ -15,7 +15,4 @@
 @property (nonatomic,copy) NSString *provinceChineseName;
 @property (nonatomic,copy) NSString *countryChineseName;
 
-
-
-
 @end

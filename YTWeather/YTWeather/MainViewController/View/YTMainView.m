@@ -54,7 +54,7 @@ UITableViewDelegate
         [self addSubview:view];
         [self setupCustomNavigationBar];
         [self setupTableView];
-//        [self.tableView.mj_header beginRefreshing];
+        [self.tableView.mj_header beginRefreshing];
     }
     return self;
 }
@@ -108,7 +108,7 @@ UITableViewDelegate
     [self.tableView registerNib:[YTMainEmptyTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainEmptyTableViewCell className]];
 
     self.tableView.mj_header = [YTCustomRefreshGifHeader headerWithCustomerGifRefreshingBlock:^{
-        [self.delegate loadData:self.tagName];
+        [self.delegate loadData:self];
     }];
     [self.tableView bringSubviewToFront:self.tableView.mj_header];
 }

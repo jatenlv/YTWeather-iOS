@@ -35,6 +35,4 @@ typedef NS_ENUM(NSInteger,YTWeatherDataType)
 @property (nonatomic, strong) YTWeatherNowModel *now;
 @property (nonatomic, strong) NSArray <YTWeatherLifestyleModel *> *lifestyle;
 
-@property (nonatomic, strong) NSString *cityName;
-
 @end

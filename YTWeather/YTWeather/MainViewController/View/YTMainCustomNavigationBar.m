@@ -58,11 +58,27 @@
     NSInteger hour = [components hour];
     NSInteger min = [components minute];
     NSInteger sec = [components second];
-    if (sec < 10) {
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld:0%ld CCT", (long)hour, (long)min, (long)sec];
+    
+    NSString *hourString;
+    if (hour < 10) {
+        hourString = [NSString stringWithFormat:@"0%ld",(long)hour];
     } else {
-        self.timeLabel.text = [NSString stringWithFormat:@"%ld:%ld:%ld CCT", (long)hour, (long)min, (long)sec];
+        hourString = [NSString stringWithFormat:@"%ld",(long)hour];
     }
+    NSString *minString;
+    if (min < 10) {
+        minString = [NSString stringWithFormat:@"0%ld",(long)min];
+    } else {
+        minString = [NSString stringWithFormat:@"%ld",(long)min];
+    }
+    NSString *secString;
+    if (sec < 10) {
+        secString = [NSString stringWithFormat:@"0%ld",(long)sec];
+    } else {
+        secString = [NSString stringWithFormat:@"%ld",(long)sec];
+    }
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@:%@", hourString, minString, secString];
 }
 
 #pragma mark - Set Model
