@@ -15,7 +15,7 @@
 
 @property (nonatomic,strong) NSMutableArray *resultArray;
 
-@property (nonatomic,strong) NSMutableArray *searchSource;
+@property (nonatomic,strong) NSArray *searchSource;
 @property (nonatomic,strong) UITextField *tf;
 
 @end
@@ -75,6 +75,7 @@
     NSPredicate * predict = [NSPredicate predicateWithFormat:@"cityChineseName CONTAINS %@",result];
     
     self.resultArray = [[self.searchSource filteredArrayUsingPredicate:predict] copy];
+    
     [self.tableView reloadData];
 }
 
@@ -101,22 +102,16 @@
     return  cell;
 }
 #pragma mark lazy
-- (NSMutableArray *)searchSource
+- (NSArray *)searchSource
 {
     if(!_searchSource) {
-        _searchSource = [NSMutableArray array];
+        _searchSource = [NSArray array];
         NSString * path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
         NSArray *data = [NSArray arrayWithContentsOfFile:path];
-        _searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data ];
+        _searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data] ;
         
     }
     return _searchSource;
-}
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    
-    
-    
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
