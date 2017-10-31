@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTMainViewController">
             <connections>
                 <outlet property="scrollView" destination="1GQ-Mn-Mwn" id="UGs-X1-Q5g"/>
+                <outlet property="scrollViewLeading" destination="8lk-7g-m8o" id="Rsf-kE-Cgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

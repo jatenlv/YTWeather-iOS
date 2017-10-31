@@ -16,6 +16,7 @@
 
 #import "YTCitySearchViewController.h"
 #import "YTLeftSlideView.h"
+#import "YTMainMaskView.h"
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -27,12 +28,15 @@ UIGestureRecognizerDelegate
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic,strong) YTLeftSlideView *leftSlideView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewLeading;
 
 @property (nonatomic, assign) BOOL isShowSlide;
+@property (nonatomic, assign) BOOL isMaskViewMove;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
 @property (nonatomic, assign) CGFloat viewOrginX;
+@property (nonatomic,strong)  YTMainMaskView *maskView;
 
 @end
 
@@ -55,7 +59,8 @@ UIGestureRecognizerDelegate
     [self readCityNameArray];
     // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
-    
+    [self.view addSubview:self.maskView];
+    self.maskView.hidden = !_isShowSlide;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
 
@@ -89,7 +94,6 @@ UIGestureRecognizerDelegate
     [self.scrollView addSubview:mainView];
     [self.mainViewArray addObject:mainView];
     self.viewOrginX += ScreenWidth;
-    
     // 加载model
     [YTMainRequestNetworkTool requestWeatherWithCityName:cityName andFinish:^(YTWeatherModel *model, NSError *error) {
         if (!error) {
@@ -124,19 +128,13 @@ UIGestureRecognizerDelegate
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
     pan.delegate = self;
-//    [self.scrollView addGestureRecognizer:pan];
+    //[self.maskView addGestureRecognizer:pan];
 }
 
 - (void)changeFrame:(UIPanGestureRecognizer *)pan
 {
     //相对偏移量
-    __block  CGFloat  translatePointX = [pan translationInView:self.view].x;
-    CGFloat scrollX = CGRectGetMinX(self.view.frame);
-    CGFloat scrollMax = CGRectGetMaxX(self.view.frame);
-    if(scrollMax + translatePointX < self.view.width)
-    {
-        return;
-    }
+    CGFloat  translatePointX = [pan translationInView:self.scrollView].x;
     
     if(pan.state == UIGestureRecognizerStateChanged)
     {
@@ -144,28 +142,30 @@ UIGestureRecognizerDelegate
 
     }else if(pan.state == UIGestureRecognizerStateEnded)
     {
-        if(scrollX >= kSlideWidthScale/2 * self.scrollView.width )
-        {
-            translatePointX = kSlideWidthScale * self.scrollView.width - scrollX;
-
-            [self slideViewMoveWithDistance:translatePointX];
-            _isShowSlide = YES;
-        }
-        else {
-            translatePointX = -scrollX;
-            [self slideViewMoveWithDistance:translatePointX];
-            _isShowSlide = NO;
-        }
+//        if(scrollX >= kSlideWidthScale/2 * self.scrollView.width )
+//        {
+//            translatePointX = kSlideWidthScale * self.scrollView.width - scrollX;
+//
+//            [self slideViewMoveWithDistance:translatePointX];
+//            _isShowSlide = YES;
+//        }
+//        else {
+//            translatePointX = -scrollX;
+//            [self slideViewMoveWithDistance:translatePointX];
+//            _isShowSlide = NO;
+//        }
     }
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
 
 - (void)slideViewMoveWithDistance:(CGFloat)offset
 {
-    NSLog(@"123");
+    CGAffineTransform transform;
+    transform = _isShowSlide ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(offset, 0);
     [UIView animateWithDuration:0.35 animations:^{
-        self.view.centerX += offset;
+        self.scrollView.transform = transform;
     }];
+    self.maskView.hidden = _isShowSlide;
 }
 #pragma mark - YTMainView Delegate
 
@@ -188,6 +188,7 @@ UIGestureRecognizerDelegate
     CGFloat offset = _isShowSlide ? -maxOffset : maxOffset;
     [self slideViewMoveWithDistance:offset];
     _isShowSlide = !_isShowSlide;
+
 }
 
 - (void)clickRightBarButton
@@ -218,11 +219,23 @@ UIGestureRecognizerDelegate
 {
     if(!_leftSlideView)
     {
-        _leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(-kSlideWidthScale * ScreenWidth, 0, kSlideWidthScale * ScreenWidth, ScreenHeight) style:(UITableViewStylePlain)];
+        _leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, kSlideWidthScale * ScreenWidth, ScreenHeight) style:(UITableViewStylePlain)];
     }
     return _leftSlideView;
 }
-
+- (YTMainMaskView *)maskView
+{
+    if(!_maskView){
+        CGFloat x = kSlideWidthScale * ScreenWidth;
+        _maskView = [[YTMainMaskView alloc]initWithFrame:CGRectMake(x, 0, ScreenWidth - x, ScreenHeight)];
+        @weakify(self);
+        _maskView.touchBlock = ^{
+            @strongify(self);
+            [self clickLeftBarButton];
+        };
+    }
+    return _maskView;
+}
 /*
  * 暂时不用 以后如果需要转换再用 txt -> plist
 - (void)test
