@@ -15,7 +15,7 @@
 #import "YTMainRequestNetworkTool.h"
 
 #import "YTCitySearchViewController.h"
-
+#import "YTLeftSlideView.h"
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -26,7 +26,8 @@ UIGestureRecognizerDelegate
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (weak, nonatomic) IBOutlet UIView *leftSlideView;
+@property (nonatomic,strong) YTLeftSlideView *leftSlideView;
+
 @property (nonatomic, assign) BOOL isShowSlide;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
@@ -132,7 +133,10 @@ UIGestureRecognizerDelegate
     __block  CGFloat  translatePointX = [pan translationInView:self.view].x;
     CGFloat scrollX = CGRectGetMinX(self.view.frame);
     CGFloat scrollMax = CGRectGetMaxX(self.view.frame);
-    if(scrollMax + translatePointX < self.view.width) return;
+    if(scrollMax + translatePointX < self.view.width)
+    {
+        return;
+    }
     
     if(pan.state == UIGestureRecognizerStateChanged)
     {
@@ -207,7 +211,14 @@ UIGestureRecognizerDelegate
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
 }
-
+- (YTLeftSlideView *)leftSlideView
+{
+    if(!_leftSlideView)
+    {
+        _leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(-kSlideWidthScale * ScreenWidth, 0, kSlideWidthScale * ScreenWidth, ScreenHeight) style:(UITableViewStylePlain)];
+    }
+    return _leftSlideView;
+}
 /*
  * 暂时不用 以后如果需要转换再用 txt -> plist
 - (void)test
