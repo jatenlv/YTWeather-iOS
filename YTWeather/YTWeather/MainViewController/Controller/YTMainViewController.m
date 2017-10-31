@@ -211,6 +211,9 @@ UIGestureRecognizerDelegate
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
 }
+
+#pragma mark - Lazy Init
+
 - (YTLeftSlideView *)leftSlideView
 {
     if(!_leftSlideView)
@@ -219,6 +222,7 @@ UIGestureRecognizerDelegate
     }
     return _leftSlideView;
 }
+
 /*
  * 暂时不用 以后如果需要转换再用 txt -> plist
 - (void)test
