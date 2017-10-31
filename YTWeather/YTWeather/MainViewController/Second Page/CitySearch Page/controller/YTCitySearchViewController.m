@@ -9,7 +9,12 @@
 #import "YTCitySearchViewController.h"
 #import "YTCitySearchModel.h"
 
-@interface YTCitySearchViewController ()<UISearchResultsUpdating,UISearchBarDelegate,UISearchControllerDelegate>
+@interface YTCitySearchViewController ()
+<
+UISearchControllerDelegate,
+UISearchResultsUpdating,
+UISearchBarDelegate
+>
 
 @property (nonatomic,strong) UISearchController *searchVC;
 
@@ -24,21 +29,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _resultArray = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
+
+    _resultArray = [NSMutableArray array];
     [self setupTabview];
     [self setupSearchBar];
-    
 }
 
 - (void)setupTabview
 {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
+
 #pragma mark 初始化searchBar
 - (void)setupSearchBar
 {
@@ -100,15 +102,17 @@
     }
     YTCitySearchModel * dataModel = self.resultArray[indexPath.row];
     cell.textLabel.text = dataModel.cityChineseName ? dataModel.cityChineseName:@"sb";
-    return  cell;
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        NSString *selectCityName = self.resultArray[indexPath.row].cityChineseName;
-        [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationSearchCityNameDidSelect
-                                                            object:selectCityName];
+        [self dismissViewControllerAnimated:YES completion:^{
+            NSString *selectCityName = self.resultArray[indexPath.row].cityChineseName;
+            [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationSearchCityNameDidSelect
+                                                                object:selectCityName];
+        }];
     }];
 }
 
@@ -128,11 +132,6 @@
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

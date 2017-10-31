@@ -108,7 +108,7 @@ UITableViewDelegate
     [self.tableView registerNib:[YTMainEmptyTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainEmptyTableViewCell className]];
 
     self.tableView.mj_header = [YTCustomRefreshGifHeader headerWithCustomerGifRefreshingBlock:^{
-        [self.delegate loadData:self];
+        [self.delegate refreshData:self];
     }];
     [self.tableView bringSubviewToFront:self.tableView.mj_header];
 }

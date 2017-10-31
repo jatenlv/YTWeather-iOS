@@ -30,12 +30,14 @@ UIGestureRecognizerDelegate
 @property (nonatomic, assign) BOOL isShowSlide;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
-//@property (nonatomic, strong) NSMutableArray <YTWeatherModel *> *weatherModelArray;
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
+@property (nonatomic, assign) CGFloat viewOrginX;
 
 @end
 
 @implementation YTMainViewController
+
+#pragma mark - Lift Cycle
 
 - (void)dealloc
 {
@@ -46,38 +48,73 @@ UIGestureRecognizerDelegate
 {
     [super viewDidLoad];
 
+    // 添加滑动弹出设置页面手势
     [self addSlideGesture];
-    [self saveCityNameArray:@[@"北京",@"西安",@"五常"]];
+    // 取出城市缓存
     [self readCityNameArray];
+    // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
 
+#pragma mark - Private Method
+
 - (void)loadOldViewAndData
 {
-    // 设置scrollView
+    // 调整scrollView大小
+    [self reloadScrollViewSize];
+    
+    self.viewOrginX = 0;
+    for (NSString *cityName in self.cityNameArray) {
+        [self createMainViewWithCityName:cityName newView:NO];
+    }
+}
+
+- (void)reloadScrollViewSize
+{
+    self.scrollView.pagingEnabled = YES;
     self.scrollView.size = CGSizeMake(self.cityNameArray.count * ScreenWidth, ScreenHeight);
     self.scrollView.contentSize = CGSizeMake(self.cityNameArray.count * ScreenWidth, 0);
-    self.scrollView.pagingEnabled = YES;
+}
+
+// 创建新页面及数据
+- (void)createMainViewWithCityName:(NSString *)cityName newView:(BOOL)newView
+{
+    // 加载view
+    YTMainView *mainView = [[YTMainView alloc] initWithFrame:CGRectMake(self.viewOrginX, 0, ScreenWidth, ScreenHeight)];
+    mainView.cityNameForView = cityName;
+    mainView.delegate = self;
+    [self.scrollView addSubview:mainView];
+    [self.mainViewArray addObject:mainView];
+    self.viewOrginX += ScreenWidth;
     
-    CGFloat viewOrginX = 0;
-    for (NSString *cityName in self.cityNameArray) {
-        // 加载view
-        YTMainView *mainView = [[YTMainView alloc] initWithFrame:CGRectMake(viewOrginX, 0, ScreenWidth, ScreenHeight)];
-        mainView.cityNameForView = cityName;
-        mainView.delegate = self;
-        [self.scrollView addSubview:mainView];
-        [self.mainViewArray addObject:mainView];
-        viewOrginX += ScreenWidth;
-        
-        // 加载model
-        [self loadCacheDataWithCityName:cityName andFinish:^(YTWeatherModel *model, NSError *) {
+    // 加载model
+    [YTMainRequestNetworkTool requestWeatherWithCityName:cityName andFinish:^(YTWeatherModel *model, NSError *error) {
+        if (!error) {
             if ([mainView.cityNameForView isEqualToString:cityName]) {
                 mainView.weatherModel = model;
                 [mainView.tableView reloadData];
             }
-        }];
+        }
+    }];
+    
+    if (newView) {
+        [self.scrollView setContentOffset:mainView.frame.origin animated:NO];
     }
+}
+
+#pragma mark - Notification
+
+- (void)searchCityNameDidSelect:(NSNotification *)notify
+{
+    NSString *newCityName = notify.object;
+    [self.cityNameArray addObject:newCityName];
+    // 存入城市缓存
+    [self saveCityNameArray:[self.cityNameArray copy]];
+    
+    [self reloadScrollViewSize];
+    [self createMainViewWithCityName:newCityName newView:YES];
 }
 
 #pragma mark 添加左侧侧滑手势
@@ -88,6 +125,7 @@ UIGestureRecognizerDelegate
     pan.delegate = self;
 //    [self.scrollView addGestureRecognizer:pan];
 }
+
 - (void)changeFrame:(UIPanGestureRecognizer *)pan
 {
     //相对偏移量
@@ -127,7 +165,7 @@ UIGestureRecognizerDelegate
 }
 #pragma mark - YTMainView Delegate
 
-- (void)loadData:(id)tagerView
+- (void)refreshData:(id)tagerView
 {
     YTMainView *mainView = (YTMainView *)tagerView;
     
@@ -154,35 +192,20 @@ UIGestureRecognizerDelegate
     [self presentViewController:resultVC animated:YES completion:nil];
 }
 
-#pragma mark - save
+#pragma mark - 读取缓存操作
+
+- (void)readCityNameArray
+{
+    self.cityNameArray = [[NSMutableArray alloc] init];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.cityNameArray = [[defaults objectForKey:YTCityNameArrayDefaults] mutableCopy];
+}
 
 - (void)saveCityNameArray:(NSArray *)cityNameArray
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
-}
-
-- (void)readCityNameArray
-{
-    self.cityNameArray = [NSMutableArray array];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.cityNameArray = [defaults objectForKey:YTCityNameArrayDefaults];
-}
-
-- (void)loadCacheDataWithCityName:(NSString *)name andFinish:(void (^)(YTWeatherModel *model, NSError *))finish
-{
-    [YTMainRequestNetworkTool requestWeatherWithCityName:name andFinish:^(YTWeatherModel *model, NSError *error) {
-        if (!error) {
-            finish(model, nil);
-        }
-    }];
-}
-
-- (void)searchCityNameDidSelect:(NSNotification *)notify
-{
-    NSString *str =  notify.object;
-    NSLog(@"21441414%@",str);
 }
 
 /*

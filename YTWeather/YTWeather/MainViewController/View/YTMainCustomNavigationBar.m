@@ -78,7 +78,7 @@
         secString = [NSString stringWithFormat:@"%ld",(long)sec];
     }
     
-    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@:%@", hourString, minString, secString];
+    self.timeLabel.text = [NSString stringWithFormat:@"%@:%@:%@ CCT", hourString, minString, secString];
 }
 
 #pragma mark - Set Model

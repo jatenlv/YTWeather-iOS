@@ -12,7 +12,7 @@
 
 @protocol YTMainViewDelegate <NSObject>
 
-- (void)loadData:(id)tagerView;
+- (void)refreshData:(id)tagerView;
 
 - (void)clickLeftBarButton;
 - (void)clickRightBarButton;
