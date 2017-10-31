@@ -998,6 +998,7 @@
 			baseConfigurationReference = 3FADEAE9FFC02DCB39C0752B /* Pods-YTWeather.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2ZM39SG7H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1016,6 +1017,7 @@
 			baseConfigurationReference = 8BCAB6BDD51500CF0E110411 /* Pods-YTWeather.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C2ZM39SG7H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
