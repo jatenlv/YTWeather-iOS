@@ -18,5 +18,6 @@ typedef  NS_ENUM(NSInteger,UIScrollViewTouchType)
 @interface YTMainViewController : UIViewController
 
 @property (nonatomic,assign) UIScrollViewTouchType touchType;
+@property (nonatomic, assign) BOOL isShowSlide;
 
 @end
