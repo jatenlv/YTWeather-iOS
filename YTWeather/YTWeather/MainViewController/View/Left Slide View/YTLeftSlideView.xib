@@ -37,15 +37,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-uG-LVg">
                     <rect key="frame" x="0.0" y="0.0" width="262.5" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon83.5x83.5" translatesAutoresizingMaskIntoConstraints="NO" id="plq-BS-n42">
-                            <rect key="frame" x="20" y="33" width="34.5" height="34.5"/>
-                            <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dark-Sidebar-Identity-Anonymous-Signed-In" translatesAutoresizingMaskIntoConstraints="NO" id="plq-BS-n42">
+                            <rect key="frame" x="15" y="33" width="34.5" height="34.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="plq-BS-n42" secondAttribute="height" multiplier="1:1" id="vaS-r2-PWc"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mw-hN-BR4">
-                            <rect key="frame" x="74.5" y="40.5" width="69.5" height="19"/>
+                            <rect key="frame" x="69.5" y="40.5" width="69.5" height="19"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -60,7 +59,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="plq-BS-n42" firstAttribute="leading" secondItem="0bE-uG-LVg" secondAttribute="leading" constant="20" id="1Cv-Kr-EhK"/>
+                        <constraint firstItem="plq-BS-n42" firstAttribute="leading" secondItem="0bE-uG-LVg" secondAttribute="leading" constant="15" id="1Cv-Kr-EhK"/>
                         <constraint firstItem="IBn-0h-oaM" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" constant="10" id="9pQ-fc-HcB"/>
                         <constraint firstItem="1mw-hN-BR4" firstAttribute="leading" secondItem="plq-BS-n42" secondAttribute="trailing" constant="20" id="I92-5s-msu"/>
                         <constraint firstItem="1mw-hN-BR4" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" constant="10" id="IVY-ez-cvA"/>
@@ -71,7 +70,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTJ-sZ-7NC" userLabel="Line View">
                     <rect key="frame" x="0.0" y="80" width="375" height="0.5"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.094117647060000004" green="0.094117647060000004" blue="0.094117647060000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="0.5" id="pEX-LJ-xa4"/>
                     </constraints>
@@ -96,7 +95,7 @@
         </view>
     </objects>
     <resources>
-        <image name="AppIcon83.5x83.5" width="16" height="16"/>
         <image name="Close" width="30" height="30"/>
+        <image name="Dark-Sidebar-Identity-Anonymous-Signed-In" width="34" height="35"/>
     </resources>
 </document>

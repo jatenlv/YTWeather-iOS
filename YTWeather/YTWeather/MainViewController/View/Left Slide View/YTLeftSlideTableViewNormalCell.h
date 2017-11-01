@@ -10,6 +10,8 @@
 
 @interface YTLeftSlideTableViewNormalCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+
 @property (nonatomic, strong) NSString *titleText;
 
 @end

@@ -65,32 +65,42 @@ UITableViewDataSource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    YTLeftSlideTableViewNormalCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewNormalCell className]];
-    
     CGFloat section = indexPath.section;
     CGFloat row = indexPath.row;
     
+    YTLeftSlideTableViewNormalCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewNormalCell className]];
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
+    cell.selectedBackgroundView.backgroundColor = [UIColor colorWithHexString:@"#202020"];
+
     if (section == 0) {
         if (row == 0) {
             cell.titleText = @"分享";
+            cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Share"];
         } else if (row == 1) {
             cell.titleText = @"编辑地点";
+            cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Add-New-Location"];
         } else {
             cell.titleText = [self.cityNameArray objectAtIndex:row - 2];
+            cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Other-Location"];
         }
     } else if (section == 1) {
         if (row == 0) {
-            YTLeftSlideTableViewToolCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewToolCell className]];
+            YTLeftSlideTableViewToolCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewToolCell className]];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         } else if (row == 1) {
             cell.titleText = @"设置";
+            cell.iconImageView.image = [UIImage imageNamed:@"Dark-Sidebar-Tools-Icon-Settings"];
         } else if (row == 2) {
             cell.titleText = @"意见和建议";
+            cell.iconImageView.image = [UIImage imageNamed:@"Dark-Sidebar-Tools-Icon-Send-Feedback"];
         } else {
             cell.titleText = @"给此应用程序打分";
+            cell.iconImageView.image = [UIImage imageNamed:@"Dark-Sidebar-Tools-Icon-Rate-This-App"];
         }
     } else {
         YTLeftSlideTableViewNoticeCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewNoticeCell className]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -102,13 +112,14 @@ UITableViewDataSource
     if (indexPath.section == 1 && indexPath.row == 0) {
         return 45.0f;
     } else if (indexPath.section == 2) {
-        return 120.0f;
+        return 80.0f;
     }
     return 40.0f;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0 && indexPath.row >= 2) {
         [self.delegate showCityViewWithIndex:indexPath.row - 2];
     }

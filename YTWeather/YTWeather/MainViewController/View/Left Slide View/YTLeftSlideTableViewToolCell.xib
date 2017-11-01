@@ -24,14 +24,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="工具" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfz-eA-GVq">
-                        <rect key="frame" x="25" y="18.5" width="28" height="16.5"/>
+                        <rect key="frame" x="20" y="18.5" width="28" height="16.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxs-Lf-P9N" userLabel="Line View 1">
                         <rect key="frame" x="0.0" y="5" width="320" height="1"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="WAE-rw-0ff"/>
                         </constraints>
@@ -42,7 +42,7 @@
                     <constraint firstItem="Uxs-Lf-P9N" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="7ed-bB-e2n"/>
                     <constraint firstAttribute="trailing" secondItem="Uxs-Lf-P9N" secondAttribute="trailing" id="R1G-5a-ELv"/>
                     <constraint firstItem="Uxs-Lf-P9N" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="agN-dI-59m"/>
-                    <constraint firstItem="cfz-eA-GVq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="dUT-x0-VMs"/>
+                    <constraint firstItem="cfz-eA-GVq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="dUT-x0-VMs"/>
                     <constraint firstItem="cfz-eA-GVq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="5" id="kEU-eq-QbN"/>
                 </constraints>
             </tableViewCellContentView>

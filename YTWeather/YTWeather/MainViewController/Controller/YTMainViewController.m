@@ -30,8 +30,6 @@ UITableViewDelegate
 @property (strong, nonatomic) UIScrollView *scrollView;
 //当前的MainView索引
 @property (nonatomic, assign) NSUInteger curIndex;
-//子view数组
-@property (nonatomic, strong) NSMutableArray * scrollSubViewArr;
 //单击手势
 @property (nonatomic,strong) UITapGestureRecognizer *tap;
 
@@ -71,8 +69,6 @@ UITableViewDelegate
     // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
     
-    [self setupScrollViewArr];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
 
@@ -81,6 +77,7 @@ UITableViewDelegate
 - (void)setupLeftSlideView
 {
     self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    self.leftSlideView.delegate = self;
     [self.view addSubview:self.leftSlideView];
     [self.view sendSubviewToBack:self.leftSlideView];
 }
@@ -96,6 +93,7 @@ UITableViewDelegate
 {
     // 调整scrollView大小
     [self reloadScrollViewSize];
+    self.mainViewArray = [NSMutableArray array];
     self.viewOrginX = 0;
     for (NSString *cityName in self.cityNameArray) {
         [self createMainViewWithCityName:cityName newView:NO];
@@ -133,15 +131,6 @@ UITableViewDelegate
     }
 }
 
-- (void)setupScrollViewArr
-{
-    self.scrollSubViewArr = [NSMutableArray array];
-    for (YTMainView * mainV in self.scrollView.subviews) {
-        [self.scrollSubViewArr addObject:mainV];
-    }
-}
-
-
 #pragma mark - Notification
 
 - (void)searchCityNameDidSelect:(NSNotification *)notify
@@ -176,7 +165,7 @@ UITableViewDelegate
 }
 - (void)getCurMainVConfigScrollEnabled
 {
-    YTMainView * curMainV =self.scrollSubViewArr[_curIndex];
+    YTMainView * curMainV =self.mainViewArray[_curIndex];
     curMainV.tableView.scrollEnabled = !_isShowSlide;
 }
 
@@ -249,24 +238,23 @@ UITableViewDelegate
     [self presentViewController:resultVC animated:YES completion:nil];
 }
 
-#pragma mark - YTLeftSlideView Delegate
-
-//- (void)showCityViewWithIndex:(NSInteger)index
-//{
-//    [self.scrollView setContentOffset:mainView.frame.origin animated:NO];
-//
-//}
-
-
 - (void)mainTableViewDidScrollWithOffset:(CGFloat)offset
 {
-    [self.scrollSubViewArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.mainViewArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if(_curIndex != idx)
         {
             YTMainView * mainV = (YTMainView *)obj;
             [mainV setContentOffset:offset animated:NO];
         }
     }];
+}
+
+#pragma mark - YTLeftSlideView Delegate
+
+- (void)showCityViewWithIndex:(NSInteger)index
+{
+    [self clickLeftBarButton];
+    [self.scrollView setContentOffset:self.mainViewArray[index].frame.origin animated:NO];
 }
 
 #pragma mark - 读取缓存操作
@@ -321,7 +309,9 @@ UITableViewDelegate
         NSLog(@"文件写入完成");
     }
 }*/
+
 #pragma mark - KVO
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     BOOL isAddTapGesture = [change[NSKeyValueChangeNewKey] boolValue];

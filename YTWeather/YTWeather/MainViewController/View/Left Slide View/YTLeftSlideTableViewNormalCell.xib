@@ -25,14 +25,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="250" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0u-4C-SRy">
-                        <rect key="frame" x="30" y="10.5" width="18.5" height="18.5"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0u-4C-SRy">
+                        <rect key="frame" x="20" y="6.5" width="26.5" height="26.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="M0u-4C-SRy" secondAttribute="height" multiplier="1:1" id="DDX-Q2-bcU"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编辑地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCB-Ll-jR6">
-                        <rect key="frame" x="78.5" y="10.5" width="148.5" height="19"/>
+                        <rect key="frame" x="66.5" y="10.5" width="160.5" height="19"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -41,9 +41,9 @@
                 <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="M0u-4C-SRy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="02V-m3-q1L"/>
-                    <constraint firstItem="bCB-Ll-jR6" firstAttribute="leading" secondItem="M0u-4C-SRy" secondAttribute="trailing" constant="30" id="9KE-cd-7gk"/>
-                    <constraint firstItem="M0u-4C-SRy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Ig1-7G-VLg"/>
-                    <constraint firstItem="M0u-4C-SRy" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="20:43" id="Tct-y0-so9"/>
+                    <constraint firstItem="bCB-Ll-jR6" firstAttribute="leading" secondItem="M0u-4C-SRy" secondAttribute="trailing" constant="20" id="9KE-cd-7gk"/>
+                    <constraint firstItem="M0u-4C-SRy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Ig1-7G-VLg"/>
+                    <constraint firstItem="M0u-4C-SRy" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="1:1.5" id="Tct-y0-so9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bCB-Ll-jR6" secondAttribute="trailing" constant="15" id="p5B-u0-ali"/>
                     <constraint firstItem="bCB-Ll-jR6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uVX-Bs-sbF"/>
                 </constraints>

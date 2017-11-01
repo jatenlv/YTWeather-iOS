@@ -11,8 +11,6 @@
 
 @interface YTLeftSlideTableViewNormalCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
@@ -22,7 +20,6 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    self.iconImageView.backgroundColor = [UIColor redColor];
 }
 
 - (void)setTitleText:(NSString *)titleText
