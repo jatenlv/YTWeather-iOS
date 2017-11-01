@@ -23,7 +23,7 @@
 <
 YTMainViewDelegate,
 UIGestureRecognizerDelegate,
-UIScrollViewDelegate
+UITableViewDelegate
 >
 
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -172,18 +172,6 @@ UIScrollViewDelegate
     [self getCurMainVConfigScrollEnabled];
     return _isShowSlide;
 }
-//- (void)isScrollCanTap
-//{
-//    if(!_isShowSlide)
-//    {
-//        [self.scrollView removeGestureRecognizer:self.tap];
-//    }else{
-//        [self.scrollView addGestureRecognizer:self.tap];
-//    }
-//
-//}
-
-
 - (void)getCurMainVConfigScrollEnabled
 {
     YTMainView * curMainV =self.scrollSubViewArr[_curIndex];
@@ -207,7 +195,7 @@ UIScrollViewDelegate
         if(self.scrollView.mj_x < kSlideWidthScale * ScreenWidth)
         {
             [self slideViewMoveWithDistance:-self.scrollView.mj_x];
-            _isShowSlide = NO;
+            self.isShowSlide = NO;
         }else {
             [self slideViewMoveWithDistance: (kSlideWidthScale * ScreenWidth-self.scrollView.mj_x)];
         }
@@ -321,7 +309,6 @@ UIScrollViewDelegate
     }else{
         [self.scrollView removeGestureRecognizer:self.tap];
     }
-    
 }
 
 @end
