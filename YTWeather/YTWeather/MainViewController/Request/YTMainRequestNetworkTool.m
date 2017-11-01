@@ -30,8 +30,8 @@
 
 + (NSArray *)requestDateForLeftSlideView
 {
-    NSArray * place = @[@"编辑地点",@"上海市",@"西安",@"五常"];
-    NSArray * tool = @[@"设置",@"意见和建议",@"分享这个应用程序",@"为此应用程序打分"];
+    NSArray * place = @[@"分享", @"编辑地点"];
+    NSArray * tool = @[@"设置", @"意见和建议", @"为此应用程序打分"];
     return  @[place,tool];
 }
 @end

@@ -9,20 +9,21 @@
 #import "YTMainMaskView.h"
 
 @implementation YTMainMaskView
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    if(self = [super initWithFrame:frame]){
+    if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(self.touchBlock)
-    {
+    if (self.touchBlock) {
         self.touchBlock();
     }
-    
 }
+
 @end

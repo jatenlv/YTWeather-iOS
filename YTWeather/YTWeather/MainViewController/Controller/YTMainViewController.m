@@ -38,7 +38,8 @@ UIGestureRecognizerDelegate
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
 @property (nonatomic, assign) CGFloat viewOrginX;
-@property (nonatomic,strong)  YTMainMaskView *maskView;
+
+@property (nonatomic,strong) YTMainMaskView *maskView;
 
 @end
 
@@ -61,8 +62,11 @@ UIGestureRecognizerDelegate
     [self readCityNameArray];
     // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
-    [self.view addSubview:self.maskView];
-    self.maskView.hidden = !_isShowSlide;
+    
+    // 加载左侧滑动视图及遮罩视图
+    [self setupLeftSlideView];
+    [self setupMaskView];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
 
@@ -77,6 +81,7 @@ UIGestureRecognizerDelegate
     for (NSString *cityName in self.cityNameArray) {
         [self createMainViewWithCityName:cityName newView:NO];
     }
+    self.leftSlideView.cityNameArray = self.cityNameArray;
 }
 
 - (void)reloadScrollViewSize
@@ -101,7 +106,6 @@ UIGestureRecognizerDelegate
         if (!error) {
             if ([mainView.cityNameForView isEqualToString:cityName]) {
                 mainView.weatherModel = model;
-                [mainView.tableView reloadData];
             }
         }
     }];
@@ -109,6 +113,27 @@ UIGestureRecognizerDelegate
     if (newView) {
         [self.scrollView setContentOffset:mainView.frame.origin animated:NO];
     }
+}
+
+- (void)setupLeftSlideView
+{
+    self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, kSlideWidthScale * ScreenWidth, ScreenHeight)];
+    [self.view addSubview:self.leftSlideView];
+    [self.view sendSubviewToBack:self.leftSlideView];
+
+}
+
+- (void)setupMaskView
+{
+    CGFloat x = kSlideWidthScale * ScreenWidth;
+    self.maskView = [[YTMainMaskView alloc]initWithFrame:CGRectMake(x, 0, ScreenWidth - x, ScreenHeight)];
+    @weakify(self);
+    self.maskView.touchBlock = ^{
+        @strongify(self);
+        [self clickLeftBarButton];
+    };
+    [self.view addSubview:self.maskView];
+    self.maskView.hidden = !_isShowSlide;
 }
 
 #pragma mark - Notification
@@ -215,29 +240,6 @@ UIGestureRecognizerDelegate
     [defaults synchronize];
 }
 
-#pragma mark - Lazy Init
-
-- (YTLeftSlideView *)leftSlideView
-{
-    if(!_leftSlideView)
-    {
-        _leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, kSlideWidthScale * ScreenWidth, ScreenHeight) style:(UITableViewStylePlain)];
-    }
-    return _leftSlideView;
-}
-- (YTMainMaskView *)maskView
-{
-    if(!_maskView){
-        CGFloat x = kSlideWidthScale * ScreenWidth;
-        _maskView = [[YTMainMaskView alloc]initWithFrame:CGRectMake(x, 0, ScreenWidth - x, ScreenHeight)];
-        @weakify(self);
-        _maskView.touchBlock = ^{
-            @strongify(self);
-            [self clickLeftBarButton];
-        };
-    }
-    return _maskView;
-}
 /*
  * 暂时不用 以后如果需要转换再用 txt -> plist
 - (void)test
