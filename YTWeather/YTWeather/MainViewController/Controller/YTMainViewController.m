@@ -15,8 +15,6 @@
 #import "YTMainRequestNetworkTool.h"
 
 #import "YTLeftSlideView.h"
-#import "YTMainMaskView.h"
-
 #import "YTSearchViewController.h"
 
 #define kSlideWidthScale 0.7
@@ -24,22 +22,23 @@
 @interface YTMainViewController ()
 <
 YTMainViewDelegate,
-UIGestureRecognizerDelegate
+UIGestureRecognizerDelegate,
+UIScrollViewDelegate
 >
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
-@property (nonatomic,strong) YTLeftSlideView *leftSlideView;
+@property (strong, nonatomic) UIScrollView *scrollView;
+@property (nonatomic, assign) NSUInteger curIndex;
+@property (nonatomic, strong) NSMutableArray * scrollSubViewArr;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewLeading;
 
+@property (nonatomic,strong) YTLeftSlideView *leftSlideView;
 @property (nonatomic, assign) BOOL isShowSlide;
-@property (nonatomic, assign) BOOL isMaskViewMove;
+@property (nonatomic, assign) BOOL isPanGestureMove;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
 @property (nonatomic, assign) CGFloat viewOrginX;
 
-@property (nonatomic,strong) YTMainMaskView *maskView;
 
 @end
 
@@ -55,7 +54,11 @@ UIGestureRecognizerDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    // 添加左侧滑动页面
+    [self setupLeftSlideView];
+    // 添加ScrollView
+    [self setupScrollView];
     // 添加滑动弹出设置页面手势
     [self addSlideGesture];
     // 取出城市缓存
@@ -63,20 +66,31 @@ UIGestureRecognizerDelegate
     // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
     
-    // 加载左侧滑动视图及遮罩视图
-    [self setupLeftSlideView];
-    [self setupMaskView];
+    [self setupScrollViewArr];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
 
 #pragma mark - Private Method
 
+- (void)setupLeftSlideView
+{
+    self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    [self.view addSubview:self.leftSlideView];
+    [self.view sendSubviewToBack:self.leftSlideView];
+}
+
+- (void)setupScrollView
+{
+    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    self.scrollView.delegate = self;
+    [self.view addSubview:self.scrollView];
+}
+
 - (void)loadOldViewAndData
 {
     // 调整scrollView大小
     [self reloadScrollViewSize];
-    
     self.viewOrginX = 0;
     for (NSString *cityName in self.cityNameArray) {
         [self createMainViewWithCityName:cityName newView:NO];
@@ -87,7 +101,6 @@ UIGestureRecognizerDelegate
 - (void)reloadScrollViewSize
 {
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.size = CGSizeMake(self.cityNameArray.count * ScreenWidth, ScreenHeight);
     self.scrollView.contentSize = CGSizeMake(self.cityNameArray.count * ScreenWidth, 0);
 }
 
@@ -115,25 +128,12 @@ UIGestureRecognizerDelegate
     }
 }
 
-- (void)setupLeftSlideView
+- (void)setupScrollViewArr
 {
-    self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, kSlideWidthScale * ScreenWidth, ScreenHeight)];
-    [self.view addSubview:self.leftSlideView];
-    [self.view sendSubviewToBack:self.leftSlideView];
-
-}
-
-- (void)setupMaskView
-{
-    CGFloat x = kSlideWidthScale * ScreenWidth;
-    self.maskView = [[YTMainMaskView alloc]initWithFrame:CGRectMake(x, 0, ScreenWidth - x, ScreenHeight)];
-    @weakify(self);
-    self.maskView.touchBlock = ^{
-        @strongify(self);
-        [self clickLeftBarButton];
-    };
-    [self.view addSubview:self.maskView];
-    self.maskView.hidden = !_isShowSlide;
+    self.scrollSubViewArr = [NSMutableArray array];
+    for (YTMainView * mainV in self.scrollView.subviews) {
+        [self.scrollSubViewArr addObject:mainV];
+    }
 }
 
 #pragma mark - Notification
@@ -155,45 +155,64 @@ UIGestureRecognizerDelegate
 {
     UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(changeFrame:)];
     pan.delegate = self;
-    //[self.maskView addGestureRecognizer:pan];
+    [self.scrollView addGestureRecognizer:pan];
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickLeftBarButton)];
+    [tap requireGestureRecognizerToFail:pan];
+    [self.scrollView addGestureRecognizer:tap];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    [self getCurMainVConfigScrollEnabled];
+    return _isShowSlide;
+}
+
+- (void)getCurMainVConfigScrollEnabled
+{
+    YTMainView * curMainV =self.scrollSubViewArr[_curIndex];
+    curMainV.tableView.scrollEnabled = !_isShowSlide;
 }
 
 - (void)changeFrame:(UIPanGestureRecognizer *)pan
 {
     //相对偏移量
     CGFloat  translatePointX = [pan translationInView:self.scrollView].x;
-    
+    if(self.scrollView.mj_x + translatePointX < 0)
+    {
+        translatePointX = 0;
+    }
     if(pan.state == UIGestureRecognizerStateChanged)
     {
         [self slideViewMoveWithDistance:translatePointX];
 
     }else if(pan.state == UIGestureRecognizerStateEnded)
     {
-//        if(scrollX >= kSlideWidthScale/2 * self.scrollView.width )
-//        {
-//            translatePointX = kSlideWidthScale * self.scrollView.width - scrollX;
-//
-//            [self slideViewMoveWithDistance:translatePointX];
-//            _isShowSlide = YES;
-//        }
-//        else {
-//            translatePointX = -scrollX;
-//            [self slideViewMoveWithDistance:translatePointX];
-//            _isShowSlide = NO;
-//        }
+        if(self.scrollView.mj_x < kSlideWidthScale * ScreenWidth)
+        {
+            [self slideViewMoveWithDistance:-self.scrollView.mj_x];
+            _isShowSlide = NO;
+        }else {
+            [self slideViewMoveWithDistance: (kSlideWidthScale * ScreenWidth-self.scrollView.mj_x)];
+        }
     }
     [pan setTranslation:CGPointZero inView:self.scrollView];
 }
 
 - (void)slideViewMoveWithDistance:(CGFloat)offset
 {
-    CGAffineTransform transform;
-    transform = _isShowSlide ? CGAffineTransformIdentity : CGAffineTransformMakeTranslation(offset, 0);
     [UIView animateWithDuration:0.35 animations:^{
-        self.scrollView.transform = transform;
+        self.scrollView.mj_x += offset;
     }];
-    self.maskView.hidden = _isShowSlide;
 }
+
+#pragma mark - Scroll View Delegate
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat offset = scrollView.contentOffset.x;
+    _curIndex = offset/ScreenWidth;
+}
+
 #pragma mark - YTMainView Delegate
 
 - (void)refreshData:(id)tagerView
