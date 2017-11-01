@@ -22,6 +22,7 @@
 @interface YTMainViewController ()
 <
 YTMainViewDelegate,
+YTLeftSlideViewDelegate,
 UIGestureRecognizerDelegate,
 UITableViewDelegate
 >
@@ -152,6 +153,7 @@ UITableViewDelegate
     
     [self reloadScrollViewSize];
     [self createMainViewWithCityName:newCityName newView:YES];
+    self.leftSlideView.cityNameArray = self.cityNameArray;
 }
 
 #pragma mark 添加左侧侧滑手势
@@ -247,6 +249,14 @@ UITableViewDelegate
     YTSearchViewController *resultVC = [[YTSearchViewController alloc] init];
     [self presentViewController:resultVC animated:YES completion:nil];
 }
+
+#pragma mark - YTLeftSlideView Delegate
+
+//- (void)showCityViewWithIndex:(NSInteger)index
+//{
+//    [self.scrollView setContentOffset:mainView.frame.origin animated:NO];
+//
+//}
 
 #pragma mark - 读取缓存操作
 

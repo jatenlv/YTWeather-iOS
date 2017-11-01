@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R9j-cz-BmL">
-                    <rect key="frame" x="0.0" y="80.5" width="263" height="586.5"/>
+                    <rect key="frame" x="0.0" y="85.5" width="263" height="581.5"/>
                     <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Pzt-4M-Fxu"/>
@@ -86,7 +86,7 @@
                 <constraint firstItem="R9j-cz-BmL" firstAttribute="leading" secondItem="yOb-oA-KgZ" secondAttribute="leading" id="Lct-5C-ERl"/>
                 <constraint firstAttribute="trailing" secondItem="bTJ-sZ-7NC" secondAttribute="trailing" id="aWy-2O-r2Z"/>
                 <constraint firstAttribute="trailing" secondItem="R9j-cz-BmL" secondAttribute="trailing" multiplier="1:0.7" id="b1y-uv-JrT"/>
-                <constraint firstItem="R9j-cz-BmL" firstAttribute="top" secondItem="bTJ-sZ-7NC" secondAttribute="bottom" id="iD9-rM-URk"/>
+                <constraint firstItem="R9j-cz-BmL" firstAttribute="top" secondItem="bTJ-sZ-7NC" secondAttribute="bottom" constant="5" id="iD9-rM-URk"/>
                 <constraint firstAttribute="trailing" secondItem="0bE-uG-LVg" secondAttribute="trailing" multiplier="1:0.7" id="mkd-79-gSB"/>
                 <constraint firstItem="IBn-0h-oaM" firstAttribute="width" secondItem="yOb-oA-KgZ" secondAttribute="height" multiplier="1:40" constant="1" id="o4u-pt-C7u"/>
                 <constraint firstItem="bTJ-sZ-7NC" firstAttribute="leading" secondItem="yOb-oA-KgZ" secondAttribute="leading" id="pmm-ss-5YG"/>

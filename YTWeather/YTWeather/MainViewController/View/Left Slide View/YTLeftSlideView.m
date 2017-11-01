@@ -9,6 +9,8 @@
 #import "YTLeftSlideView.h"
 
 #import "YTLeftSlideTableViewNormalCell.h"
+#import "YTLeftSlideTableViewToolCell.h"
+#import "YTLeftSlideTableViewNoticeCell.h"
 
 #import "YTMainRequestNetworkTool.h"
 
@@ -39,6 +41,8 @@ UITableViewDataSource
 - (void)setup
 {
     [self.tableView registerNib:[YTLeftSlideTableViewNormalCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTLeftSlideTableViewNormalCell className]];
+    [self.tableView registerNib:[YTLeftSlideTableViewToolCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTLeftSlideTableViewToolCell className]];
+    [self.tableView registerNib:[YTLeftSlideTableViewNoticeCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTLeftSlideTableViewNoticeCell className]];
 }
 
 #pragma mark dataSource
@@ -53,9 +57,9 @@ UITableViewDataSource
     if (section == 0) {
         return 2 + self.cityNameArray.count;
     } else if (section == 1) {
-        return 3;
+        return 4;
     } else {
-        return 0;
+        return 1;
     }
 }
 
@@ -76,12 +80,18 @@ UITableViewDataSource
         }
     } else if (section == 1) {
         if (row == 0) {
-            cell.titleText = @"设置";
+            YTLeftSlideTableViewToolCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewToolCell className]];
+            return cell;
         } else if (row == 1) {
+            cell.titleText = @"设置";
+        } else if (row == 2) {
             cell.titleText = @"意见和建议";
         } else {
             cell.titleText = @"给此应用程序打分";
         }
+    } else {
+        YTLeftSlideTableViewNoticeCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewNoticeCell className]];
+        return cell;
     }
     
     return cell;
@@ -89,21 +99,19 @@ UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        return 45.0f;
+    } else if (indexPath.section == 2) {
+        return 120.0f;
+    }
     return 40.0f;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 1) {
-        return 40;
+    if (indexPath.section == 0 && indexPath.row >= 2) {
+        [self.delegate showCityViewWithIndex:indexPath.row - 2];
     }
-    return 0;
 }
 
 - (void)setCityNameArray:(NSArray *)cityNameArray

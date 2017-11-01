@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="Rem-k5-Zlx" customClass="YTLeftSlideTableViewNormalCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rem-k5-Zlx" id="jN6-hw-PUL">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCa-bZ-H02" userLabel="Line View 1">
+                        <rect key="frame" x="0.0" y="5" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Bl3-Rj-3C2"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DwX-GZ-BOp">
+                        <rect key="frame" x="110" y="21" width="100" height="50"/>
+                        <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="5HY-1m-zVs"/>
+                            <constraint firstAttribute="height" constant="50" id="aup-Ut-7eL"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZQ-IA-2EY">
+                        <rect key="frame" x="135.5" y="81" width="50" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="6Q1-p9-gi9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="10"/>
+                        <state key="normal" title="条款和隐私">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="bCa-bZ-H02" firstAttribute="leading" secondItem="jN6-hw-PUL" secondAttribute="leading" id="DIU-Qp-gk3"/>
+                    <constraint firstItem="DwX-GZ-BOp" firstAttribute="centerX" secondItem="jN6-hw-PUL" secondAttribute="centerX" id="P5r-uf-go6"/>
+                    <constraint firstItem="7ZQ-IA-2EY" firstAttribute="centerX" secondItem="jN6-hw-PUL" secondAttribute="centerX" id="SEJ-oj-bGf"/>
+                    <constraint firstItem="DwX-GZ-BOp" firstAttribute="top" secondItem="bCa-bZ-H02" secondAttribute="bottom" constant="15" id="ZfW-en-g3C"/>
+                    <constraint firstItem="7ZQ-IA-2EY" firstAttribute="top" secondItem="DwX-GZ-BOp" secondAttribute="bottom" constant="10" id="bEX-61-tqi"/>
+                    <constraint firstItem="bCa-bZ-H02" firstAttribute="top" secondItem="jN6-hw-PUL" secondAttribute="top" constant="5" id="bOL-2F-oZM"/>
+                    <constraint firstAttribute="trailing" secondItem="bCa-bZ-H02" secondAttribute="trailing" id="fhZ-le-PsO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="103" y="-22.5"/>
+        </tableViewCell>
+    </objects>
+</document>

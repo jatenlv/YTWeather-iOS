@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol YTLeftSlideViewDelegate
+
+- (void)showCityViewWithIndex:(NSInteger)index;
+
+@end
+
 @interface YTLeftSlideView : UIView
+
+@property (nonatomic, weak) id <YTLeftSlideView> delegate;
 
 @property (nonatomic, strong) NSArray *cityNameArray;
 

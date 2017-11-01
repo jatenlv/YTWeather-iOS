@@ -23,7 +23,6 @@
 {
     [super awakeFromNib];
     self.iconImageView.backgroundColor = [UIColor redColor];
-    self.titleLabel.textColor = [UIColor whiteColor];
 }
 
 - (void)setTitleText:(NSString *)titleText
