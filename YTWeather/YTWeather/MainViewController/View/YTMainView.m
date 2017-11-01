@@ -225,8 +225,19 @@ UITableViewDelegate
     if (offset >= 0 && offset < ScreenHeight) {
         self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight * 0.7;
     }
+    if(self.delegate && [self.delegate respondsToSelector:@selector(mainTableViewDidScrollWithOffset:)])
+    {
+        [self.delegate mainTableViewDidScrollWithOffset:offset];
+    }
 }
-
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidScroll:scrollView];
+}
+- (void)setContentOffset:(CGFloat)offset animated:(BOOL)animated
+{
+    [self.tableView setContentOffset:CGPointMake(0, offset) animated:animated];
+}
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     CGPoint curRightP = [self convertPoint:point toView:self.customNavigationBar.rightButton];

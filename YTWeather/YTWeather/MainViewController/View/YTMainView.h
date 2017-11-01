@@ -16,7 +16,7 @@
 
 - (void)clickLeftBarButton;
 - (void)clickRightBarButton;
-
+- (void)mainTableViewDidScrollWithOffset:(CGFloat)offset;
 @end
 
 @interface YTMainView : UIView
@@ -28,5 +28,5 @@
 @property (nonatomic, weak) id <YTMainViewDelegate> delegate;
 
 @property (nonatomic, copy) NSString *cityNameForView;
-
+- (void)setContentOffset:(CGFloat)offset animated:(BOOL)animated;
 @end

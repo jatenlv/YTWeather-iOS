@@ -59,7 +59,7 @@ UITableViewDelegate
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    _curIndex = 0;
     // 添加左侧滑动页面
     [self setupLeftSlideView];
     // 添加ScrollView
@@ -241,7 +241,6 @@ UITableViewDelegate
     CGFloat offset = _isShowSlide ? -maxOffset : maxOffset;
     [self slideViewMoveWithDistance:offset];
     self.isShowSlide = !self.isShowSlide;
-
 }
 
 - (void)clickRightBarButton
@@ -257,6 +256,18 @@ UITableViewDelegate
 //    [self.scrollView setContentOffset:mainView.frame.origin animated:NO];
 //
 //}
+
+
+- (void)mainTableViewDidScrollWithOffset:(CGFloat)offset
+{
+    [self.scrollSubViewArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if(_curIndex != idx)
+        {
+            YTMainView * mainV = (YTMainView *)obj;
+            [mainV setContentOffset:offset animated:NO];
+        }
+    }];
+}
 
 #pragma mark - 读取缓存操作
 
