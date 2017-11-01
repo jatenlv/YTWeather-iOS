@@ -20,8 +20,6 @@ UITableViewDataSource
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray * dataList;
-
 @end
 
 @implementation YTLeftSlideView
@@ -40,8 +38,6 @@ UITableViewDataSource
 
 - (void)setup
 {
-    self.dataList = [YTMainRequestNetworkTool requestDateForLeftSlideView];
-    
     [self.tableView registerNib:[YTLeftSlideTableViewNormalCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTLeftSlideTableViewNormalCell className]];
 }
 
@@ -49,18 +45,45 @@ UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return  self.dataList.count;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataList[section] count];
+    if (section == 0) {
+        return 2 + self.cityNameArray.count;
+    } else if (section == 1) {
+        return 3;
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     YTLeftSlideTableViewNormalCell * cell = [tableView dequeueReusableCellWithIdentifier:[YTLeftSlideTableViewNormalCell className]];
-    cell.titleText = self.dataList[indexPath.section][indexPath.row];
+    
+    CGFloat section = indexPath.section;
+    CGFloat row = indexPath.row;
+    
+    if (section == 0) {
+        if (row == 0) {
+            cell.titleText = @"分享";
+        } else if (row == 1) {
+            cell.titleText = @"编辑地点";
+        } else {
+            cell.titleText = [self.cityNameArray objectAtIndex:row - 2];
+        }
+    } else if (section == 1) {
+        if (row == 0) {
+            cell.titleText = @"设置";
+        } else if (row == 1) {
+            cell.titleText = @"意见和建议";
+        } else {
+            cell.titleText = @"给此应用程序打分";
+        }
+    }
+    
     return cell;
 }
 
@@ -69,14 +92,23 @@ UITableViewDataSource
     return 40.0f;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSArray *title = @[@"登录/注册", @"工具", @"ICON"];
-    return title[section];
+   
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 1) {
+        return 40;
+    }
+    return 0;
 }
 
 - (void)setCityNameArray:(NSArray *)cityNameArray
 {
+    _cityNameArray = cityNameArray;
     [self.tableView reloadData];
 }
 

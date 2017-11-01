@@ -37,21 +37,21 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bE-uG-LVg">
                     <rect key="frame" x="0.0" y="0.0" width="262.5" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="plq-BS-n42">
-                            <rect key="frame" x="20" y="18" width="44.5" height="44.5"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon83.5x83.5" translatesAutoresizingMaskIntoConstraints="NO" id="plq-BS-n42">
+                            <rect key="frame" x="20" y="33" width="34.5" height="34.5"/>
                             <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="plq-BS-n42" secondAttribute="height" multiplier="1:1" id="vaS-r2-PWc"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录/注册" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mw-hN-BR4">
-                            <rect key="frame" x="84.5" y="30.5" width="69.5" height="19"/>
+                            <rect key="frame" x="74.5" y="40.5" width="69.5" height="19"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBn-0h-oaM">
-                            <rect key="frame" x="235" y="31" width="17.5" height="18"/>
+                            <rect key="frame" x="235" y="41" width="17.5" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="IBn-0h-oaM" secondAttribute="height" multiplier="1:1" id="Vrl-fT-t6g"/>
                             </constraints>
@@ -61,12 +61,12 @@
                     <color key="backgroundColor" red="0.12941176469999999" green="0.12941176469999999" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="plq-BS-n42" firstAttribute="leading" secondItem="0bE-uG-LVg" secondAttribute="leading" constant="20" id="1Cv-Kr-EhK"/>
-                        <constraint firstItem="IBn-0h-oaM" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" id="9pQ-fc-HcB"/>
+                        <constraint firstItem="IBn-0h-oaM" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" constant="10" id="9pQ-fc-HcB"/>
                         <constraint firstItem="1mw-hN-BR4" firstAttribute="leading" secondItem="plq-BS-n42" secondAttribute="trailing" constant="20" id="I92-5s-msu"/>
-                        <constraint firstItem="1mw-hN-BR4" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" id="IVY-ez-cvA"/>
+                        <constraint firstItem="1mw-hN-BR4" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" constant="10" id="IVY-ez-cvA"/>
                         <constraint firstAttribute="trailing" secondItem="IBn-0h-oaM" secondAttribute="trailing" constant="10" id="Sh9-Oe-hOe"/>
                         <constraint firstAttribute="height" constant="80" id="jQ2-Wx-8tU"/>
-                        <constraint firstItem="plq-BS-n42" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" id="wAu-gS-oEa"/>
+                        <constraint firstItem="plq-BS-n42" firstAttribute="centerY" secondItem="0bE-uG-LVg" secondAttribute="centerY" constant="10" id="wAu-gS-oEa"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTJ-sZ-7NC" userLabel="Line View">
@@ -90,12 +90,13 @@
                 <constraint firstAttribute="trailing" secondItem="0bE-uG-LVg" secondAttribute="trailing" multiplier="1:0.7" id="mkd-79-gSB"/>
                 <constraint firstItem="IBn-0h-oaM" firstAttribute="width" secondItem="yOb-oA-KgZ" secondAttribute="height" multiplier="1:40" constant="1" id="o4u-pt-C7u"/>
                 <constraint firstItem="bTJ-sZ-7NC" firstAttribute="leading" secondItem="yOb-oA-KgZ" secondAttribute="leading" id="pmm-ss-5YG"/>
-                <constraint firstItem="plq-BS-n42" firstAttribute="width" secondItem="yOb-oA-KgZ" secondAttribute="height" multiplier="1:15" id="t1w-9l-lRR"/>
+                <constraint firstItem="plq-BS-n42" firstAttribute="width" secondItem="yOb-oA-KgZ" secondAttribute="height" multiplier="1:20" constant="1" id="t1w-9l-lRR"/>
             </constraints>
             <point key="canvasLocation" x="-177.5" y="-116.5"/>
         </view>
     </objects>
     <resources>
+        <image name="AppIcon83.5x83.5" width="16" height="16"/>
         <image name="Close" width="30" height="30"/>
     </resources>
 </document>

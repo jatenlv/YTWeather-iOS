@@ -28,10 +28,4 @@
     }];
 }
 
-+ (NSArray *)requestDateForLeftSlideView
-{
-    NSArray * place = @[@"分享", @"编辑地点"];
-    NSArray * tool = @[@"设置", @"意见和建议", @"为此应用程序打分"];
-    return  @[place,tool];
-}
 @end

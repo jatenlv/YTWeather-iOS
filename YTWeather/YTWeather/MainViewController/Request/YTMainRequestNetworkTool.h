@@ -11,10 +11,6 @@
 
 @interface YTMainRequestNetworkTool : NSObject
 
-+ (void)requestWeatherWithCityName:(NSString *)cityName
-                          andFinish:(void(^)(YTWeatherModel *model, NSError *error))finish;
-
-+ (NSArray *)requestDateForLeftSlideView;
-
++ (void)requestWeatherWithCityName:(NSString *)cityName andFinish:(void(^)(YTWeatherModel *model, NSError *error))finish;
 
 @end

@@ -11,8 +11,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <array key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Light</string>
         </array>
     </customFonts>
     <objects>
@@ -26,14 +26,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0u-4C-SRy">
-                        <rect key="frame" x="25" y="10.5" width="18.5" height="18.5"/>
+                        <rect key="frame" x="30" y="10.5" width="18.5" height="18.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="M0u-4C-SRy" secondAttribute="height" multiplier="1:1" id="DDX-Q2-bcU"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="编辑地点" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCB-Ll-jR6">
-                        <rect key="frame" x="68.5" y="10.5" width="158.5" height="19"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                        <rect key="frame" x="78.5" y="10.5" width="148.5" height="19"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,8 +41,8 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="M0u-4C-SRy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="02V-m3-q1L"/>
-                    <constraint firstItem="bCB-Ll-jR6" firstAttribute="leading" secondItem="M0u-4C-SRy" secondAttribute="trailing" constant="25" id="9KE-cd-7gk"/>
-                    <constraint firstItem="M0u-4C-SRy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="Ig1-7G-VLg"/>
+                    <constraint firstItem="bCB-Ll-jR6" firstAttribute="leading" secondItem="M0u-4C-SRy" secondAttribute="trailing" constant="30" id="9KE-cd-7gk"/>
+                    <constraint firstItem="M0u-4C-SRy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="Ig1-7G-VLg"/>
                     <constraint firstItem="M0u-4C-SRy" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="20:43" id="Tct-y0-so9"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bCB-Ll-jR6" secondAttribute="trailing" constant="15" id="p5B-u0-ali"/>
                     <constraint firstItem="bCB-Ll-jR6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uVX-Bs-sbF"/>
