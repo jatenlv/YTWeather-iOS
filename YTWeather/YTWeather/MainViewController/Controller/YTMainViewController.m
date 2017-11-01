@@ -27,12 +27,16 @@ UIScrollViewDelegate
 >
 
 @property (strong, nonatomic) UIScrollView *scrollView;
+//当前的MainView索引
 @property (nonatomic, assign) NSUInteger curIndex;
+//子view数组
 @property (nonatomic, strong) NSMutableArray * scrollSubViewArr;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewLeading;
+//单击手势
+@property (nonatomic,strong) UITapGestureRecognizer *tap;
+
+
 
 @property (nonatomic,strong) YTLeftSlideView *leftSlideView;
-@property (nonatomic, assign) BOOL isShowSlide;
 @property (nonatomic, assign) BOOL isPanGestureMove;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
@@ -136,6 +140,7 @@ UIScrollViewDelegate
     }
 }
 
+
 #pragma mark - Notification
 
 - (void)searchCityNameDidSelect:(NSNotification *)notify
@@ -158,7 +163,8 @@ UIScrollViewDelegate
     [self.scrollView addGestureRecognizer:pan];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clickLeftBarButton)];
     [tap requireGestureRecognizerToFail:pan];
-    [self.scrollView addGestureRecognizer:tap];
+    self.tap = tap;
+    [self addObserver:self forKeyPath:@"isShowSlide" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -166,6 +172,17 @@ UIScrollViewDelegate
     [self getCurMainVConfigScrollEnabled];
     return _isShowSlide;
 }
+//- (void)isScrollCanTap
+//{
+//    if(!_isShowSlide)
+//    {
+//        [self.scrollView removeGestureRecognizer:self.tap];
+//    }else{
+//        [self.scrollView addGestureRecognizer:self.tap];
+//    }
+//
+//}
+
 
 - (void)getCurMainVConfigScrollEnabled
 {
@@ -233,7 +250,7 @@ UIScrollViewDelegate
     CGFloat maxOffset = kSlideWidthScale * self.scrollView.width;
     CGFloat offset = _isShowSlide ? -maxOffset : maxOffset;
     [self slideViewMoveWithDistance:offset];
-    _isShowSlide = !_isShowSlide;
+    self.isShowSlide = !self.isShowSlide;
 
 }
 
@@ -258,6 +275,7 @@ UIScrollViewDelegate
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
 }
+#pragma mark - lazy init
 
 /*
  * 暂时不用 以后如果需要转换再用 txt -> plist
@@ -294,5 +312,16 @@ UIScrollViewDelegate
         NSLog(@"文件写入完成");
     }
 }*/
+#pragma mark - KVO
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
+{
+    BOOL isAddTapGesture = [change[NSKeyValueChangeNewKey] boolValue];
+    if(isAddTapGesture){
+        [self.scrollView addGestureRecognizer:self.tap];
+    }else{
+        [self.scrollView removeGestureRecognizer:self.tap];
+    }
+    
+}
 
 @end
