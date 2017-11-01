@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef  NS_ENUM(NSInteger,UIScrollViewTouchType)
+{
+    UIScrollViewTouchTypeTap,
+    UIScrollViewTouchTypeMove,
+};
+
+
 @interface YTMainViewController : UIViewController
+
+@property (nonatomic,assign) UIScrollViewTouchType touchType;
 
 @end

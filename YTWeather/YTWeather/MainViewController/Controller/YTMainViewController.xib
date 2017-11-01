@@ -11,8 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YTMainViewController">
             <connections>
-                <outlet property="scrollView" destination="1GQ-Mn-Mwn" id="UGs-X1-Q5g"/>
-                <outlet property="scrollViewLeading" destination="8lk-7g-m8o" id="Rsf-kE-Cgf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +18,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1GQ-Mn-Mwn">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                </scrollView>
-            </subviews>
             <color key="backgroundColor" red="0.91372549020000005" green="0.74901960779999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <constraints>
-                <constraint firstItem="1GQ-Mn-Mwn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="10v-Ct-UyR"/>
-                <constraint firstItem="1GQ-Mn-Mwn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8lk-7g-m8o"/>
-                <constraint firstItem="1GQ-Mn-Mwn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Nps-y6-f0O"/>
-                <constraint firstAttribute="bottom" secondItem="1GQ-Mn-Mwn" secondAttribute="bottom" id="i8R-Rs-Z12"/>
-            </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
