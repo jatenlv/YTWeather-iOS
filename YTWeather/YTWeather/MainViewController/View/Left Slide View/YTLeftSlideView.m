@@ -55,7 +55,7 @@ UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 2 + self.cityNameArray.count;
+        return 2 + self.kCityNameArray.count;
     } else if (section == 1) {
         return 4;
     } else {
@@ -80,7 +80,7 @@ UITableViewDataSource
             cell.titleText = @"编辑地点";
             cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Add-New-Location"];
         } else {
-            cell.titleText = [self.cityNameArray objectAtIndex:row - 2];
+            cell.titleText = [self.kCityNameArray objectAtIndex:row - 2];
             cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Other-Location"];
         }
     } else if (section == 1) {
@@ -125,10 +125,33 @@ UITableViewDataSource
     }
 }
 
-- (void)setCityNameArray:(NSArray *)cityNameArray
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _cityNameArray = cityNameArray;
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.kCityNameArray removeObjectAtIndex:indexPath.row - 2];
+        [self.delegate deleteCityViewWithIndex:indexPath.row - 2];
+        [tableView reloadData];
+    }
+}                       
+
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"移除";
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0 && indexPath.row >= 2) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)setKCityNameArray:(NSMutableArray *)kCityNameArray
+{
+    _kCityNameArray = kCityNameArray;
     [self.tableView reloadData];
+
 }
 
 @end

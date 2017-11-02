@@ -11,6 +11,7 @@
 @protocol YTLeftSlideViewDelegate <NSObject>
 
 - (void)showCityViewWithIndex:(NSInteger)index;
+- (void)deleteCityViewWithIndex:(NSInteger)index;
 
 @end
 
@@ -18,6 +19,6 @@
 
 @property (nonatomic, weak) id <YTLeftSlideViewDelegate> delegate;
 
-@property (nonatomic, strong) NSArray *cityNameArray;
+@property (nonatomic, strong) NSMutableArray *kCityNameArray;
 
 @end

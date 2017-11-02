@@ -33,8 +33,6 @@ UITableViewDelegate
 //单击手势
 @property (nonatomic,strong) UITapGestureRecognizer *tap;
 
-
-
 @property (nonatomic,strong) YTLeftSlideView *leftSlideView;
 @property (nonatomic, assign) BOOL isPanGestureMove;
 
@@ -98,7 +96,7 @@ UITableViewDelegate
     for (NSString *cityName in self.cityNameArray) {
         [self createMainViewWithCityName:cityName newView:NO];
     }
-    self.leftSlideView.cityNameArray = self.cityNameArray;
+    self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
 }
 
 - (void)reloadScrollViewSize
@@ -137,12 +135,13 @@ UITableViewDelegate
 {
     NSString *newCityName = notify.object;
     [self.cityNameArray addObject:newCityName];
-    // 存入城市缓存
-    [self saveCityNameArray:[self.cityNameArray copy]];
+    // 存入缓存
+    [self saveCityNameArray:[_cityNameArray copy]];
+
     
     [self reloadScrollViewSize];
     [self createMainViewWithCityName:newCityName newView:YES];
-    self.leftSlideView.cityNameArray = self.cityNameArray;
+    self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
 }
 
 #pragma mark 添加左侧侧滑手势
@@ -257,6 +256,27 @@ UITableViewDelegate
     [self.scrollView setContentOffset:self.mainViewArray[index].frame.origin animated:NO];
 }
 
+- (void)deleteCityViewWithIndex:(NSInteger)index
+{
+    [self.cityNameArray removeObjectAtIndex:index];
+    // 存入缓存
+//    [self saveCityNameArray:[_cityNameArray copy]];
+    
+    [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
+    [self.mainViewArray removeObjectAtIndex:index];
+    for (NSInteger i = index; i < self.mainViewArray.count; i++) {
+        [[self.mainViewArray objectAtIndex:i] setFrame:CGRectMake([self.mainViewArray objectAtIndex:i].mj_x - ScreenWidth, 0, ScreenWidth, ScreenHeight)];
+    }
+    
+    if (self.curIndex > index) {
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x - ScreenWidth, 0) animated:YES];
+    }
+    
+    [self.scrollView layoutSubviews];
+    [self reloadScrollViewSize];
+    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
 #pragma mark - 读取缓存操作
 
 - (void)readCityNameArray
@@ -264,6 +284,9 @@ UITableViewDelegate
     self.cityNameArray = [[NSMutableArray alloc] init];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.cityNameArray = [[defaults objectForKey:YTCityNameArrayDefaults] mutableCopy];
+    if (self.cityNameArray.count == 0) {
+        [self.cityNameArray addObject:@"上海"];
+    }
 }
 
 - (void)saveCityNameArray:(NSArray *)cityNameArray
