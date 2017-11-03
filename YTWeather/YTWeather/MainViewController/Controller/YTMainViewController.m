@@ -61,18 +61,13 @@ CLLocationManagerDelegate
 {
     [super viewDidLoad];
     _curIndex = 0;
-    // 添加左侧滑动页面
-    [self setupLeftSlideView];
-    // 添加ScrollView
-    [self setupScrollView];
-    // 添加滑动弹出设置页面手势
-    [self addSlideGesture];
-    // 取出城市缓存
-    [self readCityNameArray];
-    // 加载缓存中的城市页面和数据
-    [self loadOldViewAndData];
-    // 加载定位功能
-    [self setupLocationManager];
+    
+    [self setupLeftSlideView];   // 添加左侧滑动页面
+    [self setupScrollView];      // 添加ScrollView
+    [self readCityNameArray];    // 取出城市缓存
+    [self loadOldViewAndData];   // 加载缓存中的城市页面和数据
+    [self setupLocationManager]; // 加载定位功能
+    [self addSlideGesture];      // 添加滑动弹出设置页面手势
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
@@ -92,6 +87,18 @@ CLLocationManagerDelegate
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
+}
+
+- (void)readCityNameArray
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.cityNameArray = [[defaults objectForKey:YTCityNameArrayDefaults] mutableCopy];
+    if (self.cityNameArray.count == 0) {
+        if (!self.cityNameArray) {
+            self.cityNameArray = [NSMutableArray array];
+        }
+        [self.cityNameArray addObject:@"上海"];
+    }
 }
 
 - (void)loadOldViewAndData
@@ -169,7 +176,7 @@ CLLocationManagerDelegate
     self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
 }
 
-#pragma mark 添加左侧侧滑手势
+#pragma mark - 添加左侧侧滑手势
 
 - (void)addSlideGesture
 {
@@ -221,7 +228,7 @@ CLLocationManagerDelegate
     }];
 }
 
-#pragma mark - Scroll View Delegate
+#pragma mark - ScrollView Delegate
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -229,7 +236,7 @@ CLLocationManagerDelegate
     _curIndex = offset/ScreenWidth;
 }
 
-#pragma mark CoreLocation delegate
+#pragma mark - CoreLocation Delegate
 
 //定位失败则执行此代理方法
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -335,16 +342,7 @@ CLLocationManagerDelegate
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
 }
 
-#pragma mark - 读取缓存操作
-
-- (void)readCityNameArray
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.cityNameArray = [[defaults objectForKey:YTCityNameArrayDefaults] mutableCopy];
-    if (self.cityNameArray.count == 0) {
-        [self.cityNameArray addObject:@"上海"];
-    }
-}
+#pragma mark - 存缓存操作
 
 - (void)saveCityNameArray:(NSArray *)cityNameArray
 {
