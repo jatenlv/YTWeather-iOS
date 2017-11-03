@@ -36,6 +36,8 @@ CLLocationManagerDelegate
 //单击手势
 @property (nonatomic,strong) UITapGestureRecognizer *tap;
 
+@property (nonatomic, strong) UIView *backAlphaView;
+
 @property (nonatomic,strong) YTLeftSlideView *leftSlideView;
 @property (nonatomic, assign) BOOL isPanGestureMove;
 
@@ -62,6 +64,7 @@ CLLocationManagerDelegate
     [super viewDidLoad];
     _curIndex = 0;
     
+    [self setupBackAlphaView];   // 添加底层遮罩页面
     [self setupLeftSlideView];   // 添加左侧滑动页面
     [self setupScrollView];      // 添加ScrollView
     [self readCityNameArray];    // 取出城市缓存
@@ -74,9 +77,16 @@ CLLocationManagerDelegate
 
 #pragma mark - Private Method
 
+- (void)setupBackAlphaView
+{
+    self.backAlphaView = [[UIView alloc] initWithFrame:ScreenBounds];
+    self.backAlphaView.backgroundColor = [UIColor colorWithHexString:@"#151515"];
+    [self.view addSubview:self.backAlphaView];
+}
+
 - (void)setupLeftSlideView
 {
-    self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    self.leftSlideView = [[YTLeftSlideView alloc]initWithFrame:ScreenBounds];
     self.leftSlideView.delegate = self;
     [self.view addSubview:self.leftSlideView];
     [self.view sendSubviewToBack:self.leftSlideView];
@@ -84,7 +94,7 @@ CLLocationManagerDelegate
 
 - (void)setupScrollView
 {
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    self.scrollView = [[UIScrollView alloc]initWithFrame:ScreenBounds];
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
 }
@@ -295,6 +305,15 @@ CLLocationManagerDelegate
     CGFloat offset = _isShowSlide ? -maxOffset : maxOffset;
     [self slideViewMoveWithDistance:offset];
     self.isShowSlide = !self.isShowSlide;
+    if (self.isShowSlide) {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.backAlphaView.alpha = 0;
+        }];
+    } else {
+        [UIView animateWithDuration:0.6 animations:^{
+            self.backAlphaView.alpha = 1;
+        }];
+    }
 }
 
 - (void)clickRightBarButton

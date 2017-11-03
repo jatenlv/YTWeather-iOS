@@ -37,18 +37,18 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nc-if-85E">
-                        <rect key="frame" x="379" y="12" width="30" height="21.5"/>
+                        <rect key="frame" x="374" y="12" width="35" height="21.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="Bh7-mq-jLp"/>
+                            <constraint firstAttribute="width" constant="35" id="Bh7-mq-jLp"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.1121479552" green="0.56902247299999997" blue="0.69100827990000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USK-Mv-5AN">
-                        <rect key="frame" x="324" y="12" width="30" height="21.5"/>
+                        <rect key="frame" x="319" y="12" width="35" height="21.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="30" id="urZ-0h-N7V"/>
+                            <constraint firstAttribute="width" constant="35" id="urZ-0h-N7V"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +69,7 @@
                     <constraint firstItem="hnI-tZ-eZS" firstAttribute="centerY" secondItem="63Y-PV-ESv" secondAttribute="centerY" id="EjU-cg-sa0"/>
                     <constraint firstItem="USK-Mv-5AN" firstAttribute="centerY" secondItem="hnI-tZ-eZS" secondAttribute="centerY" id="Glu-iH-JIz"/>
                     <constraint firstItem="py0-DC-qm1" firstAttribute="width" secondItem="63Y-PV-ESv" secondAttribute="height" multiplier="35:40" id="KjG-qJ-bFp"/>
-                    <constraint firstItem="4nc-if-85E" firstAttribute="leading" secondItem="USK-Mv-5AN" secondAttribute="trailing" constant="25" id="R5j-Kr-iWP"/>
+                    <constraint firstItem="4nc-if-85E" firstAttribute="leading" secondItem="USK-Mv-5AN" secondAttribute="trailing" constant="20" id="R5j-Kr-iWP"/>
                     <constraint firstItem="p4Y-9t-GfQ" firstAttribute="leading" secondItem="63Y-PV-ESv" secondAttribute="leading" id="TQf-ND-XpR"/>
                     <constraint firstAttribute="bottom" secondItem="p4Y-9t-GfQ" secondAttribute="bottom" id="VXm-Us-5A8"/>
                     <constraint firstItem="py0-DC-qm1" firstAttribute="centerX" secondItem="63Y-PV-ESv" secondAttribute="centerX" id="WTO-Jb-PtG"/>
