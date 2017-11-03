@@ -6,6 +6,9 @@
 //  Copyright © 2017年 Jaten. All rights reserved.
 //
 
+
+#import <objc/runtime.h>
+
 #import "YTMainViewController.h"
 
 #import "YTMainView.h"
@@ -260,7 +263,7 @@ UITableViewDelegate
 {
     [self.cityNameArray removeObjectAtIndex:index];
     // 存入缓存
-//    [self saveCityNameArray:[_cityNameArray copy]];
+    [self saveCityNameArray:[_cityNameArray copy]];
     
     [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
     [self.mainViewArray removeObjectAtIndex:index];
@@ -281,7 +284,6 @@ UITableViewDelegate
 
 - (void)readCityNameArray
 {
-    self.cityNameArray = [[NSMutableArray alloc] init];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.cityNameArray = [[defaults objectForKey:YTCityNameArrayDefaults] mutableCopy];
     if (self.cityNameArray.count == 0) {
@@ -295,6 +297,7 @@ UITableViewDelegate
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
 }
+
 #pragma mark - lazy init
 
 /*
