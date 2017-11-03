@@ -68,9 +68,11 @@
 		84BF6F6C1F9DC92400F93B83 /* YTMainForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F681F9DC92300F93B83 /* YTMainForecastTableViewCell.xib */; };
 		84BF6F701F9DC92F00F93B83 /* YTMainTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F6D1F9DC92F00F93B83 /* YTMainTableHeaderView.xib */; };
 		84BF6F711F9DC92F00F93B83 /* YTMainTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6F6E1F9DC92F00F93B83 /* YTMainTableHeaderView.m */; };
-		84BF6F751F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */; };
-		84BF6F761F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */; };
 		84D4FC611F974C7D000B62A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D4FC601F974C7D000B62A3 /* Assets.xcassets */; };
+		84E99C811FAC21570071C160 /* NSString+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C801FAC21570071C160 /* NSString+YT.m */; };
+		84E99C841FAC25690071C160 /* NSURL+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C831FAC25690071C160 /* NSURL+YT.m */; };
+		84E99C881FAC44000071C160 /* YTDailyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C861FAC44000071C160 /* YTDailyForecastTableViewCell.m */; };
+		84E99C891FAC44000071C160 /* YTDailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E99C871FAC44000071C160 /* YTDailyForecastTableViewCell.xib */; };
 		84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */; };
 		84EFBB331F9F2EB0004839E8 /* YTMainSunAndWindDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFBB321F9F2EB0004839E8 /* YTMainSunAndWindDrawView.m */; };
 		84F6872B1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F687291F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m */; };
@@ -197,10 +199,14 @@
 		84BF6F6D1F9DC92F00F93B83 /* YTMainTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTMainTableHeaderView.xib; sourceTree = "<group>"; };
 		84BF6F6E1F9DC92F00F93B83 /* YTMainTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTMainTableHeaderView.m; sourceTree = "<group>"; };
 		84BF6F6F1F9DC92F00F93B83 /* YTMainTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTMainTableHeaderView.h; sourceTree = "<group>"; };
-		84BF6F721F9DCB9200F93B83 /* YTThreeDaysTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTThreeDaysTableViewCell.h; sourceTree = "<group>"; };
-		84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTThreeDaysTableViewCell.m; sourceTree = "<group>"; };
-		84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTThreeDaysTableViewCell.xib; sourceTree = "<group>"; };
 		84D4FC601F974C7D000B62A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84E99C7F1FAC21570071C160 /* NSString+YT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YT.h"; sourceTree = "<group>"; };
+		84E99C801FAC21570071C160 /* NSString+YT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YT.m"; sourceTree = "<group>"; };
+		84E99C821FAC25690071C160 /* NSURL+YT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+YT.h"; sourceTree = "<group>"; };
+		84E99C831FAC25690071C160 /* NSURL+YT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+YT.m"; sourceTree = "<group>"; };
+		84E99C851FAC44000071C160 /* YTDailyForecastTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTDailyForecastTableViewCell.h; sourceTree = "<group>"; };
+		84E99C861FAC44000071C160 /* YTDailyForecastTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTDailyForecastTableViewCell.m; sourceTree = "<group>"; };
+		84E99C871FAC44000071C160 /* YTDailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTDailyForecastTableViewCell.xib; sourceTree = "<group>"; };
 		84EE90B31F99E81100CA21D4 /* YTCitySearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchModel.h; sourceTree = "<group>"; };
 		84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCitySearchModel.m; sourceTree = "<group>"; };
 		84EFBB311F9F2EB0004839E8 /* YTMainSunAndWindDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainSunAndWindDrawView.h; sourceTree = "<group>"; };
@@ -300,6 +306,10 @@
 				846007741FA7079100A2F403 /* UIColor+ColorChange.m */,
 				846007751FA7079100A2F403 /* UIView+YT.h */,
 				846007761FA7079100A2F403 /* UIView+YT.m */,
+				84E99C7F1FAC21570071C160 /* NSString+YT.h */,
+				84E99C801FAC21570071C160 /* NSString+YT.m */,
+				84E99C821FAC25690071C160 /* NSURL+YT.h */,
+				84E99C831FAC25690071C160 /* NSURL+YT.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -557,15 +567,15 @@
 		84BF6F621F9DC92300F93B83 /* Forecast */ = {
 			isa = PBXGroup;
 			children = (
-				84BF6F631F9DC92300F93B83 /* YTHourWeatherCollectionCell.h */,
-				84BF6F641F9DC92300F93B83 /* YTHourWeatherCollectionCell.m */,
-				84BF6F651F9DC92300F93B83 /* YTHourWeatherCollectionCell.xib */,
 				84BF6F661F9DC92300F93B83 /* YTMainForecastTableViewCell.h */,
 				84BF6F671F9DC92300F93B83 /* YTMainForecastTableViewCell.m */,
 				84BF6F681F9DC92300F93B83 /* YTMainForecastTableViewCell.xib */,
-				84BF6F721F9DCB9200F93B83 /* YTThreeDaysTableViewCell.h */,
-				84BF6F731F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m */,
-				84BF6F741F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib */,
+				84BF6F631F9DC92300F93B83 /* YTHourWeatherCollectionCell.h */,
+				84BF6F641F9DC92300F93B83 /* YTHourWeatherCollectionCell.m */,
+				84BF6F651F9DC92300F93B83 /* YTHourWeatherCollectionCell.xib */,
+				84E99C851FAC44000071C160 /* YTDailyForecastTableViewCell.h */,
+				84E99C861FAC44000071C160 /* YTDailyForecastTableViewCell.m */,
+				84E99C871FAC44000071C160 /* YTDailyForecastTableViewCell.xib */,
 				84A6F1531F9F125800A0DE9A /* YTHourWeatherScrollView.h */,
 				84A6F1541F9F125800A0DE9A /* YTHourWeatherScrollView.m */,
 			);
@@ -764,7 +774,7 @@
 				840BD1161F999A0B00F4B004 /* cityCode.plist in Resources */,
 				84A627591F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.xib in Resources */,
 				84BF6F6A1F9DC92400F93B83 /* YTHourWeatherCollectionCell.xib in Resources */,
-				84BF6F761F9DCB9200F93B83 /* YTThreeDaysTableViewCell.xib in Resources */,
+				84E99C891FAC44000071C160 /* YTDailyForecastTableViewCell.xib in Resources */,
 				8450CA491FA96628006344F1 /* YTLeftSlideView.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
 				84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */,
@@ -853,7 +863,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84BF6F751F9DCB9200F93B83 /* YTThreeDaysTableViewCell.m in Sources */,
 				846007791FA7079200A2F403 /* YTLaunchADViewController.m in Sources */,
 				8450CA471FA96607006344F1 /* YTLeftSlideView.m in Sources */,
 				840BD1071F988EBF00F4B004 /* YTWeatherDailyForecastModel.m in Sources */,
@@ -869,6 +878,7 @@
 				8460077B1FA7079200A2F403 /* YTNewFeatureViewController.m in Sources */,
 				84A627671F970F1E00EE29D5 /* YTMainPrecipitationTableViewCell.m in Sources */,
 				84A6275D1F970EF300EE29D5 /* YTMainDetailTableViewCell.m in Sources */,
+				84E99C811FAC21570071C160 /* NSString+YT.m in Sources */,
 				84EFBB331F9F2EB0004839E8 /* YTMainSunAndWindDrawView.m in Sources */,
 				84F6872B1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m in Sources */,
 				84A627871F97257100EE29D5 /* YTWeatherBasicModel.m in Sources */,
@@ -877,6 +887,7 @@
 				840BD10A1F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m in Sources */,
 				846007821FA85DC500A2F403 /* YTSearchViewController.m in Sources */,
 				84BF6F691F9DC92400F93B83 /* YTHourWeatherCollectionCell.m in Sources */,
+				84E99C841FAC25690071C160 /* NSURL+YT.m in Sources */,
 				84A6276C1F970F2D00EE29D5 /* YTMainSunAndWindTableViewCell.m in Sources */,
 				84654D0E1F96476700E5092E /* YTSettingViewController.m in Sources */,
 				840D47B01FA322C500AAADC9 /* YTWeatherLifestyleModel.m in Sources */,
@@ -887,6 +898,7 @@
 				84A6F1551F9F125800A0DE9A /* YTHourWeatherScrollView.m in Sources */,
 				846007771FA7079200A2F403 /* YTCustomNavViewController.m in Sources */,
 				847AD6B01FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m in Sources */,
+				84E99C881FAC44000071C160 /* YTDailyForecastTableViewCell.m in Sources */,
 				84654CC31F96418200E5092E /* AppDelegate.m in Sources */,
 				84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */,
 				84BF6F6B1F9DC92400F93B83 /* YTMainForecastTableViewCell.m in Sources */,

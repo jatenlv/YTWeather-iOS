@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,50 +23,70 @@
                 <rect key="frame" x="0.0" y="0.0" width="293" height="207.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLW-En-aun">
-                        <rect key="frame" x="10" y="8" width="273" height="38"/>
-                        <string key="text">The Best CreDit Cards for Today!
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fi-MH-rSR">
+                        <rect key="frame" x="8" y="0.0" width="277" height="207.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLW-En-aun">
+                                <rect key="frame" x="10" y="8" width="257" height="42.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42.5" id="xcX-CF-0qr"/>
+                                </constraints>
+                                <string key="text">The Best CreDit Cards for Today!
 Come on Boy!</string>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞助商 Yahoo! Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-mh-Jeb">
-                        <rect key="frame" x="10" y="57" width="273" height="12"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="10"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L21-bx-5tm">
-                        <rect key="frame" x="10" y="51" width="273" height="1"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L21-bx-5tm" userLabel="Line View">
+                                <rect key="frame" x="10" y="55" width="257" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="RcH-wA-5OD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="XPE-vu-dBO"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞助商 Yahoo! Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-mh-Jeb">
+                                <rect key="frame" x="10" y="61.5" width="257" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14.5" id="9hs-t6-jXr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GML-Zm-u3j">
+                                <rect key="frame" x="10" y="81" width="257" height="118.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="RcH-wA-5OD"/>
+                            <constraint firstItem="qLW-En-aun" firstAttribute="leading" secondItem="2fi-MH-rSR" secondAttribute="leading" constant="10" id="1Fh-Q4-zy1"/>
+                            <constraint firstAttribute="trailing" secondItem="g9A-mh-Jeb" secondAttribute="trailing" constant="10" id="D7b-fL-cWB"/>
+                            <constraint firstItem="g9A-mh-Jeb" firstAttribute="top" secondItem="L21-bx-5tm" secondAttribute="bottom" constant="5" id="ESS-rW-wAu"/>
+                            <constraint firstItem="L21-bx-5tm" firstAttribute="top" secondItem="qLW-En-aun" secondAttribute="bottom" constant="5" id="IyE-eJ-To7"/>
+                            <constraint firstItem="g9A-mh-Jeb" firstAttribute="leading" secondItem="2fi-MH-rSR" secondAttribute="leading" constant="10" id="KO7-TT-ee1"/>
+                            <constraint firstItem="qLW-En-aun" firstAttribute="top" secondItem="2fi-MH-rSR" secondAttribute="top" constant="8" id="O8X-0K-fps"/>
+                            <constraint firstItem="GML-Zm-u3j" firstAttribute="leading" secondItem="2fi-MH-rSR" secondAttribute="leading" constant="10" id="U6L-0X-jDN"/>
+                            <constraint firstAttribute="trailing" secondItem="L21-bx-5tm" secondAttribute="trailing" constant="10" id="epJ-bL-Q8U"/>
+                            <constraint firstItem="L21-bx-5tm" firstAttribute="leading" secondItem="2fi-MH-rSR" secondAttribute="leading" constant="10" id="fB5-X8-VRO"/>
+                            <constraint firstAttribute="bottom" secondItem="GML-Zm-u3j" secondAttribute="bottom" constant="8" id="jGK-J0-NbA"/>
+                            <constraint firstAttribute="trailing" secondItem="GML-Zm-u3j" secondAttribute="trailing" constant="10" id="pO0-6x-5sa"/>
+                            <constraint firstItem="GML-Zm-u3j" firstAttribute="top" secondItem="g9A-mh-Jeb" secondAttribute="bottom" constant="5" id="t3X-5B-Uk9"/>
+                            <constraint firstAttribute="trailing" secondItem="qLW-En-aun" secondAttribute="trailing" constant="10" id="trT-Oa-6Zt"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GML-Zm-u3j">
-                        <rect key="frame" x="10" y="74" width="273" height="125.5"/>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="L21-bx-5tm" secondAttribute="trailing" constant="10" id="3ya-mA-nC2"/>
-                    <constraint firstAttribute="trailing" secondItem="GML-Zm-u3j" secondAttribute="trailing" constant="10" id="6Ie-eU-VkG"/>
-                    <constraint firstItem="L21-bx-5tm" firstAttribute="top" secondItem="qLW-En-aun" secondAttribute="bottom" constant="5" id="Cyk-Xt-W07"/>
-                    <constraint firstItem="GML-Zm-u3j" firstAttribute="top" secondItem="g9A-mh-Jeb" secondAttribute="bottom" constant="5" id="DLu-hO-p35"/>
-                    <constraint firstAttribute="bottom" secondItem="GML-Zm-u3j" secondAttribute="bottom" constant="8" id="FB0-hb-6NR"/>
-                    <constraint firstAttribute="trailing" secondItem="qLW-En-aun" secondAttribute="trailing" constant="10" id="LFC-ok-pOv"/>
-                    <constraint firstItem="qLW-En-aun" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="TGC-vP-tUa"/>
-                    <constraint firstAttribute="trailing" secondItem="g9A-mh-Jeb" secondAttribute="trailing" constant="10" id="cS4-Zi-TpR"/>
-                    <constraint firstItem="qLW-En-aun" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="gZA-TD-mSX"/>
-                    <constraint firstItem="L21-bx-5tm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gfP-62-iYX"/>
-                    <constraint firstItem="GML-Zm-u3j" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sdR-wQ-ayJ"/>
-                    <constraint firstItem="g9A-mh-Jeb" firstAttribute="top" secondItem="L21-bx-5tm" secondAttribute="bottom" constant="5" id="v2v-4l-dZn"/>
-                    <constraint firstItem="g9A-mh-Jeb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="vFB-hE-Zyf"/>
+                    <constraint firstItem="2fi-MH-rSR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GoP-1P-6pX"/>
+                    <constraint firstAttribute="bottom" secondItem="2fi-MH-rSR" secondAttribute="bottom" id="Ozr-Ac-UQM"/>
+                    <constraint firstAttribute="trailing" secondItem="2fi-MH-rSR" secondAttribute="trailing" constant="8" id="PJ6-U6-KlS"/>
+                    <constraint firstItem="2fi-MH-rSR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="djg-dR-53N"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="adImageView" destination="GML-Zm-u3j" id="44Y-wl-BRC"/>
+                <outlet property="backgroundContentView" destination="2fi-MH-rSR" id="KF8-it-CtI"/>
                 <outlet property="companyLabel" destination="g9A-mh-Jeb" id="Zsx-YC-bue"/>
                 <outlet property="titleLabel" destination="qLW-En-aun" id="WRD-DW-FfS"/>
             </connections>

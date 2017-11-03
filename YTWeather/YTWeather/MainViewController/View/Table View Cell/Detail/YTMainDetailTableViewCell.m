@@ -10,6 +10,7 @@
 
 @interface YTMainDetailTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundContentView;
 @property (weak, nonatomic) IBOutlet UILabel *bodyTmp;
 @property (weak, nonatomic) IBOutlet UILabel *wet;
 @property (weak, nonatomic) IBOutlet UILabel *visibility;
@@ -23,8 +24,8 @@
 {
     [super awakeFromNib];
 
-    self.backgroundColor = MainTableViewCellColor;
-    self.layer.cornerRadius = MainTableViewCellRadius;
+    self.backgroundContentView.backgroundColor = MainTableViewCellColor;
+    self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
 }
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel

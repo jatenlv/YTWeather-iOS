@@ -7,16 +7,18 @@
 //
 
 #import "YTHourWeatherScrollView.h"
+
 #define maxTmp  18
 #define minTmp  1
 #define perTmpDistance 1.5
-@interface YTHourWeatherScrollView()<CAAnimationDelegate>
+
+@interface YTHourWeatherScrollView () <CAAnimationDelegate>
 
 @property (nonatomic,strong) NSMutableArray *tmpArr;
 @property (nonatomic,strong) NSMutableArray *labelArr;
 
-
 @end
+
 @implementation YTHourWeatherScrollView
 
 - (instancetype)initWithCoder:(NSCoder *)coder

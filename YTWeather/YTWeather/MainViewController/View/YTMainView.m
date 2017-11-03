@@ -50,6 +50,7 @@ UITableViewDelegate
         view.frame = self.bounds;
         view.width = ScreenWidth;
         [self addSubview:view];
+        
         [self setupCustomNavigationBar];
         [self setupTableView];
         [self.tableView.mj_header beginRefreshing];
@@ -81,7 +82,7 @@ UITableViewDelegate
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
     [backImageView setImage:[UIImage imageNamed:@"rain_n_portrait_blur.jpg"]];
     self.tableView.backgroundView = backImageView;
-    
+        
     UIView *ytHeaderRefreshBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -500, ScreenWidth, 500)];
     ytHeaderRefreshBackgroundView.backgroundColor = MainTableViewCellColor;
     [self.tableView addSubview:ytHeaderRefreshBackgroundView];
@@ -138,6 +139,7 @@ UITableViewDelegate
     switch (indexPath.row) {
         case 0: {
             YTMainForecastTableViewCell *Forecast = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
+            Forecast.forecastModelList = self.weatherModel.daily_forecast;
             return Forecast;
         } break;
             

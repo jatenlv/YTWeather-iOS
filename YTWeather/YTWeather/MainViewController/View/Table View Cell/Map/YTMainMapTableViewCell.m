@@ -8,14 +8,20 @@
 
 #import "YTMainMapTableViewCell.h"
 
+@interface YTMainMapTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIView *backgroundContentView;
+
+@end
+
 @implementation YTMainMapTableViewCell
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 
-    self.backgroundColor = MainTableViewCellColor;
-    self.layer.cornerRadius = MainTableViewCellRadius;
+    self.backgroundContentView.backgroundColor = MainTableViewCellColor;
+    self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

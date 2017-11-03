@@ -10,6 +10,7 @@
 
 @interface YTMainAdvertisingTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundContentView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *companyLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
@@ -22,10 +23,10 @@
 {
     [super awakeFromNib];
     
-    self.backgroundColor = MainTableViewCellColor;
-    self.layer.cornerRadius = MainTableViewCellRadius;
+    self.backgroundContentView.backgroundColor = MainTableViewCellColor;
+    self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
     
-    self.adImageView.image = [UIImage imageNamed:@"storm_n_blur.jpg"];
+    self.adImageView.image = [UIImage imageNamed:@"cloudy_d_widget.jpg"];
     self.adImageView.clipsToBounds = YES;
 }
 

@@ -15,16 +15,6 @@
 #import "YTWeatherNowModel.h"
 #import "YTWeatherLifestyleModel.h"
 
-typedef NS_ENUM(NSInteger,YTWeatherDataType)
-{
-    YTWeatherDataTypeForecast,       // 天气预报
-    YTWeatherDataTypeAdvertising,    // 广告栏
-    YTWeatherDataTypeDetail,         // 详细信息
-    YTWeatherDataTypeMap,            // 地图
-    YTWeatherDataTypePrecipitaion,   // 降水量
-    YTWeatherDataTypeSunAndWind,     // 太阳和风
-};
-
 @interface YTWeatherModel : NSObject
 
 @property (nonatomic, copy)   NSString * status;

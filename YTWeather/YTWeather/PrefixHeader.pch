@@ -14,11 +14,11 @@
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define ScreenBounds [UIScreen mainScreen].bounds
 
-#define MainTableViewCellColor [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]
-#define MainTableViewCellRadius 2.5f
+#define MainTableViewCellColor  [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]
+#define MainTableViewCellRadius 3.0f
 
 // Request API
-#define YT_Request_Main_API @"https://free-api.heweather.com/s6/weather"
+#define YT_Request_Main_API     @"https://free-api.heweather.com/s6/weather"
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
 
 // Notification
@@ -31,11 +31,13 @@
 // Category
 #import "UIView+YT.h"
 #import "UIColor+ColorChange.h"
+#import "NSString+YT.h"
+#import "NSURL+YT.h"
 
 // Pods
 #import <MJRefresh.h>
 #import <YYKit.h>
 #import <AFNetworking.h>
-#import <SDWebImageManager.h>
+#import <UIImageView+WebCache.h>
 
 #endif /* PrefixHeader_pch */

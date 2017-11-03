@@ -11,6 +11,9 @@
 #import "YTMainSunAndWindDrawView.h"
 
 @interface YTMainSunAndWindTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIView *backgroundContentView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *windmillImageView;
 @property (weak, nonatomic) IBOutlet YTMainSunAndWindDrawView *drawView;
 
@@ -21,8 +24,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 
-    self.backgroundColor = MainTableViewCellColor;
-    self.layer.cornerRadius = MainTableViewCellRadius;
+    self.backgroundContentView.backgroundColor = MainTableViewCellColor;
+    self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
     [self setupWindmillAnimation];
 }
 

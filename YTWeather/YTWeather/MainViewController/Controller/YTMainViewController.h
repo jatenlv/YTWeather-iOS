@@ -14,7 +14,6 @@ typedef  NS_ENUM(NSInteger,UIScrollViewTouchType)
     UIScrollViewTouchTypeMove,
 };
 
-
 @interface YTMainViewController : UIViewController
 
 @property (nonatomic,assign) UIScrollViewTouchType touchType;

@@ -10,6 +10,7 @@
 
 @interface YTMainPrecipitationTableViewCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *backgroundContentView;
 @property (weak, nonatomic) IBOutlet UILabel *firstTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *firstPreLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
@@ -28,8 +29,8 @@
 {
     [super awakeFromNib];
     
-    self.backgroundColor = MainTableViewCellColor;
-    self.layer.cornerRadius = MainTableViewCellRadius;
+    self.backgroundContentView.backgroundColor = MainTableViewCellColor;
+    self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
 }
 
 - (void)setHourlyModelList:(NSArray<YTWeatherHourlyForecastModel *> *)hourlyModelList

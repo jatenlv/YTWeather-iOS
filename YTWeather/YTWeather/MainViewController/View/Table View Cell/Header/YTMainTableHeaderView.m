@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentStatusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *currentStatusImageView;
 
-
 @end
 
 @implementation YTMainTableHeaderView
@@ -38,20 +37,8 @@
     if (nowModel) {
         self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
         self.currentStatusLabel.text = nowModel.cond_txt;
-        [self.currentStatusImageView setImageWithURL:[self findImageUrl:nowModel] placeholder:nil];
+        [self.currentStatusImageView sd_setImageWithURL:[NSURL findImageUrl:nowModel.cond_code] placeholderImage:nil];
     }
-}
-
-- (NSURL *)findImageUrl:(YTWeatherNowModel *)nowModel
-{
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"weatherCode" ofType:@"plist"];
-    NSArray *waetherArray = [NSArray arrayWithContentsOfFile:plistPath];
-    for (NSDictionary *dic in waetherArray) {
-        if ([dic[@"weatherCode"] isEqualToString:nowModel.cond_code]) {
-            return [NSURL URLWithString:dic[@"weatherIconUrl"]];
-        }
-    }
-    return nil;
 }
 
 - (void)setDailyForecastModel:(YTWeatherDailyForecastModel *)dailyForecastModel

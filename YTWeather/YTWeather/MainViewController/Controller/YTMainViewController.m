@@ -6,19 +6,18 @@
 //  Copyright © 2017年 Jaten. All rights reserved.
 //
 
-
-#import <objc/runtime.h>
+#import  <CoreLocation/CoreLocation.h>
 
 #import "YTMainViewController.h"
 
+#import "YTSearchViewController.h"
+
 #import "YTMainView.h"
+#import "YTLeftSlideView.h"
 
 #import "YTWeatherModel.h"
 
 #import "YTMainRequestNetworkTool.h"
-
-#import "YTLeftSlideView.h"
-#import "YTSearchViewController.h"
 
 #define kSlideWidthScale 0.7
 
@@ -27,7 +26,8 @@
 YTMainViewDelegate,
 YTLeftSlideViewDelegate,
 UIGestureRecognizerDelegate,
-UITableViewDelegate
+UITableViewDelegate,
+CLLocationManagerDelegate
 >
 
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -43,6 +43,8 @@ UITableViewDelegate
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
 @property (nonatomic, assign) CGFloat viewOrginX;
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSString *currentCity; //当前城市
 
 @end
 
@@ -69,6 +71,8 @@ UITableViewDelegate
     [self readCityNameArray];
     // 加载缓存中的城市页面和数据
     [self loadOldViewAndData];
+    // 加载定位功能
+    [self setupLocationManager];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
 }
@@ -132,15 +136,33 @@ UITableViewDelegate
     }
 }
 
+- (void)setupLocationManager
+{
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        [self.locationManager requestAlwaysAuthorization];
+        self.currentCity = [[NSString alloc] init];
+        [self.locationManager startUpdatingLocation];
+    }
+}
+
 #pragma mark - Notification
 
 - (void)searchCityNameDidSelect:(NSNotification *)notify
 {
     NSString *newCityName = notify.object;
-    [self.cityNameArray addObject:newCityName];
-    // 存入缓存
-    [self saveCityNameArray:[_cityNameArray copy]];
+    
+    for (NSString *cityName in self.cityNameArray) {
+        if ([cityName isEqualToString:newCityName]) {
+            NSInteger index = [self.cityNameArray indexOfObject:cityName];
+            [self.scrollView setContentOffset:CGPointMake(index * ScreenWidth, 0)];
+            return;
+        }
+    }
 
+    [self.cityNameArray addObject:newCityName];
+    [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
     
     [self reloadScrollViewSize];
     [self createMainViewWithCityName:newCityName newView:YES];
@@ -174,22 +196,18 @@ UITableViewDelegate
 - (void)changeFrame:(UIPanGestureRecognizer *)pan
 {
     //相对偏移量
-    CGFloat  translatePointX = [pan translationInView:self.scrollView].x;
-    if(self.scrollView.mj_x + translatePointX < 0)
-    {
+    CGFloat translatePointX = [pan translationInView:self.scrollView].x;
+    if(self.scrollView.mj_x + translatePointX < 0) {
         translatePointX = 0;
     }
-    if(pan.state == UIGestureRecognizerStateChanged)
-    {
+    if(pan.state == UIGestureRecognizerStateChanged) {
         [self slideViewMoveWithDistance:translatePointX];
 
-    }else if(pan.state == UIGestureRecognizerStateEnded)
-    {
-        if(self.scrollView.mj_x < kSlideWidthScale * ScreenWidth)
-        {
+    } else if(pan.state == UIGestureRecognizerStateEnded) {
+        if(self.scrollView.mj_x < kSlideWidthScale * ScreenWidth) {
             [self slideViewMoveWithDistance:-self.scrollView.mj_x];
             self.isShowSlide = NO;
-        }else {
+        } else {
             [self slideViewMoveWithDistance: (kSlideWidthScale * ScreenWidth-self.scrollView.mj_x)];
         }
     }
@@ -209,6 +227,44 @@ UITableViewDelegate
 {
     CGFloat offset = scrollView.contentOffset.x;
     _curIndex = offset/ScreenWidth;
+}
+
+#pragma mark CoreLocation delegate
+
+//定位失败则执行此代理方法
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    if ([error code] == kCLErrorDenied) {
+        NSLog(@"访问被拒绝");
+    } else if ([error code] == kCLErrorLocationUnknown) {
+        NSLog(@"无法获取位置信息");
+    }
+}
+
+//定位成功
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    NSLog(@"%lu",(unsigned long)locations.count);
+    CLLocation * location = locations.lastObject;
+    CLGeocoder * geocoder = [[CLGeocoder alloc] init];
+
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (placemarks.count > 0) {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            // 获取城市
+            NSString *city = placemark.locality;
+            if (!city) {
+            // 四大直辖市的城市信息无法通过locality获得，只能通过获取省份的方法来获得（如果city为空，则可知为直辖市）
+            city = placemark.administrativeArea;
+            }
+            NSLog(@"city,%@",city);
+        } else if (error == nil && [placemarks count] == 0) {
+            NSLog(@"No results were returned.");
+        } else if (error != nil){
+            NSLog(@"An error occurred = %@", error);
+        }
+    }];
+    //    [manager stopUpdatingLocation];不用的时候关闭更新位置服务
 }
 
 #pragma mark - YTMainView Delegate
@@ -262,8 +318,7 @@ UITableViewDelegate
 - (void)deleteCityViewWithIndex:(NSInteger)index
 {
     [self.cityNameArray removeObjectAtIndex:index];
-    // 存入缓存
-    [self saveCityNameArray:[_cityNameArray copy]];
+    [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
     
     [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
     [self.mainViewArray removeObjectAtIndex:index];
