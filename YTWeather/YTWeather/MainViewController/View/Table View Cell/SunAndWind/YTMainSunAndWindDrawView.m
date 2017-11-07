@@ -8,6 +8,8 @@
 
 #import "YTMainSunAndWindDrawView.h"
 
+#define kLineColor [UIColor colorWithRed:252.f/255.f green:205.f/255.f blue:60.f/255.f alpha:1]
+
 @interface YTMainSunAndWindDrawView ()
 
 @property (nonatomic, strong) UIBezierPath *path;
@@ -26,6 +28,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *airStatusLabel;
 
+@property (weak, nonatomic) IBOutlet UIImageView *sunImageView;
+@property (nonatomic, strong) CAShapeLayer *shapeLayer;
 @end
 
 @implementation YTMainSunAndWindDrawView
@@ -41,28 +45,12 @@
         [self addSubview:view];
         
         self.angle = 0;
-        [self startAnimation];
-        [self setupTime];
+        [self startWindMillAnimation];
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    self.path = [[UIBezierPath alloc] init];
-    [self.path addArcWithCenter:CGPointMake(self.width / 2, self.height - 30)
-                    radius:self.width / 2 - 35
-                startAngle:M_PI
-                  endAngle:0
-                 clockwise:YES];
-    CGFloat dashPattern[] = {3, 1}; // 3实线，1空白
-    [self.path setLineDash:dashPattern count:1 phase:1];
-    [[UIColor lightGrayColor] set];
-    [self.path stroke];
-}
-
-
-- (void)startAnimation
+- (void)startWindMillAnimation
 {
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(self.angle * (M_PI /180.0f));
     [UIView animateWithDuration:0.01 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
@@ -70,20 +58,60 @@
         self.rightWindMillImageView.transform = endAngle;
     } completion:^(BOOL finished) {
         self.angle += 1;
-        [self startAnimation];
+        [self startWindMillAnimation];
     }];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    self.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:0 clockwise:YES];
+    CGFloat dashPattern[] = {3, 1}; // 3实线，1空白
+    [self.path setLineDash:dashPattern count:1 phase:1];
+    [[UIColor lightGrayColor] set];
+    [self.path stroke];
+    
+    [self setupTime];
 }
 
 - (void)setupTime
 {
-    self.sunRiseTimeLabel.text = @"06:14";
-    self.sunSetTimeLabel.text  = @"17:01";
-}
+    [self setNeedsDisplay];
+    
+    self.sunRiseTimeLabel.text = @"06:00";
+    self.sunSetTimeLabel.text  = @"18:00";
+    
+    NSInteger hour = [[[NSCalendar currentCalendar] components:NSCalendarUnitHour fromDate:[NSDate date]] hour];
+    
+    if (hour > 6 && hour < 18) {
+        
+        UIBezierPath *newPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:1.8 * M_PI clockwise:YES];
+        
+        CAKeyframeAnimation *sunAnimation = [CAKeyframeAnimation animation];
+        sunAnimation.path = newPath.CGPath;
+        sunAnimation.keyPath = @"position";
+        sunAnimation.duration = 5.0f;
+        sunAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        sunAnimation.removedOnCompletion = NO;
+        sunAnimation.fillMode = kCAFillModeForwards;
+        [self.sunImageView.layer addAnimation:sunAnimation forKey:nil];
+        
+        
+        self.shapeLayer = [CAShapeLayer layer];
+        self.shapeLayer.path = newPath.CGPath;
+        self.shapeLayer.lineWidth = 1.f;
+        self.shapeLayer.strokeColor = kLineColor.CGColor;
+        self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
+        [self.layer addSublayer:self.shapeLayer];
 
-- (void)setTodayModel:(YTWeatherDailyForecastModel *)todayModel
-{
-    _todayModel = todayModel;
-//    self.sunRiseTimeLabel.text = todayModel.sr;
+        CABasicAnimation *lineAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        lineAnimation.duration = 5.f;
+        lineAnimation.fromValue = @(0);
+        lineAnimation.toValue = @(1);
+        lineAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        lineAnimation.removedOnCompletion = NO;
+        lineAnimation.fillMode = kCAFillModeForwards;
+        [self.shapeLayer addAnimation:lineAnimation forKey:nil];
+    }
 }
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel

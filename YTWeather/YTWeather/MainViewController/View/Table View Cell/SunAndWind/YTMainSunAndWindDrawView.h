@@ -14,7 +14,6 @@
 
 @interface YTMainSunAndWindDrawView : UIView
 
-@property (nonatomic, strong) YTWeatherDailyForecastModel *todayModel;
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
 @property (nonatomic, strong) YTWeatherAirModel *airModel;
 
