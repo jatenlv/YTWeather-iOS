@@ -27,7 +27,7 @@
 #define kDetailCellHeight        180
 #define kMapCellHeight           200
 #define kPrecipitationCellHeight 120
-#define kSunAndWindCellHeight    200
+#define kSunAndWindCellHeight    250
 #define kEmptyCellHeight         10
 
 @interface YTMainView ()
@@ -167,6 +167,7 @@ UITableViewDelegate
             
         case 10: {
             YTMainSunAndWindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainSunAndWindTableViewCell className]];
+            cell.nowModel = self.weatherModel.now;
             return cell;
         } break;
             

@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "YTWeatherDailyForecastModel.h"
+#import "YTWeatherNowModel.h"
+
 @interface YTMainSunAndWindDrawView : UIView
+
+@property (nonatomic, strong) YTWeatherDailyForecastModel *todayModel;
+@property (nonatomic, strong) YTWeatherNowModel *nowModel;
 
 @end

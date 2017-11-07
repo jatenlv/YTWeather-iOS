@@ -12,6 +12,18 @@
 
 @property (nonatomic, strong) UIBezierPath *path;
 
+@property (nonatomic, assign) CGFloat angle;
+@property (weak, nonatomic) IBOutlet UIImageView *leftWindMillImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *rightWindMillImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *sunRiseTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sunSetTimeLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *windSpeedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *windDirection;
+
+@property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
+
 @end
 
 @implementation YTMainSunAndWindDrawView
@@ -20,33 +32,63 @@
 {
     self = [super initWithCoder:coder];
     if (self) {
-        self.backgroundColor = [UIColor clearColor];
+        UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+        view.frame = self.bounds;
+        view.backgroundColor = MainTableViewCellColor;
+        [self addSubview:view];
+        
+        self.angle = 0;
+        [self startAnimation];
+        [self setupTime];
     }
     return self;
 }
 
 - (void)drawRect:(CGRect)rect
 {
-    self.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(20, 40, rect.size.width - 40, self.frame.size.height * 2 - 40)];
-    CGFloat dashPattern[] = {3,1}; // 3实线，1空白
+    self.path = [[UIBezierPath alloc] init];
+    [self.path addArcWithCenter:CGPointMake(self.width / 2, self.height - 30)
+                    radius:self.width / 2 - 35
+                startAngle:M_PI
+                  endAngle:0
+                 clockwise:YES];
+    CGFloat dashPattern[] = {3, 1}; // 3实线，1空白
     [self.path setLineDash:dashPattern count:1 phase:1];
     [[UIColor lightGrayColor] set];
     [self.path stroke];
 }
 
-- (void)setup
+
+- (void)startAnimation
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    view.backgroundColor = [UIColor redColor];
-    [self addSubview:view];
-    
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    animation.path = self.path.CGPath;
-    animation.duration = 5.0f;
-    animation.repeatCount = 0;
-    animation.removedOnCompletion = NO;
-    animation.fillMode = kCAFillModeForwards;
-    [view.layer addAnimation:animation forKey:nil];
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(self.angle * (M_PI /180.0f));
+    [UIView animateWithDuration:0.01 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.leftWindMillImageView.transform = endAngle;
+        self.rightWindMillImageView.transform = endAngle;
+    } completion:^(BOOL finished) {
+        self.angle += 1;
+        [self startAnimation];
+    }];
+}
+
+- (void)setupTime
+{
+    self.sunRiseTimeLabel.text = @"06:14";
+    self.sunSetTimeLabel.text  = @"17:01";
+}
+
+- (void)setTodayModel:(YTWeatherDailyForecastModel *)todayModel
+{
+    _todayModel = todayModel;
+//    self.sunRiseTimeLabel.text = todayModel.sr;
+}
+
+- (void)setNowModel:(YTWeatherNowModel *)nowModel
+{
+    _nowModel = nowModel;
+    self.windSpeedLabel.text = nowModel.wind_spd;
+    self.windDirection.text  = nowModel.wind_dir;
+    self.pressureLabel.text  = nowModel.pres;
 }
 
 @end

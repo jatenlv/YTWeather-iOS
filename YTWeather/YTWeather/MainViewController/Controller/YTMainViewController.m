@@ -140,7 +140,8 @@ CLLocationManagerDelegate
     [self.mainViewArray addObject:mainView];
     self.viewOrginX += ScreenWidth;
     // 加载model
-    [YTMainRequestNetworkTool requestWeatherWithCityName:cityName andFinish:^(YTWeatherModel *model, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherWithCityName:cityName viewController:self  andFinish:^(YTWeatherModel *model, NSError *error) {
+        
         if (!error) {
             if ([mainView.cityNameForView isEqualToString:cityName]) {
                 mainView.weatherModel = model;
@@ -290,11 +291,10 @@ CLLocationManagerDelegate
 {
     YTMainView *mainView = (YTMainView *)tagerView;
     
-    [YTMainRequestNetworkTool requestWeatherWithCityName:mainView.cityNameForView andFinish:^(YTWeatherModel *model, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherWithCityName:mainView.cityNameForView viewController:self andFinish:^(YTWeatherModel *model, NSError *error) {
         [mainView.tableView.mj_header endRefreshing];
         if (!error) {
             mainView.weatherModel = model;
-            [mainView.tableView.mj_header endRefreshing];
         }
     }];
 }
@@ -306,7 +306,7 @@ CLLocationManagerDelegate
     [self slideViewMoveWithDistance:offset];
     self.isShowSlide = !self.isShowSlide;
     if (self.isShowSlide) {
-        [UIView animateWithDuration:0.4 animations:^{
+        [UIView animateWithDuration:0.43 animations:^{
             self.backAlphaView.alpha = 0;
         }];
     } else {

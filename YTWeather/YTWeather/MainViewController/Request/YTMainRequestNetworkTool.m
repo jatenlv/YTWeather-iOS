@@ -10,7 +10,7 @@
 
 @implementation YTMainRequestNetworkTool
 
-+ (void)requestWeatherWithCityName:(NSString *)cityName andFinish:(void (^)(YTWeatherModel *model, NSError *))finish
++ (void)requestWeatherWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *model, NSError *))finish
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 15;
@@ -24,6 +24,12 @@
         YTWeatherModel *weatherModel = [NSArray modelArrayWithClass:[YTWeatherModel class] json:responseObject[@"HeWeather6"]][0];
         finish(weatherModel, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"获取信息失败" message:nil preferredStyle:UIAlertControllerStyleAlert];//UIAlertControllerStyleAlert视图在中央
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"重新获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self requestWeatherWithCityName:cityName viewController:vc  andFinish:finish];
+        }];//https在iTunes中找，这里的事件是前往手机端App store下载微信
+        [alertController addAction:okAction];
+        [vc presentViewController:alertController animated:YES completion:nil];
         finish(nil, error);
     }];
 }

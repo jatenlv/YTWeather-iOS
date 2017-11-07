@@ -33,7 +33,7 @@
     self.bodyTmp.text    = [NSString stringWithFormat:@"%@°", nowModel.fl];
     self.wet.text        = [NSString stringWithFormat:@"%@%%", nowModel.hum];
     self.visibility.text = [NSString stringWithFormat:@"%@公里", nowModel.vis];
-    self.pressure.text   = [NSString stringWithFormat:@"%@Pa", nowModel.pres];
+    self.pressure.text   = [NSString stringWithFormat:@"%@°", nowModel.fl];
 }
 
 @end

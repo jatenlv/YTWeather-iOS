@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,43 +17,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="180" id="hur-9a-6zU" customClass="YTMainSunAndWindTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hur-9a-6zU" id="u9v-1c-vzh">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="179.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="249.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bb5-Nu-C0F">
-                        <rect key="frame" x="8" y="0.0" width="398" height="180"/>
+                        <rect key="frame" x="8" y="0.0" width="398" height="249.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太阳和风速" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mE4-0Y-xZP">
-                                <rect key="frame" x="10" y="8" width="90" height="22"/>
+                                <rect key="frame" x="10" y="8" width="90" height="21.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V2f-8a-hH8" userLabel="我是分割线">
-                                <rect key="frame" x="10" y="35" width="378" height="1"/>
+                                <rect key="frame" x="10" y="34.5" width="378" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="y5m-mS-dWi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-6x-siV" customClass="YTMainSunAndWindDrawView">
-                                <rect key="frame" x="10" y="41" width="378" height="131"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihV-YN-vuM">
-                                        <rect key="frame" x="164" y="40.5" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="fmL-cy-yRZ"/>
-                                            <constraint firstAttribute="width" secondItem="ihV-YN-vuM" secondAttribute="height" multiplier="1:1" id="pVS-2o-cdZ"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="ihV-YN-vuM" firstAttribute="centerX" secondItem="3x3-6x-siV" secondAttribute="centerX" id="Hnl-t0-OBg"/>
-                                    <constraint firstItem="ihV-YN-vuM" firstAttribute="centerY" secondItem="3x3-6x-siV" secondAttribute="centerY" id="Xn9-M7-nlJ"/>
-                                </constraints>
+                                <rect key="frame" x="10" y="40.5" width="378" height="201"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,8 +67,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backgroundContentView" destination="bb5-Nu-C0F" id="46u-is-ztW"/>
-                <outlet property="drawView" destination="3x3-6x-siV" id="9g8-P6-d4d"/>
-                <outlet property="windmillImageView" destination="ihV-YN-vuM" id="M4h-pA-ZBC"/>
+                <outlet property="drawView" destination="3x3-6x-siV" id="BV0-zr-VFn"/>
             </connections>
             <point key="canvasLocation" x="181" y="71"/>
         </tableViewCell>

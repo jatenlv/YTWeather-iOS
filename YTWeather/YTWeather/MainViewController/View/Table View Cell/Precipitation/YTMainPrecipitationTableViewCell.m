@@ -46,14 +46,14 @@
         self.secondTimeLabel.text = [self cutTheDate:hourlyModelList[1].time];
         self.SecondPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[1].pop];
         if ([hourlyModelList[1].pop integerValue] > 0) {
-            self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];
+            self.secondImageView.image = [UIImage imageNamed:@"raindrop_blue"];
         }
     }
     if (hourlyModelList.count >= 3) {
         self.thirdTimeLabel.text = [self cutTheDate:hourlyModelList[2].time];
         self.thirdPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[2].pop];
         if ([hourlyModelList[2].pop integerValue] > 0) {
-            self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];
+            self.thirdImageView.image = [UIImage imageNamed:@"raindrop_blue"];
         }
     }
 }

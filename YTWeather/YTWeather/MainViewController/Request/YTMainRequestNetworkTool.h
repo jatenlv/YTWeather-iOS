@@ -12,6 +12,6 @@
 
 @interface YTMainRequestNetworkTool : NSObject
 
-+ (void)requestWeatherWithCityName:(NSString *)cityName andFinish:(void(^)(YTWeatherModel *model, NSError *error))finish;
++ (void)requestWeatherWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *model, NSError *))finish;
 
 @end
