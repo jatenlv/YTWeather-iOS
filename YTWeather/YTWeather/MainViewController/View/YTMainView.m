@@ -38,6 +38,9 @@ UITableViewDelegate
 
 @property (nonatomic, strong) YTMainCustomNavigationBar *customNavigationBar;
 
+@property (nonatomic, strong) YTWeatherModel *weatherModel;
+@property (nonatomic, strong) YTWeatherAirModel *airModel;
+
 @end
 
 @implementation YTMainView
@@ -114,12 +117,27 @@ UITableViewDelegate
 
 #pragma mark - Data
 
-- (void)setWeatherModel:(YTWeatherModel *)weatherModel
+//- (void)setWeatherModel:(YTWeatherModel *)weatherModel
+//{
+//    _weatherModel = weatherModel;
+//    [self.tableView reloadData];
+//
+//}
+
+//- (void)setAirModel:(YTWeatherAirModel *)airModel
+//{
+//    _airModel = airModel;
+//
+//    self.customNavigationBar.cityNameText = self.weatherModel.basic.location;
+//    [self.tableView reloadData];
+//}
+
+- (void)setWeatherAndAirModel:(YTWeatherModel *)weatherModel airModel:(YTWeatherAirModel *)airModel
 {
-    _weatherModel = weatherModel;
+    self.weatherModel = weatherModel;
+    self.airModel = airModel;
+    self.customNavigationBar.cityNameText = self.weatherModel.basic.location;
     [self.tableView reloadData];
-    
-    self.customNavigationBar.cityNameText = weatherModel.basic.location;
 }
 
 #pragma mark - Tableview Datasource
@@ -151,6 +169,7 @@ UITableViewDelegate
         case 4: {
             YTMainDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainDetailTableViewCell className]];
             cell.nowModel = self.weatherModel.now;
+            cell.airNowModel = self.airModel;
             return cell;
         } break;
             
@@ -168,6 +187,7 @@ UITableViewDelegate
         case 10: {
             YTMainSunAndWindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainSunAndWindTableViewCell className]];
             cell.nowModel = self.weatherModel.now;
+            cell.airModel = self.airModel;
             return cell;
         } break;
             
@@ -252,6 +272,24 @@ UITableViewDelegate
     } else {
         return [super hitTest:point withEvent:event];
     }
+}
+
+#pragma mark - Lazy Init
+
+- (YTWeatherModel *)weatherModel
+{
+    if (!_weatherModel) {
+        _weatherModel = [[YTWeatherModel alloc] init];
+    }
+    return _weatherModel;
+}
+
+- (YTWeatherAirModel *)airModel
+{
+    if (!_airModel) {
+        _airModel = [[YTWeatherAirModel alloc] init];
+    }
+    return _airModel;
 }
 
 @end

@@ -15,8 +15,6 @@
 #import "YTMainView.h"
 #import "YTLeftSlideView.h"
 
-#import "YTWeatherModel.h"
-
 #import "YTMainRequestNetworkTool.h"
 
 #define kSlideWidthScale 0.7
@@ -31,10 +29,8 @@ CLLocationManagerDelegate
 >
 
 @property (strong, nonatomic) UIScrollView *scrollView;
-//当前的MainView索引
-@property (nonatomic, assign) NSUInteger curIndex;
-//单击手势
-@property (nonatomic,strong) UITapGestureRecognizer *tap;
+@property (nonatomic, assign) NSUInteger curIndex; // 当前的MainView索引
+@property (nonatomic,strong) UITapGestureRecognizer *tap; // 单击手势
 
 @property (nonatomic, strong) UIView *backAlphaView;
 
@@ -140,11 +136,10 @@ CLLocationManagerDelegate
     [self.mainViewArray addObject:mainView];
     self.viewOrginX += ScreenWidth;
     // 加载model
-    [YTMainRequestNetworkTool requestWeatherWithCityName:cityName viewController:self  andFinish:^(YTWeatherModel *model, NSError *error) {
-        
+    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:cityName viewController:self andFinish:^(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
         if (!error) {
             if ([mainView.cityNameForView isEqualToString:cityName]) {
-                mainView.weatherModel = model;
+                [mainView setWeatherAndAirModel:weatherModel airModel:airModel];
             }
         }
     }];
@@ -291,10 +286,10 @@ CLLocationManagerDelegate
 {
     YTMainView *mainView = (YTMainView *)tagerView;
     
-    [YTMainRequestNetworkTool requestWeatherWithCityName:mainView.cityNameForView viewController:self andFinish:^(YTWeatherModel *model, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:mainView.cityNameForView viewController:self andFinish:^(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
         [mainView.tableView.mj_header endRefreshing];
         if (!error) {
-            mainView.weatherModel = model;
+            [mainView setWeatherAndAirModel:weatherModel airModel:airModel];
         }
     }];
 }
@@ -369,44 +364,6 @@ CLLocationManagerDelegate
     [defaults setObject:cityNameArray forKey:YTCityNameArrayDefaults];
     [defaults synchronize];
 }
-
-#pragma mark - lazy init
-
-/*
- * 暂时不用 以后如果需要转换再用 txt -> plist
-- (void)test
-{
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"condition-code" ofType:@"txt"];
-    NSString *str = [[NSString alloc] initWithContentsOfFile:plistPath encoding:NSUTF8StringEncoding error:nil];
-    NSArray  *ary = [str componentsSeparatedByString:@"\n"];
-    NSMutableArray *bigAry = [NSMutableArray array];
-    for (int i=1; i<ary.count-1; i++) {
-        NSArray *smallAry = [ary[i] componentsSeparatedByString:@"    "];
-        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-        [dic setObject:smallAry[0] forKey:@"cityCode"];
-        [dic setObject:smallAry[1] forKey:@"cityEnglishName"];
-        [dic setObject:smallAry[2] forKey:@"cityChineseName"];
-        [dic setObject:smallAry[3] forKey:@"countryCode"];
-        [dic setObject:smallAry[4] forKey:@"countryEnglishName"];
-        [dic setObject:smallAry[5] forKey:@"countryChineseName"];
-        [dic setObject:smallAry[6] forKey:@"provinceEnglishName"];
-        [dic setObject:smallAry[7] forKey:@"provinceChineseName"];
-        [dic setObject:smallAry[8] forKey:@"belongToCityEnglishName"];
-        [dic setObject:smallAry[9] forKey:@"belongToCityChineseName"];
-        [dic setObject:smallAry[10] forKey:@"cityLng"];
-        [dic setObject:smallAry[11] forKey:@"cityLat"];
-        [bigAry addObject:dic];
-    }
-    
-    NSArray  *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *plistPath1 = [paths objectAtIndex:0];
-    NSString *fileName = [plistPath1 stringByAppendingPathComponent:@"cityCode.plist"];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if ([fm createFileAtPath:fileName contents:nil attributes:nil] ==YES) {
-        [bigAry writeToFile:fileName atomically:YES];
-        NSLog(@"文件写入完成");
-    }
-}*/
 
 #pragma mark - KVO
 

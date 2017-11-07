@@ -10,10 +10,12 @@
 
 #import "YTWeatherDailyForecastModel.h"
 #import "YTWeatherNowModel.h"
+#import "YTWeatherAirModel.h"
 
 @interface YTMainSunAndWindDrawView : UIView
 
 @property (nonatomic, strong) YTWeatherDailyForecastModel *todayModel;
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
+@property (nonatomic, strong) YTWeatherAirModel *airModel;
 
 @end

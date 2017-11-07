@@ -74,6 +74,7 @@
 		84E99C881FAC44000071C160 /* YTDailyForecastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C861FAC44000071C160 /* YTDailyForecastTableViewCell.m */; };
 		84E99C891FAC44000071C160 /* YTDailyForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E99C871FAC44000071C160 /* YTDailyForecastTableViewCell.xib */; };
 		84E99C8B1FB055C30071C160 /* YTMainSunAndWindDrawView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E99C8A1FB055C30071C160 /* YTMainSunAndWindDrawView.xib */; };
+		84E99C8E1FB14EFF0071C160 /* YTWeatherAirModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C8D1FB14EFF0071C160 /* YTWeatherAirModel.m */; };
 		84EE90B51F99E81100CA21D4 /* YTCitySearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */; };
 		84EFBB331F9F2EB0004839E8 /* YTMainSunAndWindDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EFBB321F9F2EB0004839E8 /* YTMainSunAndWindDrawView.m */; };
 		84F6872B1F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F687291F9ED33500C3A4AB /* YTMainEmptyTableViewCell.m */; };
@@ -209,6 +210,8 @@
 		84E99C861FAC44000071C160 /* YTDailyForecastTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTDailyForecastTableViewCell.m; sourceTree = "<group>"; };
 		84E99C871FAC44000071C160 /* YTDailyForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTDailyForecastTableViewCell.xib; sourceTree = "<group>"; };
 		84E99C8A1FB055C30071C160 /* YTMainSunAndWindDrawView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTMainSunAndWindDrawView.xib; sourceTree = "<group>"; };
+		84E99C8C1FB14EFF0071C160 /* YTWeatherAirModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherAirModel.h; sourceTree = "<group>"; };
+		84E99C8D1FB14EFF0071C160 /* YTWeatherAirModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherAirModel.m; sourceTree = "<group>"; };
 		84EE90B31F99E81100CA21D4 /* YTCitySearchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTCitySearchModel.h; sourceTree = "<group>"; };
 		84EE90B41F99E81100CA21D4 /* YTCitySearchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTCitySearchModel.m; sourceTree = "<group>"; };
 		84EFBB311F9F2EB0004839E8 /* YTMainSunAndWindDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTMainSunAndWindDrawView.h; sourceTree = "<group>"; };
@@ -401,20 +404,8 @@
 		84654CF51F9646D700E5092E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				84654D151F96479F00E5092E /* YTWeatherModel.h */,
-				84654D161F96479F00E5092E /* YTWeatherModel.m */,
-				840D47AB1FA3229400AAADC9 /* YTWeatherUpdateModel.h */,
-				840D47AC1FA3229400AAADC9 /* YTWeatherUpdateModel.m */,
-				84A627851F97257100EE29D5 /* YTWeatherBasicModel.h */,
-				84A627861F97257100EE29D5 /* YTWeatherBasicModel.m */,
-				840BD1051F988EBF00F4B004 /* YTWeatherDailyForecastModel.h */,
-				840BD1061F988EBF00F4B004 /* YTWeatherDailyForecastModel.m */,
-				840BD1081F988EDA00F4B004 /* YTWeatherHourlyForecastModel.h */,
-				840BD1091F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m */,
-				84A6278E1F9725A000EE29D5 /* YTWeatherNowModel.h */,
-				84A6278F1F9725A000EE29D5 /* YTWeatherNowModel.m */,
-				840D47AE1FA322C500AAADC9 /* YTWeatherLifestyleModel.h */,
-				840D47AF1FA322C500AAADC9 /* YTWeatherLifestyleModel.m */,
+				84E99C8F1FB14F0C0071C160 /* Norlmal Weather Model */,
+				84E99C901FB14F250071C160 /* Air Weather Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -593,6 +584,36 @@
 				84654D0D1F96476700E5092E /* YTSettingViewController.xib */,
 			);
 			path = "Setting Page";
+			sourceTree = "<group>";
+		};
+		84E99C8F1FB14F0C0071C160 /* Norlmal Weather Model */ = {
+			isa = PBXGroup;
+			children = (
+				84654D151F96479F00E5092E /* YTWeatherModel.h */,
+				84654D161F96479F00E5092E /* YTWeatherModel.m */,
+				840D47AB1FA3229400AAADC9 /* YTWeatherUpdateModel.h */,
+				840D47AC1FA3229400AAADC9 /* YTWeatherUpdateModel.m */,
+				84A627851F97257100EE29D5 /* YTWeatherBasicModel.h */,
+				84A627861F97257100EE29D5 /* YTWeatherBasicModel.m */,
+				840BD1051F988EBF00F4B004 /* YTWeatherDailyForecastModel.h */,
+				840BD1061F988EBF00F4B004 /* YTWeatherDailyForecastModel.m */,
+				840BD1081F988EDA00F4B004 /* YTWeatherHourlyForecastModel.h */,
+				840BD1091F988EDA00F4B004 /* YTWeatherHourlyForecastModel.m */,
+				84A6278E1F9725A000EE29D5 /* YTWeatherNowModel.h */,
+				84A6278F1F9725A000EE29D5 /* YTWeatherNowModel.m */,
+				840D47AE1FA322C500AAADC9 /* YTWeatherLifestyleModel.h */,
+				840D47AF1FA322C500AAADC9 /* YTWeatherLifestyleModel.m */,
+			);
+			path = "Norlmal Weather Model";
+			sourceTree = "<group>";
+		};
+		84E99C901FB14F250071C160 /* Air Weather Model */ = {
+			isa = PBXGroup;
+			children = (
+				84E99C8C1FB14EFF0071C160 /* YTWeatherAirModel.h */,
+				84E99C8D1FB14EFF0071C160 /* YTWeatherAirModel.m */,
+			);
+			path = "Air Weather Model";
 			sourceTree = "<group>";
 		};
 		84EFBB301F9F2A0E004839E8 /* Empty */ = {
@@ -874,6 +895,7 @@
 				8460077E1FA7079200A2F403 /* UIView+YT.m in Sources */,
 				84654CD11F96418200E5092E /* main.m in Sources */,
 				8450CA431FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.m in Sources */,
+				84E99C8E1FB14EFF0071C160 /* YTWeatherAirModel.m in Sources */,
 				84A2216D1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.m in Sources */,
 				84654D171F96479F00E5092E /* YTWeatherModel.m in Sources */,
 				84654D1A1F9647B800E5092E /* YTMainView.m in Sources */,

@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 #import "YTWeatherModel.h"
+#import "YTWeatherAirModel.h"
 
 @interface YTMainRequestNetworkTool : NSObject
 
-+ (void)requestWeatherWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *model, NSError *))finish;
++ (void)requestWeatherAndAirWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error))finish;
 
 @end

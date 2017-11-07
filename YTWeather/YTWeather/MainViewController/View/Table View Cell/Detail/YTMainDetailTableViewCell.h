@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "YTWeatherNowModel.h"
+#import "YTWeatherAirModel.h"
 
 @interface YTMainDetailTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
+@property (nonatomic, strong) YTWeatherAirModel *airNowModel;
 
 @end

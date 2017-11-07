@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *pressureLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *airStatusLabel;
+
 @end
 
 @implementation YTMainSunAndWindDrawView
@@ -34,7 +36,8 @@
     if (self) {
         UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
         view.frame = self.bounds;
-        view.backgroundColor = MainTableViewCellColor;
+        view.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor clearColor];
         [self addSubview:view];
         
         self.angle = 0;
@@ -89,6 +92,12 @@
     self.windSpeedLabel.text = nowModel.wind_spd;
     self.windDirection.text  = nowModel.wind_dir;
     self.pressureLabel.text  = nowModel.pres;
+}
+
+- (void)setAirModel:(YTWeatherAirModel *)airModel
+{
+    _airModel = airModel;
+    self.airStatusLabel.text = airModel.air_now_city.qlty;
 }
 
 @end

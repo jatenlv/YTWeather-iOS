@@ -34,4 +34,10 @@
     self.drawView.nowModel = nowModel;
 }
 
+- (void)setAirModel:(YTWeatherAirModel *)airModel
+{
+    _airModel = airModel;
+    self.drawView.airModel = airModel;
+}
+
 @end

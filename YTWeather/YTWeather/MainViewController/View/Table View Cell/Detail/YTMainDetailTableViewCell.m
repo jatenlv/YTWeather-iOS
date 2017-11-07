@@ -33,7 +33,11 @@
     self.bodyTmp.text    = [NSString stringWithFormat:@"%@°", nowModel.fl];
     self.wet.text        = [NSString stringWithFormat:@"%@%%", nowModel.hum];
     self.visibility.text = [NSString stringWithFormat:@"%@公里", nowModel.vis];
-    self.pressure.text   = [NSString stringWithFormat:@"%@°", nowModel.fl];
+}
+
+- (void)setAirNowModel:(YTWeatherAirModel *)airNowModel
+{
+    self.pressure.text   = [NSString stringWithFormat:@"%@", airNowModel.air_now_city.pm25];
 }
 
 @end

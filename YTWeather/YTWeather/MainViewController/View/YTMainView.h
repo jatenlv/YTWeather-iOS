@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "YTWeatherModel.h"
+#import "YTWeatherAirModel.h"
 
 @protocol YTMainViewDelegate <NSObject>
 
@@ -16,19 +17,20 @@
 
 - (void)clickLeftBarButton;
 - (void)clickRightBarButton;
+
 - (void)mainTableViewDidScrollWithOffset:(CGFloat)offset;
 
 @end
 
 @interface YTMainView : UIView
 
-@property (nonatomic, strong) YTWeatherModel *weatherModel;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, weak) id <YTMainViewDelegate> delegate;
 
 @property (nonatomic, copy) NSString *cityNameForView;
+
+- (void)setWeatherAndAirModel:(YTWeatherModel *)weatherModel airModel:(YTWeatherAirModel *)airModel;
 
 - (void)setContentOffset:(CGFloat)offset animated:(BOOL)animated;
 
