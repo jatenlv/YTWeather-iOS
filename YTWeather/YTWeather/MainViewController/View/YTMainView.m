@@ -112,25 +112,20 @@ UITableViewDelegate
     self.tableView.mj_header = [YTCustomRefreshGifHeader headerWithCustomerGifRefreshingBlock:^{
         [self.delegate refreshData:self];
     }];
+    
+//    @weakify(self);
+//    self.tableView.mj_header.beginRefreshingCompletionBlock = ^{
+//        @strongify(self);
+//        self.tableView.scrollEnabled = NO;
+//    };
+//    self.tableView.mj_header.endRefreshingCompletionBlock = ^{
+//        @strongify(self);
+//        self.tableView.scrollEnabled = YES;
+//    };
     [self.tableView bringSubviewToFront:self.tableView.mj_header];
 }
 
 #pragma mark - Data
-
-//- (void)setWeatherModel:(YTWeatherModel *)weatherModel
-//{
-//    _weatherModel = weatherModel;
-//    [self.tableView reloadData];
-//
-//}
-
-//- (void)setAirModel:(YTWeatherAirModel *)airModel
-//{
-//    _airModel = airModel;
-//
-//    self.customNavigationBar.cityNameText = self.weatherModel.basic.location;
-//    [self.tableView reloadData];
-//}
 
 - (void)setWeatherAndAirModel:(YTWeatherModel *)weatherModel airModel:(YTWeatherAirModel *)airModel
 {
@@ -156,9 +151,9 @@ UITableViewDelegate
 {
     switch (indexPath.row) {
         case 0: {
-            YTMainForecastTableViewCell *Forecast = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
-            Forecast.forecastModelList = self.weatherModel.daily_forecast;
-            return Forecast;
+            YTMainForecastTableViewCell *ForecastCell = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
+            ForecastCell.forecastModelList = self.weatherModel.daily_forecast;
+            return ForecastCell;
         } break;
             
         case 2: {

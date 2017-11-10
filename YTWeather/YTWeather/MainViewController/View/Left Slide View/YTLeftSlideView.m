@@ -154,5 +154,10 @@ UITableViewDataSource
 
 }
 
+- (IBAction)clickCloseButton:(UIButton *)sender
+{
+    [self.delegate clickSlideViewCloseButton];
+}
+
 @end
 

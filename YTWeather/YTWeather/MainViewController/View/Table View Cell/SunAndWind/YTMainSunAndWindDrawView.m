@@ -8,11 +8,10 @@
 
 #import "YTMainSunAndWindDrawView.h"
 
-#define kLineColor [UIColor colorWithRed:252.f/255.f green:205.f/255.f blue:60.f/255.f alpha:1]
-
 @interface YTMainSunAndWindDrawView ()
-
-@property (nonatomic, strong) UIBezierPath *path;
+<
+CAAnimationDelegate
+>
 
 @property (nonatomic, assign) CGFloat angle;
 @property (weak, nonatomic) IBOutlet UIImageView *leftWindMillImageView;
@@ -28,8 +27,10 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *airStatusLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *sunImageView;
+@property (nonatomic, strong) UIBezierPath *path;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
+@property (weak, nonatomic) IBOutlet UIImageView *sunImageView;
+
 @end
 
 @implementation YTMainSunAndWindDrawView
@@ -46,8 +47,20 @@
         
         self.angle = 0;
         [self startWindMillAnimation];
+        [self setupTime];
     }
     return self;
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    self.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:0 clockwise:YES];
+    CGFloat dashPattern[] = {3, 1}; // 3实线，1空白
+    [self.path setLineDash:dashPattern count:1 phase:1];
+    [self.path setLineWidth:2.0f];
+    [[UIColor lightGrayColor] set];
+    [self.path stroke];
 }
 
 - (void)startWindMillAnimation
@@ -62,17 +75,6 @@
     }];
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    self.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:0 clockwise:YES];
-    CGFloat dashPattern[] = {3, 1}; // 3实线，1空白
-    [self.path setLineDash:dashPattern count:1 phase:1];
-    [[UIColor lightGrayColor] set];
-    [self.path stroke];
-    
-    [self setupTime];
-}
-
 - (void)setupTime
 {
     [self setNeedsDisplay];
@@ -84,8 +86,9 @@
     
     if (hour > 6 && hour < 18) {
         
-        UIBezierPath *newPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:1.8 * M_PI clockwise:YES];
+        UIBezierPath *newPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:((hour - 6.0) / 12.0 + 1) * M_PI clockwise:YES];
         
+        self.sunImageView.center = self.sunRiseTimeLabel.center;
         CAKeyframeAnimation *sunAnimation = [CAKeyframeAnimation animation];
         sunAnimation.path = newPath.CGPath;
         sunAnimation.keyPath = @"position";
@@ -93,13 +96,14 @@
         sunAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         sunAnimation.removedOnCompletion = NO;
         sunAnimation.fillMode = kCAFillModeForwards;
+        sunAnimation.delegate = self;
         [self.sunImageView.layer addAnimation:sunAnimation forKey:nil];
         
-        
         self.shapeLayer = [CAShapeLayer layer];
+        [self.shapeLayer setLineDashPattern:@[@1,@5]];
         self.shapeLayer.path = newPath.CGPath;
-        self.shapeLayer.lineWidth = 1.f;
-        self.shapeLayer.strokeColor = kLineColor.CGColor;
+        self.shapeLayer.lineWidth = 2.f;
+        self.shapeLayer.strokeColor = [UIColor yellowColor].CGColor;
         self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:self.shapeLayer];
 
@@ -111,7 +115,23 @@
         lineAnimation.removedOnCompletion = NO;
         lineAnimation.fillMode = kCAFillModeForwards;
         [self.shapeLayer addAnimation:lineAnimation forKey:nil];
+    } else {
+        self.sunImageView.hidden = YES;
     }
+}
+
+- (void)animationDidStart:(CAAnimation *)anim
+{
+    NSLog(@"start %@", NSStringFromCGPoint(self.shapeLayer.center));
+    NSLog(@"start %@", self.shapeLayer.path);
+    
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
+{
+//    self.sunImageView.center = CGPointMake(40, 40);
+    NSLog(@"stop %@", NSStringFromCGPoint(self.shapeLayer.center));
+    NSLog(@"start %@", self.shapeLayer.path);
 }
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel

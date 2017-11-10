@@ -13,6 +13,8 @@
 - (void)showCityViewWithIndex:(NSInteger)index;
 - (void)deleteCityViewWithIndex:(NSInteger)index;
 
+- (void)clickSlideViewCloseButton;
+
 @end
 
 @interface YTLeftSlideView : UIView

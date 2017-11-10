@@ -239,7 +239,7 @@ CLLocationManagerDelegate
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.x;
-    _curIndex = offset/ScreenWidth;
+    _curIndex = offset / ScreenWidth;
 }
 
 #pragma mark - CoreLocation Delegate
@@ -354,6 +354,11 @@ CLLocationManagerDelegate
     [self.scrollView layoutSubviews];
     [self reloadScrollViewSize];
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+- (void)clickSlideViewCloseButton
+{
+    [self clickLeftBarButton];
 }
 
 #pragma mark - 存缓存操作

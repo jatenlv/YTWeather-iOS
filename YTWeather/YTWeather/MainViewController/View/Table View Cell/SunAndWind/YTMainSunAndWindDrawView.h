@@ -17,4 +17,6 @@
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
 @property (nonatomic, strong) YTWeatherAirModel *airModel;
 
+- (void)setupTime;
+
 @end
