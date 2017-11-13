@@ -40,6 +40,8 @@
         self.firstPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[0].pop];
         if ([hourlyModelList[0].pop integerValue] > 0) {
             self.firstImageView.image = [UIImage imageNamed:@"raindrop_blue"];
+            self.firstTimeLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
+            self.firstPreLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
         }
     }
     if (hourlyModelList.count >= 2) {
@@ -47,6 +49,8 @@
         self.SecondPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[1].pop];
         if ([hourlyModelList[1].pop integerValue] > 0) {
             self.secondImageView.image = [UIImage imageNamed:@"raindrop_blue"];
+            self.secondTimeLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
+            self.SecondPreLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
         }
     }
     if (hourlyModelList.count >= 3) {
@@ -54,6 +58,8 @@
         self.thirdPreLabel.text  = [NSString stringWithFormat:@"%@%%", hourlyModelList[2].pop];
         if ([hourlyModelList[2].pop integerValue] > 0) {
             self.thirdImageView.image = [UIImage imageNamed:@"raindrop_blue"];
+            self.thirdTimeLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
+            self.thirdPreLabel.textColor = [UIColor colorWithRed:158/255.f green:210/255.f blue:253/255.f alpha:1];
         }
     }
 }

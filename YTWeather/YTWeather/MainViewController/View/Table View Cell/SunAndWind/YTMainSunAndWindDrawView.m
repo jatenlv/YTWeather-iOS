@@ -28,6 +28,7 @@ CAAnimationDelegate
 @property (weak, nonatomic) IBOutlet UILabel *airStatusLabel;
 
 @property (nonatomic, strong) UIBezierPath *path;
+@property (nonatomic, strong) UIBezierPath *yellowPath;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
 @property (weak, nonatomic) IBOutlet UIImageView *sunImageView;
 
@@ -86,11 +87,11 @@ CAAnimationDelegate
     
     if (hour > 6 && hour < 18) {
         
-        UIBezierPath *newPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:((hour - 6.0) / 12.0 + 1) * M_PI clockwise:YES];
+        self.yellowPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:((hour - 6.0) / 12.0 + 1) * M_PI clockwise:YES];
         
         self.sunImageView.center = self.sunRiseTimeLabel.center;
         CAKeyframeAnimation *sunAnimation = [CAKeyframeAnimation animation];
-        sunAnimation.path = newPath.CGPath;
+        sunAnimation.path = self.yellowPath.CGPath;
         sunAnimation.keyPath = @"position";
         sunAnimation.duration = 5.0f;
         sunAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -101,7 +102,7 @@ CAAnimationDelegate
         
         self.shapeLayer = [CAShapeLayer layer];
         [self.shapeLayer setLineDashPattern:@[@1,@5]];
-        self.shapeLayer.path = newPath.CGPath;
+        self.shapeLayer.path = self.yellowPath.CGPath;
         self.shapeLayer.lineWidth = 2.f;
         self.shapeLayer.strokeColor = [UIColor yellowColor].CGColor;
         self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
@@ -120,18 +121,11 @@ CAAnimationDelegate
     }
 }
 
-- (void)animationDidStart:(CAAnimation *)anim
-{
-    NSLog(@"start %@", NSStringFromCGPoint(self.shapeLayer.center));
-    NSLog(@"start %@", self.shapeLayer.path);
-    
-}
-
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
-//    self.sunImageView.center = CGPointMake(40, 40);
-    NSLog(@"stop %@", NSStringFromCGPoint(self.shapeLayer.center));
-    NSLog(@"start %@", self.shapeLayer.path);
+    if (flag) {
+        self.sunImageView.center = self.yellowPath.currentPoint;
+    }
 }
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel

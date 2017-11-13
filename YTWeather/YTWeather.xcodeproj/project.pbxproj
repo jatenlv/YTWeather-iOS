@@ -46,6 +46,7 @@
 		847AD6A91FA9A29C00837534 /* YTCustomRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD6A61FA9A29C00837534 /* YTCustomRefreshGifHeader.m */; };
 		847AD6B01FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD6AE1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m */; };
 		847AD6B11FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847AD6AF1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib */; };
+		84906B971FB9936600719944 /* ShangHaiGPX.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 84906B961FB9936600719944 /* ShangHaiGPX.gpx */; };
 		84A2216D1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A2216B1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.m */; };
 		84A2216E1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A2216C1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib */; };
 		84A627581F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A627561F970EE400EE29D5 /* YTMainAdvertisingTableViewCell.m */; };
@@ -165,6 +166,7 @@
 		847AD6AD1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideTableViewToolCell.h; sourceTree = "<group>"; };
 		847AD6AE1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideTableViewToolCell.m; sourceTree = "<group>"; };
 		847AD6AF1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLeftSlideTableViewToolCell.xib; sourceTree = "<group>"; };
+		84906B961FB9936600719944 /* ShangHaiGPX.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShangHaiGPX.gpx; sourceTree = "<group>"; };
 		84A2216A1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideTableViewNoticeCell.h; sourceTree = "<group>"; };
 		84A2216B1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideTableViewNoticeCell.m; sourceTree = "<group>"; };
 		84A2216C1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLeftSlideTableViewNoticeCell.xib; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				84654CC71F96418200E5092E /* Main.storyboard */,
 				84654CCC1F96418200E5092E /* LaunchScreen.storyboard */,
 				84654CCF1F96418200E5092E /* Info.plist */,
+				84906B961FB9936600719944 /* ShangHaiGPX.gpx */,
 				840BD1141F999A0B00F4B004 /* cityCode.plist */,
 				840BD1151F999A0B00F4B004 /* weatherCode.plist */,
 				84654CD01F96418200E5092E /* main.m */,
@@ -802,6 +805,7 @@
 				8450CA491FA96628006344F1 /* YTLeftSlideView.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
 				84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */,
+				84906B971FB9936600719944 /* ShangHaiGPX.gpx in Resources */,
 				84A6275E1F970EF300EE29D5 /* YTMainDetailTableViewCell.xib in Resources */,
 				84A2216E1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib in Resources */,
 				84A627631F970F0000EE29D5 /* YTMainMapTableViewCell.xib in Resources */,

@@ -131,8 +131,10 @@ UITableViewDelegate
 {
     self.weatherModel = weatherModel;
     self.airModel = airModel;
-    self.customNavigationBar.cityNameText = self.weatherModel.basic.location;
-    [self.tableView reloadData];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.customNavigationBar.cityNameText = self.weatherModel.basic.location;
+        [self.tableView reloadData];
+    });
 }
 
 #pragma mark - Tableview Datasource
