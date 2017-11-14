@@ -25,16 +25,17 @@ YTMainViewDelegate,
 YTLeftSlideViewDelegate,
 UIGestureRecognizerDelegate,
 UITableViewDelegate,
-CLLocationManagerDelegate
+CLLocationManagerDelegate,
+UIViewControllerTransitioningDelegate
 >
 
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, assign) NSUInteger curIndex; // 当前的MainView索引
-@property (nonatomic,strong) UITapGestureRecognizer *tap; // 单击手势
+@property (nonatomic, strong) UITapGestureRecognizer *tap; // 单击手势
 
 @property (nonatomic, strong) UIView *backAlphaView;
 
-@property (nonatomic,strong) YTLeftSlideView *leftSlideView;
+@property (nonatomic, strong) YTLeftSlideView *leftSlideView;
 @property (nonatomic, assign) BOOL isPanGestureMove;
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
@@ -295,7 +296,8 @@ CLLocationManagerDelegate
 - (void)clickRightBarButton
 {
     YTSearchViewController *resultVC = [[YTSearchViewController alloc] init];
-    [self presentViewController:resultVC animated:YES completion:nil];
+    resultVC.transitioningDelegate = self;
+    [self presentViewController:resultVC animated:YES completion:NULL];
 }
 
 - (void)mainTableViewDidScrollWithOffset:(CGFloat)offset
@@ -320,7 +322,7 @@ CLLocationManagerDelegate
 - (void)deleteCityViewWithIndex:(NSInteger)index
 {
     [self.cityNameArray removeObjectAtIndex:index];
-    [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
+    [self saveCityNameArray:[self.cityNameArray copy]]; // 存入缓存
     
     [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
     [self.mainViewArray removeObjectAtIndex:index];
@@ -341,6 +343,21 @@ CLLocationManagerDelegate
 {
     [self clickLeftBarButton];
 }
+
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+//{
+//    LOTAnimationTransitionController *animationController = [[LOTAnimationTransitionController alloc] initWithAnimationNamed:@"vcTransition1" fromLayerNamed:@"outLayer" toLayerNamed:@"inLayer" applyAnimationTransform:NO];
+//    return animationController;
+//
+//}
+//
+//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+//    LOTAnimationTransitionController *animationController = [[LOTAnimationTransitionController alloc] initWithAnimationNamed:@"vcTransition2"
+//                                                                                                              fromLayerNamed:@"outLayer"
+//                                                                                                                toLayerNamed:@"inLayer"
+//                                                                                                     applyAnimationTransform:NO];
+//    return animationController;
+//}
 
 #pragma mark - 存缓存操作
 

@@ -17,56 +17,67 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="792" id="KGk-i7-Jjw" customClass="YTMainForecastTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="744"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="743.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="399.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8LP-28-pHh" userLabel="backView">
-                        <rect key="frame" x="8" y="0.0" width="398" height="743.5"/>
+                        <rect key="frame" x="8" y="0.0" width="398" height="399.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预报" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nc-v6-B6g">
-                                <rect key="frame" x="10" y="8" width="36" height="21.5"/>
+                                <rect key="frame" x="10" y="8" width="36" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kvS-q1-MqY">
-                                <rect key="frame" x="10" y="34.5" width="378" height="1"/>
+                                <rect key="frame" x="10" y="35" width="378" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="VV8-dL-wdU"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qmD-8B-jeA">
-                                <rect key="frame" x="10" y="228.5" width="378" height="506.5"/>
+                                <rect key="frame" x="10" y="142" width="378" height="249.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="-1" id="jkn-70-bfM"/>
                                     <outlet property="delegate" destination="-1" id="o2U-C8-Ibl"/>
                                 </connections>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpg-2m-J55" customClass="YTHourWeatherScrollView">
-                                <rect key="frame" x="10" y="43.5" width="378" height="180"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ctl-KO-Pp1">
+                                <rect key="frame" x="10" y="44" width="378" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="Jq8-Fh-VDQ"/>
+                                    <constraint firstAttribute="height" constant="90" id="z2N-Q9-HLV"/>
                                 </constraints>
-                            </scrollView>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KwA-Nu-db0">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="-1" id="Bdq-Xt-gc9"/>
+                                    <outlet property="delegate" destination="-1" id="IJq-Ar-wvN"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.94194711539999998" green="0.65742788460000001" blue="0.55081730770000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kvS-q1-MqY" secondAttribute="trailing" constant="10" id="0ec-iu-aub"/>
+                            <constraint firstItem="qmD-8B-jeA" firstAttribute="top" secondItem="Ctl-KO-Pp1" secondAttribute="bottom" constant="8" id="7t9-cl-yuN"/>
                             <constraint firstItem="kvS-q1-MqY" firstAttribute="top" secondItem="3Nc-v6-B6g" secondAttribute="bottom" constant="5" id="AdX-rX-ZEG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ctl-KO-Pp1" secondAttribute="trailing" constant="10" id="G3Q-fo-oYe"/>
                             <constraint firstItem="qmD-8B-jeA" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="MpT-fM-r7L"/>
                             <constraint firstAttribute="bottom" secondItem="qmD-8B-jeA" secondAttribute="bottom" constant="8" id="NOC-fB-add"/>
-                            <constraint firstItem="xpg-2m-J55" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="URB-DJ-mXY"/>
                             <constraint firstAttribute="trailing" secondItem="qmD-8B-jeA" secondAttribute="trailing" constant="10" id="ZMI-Qx-gOg"/>
-                            <constraint firstAttribute="trailing" secondItem="xpg-2m-J55" secondAttribute="trailing" constant="10" id="fOq-kJ-vzM"/>
+                            <constraint firstItem="Ctl-KO-Pp1" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="e6Z-eH-VDS"/>
+                            <constraint firstItem="Ctl-KO-Pp1" firstAttribute="top" secondItem="kvS-q1-MqY" secondAttribute="bottom" constant="8" id="ezS-Oa-Kod"/>
                             <constraint firstItem="kvS-q1-MqY" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="ilp-pD-kXK"/>
-                            <constraint firstItem="qmD-8B-jeA" firstAttribute="top" secondItem="xpg-2m-J55" secondAttribute="bottom" constant="5" id="jY6-dh-9ws"/>
                             <constraint firstItem="3Nc-v6-B6g" firstAttribute="top" secondItem="8LP-28-pHh" secondAttribute="top" constant="8" id="pgR-KQ-h2V"/>
-                            <constraint firstItem="xpg-2m-J55" firstAttribute="top" secondItem="kvS-q1-MqY" secondAttribute="bottom" constant="8" id="roS-oY-svQ"/>
                             <constraint firstItem="3Nc-v6-B6g" firstAttribute="leading" secondItem="8LP-28-pHh" secondAttribute="leading" constant="10" id="ssj-om-LNR"/>
                         </constraints>
                     </view>
@@ -81,7 +92,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="backgroundContentView" destination="8LP-28-pHh" id="L63-0I-vC7"/>
-                <outlet property="threeDaysForTheWeather" destination="qmD-8B-jeA" id="IWu-mD-VtE"/>
+                <outlet property="dailyForecastTableView" destination="qmD-8B-jeA" id="SMh-0D-Mdg"/>
+                <outlet property="hourlyForecastCollectionView" destination="Ctl-KO-Pp1" id="7xL-in-BTB"/>
             </connections>
             <point key="canvasLocation" x="-23" y="276"/>
         </tableViewCell>

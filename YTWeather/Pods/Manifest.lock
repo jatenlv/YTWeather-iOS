@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BaiduMapKit (3.4.0)
+  - lottie-ios (2.1.4)
   - MJRefresh (3.1.12)
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
@@ -26,6 +27,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - BaiduMapKit
+  - lottie-ios
   - MJRefresh (= 3.1.12)
   - SDWebImage
   - YYKit (= 1.0.9)
@@ -33,10 +35,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BaiduMapKit: 0a5e5e0b1e3fd8dc5aceb40ab9b89e52e1d13df9
+  lottie-ios: 94fa2d82547ce3adf1e61157653ba99999fd279f
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 629d2e608694fb63e13d8ba7132fcc1d60296232
+PODFILE CHECKSUM: 265eceadcdbf103b2726ef78d43084ac5b6a49d5
 
-COCOAPODS: 1.3.0.rc.1
+COCOAPODS: 1.3.1

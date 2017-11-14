@@ -42,5 +42,6 @@
 #import <YYKit.h>
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
+#import <lottie-ios/Lottie/Lottie.h>
 
 #endif /* PrefixHeader_pch */

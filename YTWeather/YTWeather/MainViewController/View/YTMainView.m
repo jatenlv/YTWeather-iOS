@@ -22,8 +22,8 @@
 
 #define kCustomNavigationBarHeight 54
 
-#define kForecastCellHeight      500
-#define kAdvertisingCellHeight   300
+#define kForecastCellHeight      420
+#define kAdvertisingCellHeight   250
 #define kDetailCellHeight        180
 #define kMapCellHeight           200
 #define kPrecipitationCellHeight 120
@@ -41,6 +41,8 @@ UITableViewDelegate
 @property (nonatomic, strong) YTWeatherModel *weatherModel;
 @property (nonatomic, strong) YTWeatherAirModel *airModel;
 
+@property (nonatomic, strong) UIVisualEffectView *effectView;
+
 @end
 
 @implementation YTMainView
@@ -53,7 +55,7 @@ UITableViewDelegate
         view.frame = self.bounds;
         view.width = ScreenWidth;
         [self addSubview:view];
-        
+
         [self setupCustomNavigationBar];
         [self setupTableView];
         [self.tableView.mj_header beginRefreshing];
@@ -82,9 +84,18 @@ UITableViewDelegate
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     
-    UIImageView *backImageView = [[UIImageView alloc] initWithFrame:self.tableView.bounds];
-    [backImageView setImage:[UIImage imageNamed:@"rain_n_portrait_blur.jpg"]];
-    self.tableView.backgroundView = backImageView;
+    UIView *tableViewBackgroundView = [[UIView alloc] initWithFrame:ScreenBounds];
+    
+    UIImageView *backImageView = [[UIImageView alloc] initWithFrame:ScreenBounds];
+    [backImageView setImage:[UIImage imageNamed:@"riodejaneiro.jpg"]];
+    [tableViewBackgroundView addSubview:backImageView];
+
+    self.effectView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    self.effectView.frame = ScreenBounds;
+    self.effectView.alpha = 0;
+    [tableViewBackgroundView addSubview:self.effectView];
+    
+    self.tableView.backgroundView = tableViewBackgroundView;
         
     UIView *ytHeaderRefreshBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, -500, ScreenWidth, 500)];
     ytHeaderRefreshBackgroundView.backgroundColor = MainTableViewCellColor;
@@ -113,15 +124,6 @@ UITableViewDelegate
         [self.delegate refreshData:self];
     }];
     
-//    @weakify(self);
-//    self.tableView.mj_header.beginRefreshingCompletionBlock = ^{
-//        @strongify(self);
-//        self.tableView.scrollEnabled = NO;
-//    };
-//    self.tableView.mj_header.endRefreshingCompletionBlock = ^{
-//        @strongify(self);
-//        self.tableView.scrollEnabled = YES;
-//    };
     [self.tableView bringSubviewToFront:self.tableView.mj_header];
 }
 
@@ -154,7 +156,8 @@ UITableViewDelegate
     switch (indexPath.row) {
         case 0: {
             YTMainForecastTableViewCell *ForecastCell = [tableView dequeueReusableCellWithIdentifier:[YTMainForecastTableViewCell className]];
-            ForecastCell.forecastModelList = self.weatherModel.daily_forecast;
+            ForecastCell.dailyForecastModelList = self.weatherModel.daily_forecast;
+            ForecastCell.hourlyForecastModelList = self.weatherModel.hourly;
             return ForecastCell;
         } break;
             
@@ -239,12 +242,19 @@ UITableViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat offset = scrollView.contentOffset.y;
+    // 固定navigationBar位置
     if (offset <= 0) {
         self.customNavigationBar.mj_y = -offset;
     }
-    if (offset >= 0 && offset < ScreenHeight) {
-        self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight * 0.7;
+    // 更改navigationBar透明度
+    if (offset >= 0 && offset <= ScreenHeight) {
+        self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight * 0.8;
     }
+    // 更改effectView毛玻璃效果的透明度
+    if (offset >=0 && offset <= ScreenHeight) {
+        self.effectView.alpha = offset / ScreenHeight;
+    }
+    
     if(self.delegate && [self.delegate respondsToSelector:@selector(mainTableViewDidScrollWithOffset:)])
     {
         [self.delegate mainTableViewDidScrollWithOffset:offset];

@@ -7,4 +7,5 @@ target ‘YTWeather’ do
 	pod ‘AFNetworking’ , ‘3.1.0’ 
 	pod ’SDWebImage’   
 	pod ‘BaiduMapKit’
+	pod ‘lottie-ios’
 end

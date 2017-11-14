@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="YTHourlyForecastCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现在" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAf-mv-5xv">
+                        <rect key="frame" x="10" y="5.5" width="30" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M0L-0J-zOI">
+                        <rect key="frame" x="12.5" y="32.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="M0L-0J-zOI" secondAttribute="height" multiplier="1:1" id="dzA-17-r1b"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRM-e4-Oso">
+                        <rect key="frame" x="14" y="67.5" width="23" height="17.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="YAf-mv-5xv" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1D2-xt-wnY"/>
+                <constraint firstItem="CRM-e4-Oso" firstAttribute="top" secondItem="M0L-0J-zOI" secondAttribute="bottom" constant="10" id="7LM-VK-P2U"/>
+                <constraint firstItem="M0L-0J-zOI" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="H9M-n8-ITs"/>
+                <constraint firstItem="M0L-0J-zOI" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="5:18" id="JO6-qj-318"/>
+                <constraint firstItem="M0L-0J-zOI" firstAttribute="top" secondItem="YAf-mv-5xv" secondAttribute="bottom" constant="10" id="nhi-ty-Joq"/>
+                <constraint firstItem="CRM-e4-Oso" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="qL5-fr-uL5"/>
+                <constraint firstItem="M0L-0J-zOI" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="wVe-mL-axs"/>
+            </constraints>
+            <size key="customSize" width="104" height="175"/>
+            <connections>
+                <outlet property="timeLabel" destination="YAf-mv-5xv" id="j2s-zt-6K0"/>
+                <outlet property="tmpLabel" destination="CRM-e4-Oso" id="s4U-ES-1PM"/>
+                <outlet property="weatherImageView" destination="M0L-0J-zOI" id="MNK-9k-0fg"/>
+            </connections>
+            <point key="canvasLocation" x="-141" y="2"/>
+        </collectionViewCell>
+    </objects>
+</document>

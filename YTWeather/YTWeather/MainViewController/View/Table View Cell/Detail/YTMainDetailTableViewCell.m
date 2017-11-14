@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *wet;
 @property (weak, nonatomic) IBOutlet UILabel *visibility;
 @property (weak, nonatomic) IBOutlet UILabel *pressure;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
 
 @end
 
@@ -33,6 +34,7 @@
     self.bodyTmp.text    = [NSString stringWithFormat:@"%@°", nowModel.fl];
     self.wet.text        = [NSString stringWithFormat:@"%@%%", nowModel.hum];
     self.visibility.text = [NSString stringWithFormat:@"%@公里", nowModel.vis];
+    [self.weatherImageView sd_setImageWithURL:[NSURL findImageUrl:nowModel.cond_code]];
 }
 
 - (void)setAirNowModel:(YTWeatherAirModel *)airNowModel

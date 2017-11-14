@@ -109,7 +109,7 @@
                                     <constraint firstAttribute="height" constant="1" id="KJ7-bf-fdR"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHu-6H-SFc" userLabel="Line View Top">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHu-6H-SFc" userLabel="Left View">
                                 <rect key="frame" x="10" y="40.5" width="189" height="131"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="ldr-gk-6bg">
@@ -184,6 +184,7 @@
                 <outlet property="bodyTmp" destination="k2e-Lu-Jrc" id="cNZ-38-m8l"/>
                 <outlet property="pressure" destination="1Rt-73-lKH" id="5KZ-Gt-dhZ"/>
                 <outlet property="visibility" destination="GwT-xj-SkE" id="Fwl-Sy-7r3"/>
+                <outlet property="weatherImageView" destination="ldr-gk-6bg" id="3JN-wN-cBS"/>
                 <outlet property="wet" destination="MhU-Ca-Z4Y" id="tkU-FW-S41"/>
             </connections>
             <point key="canvasLocation" x="122" y="104"/>
