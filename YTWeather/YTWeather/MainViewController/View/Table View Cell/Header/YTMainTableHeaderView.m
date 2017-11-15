@@ -38,6 +38,8 @@
         self.currentTemperatureLabel.text = [NSString stringWithFormat:@"%@", nowModel.tmp];
         self.currentStatusLabel.text = nowModel.cond_txt;
         [self.currentStatusImageView sd_setImageWithURL:[NSURL findImageUrl:nowModel.cond_code] placeholderImage:nil];
+        [self.currentStatusImageView setImage:[self.currentStatusImageView.image imageWithColor:[UIColor whiteColor]]];
+
     }
 }
 

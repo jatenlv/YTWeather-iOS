@@ -29,7 +29,9 @@
     self.dayLabel.text = [NSString dateExchangeToWeek:forecastModel.date];
     self.highTmpLabel.text = [NSString stringWithFormat:@"%@°",forecastModel.tmp_max];
     self.lowTmpLabel.text = [NSString stringWithFormat:@"%@°",forecastModel.tmp_min];
-    [self.weatherImageView sd_setImageWithURL:[NSURL findImageUrl:forecastModel.cond_code_d] placeholderImage:nil];
+    [self.weatherImageView sd_setImageWithURL:[NSURL findImageUrl:forecastModel.cond_code_d] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.weatherImageView setImage:[image imageWithColor:[UIColor whiteColor]]];
+    }];
 }
 
 - (NSString *)getDateAccordingTime:(NSString *)aTime formatStyle:(NSString *)formate

@@ -36,6 +36,7 @@
 #import "UIColor+ColorChange.h"
 #import "NSString+YT.h"
 #import "NSURL+YT.h"
+#import "UIImage+YT.h"
 
 // Pods
 #import <MJRefresh.h>

@@ -34,7 +34,9 @@
     self.bodyTmp.text    = [NSString stringWithFormat:@"%@°", nowModel.fl];
     self.wet.text        = [NSString stringWithFormat:@"%@%%", nowModel.hum];
     self.visibility.text = [NSString stringWithFormat:@"%@公里", nowModel.vis];
-    [self.weatherImageView sd_setImageWithURL:[NSURL findImageUrl:nowModel.cond_code]];
+    [self.weatherImageView sd_setImageWithURL:[NSURL findImageUrl:nowModel.cond_code] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        [self.weatherImageView setImage:[self.weatherImageView.image imageWithColor:[UIColor whiteColor]]];
+    }];
 }
 
 - (void)setAirNowModel:(YTWeatherAirModel *)airNowModel

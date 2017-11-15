@@ -13,6 +13,8 @@
 CAAnimationDelegate
 >
 
+@property (nonatomic, strong) UIView *view;
+
 @property (nonatomic, assign) CGFloat angle;
 @property (weak, nonatomic) IBOutlet UIImageView *leftWindMillImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *rightWindMillImageView;
@@ -40,17 +42,22 @@ CAAnimationDelegate
 {
     self = [super initWithCoder:coder];
     if (self) {
-        UIView *view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
-        view.frame = self.bounds;
-        view.backgroundColor = [UIColor clearColor];
+        self.view =  [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+        self.view.backgroundColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
-        [self addSubview:view];
+        [self addSubview:self.view];
         
         self.angle = 0;
         [self startWindMillAnimation];
-        [self setupTime];
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.view.frame = self.bounds;
+    [self setupTime];
 }
 
 - (void)drawRect:(CGRect)rect
@@ -63,6 +70,8 @@ CAAnimationDelegate
     [[UIColor lightGrayColor] set];
     [self.path stroke];
 }
+
+
 
 - (void)startWindMillAnimation
 {
@@ -78,8 +87,6 @@ CAAnimationDelegate
 
 - (void)setupTime
 {
-    [self setNeedsDisplay];
-    
     self.sunRiseTimeLabel.text = @"06:00";
     self.sunSetTimeLabel.text  = @"18:00";
     
