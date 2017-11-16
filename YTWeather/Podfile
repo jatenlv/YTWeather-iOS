@@ -8,4 +8,12 @@ target ‘YTWeather’ do
 	pod ’SDWebImage’   
 	pod ‘BaiduMapKit’
 	pod ‘lottie-ios’
+  	# U-Share SDK UI模块（分享面板，建议添加）
+  	pod ‘UMengUShare/UI’, '~> 6.4.5'
+  	# 集成微信(精简版0.2M)
+ 	pod ‘UMengUShare/Social/ReducedWeChat', '~> 6.4.5'
+ 	# 集成QQ/QZone/TIM(精简版0.5M)
+ 	pod ‘UMengUShare/Social/ReducedQQ', '~> 6.4.5'
+ 	# 集成新浪微博(精简版1M)
+	pod ‘UMengUShare/Social/ReducedSina', '~> 6.4.5'
 end

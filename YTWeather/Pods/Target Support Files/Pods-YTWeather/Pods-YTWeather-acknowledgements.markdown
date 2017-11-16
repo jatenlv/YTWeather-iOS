@@ -97,6 +97,11 @@ THE SOFTWARE.
 
 
 
+## UMengUShare
+
+Copyright 2011 - 2017 UMeng.com. All rights reserved.
+
+
 ## YYKit
 
 The MIT License (MIT)

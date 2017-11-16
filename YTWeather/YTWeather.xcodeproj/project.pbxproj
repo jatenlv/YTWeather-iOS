@@ -15,6 +15,8 @@
 		840D47AD1FA3229400AAADC9 /* YTWeatherUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D47AC1FA3229400AAADC9 /* YTWeatherUpdateModel.m */; };
 		840D47B01FA322C500AAADC9 /* YTWeatherLifestyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840D47AF1FA322C500AAADC9 /* YTWeatherLifestyleModel.m */; };
 		84482C511FBC30670073BE47 /* UIImage+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84482C501FBC30670073BE47 /* UIImage+YT.m */; };
+		84482C531FBD2E420073BE47 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 84482C521FBD2E420073BE47 /* libsqlite3.tbd */; };
+		84482C551FBD2E520073BE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84482C541FBD2E4A0073BE47 /* CoreGraphics.framework */; };
 		8450CA431FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8450CA411FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.m */; };
 		8450CA441FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8450CA421FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.xib */; };
 		8450CA471FA96607006344F1 /* YTLeftSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8450CA461FA96607006344F1 /* YTLeftSlideView.m */; };
@@ -47,7 +49,6 @@
 		847AD6A91FA9A29C00837534 /* YTCustomRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD6A61FA9A29C00837534 /* YTCustomRefreshGifHeader.m */; };
 		847AD6B01FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AD6AE1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m */; };
 		847AD6B11FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847AD6AF1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib */; };
-		84906B971FB9936600719944 /* ShangHaiGPX.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 84906B961FB9936600719944 /* ShangHaiGPX.gpx */; };
 		84906B9B1FB9A9A300719944 /* YTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84906B991FB9A9A300719944 /* YTLoginViewController.m */; };
 		84906B9C1FB9A9A300719944 /* YTLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84906B9A1FB9A9A300719944 /* YTLoginViewController.xib */; };
 		84906BA61FBACE3A00719944 /* YTHourlyForecastCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84906BA41FBACE3A00719944 /* YTHourlyForecastCollectionViewCell.m */; };
@@ -116,6 +117,8 @@
 		840D47AF1FA322C500AAADC9 /* YTWeatherLifestyleModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherLifestyleModel.m; sourceTree = "<group>"; };
 		84482C4F1FBC30670073BE47 /* UIImage+YT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+YT.h"; sourceTree = "<group>"; };
 		84482C501FBC30670073BE47 /* UIImage+YT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YT.m"; sourceTree = "<group>"; };
+		84482C521FBD2E420073BE47 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		84482C541FBD2E4A0073BE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8450CA401FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideTableViewNormalCell.h; sourceTree = "<group>"; };
 		8450CA411FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideTableViewNormalCell.m; sourceTree = "<group>"; };
 		8450CA421FA9636A006344F1 /* YTLeftSlideTableViewNormalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLeftSlideTableViewNormalCell.xib; sourceTree = "<group>"; };
@@ -170,7 +173,6 @@
 		847AD6AD1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLeftSlideTableViewToolCell.h; sourceTree = "<group>"; };
 		847AD6AE1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLeftSlideTableViewToolCell.m; sourceTree = "<group>"; };
 		847AD6AF1FA9B29E00837534 /* YTLeftSlideTableViewToolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLeftSlideTableViewToolCell.xib; sourceTree = "<group>"; };
-		84906B961FB9936600719944 /* ShangHaiGPX.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShangHaiGPX.gpx; sourceTree = "<group>"; };
 		84906B981FB9A9A300719944 /* YTLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTLoginViewController.h; sourceTree = "<group>"; };
 		84906B991FB9A9A300719944 /* YTLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTLoginViewController.m; sourceTree = "<group>"; };
 		84906B9A1FB9A9A300719944 /* YTLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTLoginViewController.xib; sourceTree = "<group>"; };
@@ -234,6 +236,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84482C551FBD2E520073BE47 /* CoreGraphics.framework in Frameworks */,
+				84482C531FBD2E420073BE47 /* libsqlite3.tbd in Frameworks */,
 				664D8226FFBF7BA3A378C83B /* libPods-YTWeather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +262,8 @@
 		3C96C7C96399474661D79E68 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84482C541FBD2E4A0073BE47 /* CoreGraphics.framework */,
+				84482C521FBD2E420073BE47 /* libsqlite3.tbd */,
 				3DFFB929967DD13412DE8194 /* libPods-YTWeather.a */,
 			);
 			name = Frameworks;
@@ -266,18 +272,18 @@
 		846007641FA7079100A2F403 /* Guide & Launch */ = {
 			isa = PBXGroup;
 			children = (
-				846007651FA7079100A2F403 /* Guide Page */,
-				8460076A1FA7079100A2F403 /* Launch Page */,
+				846007651FA7079100A2F403 /* Custom Nav */,
+				8460076A1FA7079100A2F403 /* Guilde & Launch Page */,
 			);
 			path = "Guide & Launch";
 			sourceTree = "<group>";
 		};
-		846007651FA7079100A2F403 /* Guide Page */ = {
+		846007651FA7079100A2F403 /* Custom Nav */ = {
 			isa = PBXGroup;
 			children = (
 				846007661FA7079100A2F403 /* controller */,
 			);
-			path = "Guide Page";
+			path = "Custom Nav";
 			sourceTree = "<group>";
 		};
 		846007661FA7079100A2F403 /* controller */ = {
@@ -290,25 +296,23 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
-		8460076A1FA7079100A2F403 /* Launch Page */ = {
+		8460076A1FA7079100A2F403 /* Guilde & Launch Page */ = {
 			isa = PBXGroup;
 			children = (
-				8460076B1FA7079100A2F403 /* Controller */,
+				8460076B1FA7079100A2F403 /* Launch AD  */,
+				84A220041FBD778600B2168A /* Guilde  */,
 			);
-			path = "Launch Page";
+			path = "Guilde & Launch Page";
 			sourceTree = "<group>";
 		};
-		8460076B1FA7079100A2F403 /* Controller */ = {
+		8460076B1FA7079100A2F403 /* Launch AD  */ = {
 			isa = PBXGroup;
 			children = (
 				8460076C1FA7079100A2F403 /* YTLaunchADViewController.h */,
 				8460076D1FA7079100A2F403 /* YTLaunchADViewController.m */,
 				8460076E1FA7079100A2F403 /* YTLaunchADViewController.xib */,
-				8460076F1FA7079100A2F403 /* YTNewFeatureViewController.h */,
-				846007701FA7079100A2F403 /* YTNewFeatureViewController.m */,
-				846007711FA7079100A2F403 /* YTNewFeatureViewController.xib */,
 			);
-			path = Controller;
+			path = "Launch AD ";
 			sourceTree = "<group>";
 		};
 		846007721FA7079100A2F403 /* Category */ = {
@@ -362,7 +366,6 @@
 				84906BA81FBC29DB00719944 /* Assets.xcassets */,
 				84654CCC1F96418200E5092E /* LaunchScreen.storyboard */,
 				84654CCF1F96418200E5092E /* Info.plist */,
-				84906B961FB9936600719944 /* ShangHaiGPX.gpx */,
 				840BD1141F999A0B00F4B004 /* cityCode.plist */,
 				840BD1151F999A0B00F4B004 /* weatherCode.plist */,
 				84654CD01F96418200E5092E /* main.m */,
@@ -553,6 +556,16 @@
 				84A2216C1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib */,
 			);
 			path = "Left Slide View";
+			sourceTree = "<group>";
+		};
+		84A220041FBD778600B2168A /* Guilde  */ = {
+			isa = PBXGroup;
+			children = (
+				8460076F1FA7079100A2F403 /* YTNewFeatureViewController.h */,
+				846007701FA7079100A2F403 /* YTNewFeatureViewController.m */,
+				846007711FA7079100A2F403 /* YTNewFeatureViewController.xib */,
+			);
+			path = "Guilde ";
 			sourceTree = "<group>";
 		};
 		84A627751F97129500EE29D5 /* Table View Cell */ = {
@@ -823,7 +836,6 @@
 				84906B9C1FB9A9A300719944 /* YTLoginViewController.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
 				84654D1C1F964F4000E5092E /* YTMainView.xib in Resources */,
-				84906B971FB9936600719944 /* ShangHaiGPX.gpx in Resources */,
 				84A6275E1F970EF300EE29D5 /* YTMainDetailTableViewCell.xib in Resources */,
 				84A2216E1FA9B67B0029BB28 /* YTLeftSlideTableViewNoticeCell.xib in Resources */,
 				84A627631F970F0000EE29D5 /* YTMainMapTableViewCell.xib in Resources */,
@@ -874,6 +886,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/Resources/mapapi.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
