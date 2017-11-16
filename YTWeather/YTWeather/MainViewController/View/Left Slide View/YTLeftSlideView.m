@@ -142,7 +142,9 @@ UITableViewDataSource
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0 && indexPath.row >= 2) {
-        return YES;
+        if (self.kCityNameArray.count > 1) {
+            return YES;
+        }
     }
     return NO;
 }
@@ -151,7 +153,6 @@ UITableViewDataSource
 {
     _kCityNameArray = kCityNameArray;
     [self.tableView reloadData];
-
 }
 
 - (IBAction)clickCloseButton:(UIButton *)sender

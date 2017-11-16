@@ -33,7 +33,7 @@
         self.timeLabel.text = @"";
         
         self.darkVisualEffectViewAlpha = 0;
-        self.darkVisualEffectView.backgroundColor = [UIColor blackColor];
+//        self.darkVisualEffectView.backgroundColor = [UIColor blackColor];
         [self setupUpdateTimer];
     }
     return self;

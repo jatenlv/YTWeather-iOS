@@ -12,4 +12,6 @@
 
 - (UIImage *)imageWithColor:(UIColor *)color;
 
++ (UIImage *)cutImage:(UIImage *)image size:(CGSize)size;
+
 @end

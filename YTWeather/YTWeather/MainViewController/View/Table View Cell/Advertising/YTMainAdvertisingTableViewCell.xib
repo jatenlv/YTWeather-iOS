@@ -31,8 +31,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42.5" id="xcX-CF-0qr"/>
                                 </constraints>
-                                <string key="text">The Best CreDit Cards for Today!
-Come on Boy!</string>
+                                <string key="text">Game of Thrones, My favourite Actor
+Jaime Lannister - Nikolaj Coster-Waldau</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@ Come on Boy!</string>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="XPE-vu-dBO"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞助商 Yahoo! Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-mh-Jeb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞助商 GOT!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9A-mh-Jeb">
                                 <rect key="frame" x="10" y="61.5" width="257" height="14.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14.5" id="9hs-t6-jXr"/>
@@ -54,7 +54,7 @@ Come on Boy!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GML-Zm-u3j">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GOT" translatesAutoresizingMaskIntoConstraints="NO" id="GML-Zm-u3j">
                                 <rect key="frame" x="10" y="81" width="257" height="118.5"/>
                             </imageView>
                         </subviews>
@@ -93,4 +93,7 @@ Come on Boy!</string>
             <point key="canvasLocation" x="103.5" y="136"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="GOT" width="960" height="540"/>
+    </resources>
 </document>

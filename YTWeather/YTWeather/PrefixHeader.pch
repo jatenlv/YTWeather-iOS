@@ -23,12 +23,13 @@
 
 // API Key
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
+#define USHARE_DEMO_APPKEY      @"5a0cf80bb27b0a397c000094"
 
 // Notification
 #define YTNotificationSearchCityNameDidSelect @"YTNotificationSearchCityNameDidSelect"
 
 // Cache
-#define ShortVersionKey @"ShortVersionKey"
+#define ShortVersionKey         @"ShortVersionKey"
 #define YTCityNameArrayDefaults @"cityNameArray"
 
 // Category
@@ -44,5 +45,6 @@
 #import <AFNetworking.h>
 #import <UIImageView+WebCache.h>
 #import <lottie-ios/Lottie/Lottie.h>
+#import <UMengUShare/UMSocialCore/UMSocialCore.h>
 
 #endif /* PrefixHeader_pch */

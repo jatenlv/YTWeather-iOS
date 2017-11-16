@@ -64,9 +64,9 @@ UIViewControllerTransitioningDelegate
     [self setupBackAlphaView];   // 添加底层遮罩页面
     [self setupLeftSlideView];   // 添加左侧滑动页面
     [self setupScrollView];      // 添加ScrollView
-    [self readCityNameArray];    // 取出城市缓存
-    [self loadOldViewAndData];   // 加载缓存中的城市页面和数据
-    [self setupLocationManager]; // 加载定位功能
+    // [self setupLocationManager]; // 加载定位功能，定位当前城市
+    [self readCityNameArray];    // 取出其他城市缓存
+    [self loadOldViewAndData];   // 加载城市数组中的城市页面和数据
     [self addSlideGesture];      // 添加滑动弹出设置页面手势
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
@@ -95,6 +95,19 @@ UIViewControllerTransitioningDelegate
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
 }
+
+/*
+- (void)setupLocationManager
+{
+    if ([CLLocationManager locationServicesEnabled]) {
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self;
+        [self.locationManager requestAlwaysAuthorization];
+        self.currentCity = [[NSString alloc] init];
+        [self.locationManager startUpdatingLocation];
+    }
+}
+*/
 
 - (void)readCityNameArray
 {
@@ -126,7 +139,6 @@ UIViewControllerTransitioningDelegate
     self.scrollView.contentSize = CGSizeMake(self.cityNameArray.count * ScreenWidth, 0);
 }
 
-// 创建新页面及数据
 - (void)createMainViewWithCityName:(NSString *)cityName newView:(BOOL)newView
 {
     // 加载view
@@ -150,39 +162,6 @@ UIViewControllerTransitioningDelegate
     }
 }
 
-- (void)setupLocationManager
-{
-    if ([CLLocationManager locationServicesEnabled]) {
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self;
-        [self.locationManager requestAlwaysAuthorization];
-        self.currentCity = [[NSString alloc] init];
-        [self.locationManager startUpdatingLocation];
-    }
-}
-
-#pragma mark - Notification
-
-- (void)searchCityNameDidSelect:(NSNotification *)notify
-{
-    NSString *newCityName = notify.object;
-    
-    for (NSString *cityName in self.cityNameArray) {
-        if ([cityName isEqualToString:newCityName]) {
-            NSInteger index = [self.cityNameArray indexOfObject:cityName];
-            [self.scrollView setContentOffset:CGPointMake(index * ScreenWidth, 0)];
-            return;
-        }
-    }
-
-    [self.cityNameArray addObject:newCityName];
-    [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
-    
-    [self reloadScrollViewSize];
-    [self createMainViewWithCityName:newCityName newView:YES];
-    self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
-}
-
 #pragma mark - 添加左侧侧滑手势
 
 - (void)addSlideGesture
@@ -201,9 +180,10 @@ UIViewControllerTransitioningDelegate
     [self getCurMainVConfigScrollEnabled];
     return _isShowSlide;
 }
+
 - (void)getCurMainVConfigScrollEnabled
 {
-    YTMainView * curMainV =self.mainViewArray[_curIndex];
+    YTMainView * curMainV = self.mainViewArray[_curIndex];
     curMainV.tableView.scrollEnabled = !_isShowSlide;
 }
 
@@ -243,6 +223,7 @@ UIViewControllerTransitioningDelegate
     _curIndex = offset / ScreenWidth;
 }
 
+/*
 #pragma mark - CoreLocation Delegate
 
 //定位失败则执行此代理方法
@@ -259,8 +240,8 @@ UIViewControllerTransitioningDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     CLLocation * location = locations.lastObject;
-    
 }
+*/
 
 #pragma mark - YTMainView Delegate
 
@@ -317,6 +298,12 @@ UIViewControllerTransitioningDelegate
 {
     [self clickLeftBarButton];
     [self.scrollView setContentOffset:self.mainViewArray[index].frame.origin animated:NO];
+    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+- (void)clickSlideViewCloseButton
+{
+    [self clickLeftBarButton];
 }
 
 - (void)deleteCityViewWithIndex:(NSInteger)index
@@ -339,25 +326,27 @@ UIViewControllerTransitioningDelegate
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
 }
 
-- (void)clickSlideViewCloseButton
-{
-    [self clickLeftBarButton];
-}
+#pragma mark - Notification Action
 
-//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
-//{
-//    LOTAnimationTransitionController *animationController = [[LOTAnimationTransitionController alloc] initWithAnimationNamed:@"vcTransition1" fromLayerNamed:@"outLayer" toLayerNamed:@"inLayer" applyAnimationTransform:NO];
-//    return animationController;
-//
-//}
-//
-//- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-//    LOTAnimationTransitionController *animationController = [[LOTAnimationTransitionController alloc] initWithAnimationNamed:@"vcTransition2"
-//                                                                                                              fromLayerNamed:@"outLayer"
-//                                                                                                                toLayerNamed:@"inLayer"
-//                                                                                                     applyAnimationTransform:NO];
-//    return animationController;
-//}
+- (void)searchCityNameDidSelect:(NSNotification *)notify
+{
+    NSString *newCityName = notify.object;
+    
+    for (NSString *cityName in self.cityNameArray) {
+        if ([cityName isEqualToString:newCityName]) {
+            NSInteger index = [self.cityNameArray indexOfObject:cityName];
+            [self.scrollView setContentOffset:CGPointMake(index * ScreenWidth, 0)];
+            return;
+        }
+    }
+    
+    [self.cityNameArray addObject:newCityName];
+    [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
+    
+    [self reloadScrollViewSize];
+    [self createMainViewWithCityName:newCityName newView:YES];
+    self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
+}
 
 #pragma mark - 存缓存操作
 
@@ -373,9 +362,9 @@ UIViewControllerTransitioningDelegate
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     BOOL isAddTapGesture = [change[NSKeyValueChangeNewKey] boolValue];
-    if(isAddTapGesture){
+    if (isAddTapGesture) {
         [self.scrollView addGestureRecognizer:self.tap];
-    }else{
+    } else {
         [self.scrollView removeGestureRecognizer:self.tap];
     }
 }

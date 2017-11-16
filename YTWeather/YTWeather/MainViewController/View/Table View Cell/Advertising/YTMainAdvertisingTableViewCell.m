@@ -26,8 +26,7 @@
     self.backgroundContentView.backgroundColor = MainTableViewCellColor;
     self.backgroundContentView.layer.cornerRadius = MainTableViewCellRadius;
     
-    self.adImageView.image = [UIImage imageNamed:@"cloudy_d_widget.jpg"];
-    self.adImageView.clipsToBounds = YES;
+//    self.adImageView.image = [UIImage cutImage:[UIImage imageNamed:@"GOT.jpg"] size:self.adImageView.size];
 }
 
 @end

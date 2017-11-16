@@ -87,7 +87,7 @@ UITableViewDelegate
     UIView *tableViewBackgroundView = [[UIView alloc] initWithFrame:ScreenBounds];
     
     UIImageView *backImageView = [[UIImageView alloc] initWithFrame:ScreenBounds];
-    [backImageView setImage:[UIImage imageNamed:@"riodejaneiro.jpg"]];
+    [backImageView setImage:[UIImage imageNamed:@"foggy_n_portrait.jpg"]];
     [tableViewBackgroundView addSubview:backImageView];
 
     self.effectView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
@@ -248,7 +248,7 @@ UITableViewDelegate
     }
     // 更改navigationBar透明度
     if (offset >= 0 && offset <= ScreenHeight) {
-        self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight * 0.8;
+        self.customNavigationBar.darkVisualEffectViewAlpha = offset / ScreenHeight;
     }
     // 更改effectView毛玻璃效果的透明度
     if (offset >=0 && offset <= ScreenHeight) {

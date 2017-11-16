@@ -44,7 +44,7 @@ static int resetSeconds = 3;
         [self forwardToMainVC:nil];
         return;
     }
-    NSString * title = [NSString stringWithFormat:@"跳过%d秒",resetSeconds];
+    NSString * title = [NSString stringWithFormat:@"Skip : %ds",resetSeconds];
     [self.closeBtn setTitle:title forState:UIControlStateNormal];
     self.closeBtn.backgroundColor = [UIColor clearColor];
     resetSeconds--;
