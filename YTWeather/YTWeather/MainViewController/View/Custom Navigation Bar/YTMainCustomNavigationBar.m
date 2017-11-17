@@ -86,7 +86,7 @@
 - (void)setCityNameText:(NSString *)cityNameText
 {
     if (cityNameText.length) {
-        self.cityNameLabel.text = [NSString stringWithFormat:@"%@市", cityNameText];
+        self.cityNameLabel.text = [NSString stringWithFormat:@"%@", cityNameText];
     }
 }
 
