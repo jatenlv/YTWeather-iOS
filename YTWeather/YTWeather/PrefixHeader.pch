@@ -46,5 +46,6 @@
 #import <UIImageView+WebCache.h>
 #import <lottie-ios/Lottie/Lottie.h>
 #import <UMengUShare/UMSocialCore/UMSocialCore.h>
+#import <UMengUShare/UShareUI/UShareUI.h>
 
 #endif /* PrefixHeader_pch */
