@@ -128,11 +128,12 @@ UITableViewDataSource
 //            NSLog(@"分分分分分想成功");
 //        }];
         [UMSocialUIManager removeAllCustomPlatformWithoutFilted];
+        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_Sina), @(UMSocialPlatformType_QQ), @(UMSocialPlatformType_WechatSession)]];
         [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
         [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_IconAndBGRadius;
-            [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
 //                [self runShareWithType:platformType];
-            }];
+        }];
     
     
     } else if (indexPath.section == 0 && indexPath.row >= 2) { // 跳转城市
