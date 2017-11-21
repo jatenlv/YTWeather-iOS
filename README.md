@@ -18,4 +18,4 @@
 
 * Thanks!
 
-* `YTWeater by Jiateng & Chaoyue`
+* `YTWeater by Jaten & Chaylau`
