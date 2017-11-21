@@ -346,6 +346,7 @@ UIViewControllerTransitioningDelegate
     [self reloadScrollViewSize];
     [self createMainViewWithCityName:newCityName newView:YES];
     self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
+    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
 }
 
 #pragma mark - 存缓存操作
