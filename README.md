@@ -9,3 +9,11 @@
 <br>
 
 ![](https://github.com/jatenlv/YTWeather/raw/master/Screenshots.jpeg)
+
+<br>
+
+* If you are interesting in somethings in our project, please `git clone` or `download zip` this project to run it (don't forget to `pod install`).
+
+* Hopefully you can give us some advice by sending emial to `jaten.lv@foxmail.com`.
+
+* Thanks!
