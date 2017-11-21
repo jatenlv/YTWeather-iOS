@@ -17,3 +17,5 @@
 * We know that there are so many bugs in our project, so hopefully you can give us some advice by sending emial to `jaten.lv@foxmail.com`.
 
 * Thanks!
+
+* `YTWeater by Jaten & Chaylau`
