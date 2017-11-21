@@ -56,11 +56,13 @@
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:USHARE_DEMO_APPKEY];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:nil];
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:nil];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@""/*设置QQ平台的appID*/  appSecret:nil redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106466575"/*设置QQ平台的appID*/  appSecret:@"PZ8Fu8s6srt7BUjB" redirectURL:@""];
     
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:nil];
+
+    
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

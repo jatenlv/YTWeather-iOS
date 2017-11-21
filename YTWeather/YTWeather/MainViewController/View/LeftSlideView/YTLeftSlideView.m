@@ -120,7 +120,23 @@ UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    if (indexPath.section == 0 && indexPath.row >= 2) {
+    
+    if (indexPath.section == 0 && indexPath.row == 0) { // 友盟分享
+//        UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+//        messageObject.shareObject  = [UMShareImageObject shareObjectWithTitle:@"天气" descr:@"123" thumImage:[UIImage imageNamed:@"sun"]];
+//        [[UMSocialManager defaultManager] shareToPlatform:UMSocialPlatformType_QQ messageObject:messageObject currentViewController:self completion:^(id result, NSError *error) {
+//            NSLog(@"分分分分分想成功");
+//        }];
+        [UMSocialUIManager removeAllCustomPlatformWithoutFilted];
+        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_Sina), @(UMSocialPlatformType_QQ), @(UMSocialPlatformType_WechatSession)]];
+        [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
+        [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_IconAndBGRadius;
+        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//                [self runShareWithType:platformType];
+        }];
+    
+    
+    } else if (indexPath.section == 0 && indexPath.row >= 2) { // 跳转城市
         [self.delegate showCityViewWithIndex:indexPath.row - 2];
     }
 }

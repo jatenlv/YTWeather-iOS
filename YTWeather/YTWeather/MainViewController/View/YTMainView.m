@@ -12,7 +12,6 @@
 #import "YTMainForecastTableViewCell.h"
 #import "YTMainAdvertisingTableViewCell.h"
 #import "YTMainDetailTableViewCell.h"
-#import "YTMainMapTableViewCell.h"
 #import "YTMainPrecipitationTableViewCell.h"
 #import "YTMainSunAndWindTableViewCell.h"
 #import "YTMainEmptyTableViewCell.h"
@@ -25,7 +24,6 @@
 #define kForecastCellHeight      420
 #define kAdvertisingCellHeight   250
 #define kDetailCellHeight        180
-#define kMapCellHeight           200
 #define kPrecipitationCellHeight 120
 #define kSunAndWindCellHeight    250
 #define kEmptyCellHeight         10
@@ -112,8 +110,6 @@ UITableViewDelegate
 
     [self.tableView registerNib:[YTMainDetailTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainDetailTableViewCell className]];
 
-    [self.tableView registerNib:[YTMainMapTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainMapTableViewCell className]];
-
     [self.tableView registerNib:[YTMainPrecipitationTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainPrecipitationTableViewCell className]];
 
     [self.tableView registerNib:[YTMainSunAndWindTableViewCell yt_defaultNibInMainBoundle] forCellReuseIdentifier:[YTMainSunAndWindTableViewCell className]];
@@ -148,7 +144,7 @@ UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 11;
+    return 9;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,19 +168,14 @@ UITableViewDelegate
             cell.airNowModel = self.airModel;
             return cell;
         } break;
-            
-        case 6: {
-            YTMainMapTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainMapTableViewCell className]];
-            return cell;
-        } break;
            
-        case 8: {
+        case 6: {
             YTMainPrecipitationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainPrecipitationTableViewCell className]];
             cell.hourlyModelList = self.weatherModel.hourly;
             return cell;
         } break;
             
-        case 10: {
+        case 8: {
             YTMainSunAndWindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainSunAndWindTableViewCell className]];
             cell.nowModel = self.weatherModel.now;
             cell.airModel = self.airModel;
@@ -214,9 +205,8 @@ UITableViewDelegate
     if (indexPath.row == 0)     return kForecastCellHeight;
     if (indexPath.row == 2)     return kAdvertisingCellHeight;
     if (indexPath.row == 4)     return kDetailCellHeight;
-    if (indexPath.row == 6)     return kMapCellHeight;
-    if (indexPath.row == 8)     return kPrecipitationCellHeight;
-    if (indexPath.row == 10)    return kSunAndWindCellHeight;
+    if (indexPath.row == 6)     return kPrecipitationCellHeight;
+    if (indexPath.row == 8)    return kSunAndWindCellHeight;
     if (indexPath.row % 2 == 1) return kEmptyCellHeight;
 
     return 0;
