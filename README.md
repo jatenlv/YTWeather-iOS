@@ -1,6 +1,6 @@
 # YTWeather
 
-* This is a App about Weather which using `Yahoo Weather`'s UI and logic.
+* This is an application about Weather which using `Yahoo Weather`'s UI and logic.
 
 * If we have infringed something, we will immediately delete it.
 
