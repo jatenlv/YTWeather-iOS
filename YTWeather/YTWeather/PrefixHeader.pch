@@ -23,7 +23,13 @@
 
 // API Key
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
-#define USHARE_DEMO_APPKEY      @"5a0cf80bb27b0a397c000094"
+#define USHARE_APPKEY           @"5a0cf80bb27b0a397c000094"
+#define QQ_APP_KEY              @"1106466575"
+#define QQ_APP_SECRET           @"PZ8Fu8s6srt7BUjB"
+#define WECHAT_APP_KEY          @"1106466575"
+#define WECHAT_APP_SECRET       @"PZ8Fu8s6srt7BUjB"
+#define WEIBO_APP_KEY           @"1106466575"
+#define WEIBO_APP_SECRET        @"PZ8Fu8s6srt7BUjB"
 
 // Notification
 #define YTNotificationSearchCityNameDidSelect @"YTNotificationSearchCityNameDidSelect"
