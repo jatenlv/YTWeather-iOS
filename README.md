@@ -19,3 +19,5 @@
 * Thanks!
 
 * `YTWeater by Jaten & Chaylau`
+
+* 中文介绍：http://www.jianshu.com/p/fe27c7bc0bc6
