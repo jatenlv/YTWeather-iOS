@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTWeatherHourlyForecastModel.h"
+#import "YTWeatherNormalModel.h"
 
 @interface YTMainPrecipitationTableViewCell : UITableViewCell
 

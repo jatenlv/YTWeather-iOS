@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTWeatherModel.h"
+#import "YTWeatherNormalModel.h"
 #import "YTWeatherAirModel.h"
 
 @protocol YTMainViewDelegate <NSObject>
@@ -30,7 +30,7 @@
 
 @property (nonatomic, copy) NSString *cityNameForView;
 
-- (void)setWeatherAndAirModel:(YTWeatherModel *)weatherModel airModel:(YTWeatherAirModel *)airModel;
+- (void)setWeatherAndAirModel:(YTWeatherNormalModel *)weatherModel airModel:(YTWeatherAirModel *)airModel;
 
 - (void)setContentOffset:(CGFloat)offset animated:(BOOL)animated;
 

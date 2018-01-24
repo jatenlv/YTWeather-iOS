@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Jaten. All rights reserved.
 //
 
-#import  <CoreLocation/CoreLocation.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "YTMainViewController.h"
 
@@ -149,7 +149,7 @@ UIViewControllerTransitioningDelegate
     [self.mainViewArray addObject:mainView];
     self.viewOrginX += ScreenWidth;
     // 加载model
-    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:cityName viewController:self andFinish:^(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:cityName viewController:self andFinish:^(YTWeatherNormalModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
         if (!error) {
             if ([mainView.cityNameForView isEqualToString:cityName]) {
                 [mainView setWeatherAndAirModel:weatherModel airModel:airModel];
@@ -249,7 +249,7 @@ UIViewControllerTransitioningDelegate
 {
     YTMainView *mainView = (YTMainView *)tagerView;
     
-    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:mainView.cityNameForView viewController:self andFinish:^(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
+    [YTMainRequestNetworkTool requestWeatherAndAirWithCityName:mainView.cityNameForView viewController:self andFinish:^(YTWeatherNormalModel *weatherModel, YTWeatherAirModel *airModel, NSError *error) {
         [mainView.tableView.mj_header endRefreshing];
         if (!error) {
             [mainView setWeatherAndAirModel:weatherModel airModel:airModel];

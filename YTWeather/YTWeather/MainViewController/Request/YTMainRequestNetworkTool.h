@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "YTWeatherModel.h"
+#import "YTWeatherNormalModel.h"
 #import "YTWeatherAirModel.h"
 
 @interface YTMainRequestNetworkTool : NSObject
 
-+ (void)requestWeatherAndAirWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error))finish;
++ (void)requestWeatherAndAirWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherNormalModel *weatherModel, YTWeatherAirModel *airModel, NSError *error))finish;
 
 @end

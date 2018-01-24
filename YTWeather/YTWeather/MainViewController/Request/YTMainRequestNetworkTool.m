@@ -10,10 +10,10 @@
 
 @implementation YTMainRequestNetworkTool
 
-+ (void)requestWeatherAndAirWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherModel *weatherModel, YTWeatherAirModel *airModel, NSError *error))finish
++ (void)requestWeatherAndAirWithCityName:(NSString *)cityName viewController:(UIViewController *)vc andFinish:(void (^)(YTWeatherNormalModel *weatherModel, YTWeatherAirModel *airModel, NSError *error))finish
 {
     __block NSError *errorMessage;
-    __block YTWeatherModel *weatherModel;
+    __block YTWeatherNormalModel *weatherModel;
     __block YTWeatherAirModel *airModel;
     
     dispatch_group_t group = dispatch_group_create();
@@ -21,7 +21,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [YTMainRequestNetworkTool getRequestWithUrl:YT_Request_Main_Weather_API cityName:cityName viewController:vc andFinish:^(id  _Nullable responseObject, NSError *error) {
             if (!error) {
-                weatherModel = [NSArray modelArrayWithClass:[YTWeatherModel class] json:responseObject[@"HeWeather6"]][0];
+                weatherModel = [NSArray modelArrayWithClass:[YTWeatherNormalModel class] json:responseObject[@"HeWeather6"]][0];
             } else {
                 errorMessage = error;
             }

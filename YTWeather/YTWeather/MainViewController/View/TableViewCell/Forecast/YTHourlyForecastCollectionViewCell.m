@@ -9,6 +9,7 @@
 #import "YTHourlyForecastCollectionViewCell.h"
 
 @interface YTHourlyForecastCollectionViewCell ()
+
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
 @property (weak, nonatomic) IBOutlet UILabel *tmpLabel;

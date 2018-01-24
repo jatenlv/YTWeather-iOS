@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTWeatherDailyForecastModel.h"
-#import "YTWeatherNowModel.h"
+#import "YTWeatherNormalModel.h"
 #import "YTWeatherAirModel.h"
 
 @interface YTMainSunAndWindDrawView : UIView

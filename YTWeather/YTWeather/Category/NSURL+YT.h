@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "YTWeatherNowModel.h"
 
 @interface NSURL (YT)
 

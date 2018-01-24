@@ -36,7 +36,7 @@ UITableViewDelegate
 
 @property (nonatomic, strong) YTMainCustomNavigationBar *customNavigationBar;
 
-@property (nonatomic, strong) YTWeatherModel *weatherModel;
+@property (nonatomic, strong) YTWeatherNormalModel *weatherModel;
 @property (nonatomic, strong) YTWeatherAirModel *airModel;
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
@@ -125,7 +125,7 @@ UITableViewDelegate
 
 #pragma mark - Data
 
-- (void)setWeatherAndAirModel:(YTWeatherModel *)weatherModel airModel:(YTWeatherAirModel *)airModel
+- (void)setWeatherAndAirModel:(YTWeatherNormalModel *)weatherModel airModel:(YTWeatherAirModel *)airModel
 {
     self.weatherModel = weatherModel;
     self.airModel = airModel;
@@ -273,10 +273,10 @@ UITableViewDelegate
 
 #pragma mark - Lazy Init
 
-- (YTWeatherModel *)weatherModel
+- (YTWeatherNormalModel *)weatherModel
 {
     if (!_weatherModel) {
-        _weatherModel = [[YTWeatherModel alloc] init];
+        _weatherModel = [[YTWeatherNormalModel alloc] init];
     }
     return _weatherModel;
 }

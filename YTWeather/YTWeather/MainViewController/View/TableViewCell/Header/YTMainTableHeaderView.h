@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTWeatherDailyForecastModel.h"
-#import "YTWeatherNowModel.h"
-#import "YTWeatherBasicModel.h"
-#import "YTWeatherUpdateModel.h"
+#import "YTWeatherNormalModel.h"
 
 @interface YTMainTableHeaderView : UIView
 
