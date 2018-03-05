@@ -22,4 +22,4 @@
 
 <br>
 
-* 中文介绍：[JatenLv的博客](http://www.jianshu.com/p/fe27c7bc0bc6)
+* [中文介绍](https://juejin.im/post/5a30d8456fb9a0451a765fad)
