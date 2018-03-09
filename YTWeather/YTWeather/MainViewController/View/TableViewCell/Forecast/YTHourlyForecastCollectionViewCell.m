@@ -18,9 +18,9 @@
 
 @implementation YTHourlyForecastCollectionViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setHourlyForecastModel:(YTWeatherHourlyForecastModel *)hourlyForecastModel

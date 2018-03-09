@@ -28,10 +28,6 @@ UITableViewDataSource
 
 @implementation YTSearchViewController
 
-- (void)dealloc
-{
-}
-
 - (void)viewDidLoad
 {
     [self setupCustomSearch];
@@ -39,6 +35,7 @@ UITableViewDataSource
     // tableView无数据的cell取消分割线
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 1000);
 }
+
 - (void)cancelKeyboardTapGestureRecognizer
 {
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
@@ -46,7 +43,7 @@ UITableViewDataSource
     [self.tableView addGestureRecognizer:tapGestureRecognizer];
 }
 
--(void)keyboardHide:(UITapGestureRecognizer *)tap
+- (void)keyboardHide:(UITapGestureRecognizer *)tap
 {
     [self.customSearchInputField resignFirstResponder];
 }

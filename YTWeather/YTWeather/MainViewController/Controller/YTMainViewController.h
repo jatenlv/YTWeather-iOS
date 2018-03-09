@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef  NS_ENUM(NSInteger,UIScrollViewTouchType)
-{
+typedef  NS_ENUM(NSInteger,UIScrollViewTouchType) {
     UIScrollViewTouchTypeTap,
     UIScrollViewTouchTypeMove,
 };

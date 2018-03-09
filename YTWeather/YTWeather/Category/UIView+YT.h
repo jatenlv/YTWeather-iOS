@@ -10,8 +10,8 @@
 
 @interface UIView (YT)
 
-+ (UINib *) yt_defaultNibInMainBoundle;
++ (UINib *)yt_defaultNibInMainBoundle;
 
-+ (instancetype) yt_viewWithNibFromMainBoundle;
++ (instancetype)yt_viewWithNibFromMainBoundle;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "YTNewFeatureViewController.h"
+
 #import "YTMainViewController.h"
 #import "YTCustomNavViewController.h"
 
@@ -45,7 +46,6 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kFeatureViewCellID];
     self.collectionView.pagingEnabled= YES;
     self.collectionView.bounces = NO;
-    // Do any additional setup after loading the view from its nib.
 }
 
 #pragma mark 跳到主页VC
@@ -87,7 +87,6 @@
     NSUInteger b = arc4random_uniform(255) + 1;
     NSUInteger a = arc4random_uniform(255) + 1;
     return [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/255.0];
-    
 }
 
 @end

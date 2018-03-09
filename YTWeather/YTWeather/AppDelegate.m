@@ -53,13 +53,9 @@
 {
     // 友盟初始化
     [[UMSocialManager defaultManager] openLog:YES];
-    
     [[UMSocialManager defaultManager] setUmSocialAppkey:USHARE_APPKEY];
-    
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"" appSecret:@"" redirectURL:nil];
-    
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQ_APP_KEY appSecret:QQ_APP_SECRET redirectURL:@""];
-    
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQ_APP_KEY appSecret:QQ_APP_SECRET redirectURL:@""];
 //    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"" appSecret:@"" redirectURL:nil];
 }
 

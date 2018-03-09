@@ -19,9 +19,9 @@
 
 @implementation YTDailyForecastTableViewCell
 
-- (void)awakeFromNib {
+- (void)awakeFromNib
+{
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setForecastModel:(YTWeatherDailyForecastModel *)forecastModel
