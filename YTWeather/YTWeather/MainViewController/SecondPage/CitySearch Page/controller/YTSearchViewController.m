@@ -24,6 +24,8 @@ UITableViewDataSource
 @property (nonatomic,strong) NSMutableArray <YTCitySearchModel *> *resultArray;
 @property (nonatomic,strong) NSArray <YTCitySearchModel *> *searchSource;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *customSearchViewTopConstraint;
+
 @end
 
 @implementation YTSearchViewController
@@ -34,6 +36,7 @@ UITableViewDataSource
     [self cancelKeyboardTapGestureRecognizer];
     // tableView无数据的cell取消分割线
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 1000);
+    self.customSearchViewTopConstraint.constant = Device_Is_iPhoneX ? 40 : 0;
 }
 
 - (void)cancelKeyboardTapGestureRecognizer

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,6 +23,7 @@
                 <outlet property="customSearchInputField" destination="5Ub-sf-hb2" id="o95-bJ-l0P"/>
                 <outlet property="customSearchInputFieldClearButton" destination="HFQ-Wg-wIh" id="22Y-Om-Zwq"/>
                 <outlet property="customSearchView" destination="VXw-Jn-XNf" id="FcO-UP-pRg"/>
+                <outlet property="customSearchViewTopConstraint" destination="MyQ-fc-vkY" id="Sof-qT-Tmd"/>
                 <outlet property="tableView" destination="DSz-52-0ua" id="Egh-KS-fTm"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -94,7 +95,7 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VXw-Jn-XNf" secondAttribute="trailing" id="4iC-qp-VKZ"/>
                 <constraint firstAttribute="bottom" secondItem="DSz-52-0ua" secondAttribute="bottom" id="6Xn-XV-3Jk"/>

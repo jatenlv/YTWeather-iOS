@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) YTWeatherNowModel *nowModel;
 @property (nonatomic, strong) YTWeatherAirModel *airModel;
+@property (nonatomic, strong) YTWeatherDailyForecastModel *dailyModel;
 
 @end

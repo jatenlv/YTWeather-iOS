@@ -66,6 +66,8 @@
 @property (nonatomic, copy) NSString * wind_dir;
 @property (nonatomic, copy) NSString * wind_sc;
 @property (nonatomic, copy) NSString * wind_spd;
+@property (nonatomic, copy) NSString * sr;
+@property (nonatomic, copy) NSString * ss;
 
 @end
 

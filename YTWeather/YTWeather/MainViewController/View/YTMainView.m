@@ -19,7 +19,7 @@
 #import "YTMainCustomNavigationBar.h"
 #import "YTCustomRefreshGifHeader.h"
 
-#define kCustomNavigationBarHeight 54
+#define kCustomNavigationBarHeight (Device_Is_iPhoneX ? 84 : 54)
 
 #define kForecastCellHeight      420
 #define kAdvertisingCellHeight   250
@@ -179,6 +179,7 @@ UITableViewDelegate
             YTMainSunAndWindTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[YTMainSunAndWindTableViewCell className]];
             cell.nowModel = self.weatherModel.now;
             cell.airModel = self.airModel;
+            cell.dailyModel = [self.weatherModel.daily_forecast firstObject];
             return cell;
         } break;
             

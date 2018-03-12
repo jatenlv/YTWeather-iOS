@@ -40,4 +40,10 @@
     self.drawView.airModel = airModel;
 }
 
+- (void)setDailyModel:(YTWeatherDailyForecastModel *)dailyModel
+{
+    _dailyModel = dailyModel;
+    self.drawView.dailyModel = dailyModel;
+}
+
 @end
