@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -81,8 +81,8 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®由Jiateng&amp;Chaoyue提供" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6" userLabel="®由chaoyue&amp;jiateng提供">
-                    <rect key="frame" x="247" y="644" width="120" height="15"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="®Jiateng&amp;Chaoyue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRU-NC-7o6" userLabel="®由chaoyue&amp;jiateng提供">
+                    <rect key="frame" x="272" y="644" width="90" height="15"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="FB2-0x-zKA"/>
                     </constraints>
@@ -114,7 +114,7 @@
                 <constraint firstItem="jSX-YL-vhH" firstAttribute="centerY" secondItem="Bij-zX-7EQ" secondAttribute="centerY" id="DKb-lQ-f9b"/>
                 <constraint firstItem="bsC-1A-G02" firstAttribute="top" secondItem="Bij-zX-7EQ" secondAttribute="bottom" constant="5" id="E2I-Jx-DQm"/>
                 <constraint firstItem="Iag-R7-nIb" firstAttribute="top" secondItem="mIz-Oa-NaO" secondAttribute="top" id="EJY-Dg-OvZ"/>
-                <constraint firstAttribute="trailing" secondItem="pRU-NC-7o6" secondAttribute="trailing" constant="8" id="HQZ-KV-PAw"/>
+                <constraint firstAttribute="trailing" secondItem="pRU-NC-7o6" secondAttribute="trailing" constant="13" id="HQZ-KV-PAw"/>
                 <constraint firstItem="mIz-Oa-NaO" firstAttribute="top" secondItem="gtB-zr-k4e" secondAttribute="bottom" id="JOi-mi-oSO"/>
                 <constraint firstItem="P3F-5C-9ch" firstAttribute="centerY" secondItem="bsC-1A-G02" secondAttribute="centerY" id="MVN-WN-V6w"/>
                 <constraint firstItem="jSX-YL-vhH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Prh-m1-LuP"/>

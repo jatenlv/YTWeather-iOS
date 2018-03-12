@@ -62,8 +62,6 @@ CAAnimationDelegate
     self.view.frame = self.bounds;
     if (!self.hadFinishedAnimation) {
         [self setupTime];
-    } else {
-        self.sunImageView.center = self.endSunPoint;
     }
 }
 
@@ -121,9 +119,9 @@ CAAnimationDelegate
         [self.sunImageView.layer addAnimation:sunAnimation forKey:nil];
 
         self.shapeLayer = [CAShapeLayer layer];
-        [self.shapeLayer setLineDashPattern:@[@1,@5]];
+        [self.shapeLayer setLineDashPattern:@[@1, @5]];
         self.shapeLayer.path = self.yellowPath.CGPath;
-        self.shapeLayer.lineWidth = 2.f;
+        self.shapeLayer.lineWidth = 3.f;
         self.shapeLayer.strokeColor = [UIColor yellowColor].CGColor;
         self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:self.shapeLayer];
@@ -146,8 +144,7 @@ CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     if (flag) {
-        self.sunImageView.center = self.yellowPath.currentPoint;
-        self.endSunPoint = self.yellowPath.currentPoint;
+        self.sunImageView.hidden = YES;
     }
 }
 

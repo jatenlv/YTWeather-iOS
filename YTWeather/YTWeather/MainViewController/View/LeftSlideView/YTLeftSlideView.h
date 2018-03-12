@@ -15,6 +15,8 @@
 
 - (void)clickSlideViewCloseButton;
 
+- (void)clickShareButton;
+
 @end
 
 @interface YTLeftSlideView : UIView

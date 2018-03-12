@@ -301,11 +301,6 @@ UIViewControllerTransitioningDelegate
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
 }
 
-- (void)clickSlideViewCloseButton
-{
-    [self clickLeftBarButton];
-}
-
 - (void)deleteCityViewWithIndex:(NSInteger)index
 {
     [self.cityNameArray removeObjectAtIndex:index];
@@ -324,6 +319,55 @@ UIViewControllerTransitioningDelegate
     [self.scrollView layoutSubviews];
     [self reloadScrollViewSize];
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+
+- (void)clickSlideViewCloseButton
+{
+    [self clickLeftBarButton];
+}
+
+- (void)clickShareButton
+{
+    [self clickLeftBarButton];
+    [UMSocialUIManager removeAllCustomPlatformWithoutFilted];
+    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession), @(UMSocialPlatformType_WechatTimeLine), @(UMSocialPlatformType_QQ), @(UMSocialPlatformType_Sina)]];
+    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+        if (platformType == UMSocialPlatformType_QQ || platformType == UMSocialPlatformType_WechatSession || platformType == UMSocialPlatformType_Sina) {
+            UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+            UMShareImageObject *shareObject = [UMShareImageObject shareObjectWithTitle:@"油条天气" descr:@"分享给您" thumImage:[UIImage imageNamed:@"AppIcon"]];
+            [shareObject setShareImage:[self screenShot]];
+            messageObject.shareObject = shareObject;
+            [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id result, NSError *error) {
+                if (error) {
+                    if (error.code == 2003 || error.code == 2007) {
+                        [self.view showHudWithText:@"分享配置不正确" delayTime:1.5];
+                    } else if (error.code == 2009) {
+                        [self.view showHudWithText:@"分享被取消" delayTime:1.5];
+                    } else {
+                        [self.view showHudWithText:@"分享失败" delayTime:1.5];
+                    }
+                } else {
+                    [self.view showHudWithText:@"分享成功" delayTime:1.5];
+                }
+            }];
+        } else {
+            [self.view showHudWithText:@"暂未开放此分享平台" delayTime:1.5];
+        }
+    }];
+}
+
+- (UIImage *)screenShot
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
+        UIGraphicsBeginImageContextWithOptions(self.view.window.bounds.size, NO, [UIScreen mainScreen].scale);
+    } else {
+        UIGraphicsBeginImageContext(self.view.window.bounds.size);
+    }
+    [self.view.window.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 #pragma mark - Notification Action

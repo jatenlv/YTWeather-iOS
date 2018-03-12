@@ -10,6 +10,7 @@
 
 @interface NSURL (YT)
 
+// plist文件中查找天气图片url
 + (NSURL *)findImageUrl:(NSString *)string;
 
 @end

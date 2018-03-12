@@ -14,4 +14,7 @@
 
 + (instancetype)yt_viewWithNibFromMainBoundle;
 
+// 提示框
+- (void)showHudWithText:(NSString *)text delayTime:(NSTimeInterval)delayTime;
+
 @end

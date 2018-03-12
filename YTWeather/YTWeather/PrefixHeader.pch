@@ -9,7 +9,7 @@
 #ifndef PrefixHeader_pch
 #define PrefixHeader_pch
 
-// UI
+// UI define
 #define ScreenWidth  [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 #define ScreenBounds [UIScreen mainScreen].bounds
@@ -17,19 +17,25 @@
 #define MainTableViewCellColor  [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2]
 #define MainTableViewCellRadius 3.0f
 
+// DeviceType define
+#define Device_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
 // Request API
 #define YT_Request_Main_Weather_API @"https://free-api.heweather.com/s6/weather"
 #define YT_Request_Main_Air_API     @"https:/free-api.heweather.com/s6/air"
 
-// API Key
+// Third App Key
 #define YT_Request_Main_API_KEY @"8df33faf7e5a49e583dab9f2faa1eb3c"
 #define USHARE_APPKEY           @"5a0cf80bb27b0a397c000094"
 #define QQ_APP_KEY              @"1106466575"
 #define QQ_APP_SECRET           @"PZ8Fu8s6srt7BUjB"
 #define WECHAT_APP_KEY          @"1106466575"
 #define WECHAT_APP_SECRET       @"PZ8Fu8s6srt7BUjB"
-#define WEIBO_APP_KEY           @"1106466575"
-#define WEIBO_APP_SECRET        @"PZ8Fu8s6srt7BUjB"
+#define WEIBO_APP_KEY           @"1900858775"
+#define WEIBO_APP_SECRET        @"5c4c6589c8b650f7819fa07674a8c831"
+#define FLICKR_APP_KEY          @"bb1daf84dd5e2" // 密匙
+#define FLICKR_APP_SECRET       @"eb2bb389c593d2885747df9a123ebf7b" // key
+
 
 // Notification
 #define YTNotificationSearchCityNameDidSelect @"YTNotificationSearchCityNameDidSelect"
@@ -52,8 +58,6 @@
 #import <UIImageView+WebCache.h>
 #import <UMengUShare/UMSocialCore/UMSocialCore.h>
 #import <UMengUShare/UShareUI/UShareUI.h>
-
-//
-#define Device_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#import <MBProgressHUD.h>
 
 #endif /* PrefixHeader_pch */

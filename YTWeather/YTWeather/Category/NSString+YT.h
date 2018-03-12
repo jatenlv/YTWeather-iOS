@@ -10,6 +10,7 @@
 
 @interface NSString (YT)
 
+// 日期转换为星期
 + (NSString *)dateExchangeToWeek:(NSString *)day;
 
 @end
