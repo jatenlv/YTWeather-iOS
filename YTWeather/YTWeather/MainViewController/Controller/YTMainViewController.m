@@ -33,7 +33,7 @@ UIViewControllerTransitioningDelegate
 @property (nonatomic, assign) NSUInteger curIndex; // 当前的MainView索引
 @property (nonatomic, strong) UITapGestureRecognizer *tap; // 单击手势
 
-@property (nonatomic, strong) UIView *backAlphaView;
+@property (nonatomic, strong) UIView *backAlphaView; //
 
 @property (nonatomic, strong) YTLeftSlideView *leftSlideView;
 @property (nonatomic, assign) BOOL isPanGestureMove;
@@ -183,7 +183,7 @@ UIViewControllerTransitioningDelegate
 
 - (void)getCurMainVConfigScrollEnabled
 {
-    YTMainView * curMainV = self.mainViewArray[_curIndex];
+    YTMainView *curMainV = self.mainViewArray[_curIndex];
     curMainV.tableView.scrollEnabled = !_isShowSlide;
 }
 
@@ -196,7 +196,6 @@ UIViewControllerTransitioningDelegate
     }
     if(pan.state == UIGestureRecognizerStateChanged) {
         [self slideViewMoveWithDistance:translatePointX];
-
     } else if(pan.state == UIGestureRecognizerStateEnded) {
         if(self.scrollView.mj_x < kSlideWidthScale * ScreenWidth) {
             [self slideViewMoveWithDistance:-self.scrollView.mj_x];
@@ -212,6 +211,9 @@ UIViewControllerTransitioningDelegate
 {
     [UIView animateWithDuration:0.35 animations:^{
         self.scrollView.mj_x += offset;
+        self.backAlphaView.alpha =  1 - self.scrollView.mj_x / (kSlideWidthScale * ScreenWidth);
+    } completion:^(BOOL finished) {
+        [self getCurMainVConfigScrollEnabled];
     }];
 }
 
@@ -341,18 +343,18 @@ UIViewControllerTransitioningDelegate
             [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id result, NSError *error) {
                 if (error) {
                     if (error.code == 2003 || error.code == 2007) {
-                        [self.view showHudWithText:@"分享配置不正确" delayTime:1.5];
+                        [self.view showHudWithText:@"分享配置不正确"];
                     } else if (error.code == 2009) {
-                        [self.view showHudWithText:@"分享被取消" delayTime:1.5];
+                        [self.view showHudWithText:@"分享被取消"];
                     } else {
-                        [self.view showHudWithText:@"分享失败" delayTime:1.5];
+                        [self.view showHudWithText:@"分享失败"];
                     }
                 } else {
-                    [self.view showHudWithText:@"分享成功" delayTime:1.5];
+                    [self.view showHudWithText:@"分享成功"];
                 }
             }];
         } else {
-            [self.view showHudWithText:@"暂未开放此分享平台" delayTime:1.5];
+            [self.view showHudWithText:@"暂未开放此分享平台"];
         }
     }];
 }

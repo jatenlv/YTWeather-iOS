@@ -35,6 +35,16 @@
 }
 
 // 提示框
+- (void)showHudWithText:(NSString *)text
+{
+    MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];
+    [self addSubview:hud];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = text;
+    [hud showAnimated:YES];
+    [hud hideAnimated:YES afterDelay:1];
+}
+
 - (void)showHudWithText:(NSString *)text delayTime:(NSTimeInterval)delayTime
 {
     MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:self];

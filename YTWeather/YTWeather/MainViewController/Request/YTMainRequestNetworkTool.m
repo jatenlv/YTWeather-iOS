@@ -53,11 +53,11 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = 15;
     
-    NSMutableDictionary *paraDict = [NSMutableDictionary dictionary];
-    [paraDict setObject:cityName forKey:@"location"];
-    [paraDict setObject:YT_Request_Main_API_KEY forKey:@"key"];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param setObject:cityName forKey:@"location"];
+    [param setObject:YT_Request_Main_API_KEY forKey:@"key"];
     
-    [manager GET:url parameters:paraDict progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:url parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         finish(responseObject, nil);

@@ -75,8 +75,6 @@
 		84E99C841FAC25690071C160 /* NSURL+YT.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C831FAC25690071C160 /* NSURL+YT.m */; };
 		84E99C8E1FB14EFF0071C160 /* YTWeatherAirModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E99C8D1FB14EFF0071C160 /* YTWeatherAirModel.m */; };
 		84EE2F3920187428001ACB71 /* YTWeatherNormalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EE2F3820187428001ACB71 /* YTWeatherNormalModel.m */; };
-		84F2C12E1FC3CFE1002952DA /* YTShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F2C12D1FC3CFE1002952DA /* YTShareView.m */; };
-		84F2C1331FC3D126002952DA /* YTShareView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F2C1321FC3D126002952DA /* YTShareView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,9 +205,6 @@
 		84E99C8D1FB14EFF0071C160 /* YTWeatherAirModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherAirModel.m; sourceTree = "<group>"; };
 		84EE2F3720187428001ACB71 /* YTWeatherNormalModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTWeatherNormalModel.h; sourceTree = "<group>"; };
 		84EE2F3820187428001ACB71 /* YTWeatherNormalModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTWeatherNormalModel.m; sourceTree = "<group>"; };
-		84F2C12C1FC3CFE1002952DA /* YTShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTShareView.h; sourceTree = "<group>"; };
-		84F2C12D1FC3CFE1002952DA /* YTShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTShareView.m; sourceTree = "<group>"; };
-		84F2C1321FC3D126002952DA /* YTShareView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YTShareView.xib; sourceTree = "<group>"; };
 		8BCAB6BDD51500CF0E110411 /* Pods-YTWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YTWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-YTWeather/Pods-YTWeather.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -515,7 +510,6 @@
 				84A220A71FC2728F00B2168A /* YTLeftSlideView.m */,
 				84A220A81FC2728F00B2168A /* YTLeftSlideView.xib */,
 				84F2C12B1FC3CFB4002952DA /* LeftSlideViewCell */,
-				84F2C1311FC3D011002952DA /* SecondViewPage */,
 			);
 			path = LeftSlideView;
 			sourceTree = "<group>";
@@ -636,16 +630,6 @@
 				84A220A51FC2728F00B2168A /* YTLeftSlideTableViewToolCell.xib */,
 			);
 			path = LeftSlideViewCell;
-			sourceTree = "<group>";
-		};
-		84F2C1311FC3D011002952DA /* SecondViewPage */ = {
-			isa = PBXGroup;
-			children = (
-				84F2C12C1FC3CFE1002952DA /* YTShareView.h */,
-				84F2C12D1FC3CFE1002952DA /* YTShareView.m */,
-				84F2C1321FC3D126002952DA /* YTShareView.xib */,
-			);
-			path = SecondViewPage;
 			sourceTree = "<group>";
 		};
 		BE0D3A0289394C6A0A2C781C /* Pods */ = {
@@ -786,7 +770,6 @@
 				84A220F61FC2728F00B2168A /* YTMainView.xib in Resources */,
 				84A2207C1FC2725100B2168A /* YTLoginViewController.xib in Resources */,
 				84A220E21FC2728F00B2168A /* YTMainAdvertisingTableViewCell.xib in Resources */,
-				84F2C1331FC3D126002952DA /* YTShareView.xib in Resources */,
 				84A220DB1FC2728F00B2168A /* YTLeftSlideTableViewNoticeCell.xib in Resources */,
 				84654CC91F96418200E5092E /* Main.storyboard in Resources */,
 				84A220D61FC2728F00B2168A /* YTMainCustomNavigationBar.xib in Resources */,
@@ -900,7 +883,6 @@
 				84A220EF1FC2728F00B2168A /* YTMainPrecipitationTableViewCell.m in Sources */,
 				84A6277B1F9713EB00EE29D5 /* YTMainRequestNetworkTool.m in Sources */,
 				84E99C841FAC25690071C160 /* NSURL+YT.m in Sources */,
-				84F2C12E1FC3CFE1002952DA /* YTShareView.m in Sources */,
 				84A220D81FC2728F00B2168A /* YTLeftSlideTableViewNormalCell.m in Sources */,
 				84A220921FC2726500B2168A /* YTLaunchADViewController.m in Sources */,
 				84EE2F3920187428001ACB71 /* YTWeatherNormalModel.m in Sources */,
