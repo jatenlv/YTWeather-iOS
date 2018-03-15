@@ -7,7 +7,8 @@ target ‘YTWeather’ do
 	pod ‘AFNetworking’ , ‘3.1.0’ 
 	pod ’SDWebImage’
     pod ‘MBProgressHUD’
-
+    pod ‘Masonry’
+    
   	# U-Share SDK UI模块（分享面板，建议添加）
   	pod ‘UMengUShare/UI’, '~> 6.4.5'
   	# 集成微信(精简版0.2M)
