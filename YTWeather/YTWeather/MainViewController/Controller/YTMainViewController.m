@@ -18,6 +18,8 @@
 
 #import "YTMainRequestNetworkTool.h"
 
+#import "YTCitySearchModel.h"
+
 #define kSlideWidthScale 0.7
 
 @interface YTMainViewController ()
@@ -231,20 +233,20 @@ UIViewControllerTransitioningDelegate
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     if ([error code] == kCLErrorDenied) {
-        NSLog(@"访问被拒绝");
+        [self.view showHudWithText:@"定位访问被拒绝"];
     } else if ([error code] == kCLErrorLocationUnknown) {
-        NSLog(@"无法获取位置信息");
+        [self.view showHudWithText:@"无法获取位置信息"];
     }
 }
 
-//定位成功
+//定位成功回调
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
     [self.locationManager stopUpdatingLocation];
 
     CLLocation *currentLocation = locations.lastObject;
-    CLGeocoder *geoCoder = [[CLGeocoder alloc] init]
-    ;
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    
     //地理反编码 可以根据坐标(经纬度)确定位置信息(街道 门牌等)
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (placemarks.count >0) {
@@ -253,33 +255,48 @@ UIViewControllerTransitioningDelegate
                 [self.view showHudWithText:@"无法定位当前城市"];
                 return;
             }
-            // 成功获取到所在城市之后 如果当前没有定位城市 则添加
+            // 成功获取到所在城市之后
             if (!self.currentCity.length) {
                 if ([[placeMark.locality substringWithRange:NSMakeRange(placeMark.locality.length - 1, 1)] isEqualToString:@"市"]) {
                     self.currentCity = [placeMark.locality substringToIndex:placeMark.locality.length - 1];
                 } else {
                     self.currentCity = placeMark.locality;
                 }
-                // 存一下全局缓存
+                // 存一下城市名的全局缓存
                 [[NSUserDefaults standardUserDefaults] setObject:self.currentCity forKey:@"YTCurrentCity"];
                 
+                // 判断是否LeftSlideView列表中存在此城市 若存在直接刷新列表 更换名字和图标
                 for (NSString *cityName in self.cityNameArray) {
                     if ([cityName isEqualToString:self.currentCity]) {
                         [self.leftSlideView.tableView reloadData];
                         return;
                     }
                 }
-                                
+                
+                // 判断定位的名称是否合法
+                NSArray <YTCitySearchModel *> *searchSource = [NSArray array];
+                NSString *path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
+                NSArray *data = [NSArray arrayWithContentsOfFile:path];
+                searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data];
+                NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"belongToCityChineseName CONTAINS %@", self.currentCity];
+                NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"cityChineseName CONTAINS %@", self.currentCity];
+                NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate1, predicate2]];
+                NSArray *resultArray = [[searchSource filteredArrayUsingPredicate:compoundPredicate] copy];
+                if (!resultArray.count) {
+                    [self.view showHudWithText:@"当前定位城市不支持"];
+                    return;
+                }
+                
+                // 添加城市
                 [self.cityNameArray addObject:self.currentCity];
                 [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
-                
                 [self reloadScrollViewSize];
                 [self createMainViewWithCityName:self.currentCity newView:YES];
                 self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
                 self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
             }
         }else if (error == nil && placemarks.count){
-            [self.view showHudWithText:@"NO location and error return"];
+            [self.view showHudWithText:[NSString stringWithFormat:@"loction error:%@",error]];
         }else if (error){
             [self.view showHudWithText:[NSString stringWithFormat:@"loction error:%@",error]];
         }

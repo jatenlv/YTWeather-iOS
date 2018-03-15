@@ -10,8 +10,8 @@
 
 @interface YTCitySearchModel : NSObject
 
+@property (nonatomic,copy) NSString *belongToCityChineseName;
 @property (nonatomic,copy) NSString *cityChineseName;
-
 @property (nonatomic,copy) NSString *provinceChineseName;
 @property (nonatomic,copy) NSString *countryChineseName;
 

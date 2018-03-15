@@ -37,6 +37,7 @@ CAAnimationDelegate
 @property (nonatomic, assign) BOOL hadFinishedAnimation;
 @property (nonatomic, assign) CGPoint endSunPoint;
 
+@property (nonatomic, strong) UIView *currentTimeView;
 @property (nonatomic, strong) UILabel *currentTimeLabel;
 
 @end
@@ -69,6 +70,25 @@ CAAnimationDelegate
     if (!self.hadFinishedAnimation) {
         [self setupTime];
     }
+    if (self.currentTimeView) {
+        [self.view bringSubviewToFront:self.currentTimeView];
+    }
+}
+
+#pragma mark - setter
+
+- (void)setNowModel:(YTWeatherNowModel *)nowModel
+{
+    _nowModel = nowModel;
+    self.windSpeedLabel.text = nowModel.wind_spd;
+    self.windDirection.text  = nowModel.wind_dir;
+    self.pressureLabel.text  = nowModel.pres;
+}
+
+- (void)setAirModel:(YTWeatherAirModel *)airModel
+{
+    _airModel = airModel;
+    self.airStatusLabel.text = airModel.air_now_city.qlty;
 }
 
 #pragma mark - draw
@@ -130,7 +150,8 @@ CAAnimationDelegate
         self.shapeLayer = [CAShapeLayer layer];
         [self.shapeLayer setLineDashPattern:@[@1, @5]];
         self.shapeLayer.path = self.yellowPath.CGPath;
-        self.shapeLayer.lineWidth = 3.f;
+        self.shapeLayer.lineWidth = 2.f;
+        self.shapeLayer.miterLimit = 50.f;
         self.shapeLayer.strokeColor = [UIColor yellowColor].CGColor;
         self.shapeLayer.fillColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:self.shapeLayer];
@@ -153,7 +174,7 @@ CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     if (flag) {
-        [UIView animateWithDuration:2 animations:^{
+        [UIView animateWithDuration:1.5 animations:^{
             self.sunImageView.alpha = 0;
         } completion:^(BOOL finished) {
             if (finished) {
@@ -166,17 +187,22 @@ CAAnimationDelegate
 
 - (void)showcCurrenTimeLabel
 {
-    self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.yellowPath.currentPoint.x - 20, self.yellowPath.currentPoint.y - 7.5, 40, 15)];
-    
+    self.currentTimeView = [[UIView alloc] initWithFrame:CGRectMake(self.yellowPath.currentPoint.x - 22, self.yellowPath.currentPoint.y - 9, 44, 18)];
+    self.currentTimeView.backgroundColor = [UIColor blackColor];
+    self.currentTimeView.alpha = 0;
+    self.currentTimeView.layer.cornerRadius = 8.f;
+    self.currentTimeView.layer.masksToBounds = YES;
+    [self.view addSubview:self.currentTimeView];
+
+    self.currentTimeLabel = [[UILabel alloc] initWithFrame:self.currentTimeView.bounds];
+    self.currentTimeLabel.backgroundColor = [UIColor lightGrayColor];
     self.currentTimeLabel.text = [self getCurrentTime];
     self.currentTimeLabel.textColor = [UIColor whiteColor];
     self.currentTimeLabel.font = [UIFont systemFontOfSize:12];
-    self.currentTimeLabel.alpha = 0;
     self.currentTimeLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.currentTimeLabel];
-    
-    [UIView animateWithDuration:1.5 animations:^{
-        self.currentTimeLabel.alpha = 1;
+    [self.currentTimeView addSubview:self.currentTimeLabel];
+    [UIView animateWithDuration:1 animations:^{
+        self.currentTimeView.alpha = 1;
     }];
 }
 
@@ -198,22 +224,6 @@ CAAnimationDelegate
         minString = [NSString stringWithFormat:@"%ld",(long)min];
     }
     return [NSString stringWithFormat:@"%@:%@", hourString, minString];
-}
-
-#pragma mark - setter
-
-- (void)setNowModel:(YTWeatherNowModel *)nowModel
-{
-    _nowModel = nowModel;
-    self.windSpeedLabel.text = nowModel.wind_spd;
-    self.windDirection.text  = nowModel.wind_dir;
-    self.pressureLabel.text  = nowModel.pres;
-}
-
-- (void)setAirModel:(YTWeatherAirModel *)airModel
-{
-    _airModel = airModel;
-    self.airStatusLabel.text = airModel.air_now_city.qlty;
 }
 
 @end

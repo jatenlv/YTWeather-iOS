@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -128,7 +128,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男东南" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fiu-ng-8IX">
-                    <rect key="frame" x="235.5" y="84" width="36" height="14"/>
+                    <rect key="frame" x="183" y="64" width="36" height="14"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -169,7 +169,6 @@
                 <constraint firstItem="rBk-ho-WBS" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="5:201" id="DO5-C9-m4m"/>
                 <constraint firstItem="9ov-CO-amN" firstAttribute="top" secondItem="ybk-w2-cyJ" secondAttribute="bottom" id="ETU-By-zhT"/>
                 <constraint firstItem="DV8-ir-LVC" firstAttribute="leading" secondItem="SYN-HQ-p8f" secondAttribute="leading" constant="10" id="F74-ij-c2J"/>
-                <constraint firstItem="Fiu-ng-8IX" firstAttribute="leading" secondItem="zlC-kY-TTC" secondAttribute="trailing" constant="2" id="H0F-rt-v4W"/>
                 <constraint firstItem="YlD-1P-Ghr" firstAttribute="top" secondItem="YtO-QN-rNT" secondAttribute="bottom" id="Hjv-Ut-ZWb"/>
                 <constraint firstItem="9ov-CO-amN" firstAttribute="top" secondItem="cEB-Cp-EoC" secondAttribute="bottom" id="Jw8-8V-PqZ"/>
                 <constraint firstItem="AvF-tt-U25" firstAttribute="top" secondItem="DV8-ir-LVC" secondAttribute="bottom" id="L0s-Wk-wmR"/>
@@ -196,7 +195,6 @@
                 <constraint firstItem="vs2-KT-LKm" firstAttribute="centerX" secondItem="jQ0-c6-cNg" secondAttribute="centerX" id="nn1-e8-YFu"/>
                 <constraint firstAttribute="trailing" secondItem="9ov-CO-amN" secondAttribute="trailing" id="p5X-hW-Scp"/>
                 <constraint firstItem="4xb-Qy-UP1" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="35:201" id="qc9-yd-TKJ"/>
-                <constraint firstItem="Fiu-ng-8IX" firstAttribute="centerY" secondItem="zlC-kY-TTC" secondAttribute="centerY" id="qgN-GE-cjX"/>
                 <constraint firstItem="YtO-QN-rNT" firstAttribute="top" secondItem="X5i-jp-Z1d" secondAttribute="top" constant="10" id="qhn-PL-76j"/>
                 <constraint firstItem="vs2-KT-LKm" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="65:200" id="r5C-0W-5I1"/>
                 <constraint firstItem="cEB-Cp-EoC" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="20:201" id="sJF-eH-PUw"/>
@@ -206,7 +204,9 @@
                 <constraint firstItem="YlD-1P-Ghr" firstAttribute="trailing" secondItem="YtO-QN-rNT" secondAttribute="trailing" id="vOd-y2-irX"/>
                 <constraint firstItem="5ME-u8-Dnc" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="5:201" id="wL7-nD-IgZ"/>
                 <constraint firstItem="AvF-tt-U25" firstAttribute="leading" secondItem="DV8-ir-LVC" secondAttribute="leading" id="wcB-HB-9DU"/>
+                <constraint firstItem="Fiu-ng-8IX" firstAttribute="leading" secondItem="DV8-ir-LVC" secondAttribute="trailing" constant="5" id="x3t-rL-Kqv"/>
                 <constraint firstItem="5ME-u8-Dnc" firstAttribute="centerY" secondItem="9ov-CO-amN" secondAttribute="centerY" id="xmO-7U-zhB"/>
+                <constraint firstItem="Fiu-ng-8IX" firstAttribute="centerY" secondItem="DV8-ir-LVC" secondAttribute="centerY" id="zgV-VB-qtO"/>
                 <constraint firstItem="SYN-HQ-p8f" firstAttribute="top" secondItem="4xb-Qy-UP1" secondAttribute="bottom" constant="-14" id="zgu-4N-Q4T"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

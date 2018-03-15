@@ -85,8 +85,11 @@ UITableViewDataSource
     if (![textField.text isEqualToString:@""]) {
         self.customSearchInputFieldClearButton.hidden = NO;
         
-        NSPredicate * predict = [NSPredicate predicateWithFormat:@"cityChineseName CONTAINS %@", textField.text];
-        self.resultArray = [[self.searchSource filteredArrayUsingPredicate:predict] copy];
+        NSPredicate *predicate1 = [NSPredicate predicateWithFormat:@"belongToCityChineseName CONTAINS %@", textField.text];
+        NSPredicate *predicate2 = [NSPredicate predicateWithFormat:@"cityChineseName CONTAINS %@", textField.text];
+        NSCompoundPredicate *compoundPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[predicate1, predicate2]];
+
+        self.resultArray = [[self.searchSource filteredArrayUsingPredicate:compoundPredicate] copy];
         [self.tableView reloadData];
     } else {
         self.customSearchInputFieldClearButton.hidden = YES;
@@ -142,7 +145,7 @@ UITableViewDataSource
 {
     if (!_searchSource) {
         _searchSource = [NSArray array];
-        NSString * path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
+        NSString *path = [[NSBundle mainBundle]pathForResource:@"cityCode" ofType:@"plist"];
         NSArray *data = [NSArray arrayWithContentsOfFile:path];
         _searchSource = [NSArray modelArrayWithClass:[YTCitySearchModel class] json:data];
     }

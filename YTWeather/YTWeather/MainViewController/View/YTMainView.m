@@ -207,7 +207,7 @@ UITableViewDelegate
     if (indexPath.row == 2)     return kAdvertisingCellHeight;
     if (indexPath.row == 4)     return kDetailCellHeight;
     if (indexPath.row == 6)     return kPrecipitationCellHeight;
-    if (indexPath.row == 8)    return kSunAndWindCellHeight;
+    if (indexPath.row == 8)     return kSunAndWindCellHeight;
     if (indexPath.row % 2 == 1) return kEmptyCellHeight;
 
     return 0;
