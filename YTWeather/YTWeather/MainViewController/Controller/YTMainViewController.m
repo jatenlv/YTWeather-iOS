@@ -403,7 +403,6 @@ UIViewControllerTransitioningDelegate
     [self clickLeftBarButton];
 }
 
-
 - (void)showCityViewWithIndex:(NSInteger)index
 {
     [self clickLeftBarButton];

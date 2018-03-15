@@ -73,7 +73,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationApplicationDidBecomeActive object:nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationApplicationDidBecomeActive object:nil];
+    });
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

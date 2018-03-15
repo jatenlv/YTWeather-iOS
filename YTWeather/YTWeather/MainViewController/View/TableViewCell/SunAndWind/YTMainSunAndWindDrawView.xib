@@ -24,7 +24,6 @@
                 <outlet property="leftWindMillImageView" destination="vs2-KT-LKm" id="fxl-2t-1EM"/>
                 <outlet property="pressureLabel" destination="ybk-w2-cyJ" id="SuN-H6-KCV"/>
                 <outlet property="rightWindMillImageView" destination="4xb-Qy-UP1" id="0nn-yO-mHH"/>
-                <outlet property="sunImageView" destination="ZUW-2O-E2q" id="Dgh-6t-Bwh"/>
                 <outlet property="sunRiseTimeLabel" destination="DqS-tK-hsj" id="Gxr-8y-cQT"/>
                 <outlet property="sunSetTimeLabel" destination="tW4-m2-SFT" id="SFr-tT-Muq"/>
                 <outlet property="windDirection" destination="Fiu-ng-8IX" id="8CX-Bn-aHR"/>
@@ -139,12 +138,6 @@
                         <constraint firstAttribute="width" secondItem="a3I-vX-St9" secondAttribute="height" multiplier="4:3" id="ebO-wT-gPs"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="ZUW-2O-E2q">
-                    <rect key="frame" x="23.5" y="158" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="ZUW-2O-E2q" secondAttribute="height" multiplier="1:1" id="e3b-6P-V9f"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sheep" translatesAutoresizingMaskIntoConstraints="NO" id="cEB-Cp-EoC">
                     <rect key="frame" x="196" y="155" width="20" height="15"/>
                 </imageView>
@@ -173,7 +166,6 @@
                 <constraint firstItem="9ov-CO-amN" firstAttribute="top" secondItem="cEB-Cp-EoC" secondAttribute="bottom" id="Jw8-8V-PqZ"/>
                 <constraint firstItem="AvF-tt-U25" firstAttribute="top" secondItem="DV8-ir-LVC" secondAttribute="bottom" id="L0s-Wk-wmR"/>
                 <constraint firstItem="I5n-q9-ebh" firstAttribute="leading" secondItem="ybk-w2-cyJ" secondAttribute="trailing" constant="2" id="LAk-fT-9Cd"/>
-                <constraint firstItem="ZUW-2O-E2q" firstAttribute="width" secondItem="X5i-jp-Z1d" secondAttribute="height" multiplier="1:8" id="Mgc-Nr-124"/>
                 <constraint firstItem="cEB-Cp-EoC" firstAttribute="leading" secondItem="a3I-vX-St9" secondAttribute="trailing" constant="-5" id="PVO-qn-b9K"/>
                 <constraint firstItem="tW4-m2-SFT" firstAttribute="top" secondItem="9ov-CO-amN" secondAttribute="bottom" constant="5" id="Sa9-Hg-Y9b"/>
                 <constraint firstItem="DqS-tK-hsj" firstAttribute="leading" secondItem="X5i-jp-Z1d" secondAttribute="leading" constant="20" id="SpP-7V-o3D"/>
@@ -218,6 +210,5 @@
         <image name="blade_big" width="63" height="63"/>
         <image name="dot" width="6" height="6"/>
         <image name="sheep" width="54" height="42"/>
-        <image name="sun" width="21" height="21"/>
     </resources>
 </document>

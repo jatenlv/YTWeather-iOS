@@ -32,13 +32,10 @@ CAAnimationDelegate
 @property (nonatomic, strong) UIBezierPath *path;
 @property (nonatomic, strong) UIBezierPath *yellowPath;
 @property (nonatomic, strong) CAShapeLayer *shapeLayer;
-@property (weak, nonatomic) IBOutlet UIImageView *sunImageView;
+@property (nonatomic, strong) UIImageView *sunImageView;
 
 @property (nonatomic, assign) BOOL hadFinishedAnimation;
 @property (nonatomic, assign) CGPoint endSunPoint;
-
-@property (nonatomic, strong) UIView *currentTimeView;
-@property (nonatomic, strong) UILabel *currentTimeLabel;
 
 @end
 
@@ -69,9 +66,6 @@ CAAnimationDelegate
     self.view.frame = self.bounds;
     if (!self.hadFinishedAnimation) {
         [self setupTime];
-    }
-    if (self.currentTimeView) {
-        [self.view bringSubviewToFront:self.currentTimeView];
     }
 }
 
@@ -136,11 +130,14 @@ CAAnimationDelegate
         
         self.yellowPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:((hour - 6.0) / (sunSetHour - sunRiseHour) + 1) * M_PI clockwise:YES];
         
+        self.sunImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        self.sunImageView.image = [UIImage imageNamed:@"sun"];
         self.sunImageView.center = self.sunRiseTimeLabel.center;
+        [self.view addSubview:self.sunImageView];
         CAKeyframeAnimation *sunAnimation = [CAKeyframeAnimation animation];
         sunAnimation.path = self.yellowPath.CGPath;
         sunAnimation.keyPath = @"position";
-        sunAnimation.duration = 2.0f;
+        sunAnimation.duration = 5.0f;
         sunAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         sunAnimation.removedOnCompletion = NO;
         sunAnimation.fillMode = kCAFillModeForwards;
@@ -157,7 +154,7 @@ CAAnimationDelegate
         [self.layer addSublayer:self.shapeLayer];
 
         CABasicAnimation *lineAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-        lineAnimation.duration = 2.0f;
+        lineAnimation.duration = 5.0f;
         lineAnimation.fromValue = @(0);
         lineAnimation.toValue = @(1);
         lineAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
@@ -174,56 +171,8 @@ CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     if (flag) {
-        [UIView animateWithDuration:1.5 animations:^{
-            self.sunImageView.alpha = 0;
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.sunImageView.hidden = YES;
-                [self showcCurrenTimeLabel];
-            }
-        }];
+        self.sunImageView.center = self.yellowPath.currentPoint;
     }
-}
-
-- (void)showcCurrenTimeLabel
-{
-    self.currentTimeView = [[UIView alloc] initWithFrame:CGRectMake(self.yellowPath.currentPoint.x - 22, self.yellowPath.currentPoint.y - 9, 44, 18)];
-    self.currentTimeView.backgroundColor = [UIColor blackColor];
-    self.currentTimeView.alpha = 0;
-    self.currentTimeView.layer.cornerRadius = 8.f;
-    self.currentTimeView.layer.masksToBounds = YES;
-    [self.view addSubview:self.currentTimeView];
-
-    self.currentTimeLabel = [[UILabel alloc] initWithFrame:self.currentTimeView.bounds];
-    self.currentTimeLabel.backgroundColor = [UIColor lightGrayColor];
-    self.currentTimeLabel.text = [self getCurrentTime];
-    self.currentTimeLabel.textColor = [UIColor whiteColor];
-    self.currentTimeLabel.font = [UIFont systemFontOfSize:12];
-    self.currentTimeLabel.textAlignment = NSTextAlignmentCenter;
-    [self.currentTimeView addSubview:self.currentTimeLabel];
-    [UIView animateWithDuration:1 animations:^{
-        self.currentTimeView.alpha = 1;
-    }];
-}
-
-- (NSString *)getCurrentTime
-{
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[NSDate date]];
-    NSInteger hour = [components hour];
-    NSInteger min = [components minute];
-    NSString *hourString;
-    if (hour < 10) {
-        hourString = [NSString stringWithFormat:@"0%ld",(long)hour];
-    } else {
-        hourString = [NSString stringWithFormat:@"%ld",(long)hour];
-    }
-    NSString *minString;
-    if (min < 10) {
-        minString = [NSString stringWithFormat:@"0%ld",(long)min];
-    } else {
-        minString = [NSString stringWithFormat:@"%ld",(long)min];
-    }
-    return [NSString stringWithFormat:@"%@:%@", hourString, minString];
 }
 
 @end
