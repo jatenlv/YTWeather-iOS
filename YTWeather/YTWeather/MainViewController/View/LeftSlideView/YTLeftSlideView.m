@@ -22,8 +22,6 @@ UITableViewDataSource
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
 @implementation YTLeftSlideView
@@ -84,8 +82,16 @@ UITableViewDataSource
             cell.titleText = @"编辑地点";
             cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Add-New-Location"];
         } else {
-            cell.titleText = [self.kCityNameArray objectAtIndex:row - 2];
-            cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Other-Location"];
+            NSString *cityName = [self.kCityNameArray objectAtIndex:row - 2];
+            if ([cityName isEqualToString:GetYTCurrentCity]) {
+                // 定位城市
+                cell.titleText = [NSString stringWithFormat:@"%@（定位）", cityName];
+                cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Tools-Icon-Rate-This-App"];
+            } else {
+                // 普通城市
+                cell.titleText = cityName;
+                cell.iconImageView.image = [UIImage imageNamed:@"Sidebar-Product-Navigation-Icon-Other-Location"];
+            }
         }
     } else if (section == 1) {
         if (row == 0) {
@@ -129,6 +135,8 @@ UITableViewDataSource
         [self.delegate clickShareButton];
     } else if (indexPath.section == 0 && indexPath.row >= 2) { // 切换城市
         [self.delegate showCityViewWithIndex:indexPath.row - 2];
+    } else if (indexPath.section == 1 && indexPath.row == 1) {
+        [self.delegate clickSettingButton];
     }
 }
 

@@ -10,12 +10,11 @@
 
 @protocol YTLeftSlideViewDelegate <NSObject>
 
+- (void)clickShareButton;
+- (void)clickSlideViewCloseButton;
 - (void)showCityViewWithIndex:(NSInteger)index;
 - (void)deleteCityViewWithIndex:(NSInteger)index;
-
-- (void)clickSlideViewCloseButton;
-
-- (void)clickShareButton;
+- (void)clickSettingButton;
 
 @end
 
@@ -24,5 +23,7 @@
 @property (nonatomic, weak) id <YTLeftSlideViewDelegate> delegate;
 
 @property (nonatomic, strong) NSMutableArray *kCityNameArray;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -10,10 +10,11 @@
 
 #import "YTMainViewController.h"
 
-#import "YTSearchViewController.h"
-
 #import "YTMainView.h"
 #import "YTLeftSlideView.h"
+
+#import "YTSearchViewController.h"
+#import "YTSettingViewController.h"
 
 #import "YTMainRequestNetworkTool.h"
 
@@ -29,21 +30,21 @@ CLLocationManagerDelegate,
 UIViewControllerTransitioningDelegate
 >
 
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, assign) NSUInteger curIndex; // 当前的MainView索引
-@property (nonatomic, strong) UITapGestureRecognizer *tap; // 单击手势
-
-@property (nonatomic, strong) UIView *backAlphaView; //
-
-@property (nonatomic, strong) YTLeftSlideView *leftSlideView;
+@property (nonatomic, strong) YTLeftSlideView *leftSlideView; // 左侧可滑动视图
 @property (nonatomic, assign) BOOL isPanGestureMove;
+
+@property (nonatomic, strong) UIView *backAlphaView;          // scrollView和leftSlideView两层之间的遮罩
+
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, assign) NSUInteger curIndex;            // 当前的MainView索引
+@property (nonatomic, strong) UITapGestureRecognizer *tap;    // 单击手势
 
 @property (nonatomic, strong) NSMutableArray <YTMainView *> *mainViewArray;
 @property (nonatomic, strong) NSMutableArray *cityNameArray;
 @property (nonatomic, assign) CGFloat viewOrginX;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) NSString *currentCity; //当前城市
+@property (nonatomic, strong) NSString *currentCity;          // 当前城市
 
 @end
 
@@ -64,12 +65,13 @@ UIViewControllerTransitioningDelegate
     [self setupBackAlphaView];   // 添加底层遮罩页面
     [self setupLeftSlideView];   // 添加左侧滑动页面
     [self setupScrollView];      // 添加ScrollView
-    // [self setupLocationManager]; // 加载定位功能，定位当前城市
     [self readCityNameArray];    // 取出其他城市缓存
     [self loadOldViewAndData];   // 加载城市数组中的城市页面和数据
     [self addSlideGesture];      // 添加滑动弹出设置页面手势
-    
+    [self setupLocationManager]; // 加载定位功能，定位当前城市
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(searchCityNameDidSelect:) name:YTNotificationSearchCityNameDidSelect object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAllMainView) name:YTNotificationApplicationDidBecomeActive object:nil];
 }
 
 #pragma mark - Private Method
@@ -96,7 +98,6 @@ UIViewControllerTransitioningDelegate
     [self.view addSubview:self.scrollView];
 }
 
-/*
 - (void)setupLocationManager
 {
     if ([CLLocationManager locationServicesEnabled]) {
@@ -107,7 +108,6 @@ UIViewControllerTransitioningDelegate
         [self.locationManager startUpdatingLocation];
     }
 }
-*/
 
 - (void)readCityNameArray
 {
@@ -225,7 +225,6 @@ UIViewControllerTransitioningDelegate
     _curIndex = offset / ScreenWidth;
 }
 
-/*
 #pragma mark - CoreLocation Delegate
 
 //定位失败则执行此代理方法
@@ -241,9 +240,52 @@ UIViewControllerTransitioningDelegate
 //定位成功
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
 {
-    CLLocation * location = locations.lastObject;
+    [self.locationManager stopUpdatingLocation];
+
+    CLLocation *currentLocation = locations.lastObject;
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init]
+    ;
+    //地理反编码 可以根据坐标(经纬度)确定位置信息(街道 门牌等)
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (placemarks.count >0) {
+            CLPlacemark *placeMark = placemarks[0];
+            if (!placeMark.locality || placeMark.locality.length == 0) {
+                [self.view showHudWithText:@"无法定位当前城市"];
+                return;
+            }
+            // 成功获取到所在城市之后 如果当前没有定位城市 则添加
+            if (!self.currentCity.length) {
+                if ([[placeMark.locality substringWithRange:NSMakeRange(placeMark.locality.length - 1, 1)] isEqualToString:@"市"]) {
+                    self.currentCity = [placeMark.locality substringToIndex:placeMark.locality.length - 1];
+                } else {
+                    self.currentCity = placeMark.locality;
+                }
+                // 存一下全局缓存
+                [[NSUserDefaults standardUserDefaults] setObject:self.currentCity forKey:@"YTCurrentCity"];
+                
+                for (NSString *cityName in self.cityNameArray) {
+                    if ([cityName isEqualToString:self.currentCity]) {
+                        [self.leftSlideView.tableView reloadData];
+                        return;
+                    }
+                }
+                                
+                [self.cityNameArray addObject:self.currentCity];
+                [self saveCityNameArray:[_cityNameArray copy]]; // 存入缓存
+                
+                [self reloadScrollViewSize];
+                [self createMainViewWithCityName:self.currentCity newView:YES];
+                self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
+                self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+            }
+        }else if (error == nil && placemarks.count){
+            [self.view showHudWithText:@"NO location and error return"];
+        }else if (error){
+            [self.view showHudWithText:[NSString stringWithFormat:@"loction error:%@",error]];
+        }
+    }];
+    
 }
-*/
 
 #pragma mark - YTMainView Delegate
 
@@ -296,39 +338,6 @@ UIViewControllerTransitioningDelegate
 
 #pragma mark - YTLeftSlideView Delegate
 
-- (void)showCityViewWithIndex:(NSInteger)index
-{
-    [self clickLeftBarButton];
-    [self.scrollView setContentOffset:self.mainViewArray[index].frame.origin animated:NO];
-    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
-}
-
-- (void)deleteCityViewWithIndex:(NSInteger)index
-{
-    [self.cityNameArray removeObjectAtIndex:index];
-    [self saveCityNameArray:[self.cityNameArray copy]]; // 存入缓存
-    
-    [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
-    [self.mainViewArray removeObjectAtIndex:index];
-    for (NSInteger i = index; i < self.mainViewArray.count; i++) {
-        [[self.mainViewArray objectAtIndex:i] setFrame:CGRectMake([self.mainViewArray objectAtIndex:i].mj_x - ScreenWidth, 0, ScreenWidth, ScreenHeight)];
-    }
-    
-    if (self.curIndex > index) {
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x - ScreenWidth, 0) animated:YES];
-    }
-    
-    [self.scrollView layoutSubviews];
-    [self reloadScrollViewSize];
-    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
-}
-
-
-- (void)clickSlideViewCloseButton
-{
-    [self clickLeftBarButton];
-}
-
 - (void)clickShareButton
 {
     [self clickLeftBarButton];
@@ -372,6 +381,45 @@ UIViewControllerTransitioningDelegate
     return image;
 }
 
+- (void)clickSlideViewCloseButton
+{
+    [self clickLeftBarButton];
+}
+
+
+- (void)showCityViewWithIndex:(NSInteger)index
+{
+    [self clickLeftBarButton];
+    [self.scrollView setContentOffset:self.mainViewArray[index].frame.origin animated:NO];
+    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+- (void)deleteCityViewWithIndex:(NSInteger)index
+{
+    [self.cityNameArray removeObjectAtIndex:index];
+    [self saveCityNameArray:[self.cityNameArray copy]]; // 存入缓存
+    
+    [[self.mainViewArray objectAtIndex:index] removeFromSuperview];
+    [self.mainViewArray removeObjectAtIndex:index];
+    for (NSInteger i = index; i < self.mainViewArray.count; i++) {
+        [[self.mainViewArray objectAtIndex:i] setFrame:CGRectMake([self.mainViewArray objectAtIndex:i].mj_x - ScreenWidth, 0, ScreenWidth, ScreenHeight)];
+    }
+    
+    if (self.curIndex > index) {
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x - ScreenWidth, 0) animated:YES];
+    }
+    
+    [self.scrollView layoutSubviews];
+    [self reloadScrollViewSize];
+    self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+- (void)clickSettingButton
+{
+    YTSettingViewController *settingVC = [[YTSettingViewController alloc] init];
+    [self.navigationController presentViewController:settingVC animated:YES completion:nil];
+}
+
 #pragma mark - Notification Action
 
 - (void)searchCityNameDidSelect:(NSNotification *)notify
@@ -393,6 +441,14 @@ UIViewControllerTransitioningDelegate
     [self createMainViewWithCityName:newCityName newView:YES];
     self.leftSlideView.kCityNameArray = [self.cityNameArray mutableCopy];
     self.curIndex = self.scrollView.contentOffset.x / ScreenWidth;
+}
+
+
+- (void)refreshAllMainView
+{
+    for (YTMainView *view in self.mainViewArray) {
+        [view.tableView.mj_header beginRefreshing];
+    }
 }
 
 #pragma mark - 存缓存操作

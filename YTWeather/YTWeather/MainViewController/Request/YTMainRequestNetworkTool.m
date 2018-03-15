@@ -63,12 +63,13 @@
         finish(responseObject, nil);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"获取天气信息失败" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        @weakify(self);
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"重新获取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            @strongify(self);
             [self getRequestWithUrl:url cityName:cityName viewController:vc andFinish:finish];
         }];
         [alertController addAction:okAction];
         [vc presentViewController:alertController animated:YES completion:nil];
-        finish(nil, error);
     }];
 }
 

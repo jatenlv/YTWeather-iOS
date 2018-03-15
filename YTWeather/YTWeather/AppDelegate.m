@@ -71,7 +71,9 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:YTNotificationApplicationDidBecomeActive object:nil];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -37,9 +37,13 @@ CAAnimationDelegate
 @property (nonatomic, assign) BOOL hadFinishedAnimation;
 @property (nonatomic, assign) CGPoint endSunPoint;
 
+@property (nonatomic, strong) UILabel *currentTimeLabel;
+
 @end
 
 @implementation YTMainSunAndWindDrawView
+
+#pragma mark - init
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -56,6 +60,8 @@ CAAnimationDelegate
     return self;
 }
 
+#pragma mark - layout
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -64,6 +70,8 @@ CAAnimationDelegate
         [self setupTime];
     }
 }
+
+#pragma mark - draw
 
 - (void)drawRect:(CGRect)rect
 {
@@ -103,7 +111,8 @@ CAAnimationDelegate
     NSInteger sunSetHour = [[self.dailyModel.ss substringToIndex:2] integerValue];
     NSInteger sunSetMin = [[self.dailyModel.ss substringWithRange:NSMakeRange(3, 2)] integerValue];
     
-    if ((hour > sunRiseHour && min > sunRiseMin) && (hour < sunSetHour && min < sunSetMin)) {
+    if ((hour > sunRiseHour || (hour == sunRiseHour && min > sunRiseMin))
+        && (hour < sunSetHour || (hour == sunSetHour && min < sunSetMin))) {
         
         self.yellowPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.width / 2, self.height - 30) radius:self.width / 2 - 36 startAngle:M_PI endAngle:((hour - 6.0) / (sunSetHour - sunRiseHour) + 1) * M_PI clockwise:YES];
         
@@ -144,9 +153,54 @@ CAAnimationDelegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     if (flag) {
-        self.sunImageView.hidden = YES;
+        [UIView animateWithDuration:2 animations:^{
+            self.sunImageView.alpha = 0;
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.sunImageView.hidden = YES;
+                [self showcCurrenTimeLabel];
+            }
+        }];
     }
 }
+
+- (void)showcCurrenTimeLabel
+{
+    self.currentTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.yellowPath.currentPoint.x - 20, self.yellowPath.currentPoint.y - 7.5, 40, 15)];
+    
+    self.currentTimeLabel.text = [self getCurrentTime];
+    self.currentTimeLabel.textColor = [UIColor whiteColor];
+    self.currentTimeLabel.font = [UIFont systemFontOfSize:12];
+    self.currentTimeLabel.alpha = 0;
+    self.currentTimeLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.currentTimeLabel];
+    
+    [UIView animateWithDuration:1.5 animations:^{
+        self.currentTimeLabel.alpha = 1;
+    }];
+}
+
+- (NSString *)getCurrentTime
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitHour | NSCalendarUnitMinute fromDate:[NSDate date]];
+    NSInteger hour = [components hour];
+    NSInteger min = [components minute];
+    NSString *hourString;
+    if (hour < 10) {
+        hourString = [NSString stringWithFormat:@"0%ld",(long)hour];
+    } else {
+        hourString = [NSString stringWithFormat:@"%ld",(long)hour];
+    }
+    NSString *minString;
+    if (min < 10) {
+        minString = [NSString stringWithFormat:@"0%ld",(long)min];
+    } else {
+        minString = [NSString stringWithFormat:@"%ld",(long)min];
+    }
+    return [NSString stringWithFormat:@"%@:%@", hourString, minString];
+}
+
+#pragma mark - setter
 
 - (void)setNowModel:(YTWeatherNowModel *)nowModel
 {
