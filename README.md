@@ -1,35 +1,3 @@
-# YTWeather
-
-* This is an application about Weather using `Yahoo Weather`'s UI and logic.
-
-* If we have infringed something, we will immediately delete it.
-
-* Here are some screenshots and we will continue to fill up our README, please hold on.
-
-<br>
-
-![](https://github.com/jatenlv/YTWeather/raw/master/Screenshots.jpeg)
-
-<br>
-
-* If you are interesting in somethings in our project, please `git clone` or `download zip` this project to run it (don't forget to `pod install`).
-
-* We know that there are so many bugs in our project, so hopefully you can give us some advice by sending emial to `jaten.lv@foxmail.com`.
-
-* Thanks!
-
-* `YTWeather by Jaten & Chaylau`
-
-<br>
-
-* [中文介绍](https://juejin.im/post/5a30d8456fb9a0451a765fad)
-
-
-
-## Where?
-
-&#8195;&#8195;项目地址：[Github：YTWeather](https://github.com/jatenlv/YTWeather)
-
 ## Why do this?
 
 &#8195;&#8195;距离毕业也有三、四个月的时间了，除了工作上的内容，改一改旧的Bug，做一做新的内容，还一直想着要做一个自己独立完成的应用。做即时通讯吧没有服务器，做音乐播放器吧没有数据库，所以就从最简单的只需要一个接口就能搞定的天气应用开始喽。这不，一款乱七八糟、随心所欲的Weather Application就出来了。感谢小伙伴Chaylau的协作完成。
@@ -37,11 +5,13 @@
 ## What's this？
 
 &#8195;&#8195;“油条天气”是一款基于iOS平台的天气应用。YT能够做到显示基本的天气信息，包括城市、当前时间、实时天气情况、七天天气预报、当天24小时天气预报，也能够自由添加`国内`城市，只需要输入城市名即可。
+
 ![油条天气APP图标](https://user-gold-cdn.xitu.io/2017/12/13/1604eccb4b2a5693?w=200&h=198&f=png&s=43696)
 
 ## What're the features?
 
 &#8195;&#8195;油条天气涵盖了城市信息、当前时间、七天天气预报、一天内24小时天气预报、广告位、当前详细天气信息、降水量信息、太阳和风速信息等基础天气咨询。还具有自定义添加国内城市、多城市切换的功能。一些界面截图如下：
+
 ![APP屏幕截图](https://user-gold-cdn.xitu.io/2017/12/13/1604eccc7cf7b1d6?w=1240&h=1653&f=jpeg&s=143389)
 
 ## What're the techniques?
@@ -53,6 +23,7 @@
 &#8195;&#8195;只需要登录 [和风天气](https://www.heweather.com/) 官网注册成为开发者并稍作认证，即可获得Key在应用内使用，在官网控制台内还能查看每日接口被获取的详细数量。
 
 &#8195;&#8195;当然，免费的接口只能获取一部分天气信息，并且只能支持国内的城市。想要体验更多的天气信息，则必须购买相应功能的接口。
+
 ![和风天气控制台](https://user-gold-cdn.xitu.io/2017/12/13/1604eccb361c416f?w=1240&h=852&f=png&s=133723)
 
 - #### UI设计
@@ -65,6 +36,7 @@
 - #### 框架搭建
 
 &#8195;&#8195;开始动手码代码之前当然是对程序的框架进行搭建，参考公司其他项目的结构，选用了传统的MVC框架，思维导图如下：
+
 ![框架思维脑图.png](https://user-gold-cdn.xitu.io/2017/12/13/1604eccb42e2d8ae?w=1240&h=1331&f=png&s=279202)
 
 &#8195;&#8195;APP复杂度并不高，也不依赖于`NavigationController`和`TabBarController`，所以一个主控制器负责所有界面的展示、子控制器的跳转。将视图的展示集合到`MainView`里，`MainController`只负责逻辑部分，减轻M-V-C中C的负担。
@@ -115,6 +87,7 @@
 
 >3. Q：Cell如何实现悬浮效果？  
       A：一个Controller中置入多个页面的时候，必定要考虑清楚其之间的层级关系。LeftSlideView在最底层，能够让用户在点击菜单栏按钮时将ScrollView整体右移；MaskView是为了处理交互，在菜单栏未弹出时透明度为1，看上去ScrollView就像是最底层了，菜单栏弹出时，将透明度慢慢更改为0，使LeftSlideView浮现出来；ScrollView上的每个View表现形式都相同（今后会考虑View的复用问题），下图为层级关系示意图。
+      
 ![层级关系.png](https://user-gold-cdn.xitu.io/2017/12/13/1604eccb33050777?w=1008&h=784&f=png&s=104637)
 
 >4. Q：Cell如何实现悬浮效果？  
