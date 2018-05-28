@@ -90,10 +90,10 @@
       
 ![层级关系.png](https://user-gold-cdn.xitu.io/2017/12/13/1604eccb33050777?w=1008&h=784&f=png&s=104637)
 
->4. Q：Cell如何实现悬浮效果？  
-      A：AFNetworking → 处理网络请求，数据获取；
-　　SDWebImage → 缓存天气图标；
-　　YYKit → 将JSON转为模型，比MJExtension更轻量级；
+>4. Q：三方库的选择？  
+      A：AFNetworking → 处理网络请求，数据获取；<br>
+　　SDWebImage → 缓存天气图标；<br>
+　　YYKit → 将JSON转为模型，比MJExtension更轻量级；<br>
 　　MJRefresh → 下拉刷新的首选，在此基础上自定义了Gif方式的刷新。
 
 ## What will we do next?
